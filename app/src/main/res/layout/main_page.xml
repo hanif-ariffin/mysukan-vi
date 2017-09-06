@@ -64,7 +64,7 @@
                 android:layout_weight="165.30" />
 
             <android.support.design.widget.FloatingActionButton
-                android:id="@+id/floatingActionButton"
+                android:id="@+id/RegisterButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

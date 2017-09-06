@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="tremblay412.com.mysukan.RegisterActivity">
+
+    <RelativeLayout
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <Button
+            android:id="@+id/RegisterButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/ET_password"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="51dp"
+            android:text="Register" />
+
+        <EditText
+            android:id="@+id/ET_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/ET_password"
+            android:layout_alignStart="@+id/ET_password"
+            android:ems="10"
+            android:hint="email"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/ET_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/RegisterButton"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="57dp"
+            android:ems="10"
+            android:hint="password"
+            android:inputType="textPersonName" />
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
