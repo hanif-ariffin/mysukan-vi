@@ -42,7 +42,7 @@ public class MainPageActivity extends AppCompatActivity{
         RegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(MainPageActivity.this,RegisterActivity.class);
+                Intent myIntent = new Intent(MainPageActivity.this,LoginActivity.class);
                 startActivity(myIntent);
             }
         });
