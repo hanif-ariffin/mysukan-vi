@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "619704840239",
-    "firebase_url": "https://mysukan-b3aa2.firebaseio.com",
-    "project_id": "mysukan-b3aa2",
-    "storage_bucket": "mysukan-b3aa2.appspot.com"
+    "project_number": "342236375709",
+    "firebase_url": "https://mysukan-dev.firebaseio.com",
+    "project_id": "mysukan-dev",
+    "storage_bucket": "mysukan-dev.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:619704840239:android:d2a47c2c6a07c728",
+        "mobilesdk_app_id": "1:342236375709:android:d2a47c2c6a07c728",
         "android_client_info": {
           "package_name": "tremblay412.com.mysukan"
         }
       },
       "oauth_client": [
         {
-          "client_id": "619704840239-kuuvhscbod76d57kkno02u41uiv9epp9.apps.googleusercontent.com",
+          "client_id": "342236375709-abpbd7hbpkmarrgtldjt1j39ppl8eg8k.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA3aoO23Rf2C2K9FwUS7XOLmV16q1X0a5M"
+          "current_key": "AIzaSyAqL-SuIFDEuN49NymFzs0h9I8myZdJmY4"
         }
       ],
       "services": {
