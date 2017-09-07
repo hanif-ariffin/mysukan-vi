@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import android.widget.ListView;
+import android.widget.TableLayout;
 
 
 import java.util.ArrayList;
@@ -45,14 +46,8 @@ public class MainPageActivity extends AppCompatActivity {
         // Create the adapter that will return a fragment for each section
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             private final Fragment[] mFragments = new Fragment[]{
-                    new LoginFragment(),
-                    new AdminFragment(),
-                    new SportFragment()
-            };
-            private final String[] mFragmentNames = new String[]{
-                    "Login",
-                    "Admin",
-                    "SportFragment"
+                    new SportFragment(),
+                    new LoginFragment()
             };
 
             @Override
@@ -65,10 +60,11 @@ public class MainPageActivity extends AppCompatActivity {
                 return mFragments.length;
             }
 
-            @Override
-            public CharSequence getPageTitle(int position) {
-                return mFragmentNames[position];
-            }
+        };
+
+        int[] iconTab = new int[]{
+                R.drawable.list_32,
+                R.drawable.account_32
         };
 
         // Set up the ViewPager with the sections adapter.
@@ -76,10 +72,11 @@ public class MainPageActivity extends AppCompatActivity {
         mViewPager.setAdapter(mPagerAdapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-        /**
-         *
-         * OLD ACTIVITY
-         **/
+        for( int i = 0; i< iconTab.length;i++){
+            tabLayout.getTabAt(i).setIcon(iconTab[i]);
+        }
     }
+
+
 }
 
