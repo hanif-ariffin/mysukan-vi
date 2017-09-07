@@ -1,27 +1,58 @@
 {
   "project_info": {
-    "project_number": "619704840239",
-    "firebase_url": "https://mysukan-b3aa2.firebaseio.com",
-    "project_id": "mysukan-b3aa2",
-    "storage_bucket": "mysukan-b3aa2.appspot.com"
+    "project_number": "118371621027",
+    "firebase_url": "https://mysukan-250ef.firebaseio.com",
+    "project_id": "mysukan-250ef",
+    "storage_bucket": "mysukan-250ef.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:619704840239:android:d2a47c2c6a07c728",
+        "mobilesdk_app_id": "1:118371621027:android:29da493bd818cb9d",
+        "android_client_info": {
+          "package_name": "tremblay412.com.mysuka"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "118371621027-g1l62mg4171fb05lnq3hj35qn0836o3b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMr-rGN9OtSUd8GXnAITfSuVeWiAvHM7M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118371621027:android:d2a47c2c6a07c728",
         "android_client_info": {
           "package_name": "tremblay412.com.mysukan"
         }
       },
       "oauth_client": [
         {
-          "client_id": "619704840239-kuuvhscbod76d57kkno02u41uiv9epp9.apps.googleusercontent.com",
+          "client_id": "118371621027-g1l62mg4171fb05lnq3hj35qn0836o3b.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA3aoO23Rf2C2K9FwUS7XOLmV16q1X0a5M"
+          "current_key": "AIzaSyAMr-rGN9OtSUd8GXnAITfSuVeWiAvHM7M"
         }
       ],
       "services": {

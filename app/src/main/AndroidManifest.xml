@@ -26,8 +26,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".AdminActivity"></activity>
+        <activity android:name=".LoginFragment" />
+        <activity android:name=".AdminFragment"></activity>
     </application>
 
 </manifest>
