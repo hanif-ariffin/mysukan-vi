@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "118371621027",
+    "firebase_url": "https://mysukan-250ef.firebaseio.com",
+    "project_id": "mysukan-250ef",
+    "storage_bucket": "mysukan-250ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118371621027:android:29da493bd818cb9d",
+        "android_client_info": {
+          "package_name": "tremblay412.com.mysuka"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "118371621027-g1l62mg4171fb05lnq3hj35qn0836o3b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMr-rGN9OtSUd8GXnAITfSuVeWiAvHM7M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118371621027:android:d2a47c2c6a07c728",
+        "android_client_info": {
+          "package_name": "tremblay412.com.mysukan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "118371621027-g1l62mg4171fb05lnq3hj35qn0836o3b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMr-rGN9OtSUd8GXnAITfSuVeWiAvHM7M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
