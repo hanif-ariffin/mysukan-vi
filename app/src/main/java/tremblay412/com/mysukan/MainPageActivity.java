@@ -47,6 +47,7 @@ public class MainPageActivity extends AppCompatActivity {
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             private final Fragment[] mFragments = new Fragment[]{
                     new SportFragment(),
+                    new MapFragment(),
                     new LoginFragment()
             };
 
@@ -62,19 +63,23 @@ public class MainPageActivity extends AppCompatActivity {
 
         };
 
-        int[] iconTab = new int[]{
-                R.drawable.list_32,
-                R.drawable.account_32
-        };
-
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mPagerAdapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-        for( int i = 0; i< iconTab.length;i++){
-            tabLayout.getTabAt(i).setIcon(iconTab[i]);
+        for( int i = 0; i< getIconTab().length;i++){
+            tabLayout.getTabAt(i).setIcon(getIconTab()[i]);
         }
+    }
+
+    private int[] getIconTab(){
+        int[] iconTab = new int[]{
+                R.drawable.list_32,
+                R.drawable.map_32,
+                R.drawable.account_32};
+
+        return iconTab;
     }
 
 
