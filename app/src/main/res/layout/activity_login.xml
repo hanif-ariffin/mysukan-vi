@@ -10,8 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorAccent"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <EditText
             android:id="@+id/ET_email"
@@ -64,13 +66,13 @@
 
         <TextView
             android:id="@+id/forgotPassword"
-            android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/textView"
             android:layout_alignStart="@+id/textView"
             android:layout_alignTop="@+id/LoginButton"
             android:layout_marginTop="53dp"
+            android:clickable="true"
             android:fontFamily="sans-serif"
             android:text="Forgot password?"
             android:textAlignment="center"
@@ -78,4 +80,4 @@
             android:textSize="12sp" />
 
     </RelativeLayout>
-    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>
