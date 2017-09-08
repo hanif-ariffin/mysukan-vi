@@ -21,24 +21,12 @@ public class SportFragment extends BaseFragment {
     // UI references.
     private ListView iListGames;
     private ViewGroup iMainPage;
-    private FloatingActionButton registerButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.main_page, container, false);
-
-        /**
-         // Open Registration Page
-         registerButton = (FloatingActionButton) rootView.findViewById(R.id.RegisterButton);
-         registerButton.setOnClickListener(new View.OnClickListener() {
-        @Override public void onClick(View view) {
-        Intent myIntent = new Intent(MainPageActivity.this, LoginFragment.class);
-        startActivity(myIntent);
-        }
-        });
-         **/
 
         //mMainPage = findViewById(R.layout.main_page);
         iMainPage = (ViewGroup) rootView.findViewById(R.id.main_page);
