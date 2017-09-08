@@ -7,8 +7,8 @@
     tools:context="tremblay412.com.mysukan.LoginFragment">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -26,6 +26,7 @@
             android:ems="10"
             android:hint=" Username or Email Address"
             android:inputType="textPersonName"
+            android:text="hello@gmail.com"
             android:textSize="14sp" />
 
         <EditText
@@ -39,6 +40,7 @@
             android:ems="10"
             android:hint=" Password"
             android:inputType="textPersonName"
+            android:text="hello12"
             android:textSize="14sp" />
 
         <Button

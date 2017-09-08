@@ -5,26 +5,27 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical"
-        android:padding="5dp">
+        android:padding="5dp"
+        android:weightSum="1">
 
 
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:layout_marginTop="30dp"
+            android:text="Scoreboard"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="24sp" />
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top|center"
-                android:layout_marginTop="30dp"
-                android:text="Scoreboard"
-                android:textColor="@android:color/holo_red_light"
-                android:textSize="24sp" />
-
-            <ListView
+        <ListView
                 android:id="@+id/listview1"
                 android:layout_width="match_parent"
                 android:layout_height="278dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="40dp" />
+                android:layout_marginTop="40dp"
+                android:layout_weight="0.35" />
 
 
 
