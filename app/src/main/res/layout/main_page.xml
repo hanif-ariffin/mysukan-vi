@@ -7,12 +7,7 @@
         android:orientation="vertical"
         android:padding="5dp">
 
-        <FrameLayout
-            android:id="@android:id/tabcontent"
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1.00"
-            android:padding="5dp">
+
 
             <TextView
                 android:id="@+id/textView2"
@@ -29,56 +24,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="278dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="-20dp" />
+                android:layout_marginTop="40dp" />
 
 
-        </FrameLayout>
-
-        <TabWidget
-            android:id="@android:id/tabs"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="-4dp"
-            android:layout_weight="0.05"
-            android:alwaysDrawnWithCache="false"
-            tools:background="@android:color/background_light">
-
-            <Space
-                android:layout_width="49dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="43.96" />
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/floatingActionButton2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                app:backgroundTint="@android:color/background_light"
-                app:fabSize="mini"
-                app:srcCompat="@drawable/list_32" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="165.30" />
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/RegisterButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:baselineAlignBottom="true"
-                android:clickable="true"
-                app:backgroundTint="@android:color/background_light"
-                app:fabSize="mini"
-                app:srcCompat="@drawable/account_32" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="102.56" />
-
-        </TabWidget>
 
     </LinearLayout>
