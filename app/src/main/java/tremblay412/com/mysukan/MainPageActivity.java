@@ -30,13 +30,9 @@ import java.util.List;
 public class MainPageActivity extends AppCompatActivity {
 
     // UI references.
-    private ListView iListGames;
-    private ViewGroup iMainPage;
-    private FloatingActionButton RegisterButton;
 
     private FragmentPagerAdapter mPagerAdapter;
     private ViewPager mViewPager;
-    private ProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
