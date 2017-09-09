@@ -31,20 +31,12 @@ import java.util.List;
 /**
  * A login screen that offers login via email/password.
  */
-public class MainPageActivity extends FragmentActivity implements FragmentChangeListener  {
+public class MainPageActivity extends AppCompatActivity  {
 
     // UI references.
 
     private FragmentPagerAdapter mPagerAdapter;
     private ViewPager mViewPager;
-
-    @Override
-    public void replaceFragment(Fragment fragment){
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.main_page_with_fragment,fragment,fragment.toString());
-        fragmentTransaction.commit();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
