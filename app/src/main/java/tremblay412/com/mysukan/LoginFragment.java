@@ -54,7 +54,6 @@ public class LoginFragment extends BaseFragment {
             @Override
             public void onClick(View view) {
                 UserLogin();
-
             }
         });
         return rootView;
@@ -82,13 +81,14 @@ public class LoginFragment extends BaseFragment {
                         if (task.isSuccessful()) {
 
                             hideProgressDialog();
+                            LoginButton.setVisibility(View.INVISIBLE);
                             Toast.makeText(getActivity(), "You are now logged in", Toast.LENGTH_SHORT).show();
                             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                             Fragment fr = new AdminFragment();
-                            fragmentTransaction.addToBackStack(getFragmentManager().toString());
-                            fragmentTransaction.replace(R.id.main_page_with_fragment,fr,fr.toString());
+                            fragmentTransaction.replace(R.id.login_fragment,fr,fr.toString());
                             fragmentTransaction.commit();
+
 
 
                         } else {
