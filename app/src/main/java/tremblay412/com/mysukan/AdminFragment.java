@@ -1,7 +1,5 @@
 package tremblay412.com.mysukan;
 
-import android.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
