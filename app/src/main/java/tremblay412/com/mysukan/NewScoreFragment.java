@@ -28,7 +28,7 @@ public class NewScoreFragment extends BaseFragment {
 
 
         iMainPage = (ViewGroup) rootView.findViewById(R.id.main_page);
-        iListGames = (ListView) rootView.findViewById(R.id.listview1);
+        iListGames = (ListView) rootView.findViewById(R.id.listview);
 
         ArrayAdapter<String> lArrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, getGames());
         iListGames.setAdapter(lArrayAdapter);
