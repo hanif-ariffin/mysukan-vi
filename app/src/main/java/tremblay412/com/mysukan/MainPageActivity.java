@@ -6,7 +6,10 @@ import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
@@ -28,12 +31,20 @@ import java.util.List;
 /**
  * A login screen that offers login via email/password.
  */
-public class MainPageActivity extends AppCompatActivity {
+public class MainPageActivity extends FragmentActivity implements FragmentChangeListener  {
 
     // UI references.
 
     private FragmentPagerAdapter mPagerAdapter;
     private ViewPager mViewPager;
+
+    @Override
+    public void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_page_with_fragment,fragment,fragment.toString());
+        fragmentTransaction.commit();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +70,7 @@ public class MainPageActivity extends AppCompatActivity {
             }
 
         };
+
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);

@@ -7,14 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class AdminFragment extends BaseFragment {
+public class AdminFragment extends BaseFragment{
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         super.onCreateView(inflater, container, savedInstanceState);
-        View rootView = inflater.inflate(R.layout.activity_admin, container, false);
 
-        return rootView;
+        View view = inflater.inflate(R.layout.activity_admin,container,false);
+        return view;
     }
 }

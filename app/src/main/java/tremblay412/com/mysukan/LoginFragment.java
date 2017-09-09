@@ -1,6 +1,7 @@
 package tremblay412.com.mysukan;
 
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
@@ -32,12 +33,14 @@ public class LoginFragment extends BaseFragment {
     private EditText ET_email, ET_password;
     private Button LoginButton;
     private FirebaseAuth firebaseAuth;
+    private Boolean isSuccess;
+    private View rootView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View rootView = inflater.inflate(R.layout.activity_login, container, false);
+        rootView = inflater.inflate(R.layout.activity_login, container, false);
 
         ET_email = (EditText) rootView.findViewById(R.id.ET_email);
         ET_password = (EditText) rootView.findViewById(R.id.ET_password);
@@ -48,6 +51,7 @@ public class LoginFragment extends BaseFragment {
             @Override
             public void onClick(View view) {
                 UserLogin();
+
             }
         });
         return rootView;
@@ -71,20 +75,23 @@ public class LoginFragment extends BaseFragment {
                 .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
                         if (task.isSuccessful()) {
                             hideProgressDialog();
                             Toast.makeText(getActivity(), "You are now logged in", Toast.LENGTH_SHORT).show();
 
+
                             /**
                              * If the login is successful then replace the sign in fragment with a logged in fragment.
                              */
-                            FragmentManager fragmentManager = getFragmentManager();
-                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                            AdminFragment adminFragment = new AdminFragment();
-                            fragmentTransaction.addToBackStack(null);
-                            fragmentTransaction.hide(LoginFragment.this);
-                            fragmentTransaction.add(R.id.container, adminFragment);
-                            fragmentTransaction.commit();
+//                            FragmentManager fragmentManager = getFragmentManager();
+//                            fragmentManager.beginTransaction().replace(R.id.login_fragment, new AdminFragment()).addToBackStack(null).commit();
+
+                            Fragment fr = new AdminFragment();
+                            FragmentChangeListener fc = (FragmentChangeListener)getActivity();
+                            fc.replaceFragment(fr);
+
+
                         } else {
                             hideProgressDialog();
                             Toast.makeText(getActivity(), "Login failed. Please check your info", Toast.LENGTH_SHORT).show();
@@ -93,4 +100,8 @@ public class LoginFragment extends BaseFragment {
                 });
 
     }
+
+//    private Boolean getIsSuccess{
+//
+//    }
 }
