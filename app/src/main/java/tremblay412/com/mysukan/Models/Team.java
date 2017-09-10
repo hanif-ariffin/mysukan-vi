@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan;
+package tremblay412.com.mysukan.Models;
 
 import com.google.firebase.database.Exclude;
 

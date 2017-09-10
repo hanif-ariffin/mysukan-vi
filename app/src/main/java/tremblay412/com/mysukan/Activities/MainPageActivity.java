@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan;
+package tremblay412.com.mysukan.Activities;
 
 
 import android.app.ProgressDialog;
@@ -11,6 +11,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ViewGroup;
 import android.widget.ListView;
+
+import tremblay412.com.mysukan.Fragments.LoginFragment;
+import tremblay412.com.mysukan.Fragments.MapFragment;
+import tremblay412.com.mysukan.Fragments.SportFragment;
+import tremblay412.com.mysukan.R;
 
 /**
  * A login screen that offers login via email/password.

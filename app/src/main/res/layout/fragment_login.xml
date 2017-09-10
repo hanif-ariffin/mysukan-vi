@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="tremblay412.com.mysukan.LoginFragment">
+    tools:context="tremblay412.com.mysukan.Fragments.LoginFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"

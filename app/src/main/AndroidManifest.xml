@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainPageActivity"
+            android:name=".Activities.MainPageActivity"
             android:windowSoftInputMode="adjustPan">
             android:label="@string/app_name">
             <intent-filter>
@@ -26,8 +26,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity"></activity>
-        <activity android:name=".BaseSportDetailActivity"></activity>
+        <activity android:name=".Activities.RegisterActivity"></activity>
+        <activity android:name=".Activities.BaseSportDetailActivity"></activity>
     </application>
 
 </manifest>

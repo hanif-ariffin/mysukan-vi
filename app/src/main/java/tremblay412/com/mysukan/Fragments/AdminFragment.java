@@ -1,20 +1,20 @@
-package tremblay412.com.mysukan;
+package tremblay412.com.mysukan.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * Created by User on 2017-09-07.
- */
+import tremblay412.com.mysukan.R;
 
-public class MapFragment extends BaseFragment {
+public class AdminFragment extends BaseFragment {
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View rootView = inflater.inflate(R.layout.map_fragment, container, false);
+        View rootView = inflater.inflate(R.layout.activity_admin, container, false);
+
         return rootView;
     }
 }

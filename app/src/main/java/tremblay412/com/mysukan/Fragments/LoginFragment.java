@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan;
+package tremblay412.com.mysukan.Fragments;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -20,6 +20,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 
+import tremblay412.com.mysukan.R;
+
 public class LoginFragment extends BaseFragment {
 
     // [START define_database_reference]
@@ -37,7 +39,7 @@ public class LoginFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View rootView = inflater.inflate(R.layout.activity_login, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_login, container, false);
 
         ET_email = (EditText) rootView.findViewById(R.id.ET_email);
         ET_password = (EditText) rootView.findViewById(R.id.ET_password);

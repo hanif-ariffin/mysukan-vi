@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan;
+package tremblay412.com.mysukan.Models;
 
 import java.util.ArrayList;
 
@@ -6,12 +6,12 @@ import java.util.ArrayList;
  * Created by Akarin on 9/9/2017.
  */
 
-public class SportDetail {
+public class Sport {
 
     private String sportName;
     private ArrayList<Match> matches;
 
-    public boolean equals(SportDetail sport) {
+    public boolean equals(Sport sport) {
         return sport.getSportName().equals(sportName);
     }
 
