@@ -2,15 +2,13 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_admin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_light"
     tools:context="tremblay412.com.mysukan.AdminFragment">
 
     <RelativeLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -29,7 +27,7 @@
             android:textStyle="bold|italic" />
 
         <Button
-            android:id="@+id/BTN_newscore"
+            android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView3"
@@ -38,10 +36,10 @@
             android:text="New Score" />
 
         <Button
-            android:id="@+id/BTN_updatescore"
+            android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/BTN_newscore"
+            android:layout_below="@+id/button"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="51dp"
             android:text="Update Score" />

@@ -1,10 +1,13 @@
 package tremblay412.com.mysukan;
 
 import android.support.annotation.NonNull;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -77,19 +80,15 @@ public class LoginFragment extends BaseFragment {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()) {
+
                             hideProgressDialog();
                             Toast.makeText(getActivity(), "You are now logged in", Toast.LENGTH_SHORT).show();
-
-
-                            /**
-                             * If the login is successful then replace the sign in fragment with a logged in fragment.
-                             */
-//                            FragmentManager fragmentManager = getFragmentManager();
-//                            fragmentManager.beginTransaction().replace(R.id.login_fragment, new AdminFragment()).addToBackStack(null).commit();
-
+                            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                             Fragment fr = new AdminFragment();
-                            FragmentChangeListener fc = (FragmentChangeListener)getActivity();
-                            fc.replaceFragment(fr);
+                            fragmentTransaction.addToBackStack(getFragmentManager().toString());
+                            fragmentTransaction.replace(R.id.main_page_with_fragment,fr,fr.toString());
+                            fragmentTransaction.commit();
 
 
                         } else {
