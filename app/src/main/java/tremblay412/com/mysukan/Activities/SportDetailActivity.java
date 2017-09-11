@@ -13,7 +13,7 @@ import tremblay412.com.mysukan.R;
  * Created by Akarin on 9/9/2017.
  */
 
-public class BaseSportDetailActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class SportDetailActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private ListView iListGames;
     TextView text_placeholder;

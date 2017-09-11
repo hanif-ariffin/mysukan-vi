@@ -41,9 +41,10 @@ public class LoginFragment extends BaseFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.fragment_login, container, false);
 
-        ET_email = (EditText) rootView.findViewById(R.id.ET_email);
+        ET_email = (EditText) rootView.findViewById(R.id.sport_name);
         ET_password = (EditText) rootView.findViewById(R.id.ET_password);
         LoginButton = (Button) rootView.findViewById(R.id.LoginButton);
+
         firebaseAuth = FirebaseAuth.getInstance();
 
         LoginButton.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +53,7 @@ public class LoginFragment extends BaseFragment {
                 UserLogin();
             }
         });
+
         return rootView;
     }
 

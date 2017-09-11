@@ -9,34 +9,24 @@
     app:layout_constraintRight_toRightOf="parent"
     app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/Create"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/ET_password"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="51dp"
-        android:text="Register" />
-
     <EditText
         android:id="@+id/sport_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/ET_password"
-        android:layout_alignStart="@+id/ET_password"
+        android:layout_above="@+id/Create"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="45dp"
         android:ems="10"
-        android:hint="email@domain.com"
+        android:gravity="center"
+        android:hint="Sport Name"
         android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/ET_password"
+    <Button
+        android:id="@+id/Create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/Create"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="57dp"
-        android:ems="10"
-        android:hint="password"
-        android:inputType="textPassword" />
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:text="Register" />
 </RelativeLayout>

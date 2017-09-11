@@ -14,7 +14,7 @@ import android.widget.ListView;
 
 import tremblay412.com.mysukan.Fragments.LoginFragment;
 import tremblay412.com.mysukan.Fragments.MapFragment;
-import tremblay412.com.mysukan.Fragments.SportFragment;
+import tremblay412.com.mysukan.Fragments.SportListFragment;
 import tremblay412.com.mysukan.R;
 
 /**
@@ -39,7 +39,7 @@ public class MainPageActivity extends AppCompatActivity {
         // Create the adapter that will return a fragment for each section
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             private final Fragment[] mFragments = new Fragment[]{
-                    new SportFragment(),
+                    new SportListFragment(),
                     new MapFragment(),
                     new LoginFragment()
             };

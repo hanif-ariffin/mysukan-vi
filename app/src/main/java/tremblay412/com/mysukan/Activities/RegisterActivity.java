@@ -31,9 +31,9 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
 
-        ET_email = (EditText) findViewById(R.id.ET_email);
+        ET_email = (EditText) findViewById(R.id.sport_name);
         ET_password = (EditText) findViewById(R.id.ET_password);
-        ButtonRegister = (Button) findViewById(R.id.RegisterButton);
+        ButtonRegister = (Button) findViewById(R.id.Create);
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
 

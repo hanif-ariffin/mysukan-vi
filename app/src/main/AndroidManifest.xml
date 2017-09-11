@@ -27,7 +27,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.RegisterActivity"></activity>
-        <activity android:name=".Activities.BaseSportDetailActivity"></activity>
+        <activity android:name=".Activities.SportDetailActivity"></activity>
+        <activity android:name=".Activities.CreateSportActivity"></activity>
     </application>
 
 </manifest>
