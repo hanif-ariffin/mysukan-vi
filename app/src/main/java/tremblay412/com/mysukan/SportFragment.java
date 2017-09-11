@@ -28,7 +28,7 @@ public class SportFragment extends BaseFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.main_page, container, false);
 
-        //mMainPage = findViewById(R.layout.main_page);
+
         iMainPage = (ViewGroup) rootView.findViewById(R.id.main_page);
 
         iListGames = (ListView) rootView.findViewById(R.id.listview1);

@@ -30,13 +30,11 @@ public class LoginFragment extends BaseFragment {
     private DatabaseReference mDatabase;
     // [END define_database_reference]
 
-    private RecyclerView mRecycler;
-    private LinearLayoutManager mManager;
 
     private EditText ET_email, ET_password;
     private Button LoginButton;
     private FirebaseAuth firebaseAuth;
-    private Boolean isSuccess;
+
     private View rootView;
 
     @Override

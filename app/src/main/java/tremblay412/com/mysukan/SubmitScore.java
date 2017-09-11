@@ -1,6 +1,5 @@
 package tremblay412.com.mysukan;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class SubmitScore extends BaseFragment {
 
-    private Spinner teamOne,teamTwo,scoreOne,scoreTwo;
+    private Spinner teamOne,teamTwo,scoreOne,scoreTwo, scoreThree, scoreFour, scoreFive, scoreSix;
     ArrayAdapter<CharSequence> teamAdapter, scoreAdapter;
     private Button submit;
     private TextView text;
@@ -29,7 +28,100 @@ public class SubmitScore extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View rootView = inflater.inflate(R.layout.activity_submit_score, container, false);
+        View rootView;
+        args = getArguments();
+        name = args.getString("sport_type");
+        if(name == "Soccer" || name == "Frisbee" ){
+            rootView = inflater.inflate(R.layout.submit_score_norm, container, false);
+
+            teamOne = (Spinner)rootView.findViewById(R.id.teamOne);
+            teamTwo = (Spinner)rootView.findViewById(R.id.teamTwo);
+            scoreOne = (Spinner)rootView.findViewById(R.id.scoreOne);
+            scoreTwo = (Spinner)rootView.findViewById(R.id.scoreTwo);
+
+            teamAdapter = ArrayAdapter.createFromResource(getContext(),R.array.team_list,android.R.layout.simple_spinner_item);
+            teamAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            teamOne.setAdapter(teamAdapter);
+            teamTwo.setAdapter(teamAdapter);
+
+            scoreAdapter = ArrayAdapter.createFromResource(getContext(),R.array.number,android.R.layout.simple_spinner_item);
+            scoreAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            scoreOne.setAdapter(scoreAdapter);
+            scoreTwo.setAdapter(scoreAdapter);
+        }
+        else
+        {
+            rootView = inflater.inflate(R.layout.submit_score_set, container, false);
+
+            teamOne = (Spinner)rootView.findViewById(R.id.teamOne);
+            teamTwo = (Spinner)rootView.findViewById(R.id.teamTwo);
+            scoreOne = (Spinner)rootView.findViewById(R.id.scoreOne);
+            scoreTwo = (Spinner)rootView.findViewById(R.id.scoreTwo);
+            scoreThree = (Spinner)rootView.findViewById(R.id.scoreThree);
+            scoreFour = (Spinner)rootView.findViewById(R.id.scoreFour);
+            scoreFive = (Spinner)rootView.findViewById(R.id.scoreFive);
+            scoreSix = (Spinner)rootView.findViewById(R.id.scoreSix);
+
+            teamAdapter = ArrayAdapter.createFromResource(getContext(),R.array.team_list,android.R.layout.simple_spinner_item);
+            teamAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            teamOne.setAdapter(teamAdapter);
+            teamTwo.setAdapter(teamAdapter);
+
+            scoreAdapter = ArrayAdapter.createFromResource(getContext(),R.array.number,android.R.layout.simple_spinner_item);
+            scoreAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            scoreOne.setAdapter(scoreAdapter);
+            scoreTwo.setAdapter(scoreAdapter);
+            scoreThree.setAdapter(scoreAdapter);
+            scoreFour.setAdapter(scoreAdapter);
+            scoreFive.setAdapter(scoreAdapter);
+            scoreSix.setAdapter(scoreAdapter);
+        }
+
+        //Change string to sync with database string
+        switch (name){
+            case "Soccer":
+                name = "soccer";
+                break;
+            case "Badminton Men Doubles":
+                name = "badminton_men_doubles";
+                break;
+            case "Badminton Women Doubles":
+                name = "badminton_women_doubles";
+                break;
+            case "Badminton Mixed Doubles":
+                name = "badminton_mixed_doubles";
+                break;
+            case "Squash Men Singles":
+                name = "squash_men_singles";
+                break;
+            case "Squash Women Singles":
+                name = "squash_women_singles";
+                break;
+            case "Frisbee":
+                name = "frisbee";
+                break;
+            case "Dodgeball":
+                name = "dodgeball";
+                break;
+            case "Netball":
+                name = "netball";
+                break;
+            case "Basketball":
+                name = "basketball";
+                break;
+            case "Sepak Takraw":
+                name = "sepak_takraw";
+                break;
+            case "Volleyball":
+                name = "volleyball";
+                break;
+            case "Fifa":
+                name = "fifa";
+                break;
+            case "Rocket League":
+                name = "rocket_league";
+                break;
+        }
 
         //get data from previous fragment
         args = getArguments();
@@ -39,21 +131,6 @@ public class SubmitScore extends BaseFragment {
 
 
 
-        teamOne = (Spinner)rootView.findViewById(R.id.teamOne);
-        teamTwo = (Spinner)rootView.findViewById(R.id.teamTwo);
-        scoreOne = (Spinner)rootView.findViewById(R.id.scoreOne);
-        scoreTwo = (Spinner)rootView.findViewById(R.id.scoreTwo);
-
-        teamAdapter = ArrayAdapter.createFromResource(getContext(),R.array.team_list,android.R.layout.simple_spinner_item);
-        teamAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        teamOne.setAdapter(teamAdapter);
-        teamTwo.setAdapter(teamAdapter);
-
-        scoreAdapter = ArrayAdapter.createFromResource(getContext(),R.array.number,android.R.layout.simple_spinner_item);
-        scoreAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        scoreOne.setAdapter(scoreAdapter);
-        scoreTwo.setAdapter(scoreAdapter);
-
         //Database
         databaseSport = FirebaseDatabase.getInstance().getReference("games");
 
@@ -62,11 +139,21 @@ public class SubmitScore extends BaseFragment {
             @Override
             public void onClick(View view) {
                 String id = databaseSport.push().getKey();
-                Sport sport = new Sport(teamOne.getSelectedItem().toString(),teamTwo.getSelectedItem().toString(),scoreOne.getSelectedItem().toString(),scoreTwo.getSelectedItem().toString());
 
-                databaseSport.child(name).child(id).setValue(sport);
+                if(name == "soccer" || name == "frisbee" ){
+                    SportNorm sport = new SportNorm(teamOne.getSelectedItem().toString(),teamTwo.getSelectedItem().toString(),Integer.parseInt(scoreOne.getSelectedItem().toString()),Integer.parseInt(scoreTwo.getSelectedItem().toString()));
+                    databaseSport.child(name).child(id).setValue(sport);
+                    Toast.makeText(getContext(),"Sport added", Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    SportSet sport = new SportSet(teamOne.getSelectedItem().toString(),teamTwo.getSelectedItem().toString(),Integer.parseInt(scoreOne.getSelectedItem().toString()),Integer.parseInt(scoreTwo.getSelectedItem().toString())
+                                                    ,Integer.parseInt(scoreThree.getSelectedItem().toString()),Integer.parseInt(scoreFour.getSelectedItem().toString())
+                                                    ,Integer.parseInt(scoreFive.getSelectedItem().toString()),Integer.parseInt(scoreSix.getSelectedItem().toString()));
+                    databaseSport.child(name).child(id).setValue(sport);
+                    Toast.makeText(getContext(),"Sport added", Toast.LENGTH_LONG).show();
+                }
 
-                Toast.makeText(getContext(),"Sport added", Toast.LENGTH_LONG).show();
 
             }
         });
