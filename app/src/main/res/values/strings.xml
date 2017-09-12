@@ -13,4 +13,63 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <string-array name="number">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+
+    </string-array>
+    <string-array name="team_list">
+        <item>Carleton</item>
+        <item>Toronto</item>
+        <item>Waterloo</item>
+        <item>McMaster</item>
+        <item>Queens</item>
+    </string-array>
+
+    <string-array name="sport_menu">
+        <item>Volleyball</item>
+        <item>Telematch</item>
+        <item>Dodgeball</item>
+        <item>Frisbee</item>
+        <item>Badminton</item>
+        <item>Squash</item>
+        <item>Netball</item>
+        <item>Basketball</item>
+        <item>Football</item>
+        <item>Fifa</item>
+        <item>Rocket League</item>
+    </string-array>
+
+
+    <string-array name="Dodgeball">
+        <item>None</item>
+    </string-array>
+
+    <string-array name="Volleyball">
+        <item>Men V</item>
+        <item>Women V</item>
+    </string-array>
+
+    <string-array name="Badminton">
+        <item>Men Doubles</item>
+        <item>Women Doubles</item>
+        <item>Mixed Doubles</item>
+    </string-array>
+
+    <string-array name="Squash">
+        <item>Men Singles</item>
+        <item>Women Singles</item>
+    </string-array>
+
+
 </resources>

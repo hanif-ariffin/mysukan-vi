@@ -6,7 +6,10 @@ import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
@@ -17,6 +20,7 @@ import android.view.ViewGroup;
 
 import android.widget.ArrayAdapter;
 
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TableLayout;
 
@@ -27,7 +31,7 @@ import java.util.List;
 /**
  * A login screen that offers login via email/password.
  */
-public class MainPageActivity extends AppCompatActivity {
+public class MainPageActivity extends AppCompatActivity  {
 
     // UI references.
 
@@ -58,6 +62,7 @@ public class MainPageActivity extends AppCompatActivity {
             }
 
         };
+
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
