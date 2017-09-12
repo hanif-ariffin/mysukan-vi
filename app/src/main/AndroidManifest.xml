@@ -33,7 +33,8 @@
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".NewScoreFragment" />
-        <activity android:name=".SubmitScore"></activity>
+        <activity android:name=".SubmitScore" />
+        <activity android:name=".EditScoreFragment"></activity>
     </application>
 
 </manifest>

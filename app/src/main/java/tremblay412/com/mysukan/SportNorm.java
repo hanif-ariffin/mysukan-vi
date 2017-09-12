@@ -8,6 +8,8 @@ public class SportNorm {
     String team_1_name,team_2_name;
     int team_1_score_1,team_2_score_1;
 
+    public SportNorm(){}
+
     public SportNorm( String team_1_name,String team_2_name, int team_1_score, int team_2_score){
 
         this.team_1_name=  team_1_name;
