@@ -1,10 +1,14 @@
 package tremblay412.com.mysukan;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -16,17 +20,20 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class EditScoreFragment extends BaseFragment {
 
     private Bundle args;
-    private String sport_name;
+    public String sport_name;
     private TextView headerText;
     private DatabaseReference database;
 
     public List<SportSet> sportSet;
+    public List<SportNorm> sportNorm;
     private static List<String> data1 = new ArrayList<>();
+    private List<String> checker;
 
     private ListView currentList;
 
@@ -35,58 +42,20 @@ public class EditScoreFragment extends BaseFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.activity_edit_score,container,false);
 
+        checker = Arrays.asList("badminton_men_doubles","badminton_women_doubles","badminton_mixed_doubles","squash_men_singles","squash_women_singles");
+
         sportSet = new ArrayList<>();
+        sportNorm = new ArrayList<>();
 
         args = getArguments();
         sport_name =  args.getString("sport_name");
         headerText = (TextView)view.findViewById(R.id.textView5);
         headerText.setText(sport_name);
 
-        switch (sport_name){
-            case "Soccer":
-                sport_name = "soccer";
-                break;
-            case "Badminton Men Doubles":
-                sport_name = "badminton_men_doubles";
-                break;
-            case "Badminton Women Doubles":
-                sport_name = "badminton_women_doubles";
-                break;
-            case "Badminton Mixed Doubles":
-                sport_name = "badminton_mixed_doubles";
-                break;
-            case "Squash Men Singles":
-                sport_name = "squash_men_singles";
-                break;
-            case "Squash Women Singles":
-                sport_name = "squash_women_singles";
-                break;
-            case "Frisbee":
-                sport_name = "frisbee";
-                break;
-            case "Dodgeball":
-                sport_name = "dodgeball";
-                break;
-            case "Netball":
-                sport_name = "netball";
-                break;
-            case "Basketball":
-                sport_name = "basketball";
-                break;
-            case "Sepak Takraw":
-                sport_name = "sepak_takraw";
-                break;
-            case "Volleyball":
-                sport_name = "volleyball";
-                break;
-            case "Fifa":
-                sport_name = "fifa";
-                break;
-            case "Rocket League":
-                sport_name = "rocket_league";
-                break;
+        //switch name
+        NameSwitcher switcher = new NameSwitcher();
+        sport_name = switcher.UserToDatabase(sport_name);
 
-        }
 
         final ArrayAdapter<String> lArrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, data1);
         //retrieve data from database
@@ -98,10 +67,18 @@ public class EditScoreFragment extends BaseFragment {
                 sportSet.clear();
                 data1.clear();
                 for(DataSnapshot sportSnapshot : dataSnapshot.getChildren()){
-                    SportSet sport = sportSnapshot.getValue(SportSet.class);
-                    sportSet.add(sport);
-                    data1.add(sport.team_1_name + " vs " + sport.team_2_name);
-                    lArrayAdapter.notifyDataSetChanged();
+                    if(checker.contains(sport_name)) {
+                        SportNorm sport = sportSnapshot.getValue(SportNorm.class);
+                        sportNorm.add(sport);
+                        data1.add(sport.team_1_name + " vs " + sport.team_2_name);
+                        lArrayAdapter.notifyDataSetChanged();
+                    }
+                    else{
+                        SportSet sport = sportSnapshot.getValue(SportSet.class);
+                        sportSet.add(sport);
+                        data1.add(sport.team_1_name + " vs " + sport.team_2_name);
+                        lArrayAdapter.notifyDataSetChanged();
+                    }
                 }
 
             }
@@ -113,9 +90,23 @@ public class EditScoreFragment extends BaseFragment {
         });
 
         currentList = (ListView)view.findViewById(R.id.listView11);
-
-
         currentList.setAdapter(lArrayAdapter);
+
+        currentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                NameSwitcher switcher1 = new NameSwitcher();
+                sport_name = switcher1.DatabaseToUser(sport_name);
+                args = new Bundle();
+                args.putString("sport_type",sport_name);
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                Fragment fr = new SubmitScore2();
+                fr.setArguments(args);
+                fragmentTransaction.replace(R.id.edit_score,fr,fr.toString());
+                fragmentTransaction.commit();
+            }
+        });
 
         return view;
     }
