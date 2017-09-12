@@ -77,7 +77,12 @@ public class SubmitScore extends BaseFragment {
             scoreSix.setAdapter(scoreAdapter);
         }
 
+        //get data from previous fragment
+        text = (TextView)rootView.findViewById(R.id.textView10);
+        text.setText(name);
+
         //Change string to sync with database string
+
         switch (name){
             case "Soccer":
                 name = "soccer";
@@ -122,13 +127,6 @@ public class SubmitScore extends BaseFragment {
                 name = "rocket_league";
                 break;
         }
-
-        //get data from previous fragment
-        args = getArguments();
-        name = args.getString("sport_type");
-        text = (TextView)rootView.findViewById(R.id.textView10);
-        text.setText(name);
-
 
 
         //Database

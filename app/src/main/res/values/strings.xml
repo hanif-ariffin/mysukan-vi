@@ -71,31 +71,5 @@
         <item>Women Singles</item>
     </string-array>
 
-    <string-array name="Netball">
-        <item>None</item>
-    </string-array>
 
-    <string-array name="Basketball">
-        <item>None</item>
-    </string-array>
-
-    <string-array name="Sepak_Takraw">
-        <item>None</item>
-    </string-array>
-
-    <string-array name="Telematch">
-        <item>None</item>
-    </string-array>
-
-    <string-array name="Football">
-        <item>None</item>
-    </string-array>
-
-    <string-array name="Fifa">
-        <item>None</item>
-    </string-array>
-
-    <string-array name="Rocket_League">
-        <item>None</item>
-    </string-array>
 </resources>
