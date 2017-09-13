@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:id="@+id/edit_score"
-    tools:context="tremblay412.com.mysukan.EditScoreFragment">
+    tools:context="tremblay412.com.mysukan.fragment.adminarea.EditScoreFragment">
 
     <TextView
         android:id="@+id/textView5"

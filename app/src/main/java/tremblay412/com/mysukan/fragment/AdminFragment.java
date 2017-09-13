@@ -1,10 +1,13 @@
-package tremblay412.com.mysukan;
+package tremblay412.com.mysukan.fragment;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -17,7 +20,12 @@ import com.google.firebase.database.DatabaseReference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminFragment extends BaseFragment{
+import tremblay412.com.mysukan.helper.BaseFragment;
+import tremblay412.com.mysukan.fragment.adminarea.EditScoreFragment;
+import tremblay412.com.mysukan.fragment.adminarea.NewScoreFragment;
+import tremblay412.com.mysukan.R;
+
+public class AdminFragment extends BaseFragment {
     Button newScore;
     private DatabaseReference databaseSport;
     private ListView dataListView;
@@ -26,7 +34,8 @@ public class AdminFragment extends BaseFragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.activity_admin,container,false);
-
+        setMenuVisibility(true);
+        setHasOptionsMenu(true);
         dataListView = (ListView) view.findViewById(R.id.listview00);
 
         newScore = (Button)view.findViewById(R.id.BTN_newscore);
@@ -70,7 +79,23 @@ public class AdminFragment extends BaseFragment{
         return view;
     }
 
+    @Override
+    public void onCreateOptionsMenu(
+            Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.activity_itemdetail, menu);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // handle item selection
+        switch (item.getItemId()) {
+            case R.id.edit_item:
+                // do s.th.
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
     private List<String> getGames() {
         List<String> lGames = new ArrayList<>();
         lGames.add("Volleyball");

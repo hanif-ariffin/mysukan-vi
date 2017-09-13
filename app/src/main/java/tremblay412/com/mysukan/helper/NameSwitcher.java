@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan;
+package tremblay412.com.mysukan.helper;
 
 /**
  * Created by Haziq on 2017-09-11.

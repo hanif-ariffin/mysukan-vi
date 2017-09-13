@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan;
+package tremblay412.com.mysukan.fragment.adminarea;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +12,12 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import tremblay412.com.mysukan.R;
+import tremblay412.com.mysukan.fragment.adminarea.SportNorm;
+import tremblay412.com.mysukan.fragment.adminarea.SportSet;
+import tremblay412.com.mysukan.helper.BaseFragment;
+import tremblay412.com.mysukan.helper.NameSwitcher;
 
 public class SubmitScore extends BaseFragment {
 

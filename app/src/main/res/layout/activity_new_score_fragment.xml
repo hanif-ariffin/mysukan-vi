@@ -6,7 +6,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@android:color/white"
-    tools:context="tremblay412.com.mysukan.NewScoreFragment">
+    tools:context="tremblay412.com.mysukan.fragment.adminarea.NewScoreFragment">
 
     <RelativeLayout
         android:layout_width="367dp"

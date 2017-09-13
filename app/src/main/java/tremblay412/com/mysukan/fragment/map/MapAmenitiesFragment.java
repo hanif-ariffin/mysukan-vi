@@ -1,17 +1,12 @@
-package tremblay412.com.mysukan;
+package tremblay412.com.mysukan.fragment.map;
 
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.support.annotation.DrawableRes;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
+import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.app.Fragment;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -22,11 +17,14 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import tremblay412.com.mysukan.R;
+import tremblay412.com.mysukan.helper.BaseFragment;
+
 /**
- * Created by User on 2017-09-07.
+ * Created by User on 2017-09-12.
  */
 
-public class MapFragment extends BaseFragment implements OnMapReadyCallback{
+public class MapAmenitiesFragment extends BaseFragment implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private final static LatLng carletonU = new LatLng(45.385863, -75.695903);
@@ -34,17 +32,28 @@ public class MapFragment extends BaseFragment implements OnMapReadyCallback{
     private final static LatLng carletonU_NormFynn = new LatLng(45.385860,-75.692811);
     private final static LatLng carletonU_RavensNest = new LatLng(45.386450, -75.693282);
     private final static LatLng carletonU_FieldHouse = new LatLng(45.386843, -75.694530);
+    private static View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View rootView = inflater.inflate(R.layout.map_fragment, container, false);
-        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
 
-        return rootView;
+        if (view != null) {
+            ViewGroup parent = (ViewGroup) view.getParent();
+            if (parent != null)
+                parent.removeView(view);
+        }
+        try {
+            view = inflater.inflate(R.layout.map_venue_fragment, container, false);
+            SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
+                    .findFragmentById(R.id.map_venue);
+            mapFragment.getMapAsync(this);
+
+        } catch (InflateException e) {
+        /* map is already there, just return view as it is */
+        }
+        return view;
     }
 
     @Override
@@ -57,6 +66,7 @@ public class MapFragment extends BaseFragment implements OnMapReadyCallback{
         Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
 
         mMap.setBuildingsEnabled(true);
+        mMap.addMarker(new MarkerOptions().position(carletonU).title("Carleton University").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
         mMap.addMarker(new MarkerOptions().position(carletonU_UC).title("University Centre").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
         mMap.addMarker(new MarkerOptions().position(carletonU_NormFynn).title("Norm Fynn").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
         mMap.addMarker(new MarkerOptions().position(carletonU_RavensNest).title("Raven's Nest").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));

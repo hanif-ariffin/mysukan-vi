@@ -31,10 +31,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".NewScoreFragment" />
-        <activity android:name=".SubmitScore" />
-        <activity android:name=".EditScoreFragment"></activity>
+        <activity android:name=".noneeedclass.RegisterActivity" />
+        <activity android:name=".fragment.adminarea.NewScoreFragment" />
+        <activity android:name=".fragment.adminarea.SubmitScore" />
+        <activity android:name=".fragment.adminarea.EditScoreFragment"></activity>
     </application>
 
 </manifest>
