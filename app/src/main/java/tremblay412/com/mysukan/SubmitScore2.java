@@ -21,9 +21,10 @@ public class SubmitScore2 extends BaseFragment {
     private Spinner teamOne,teamTwo,scoreOne,scoreTwo, scoreThree, scoreFour, scoreFive, scoreSix;
     ArrayAdapter<CharSequence> teamAdapter, scoreAdapter;
     private Button submit;
-    private TextView text;
+    private TextView textHeader;
     private List<String> checker;
-    public String sport_name;
+    public String sport_name,id;
+    private NameSwitcher switcher;
 
     private Bundle args;
     private DatabaseReference databaseSport;
@@ -33,9 +34,13 @@ public class SubmitScore2 extends BaseFragment {
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView;
+
+        checker = Arrays.asList("badminton_men_doubles","badminton_women_doubles","badminton_mixed_doubles","squash_men_singles","squash_women_singles");
         args = getArguments();
         sport_name = args.getString("sport_type");
-        if(sport_name == "Soccer" || sport_name == "Frisbee" ){
+        id = args.getString("id");
+        switcher = new NameSwitcher();
+        if(!checker.contains(switcher.UserToDatabase(sport_name)) ){
             rootView = inflater.inflate(R.layout.submit_score_norm, container, false);
 
             teamOne = (Spinner)rootView.findViewById(R.id.teamOne);
@@ -81,10 +86,9 @@ public class SubmitScore2 extends BaseFragment {
             scoreSix.setAdapter(scoreAdapter);
         }
 
-        checker = Arrays.asList("badminton_men_doubles","badminton_women_doubles","badminton_mixed_doubles","squash_men_singles","squash_women_singles");
         //get data from previous fragment
-        text = (TextView)rootView.findViewById(R.id.textView10);
-        text.setText(sport_name);
+        textHeader = (TextView)rootView.findViewById(R.id.textView10);
+        textHeader.setText(sport_name);
 
         //Change string to sync with database string
         NameSwitcher switcher = new NameSwitcher();
@@ -97,18 +101,16 @@ public class SubmitScore2 extends BaseFragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String id = databaseSport.push().getKey();
-
-                if(checker.contains(sport_name)) {
-                    SportSet sport = new SportSet(teamOne.getSelectedItem().toString(),teamTwo.getSelectedItem().toString(),Integer.parseInt(scoreOne.getSelectedItem().toString()),Integer.parseInt(scoreTwo.getSelectedItem().toString())
+                databaseSport = FirebaseDatabase.getInstance().getReference("games").child(sport_name).child(id);
+                if(!checker.contains(sport_name)) {
+                    System.out.println(id);
+                    SportNorm sport = new SportNorm(id,teamOne.getSelectedItem().toString(),teamTwo.getSelectedItem().toString(),Integer.parseInt(scoreOne.getSelectedItem().toString()),Integer.parseInt(scoreTwo.getSelectedItem().toString()));
+                    databaseSport.setValue(sport);
+                }else{
+                    SportSet sport = new SportSet(id,teamOne.getSelectedItem().toString(),teamTwo.getSelectedItem().toString(),Integer.parseInt(scoreOne.getSelectedItem().toString()),Integer.parseInt(scoreTwo.getSelectedItem().toString())
                             ,Integer.parseInt(scoreThree.getSelectedItem().toString()),Integer.parseInt(scoreFour.getSelectedItem().toString())
                             ,Integer.parseInt(scoreFive.getSelectedItem().toString()),Integer.parseInt(scoreSix.getSelectedItem().toString()));
-                    databaseSport.child(sport_name).child(id).setValue(sport);
-                    Toast.makeText(getContext(),"Sport edited", Toast.LENGTH_LONG).show();
-                }else{
-                    SportNorm sport = new SportNorm(teamOne.getSelectedItem().toString(),teamTwo.getSelectedItem().toString(),Integer.parseInt(scoreOne.getSelectedItem().toString()),Integer.parseInt(scoreTwo.getSelectedItem().toString()));
-                    databaseSport.child(sport_name).child(id).setValue(sport);
-                    Toast.makeText(getContext(),"Sport edited", Toast.LENGTH_LONG).show();
+                    databaseSport.setValue(sport);
                 }
 
             }

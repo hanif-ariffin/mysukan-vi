@@ -26,14 +26,14 @@ import java.util.List;
 public class EditScoreFragment extends BaseFragment {
 
     private Bundle args;
-    public String sport_name;
+    public String sport_name, id;
     private TextView headerText;
     private DatabaseReference database;
 
     public List<SportSet> sportSet;
     public List<SportNorm> sportNorm;
     private static List<String> data1 = new ArrayList<>();
-    private List<String> checker;
+    private List<String> checker, arrayId;
 
     private ListView currentList;
 
@@ -43,6 +43,7 @@ public class EditScoreFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.activity_edit_score,container,false);
 
         checker = Arrays.asList("badminton_men_doubles","badminton_women_doubles","badminton_mixed_doubles","squash_men_singles","squash_women_singles");
+        arrayId = new ArrayList<>();
 
         sportSet = new ArrayList<>();
         sportNorm = new ArrayList<>();
@@ -68,15 +69,18 @@ public class EditScoreFragment extends BaseFragment {
                 data1.clear();
                 for(DataSnapshot sportSnapshot : dataSnapshot.getChildren()){
                     if(checker.contains(sport_name)) {
-                        SportNorm sport = sportSnapshot.getValue(SportNorm.class);
-                        sportNorm.add(sport);
+                        SportSet sport = sportSnapshot.getValue(SportSet.class);
+                        sportSet.add(sport);
+                        arrayId.add(sport.getId());
                         data1.add(sport.team_1_name + " vs " + sport.team_2_name);
                         lArrayAdapter.notifyDataSetChanged();
                     }
                     else{
-                        SportSet sport = sportSnapshot.getValue(SportSet.class);
-                        sportSet.add(sport);
+                        SportNorm sport = sportSnapshot.getValue(SportNorm.class);
+                        sportNorm.add(sport);
+                        id = sport.getId();
                         data1.add(sport.team_1_name + " vs " + sport.team_2_name);
+                        arrayId.add(sport.getId());
                         lArrayAdapter.notifyDataSetChanged();
                     }
                 }
@@ -99,6 +103,7 @@ public class EditScoreFragment extends BaseFragment {
                 sport_name = switcher1.DatabaseToUser(sport_name);
                 args = new Bundle();
                 args.putString("sport_type",sport_name);
+                args.putString("id",arrayId.get(i).toString());
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 Fragment fr = new SubmitScore2();
