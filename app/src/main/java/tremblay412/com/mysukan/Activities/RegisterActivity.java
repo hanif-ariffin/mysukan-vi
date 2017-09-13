@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import tremblay412.com.mysukan.R;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends BaseActivity {
 
     private EditText ET_email;
     private EditText ET_password;
@@ -31,9 +31,9 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
 
-        ET_email = (EditText) findViewById(R.id.sport_name);
+        ET_email = (EditText) findViewById(R.id.activity_create_sport_sport_name);
         ET_password = (EditText) findViewById(R.id.ET_password);
-        ButtonRegister = (Button) findViewById(R.id.Create);
+        ButtonRegister = (Button) findViewById(R.id.activity_create_support_create_button);
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
 

@@ -10,7 +10,7 @@
     app:layout_constraintTop_toTopOf="parent">
 
     <Button
-        android:id="@+id/Create"
+        android:id="@+id/activity_create_support_create_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/ET_password"
@@ -19,7 +19,7 @@
         android:text="Register" />
 
     <EditText
-        android:id="@+id/sport_name"
+        android:id="@+id/activity_create_sport_sport_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/ET_password"
@@ -32,7 +32,7 @@
         android:id="@+id/ET_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/Create"
+        android:layout_above="@+id/activity_create_support_create_button"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="57dp"

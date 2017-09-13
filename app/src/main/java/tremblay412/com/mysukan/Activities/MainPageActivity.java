@@ -14,22 +14,17 @@ import android.widget.ListView;
 
 import tremblay412.com.mysukan.Fragments.LoginFragment;
 import tremblay412.com.mysukan.Fragments.MapFragment;
+import tremblay412.com.mysukan.Fragments.RealtimeSportListFragment;
 import tremblay412.com.mysukan.Fragments.SportListFragment;
 import tremblay412.com.mysukan.R;
 
 /**
  * A login screen that offers login via email/password.
  */
-public class MainPageActivity extends AppCompatActivity {
-
-    // UI references.
-    private ListView iListGames;
-    private ViewGroup iMainPage;
-    private FloatingActionButton RegisterButton;
+public class MainPageActivity extends BaseActivity {
 
     private FragmentPagerAdapter mPagerAdapter;
     private ViewPager mViewPager;
-    private ProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +65,7 @@ public class MainPageActivity extends AppCompatActivity {
         int[] iconTab = new int[]{
                 R.drawable.list_32,
                 R.drawable.map_32,
-                R.drawable.account_32};
+                R.drawable.account_32,};
 
         return iconTab;
     }

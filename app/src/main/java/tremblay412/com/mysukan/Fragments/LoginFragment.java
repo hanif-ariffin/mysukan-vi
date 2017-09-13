@@ -41,7 +41,7 @@ public class LoginFragment extends BaseFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.fragment_login, container, false);
 
-        ET_email = (EditText) rootView.findViewById(R.id.sport_name);
+        ET_email = (EditText) rootView.findViewById(R.id.activity_create_sport_sport_name);
         ET_password = (EditText) rootView.findViewById(R.id.ET_password);
         LoginButton = (Button) rootView.findViewById(R.id.LoginButton);
 

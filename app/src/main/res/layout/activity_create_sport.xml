@@ -10,10 +10,10 @@
     app:layout_constraintTop_toTopOf="parent">
 
     <EditText
-        android:id="@+id/sport_name"
+        android:id="@+id/activity_create_sport_sport_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/Create"
+        android:layout_above="@+id/activity_create_support_create_button"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="45dp"
         android:ems="10"
@@ -22,7 +22,7 @@
         android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/Create"
+        android:id="@+id/activity_create_support_create_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
