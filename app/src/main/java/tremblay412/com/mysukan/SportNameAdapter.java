@@ -20,7 +20,7 @@ import java.util.List;
  * Created by akarin on 11/09/17.
  */
 
-public class SportNameAdapter extends RecyclerView.Adapter<SportViewHolder> {
+public class SportNameAdapter extends RecyclerView.Adapter<MatchDetailViewHolder> {
 
     private static String TAG = "SportNameAdapter";
 
@@ -84,17 +84,16 @@ public class SportNameAdapter extends RecyclerView.Adapter<SportViewHolder> {
     }
 
     @Override
-    public SportViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MatchDetailViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.include_item_sport, parent, false);
-        return new SportViewHolder(view);
+        return new MatchDetailViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(SportViewHolder holder, int position) {
+    public void onBindViewHolder(MatchDetailViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder to position:" + position);
         String newSportName = listOfSportNames.get(position);
-        holder.sportName.setText(newSportName);
     }
 
     @Override

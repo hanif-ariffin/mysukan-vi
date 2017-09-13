@@ -1,16 +1,11 @@
 package tremblay412.com.mysukan.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -18,10 +13,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
+import tremblay412.com.mysukan.MatchDetailViewHolder;
 import tremblay412.com.mysukan.Models.Soccer;
 import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.SportManager;
-import tremblay412.com.mysukan.SportViewHolder;
 
 /**
  * Created by Akarin on 9/9/2017.
@@ -46,7 +41,7 @@ public class SportDetailActivity extends BaseActivity implements AdapterView.OnI
         if (bundle == null) {
             Log.wtf(TAG, "BUNDLE IS NULL, THE ACTIVITY CALLING THIS INTENT DOES NOT PROVIDE THE SPORT NAME REQUIRED");
         } else {
-            sportName = bundle.getString("sportName");
+            sportName = bundle.getString("match_time");
             sportNameRecyclerView = (RecyclerView) findViewById(R.id.activity_sport_matches_recyclerview_match);
 
             sportNameReference = FirebaseDatabase.getInstance().getReference();
@@ -58,13 +53,22 @@ public class SportDetailActivity extends BaseActivity implements AdapterView.OnI
 
             Query recentPostsQuery = sportNameReference.child("games").child(SportManager.convertToDb(sportName));
             Log.d(TAG, recentPostsQuery.toString());
-            mAdapter = new FirebaseRecyclerAdapter<Soccer, SportViewHolder>(Soccer.class, R.layout.include_item_sport,
-                    SportViewHolder.class, recentPostsQuery) {
+            mAdapter = new FirebaseRecyclerAdapter<Soccer, MatchDetailViewHolder>(Soccer.class, R.layout.include_item_minimized_match_detail,
+                    MatchDetailViewHolder.class, recentPostsQuery) {
                 @Override
-                protected void populateViewHolder(SportViewHolder viewHolder, Soccer model, int position) {
+                protected void populateViewHolder(final MatchDetailViewHolder viewHolder, final Soccer model, final int position) {
                     final DatabaseReference postRef = getRef(position);
-                    Log.d(TAG, "sportNameRecyclerView is clicked at position:" + position + " with value:" + postRef.getKey());
-                    viewHolder.sportName.setText(postRef.child(postRef.getKey()).toString());
+
+                    Log.d(TAG, "Model obtained with values id:" + model.id + " match_date:" + model.match_date + " team_1_name:" + model.team_1_name + " team_2_name:" + model.team_2_name);
+                    Log.d(TAG, "" + viewHolder.sportName + " " + viewHolder.match_time + " " + viewHolder.team_1 + " " + viewHolder.team_2);
+
+                    String matchDate = "" + model.match_date;
+                    String teamOne = "" + model.team_1_name;
+                    String teamTwo = "" + model.team_2_name;
+
+                    viewHolder.match_time.setText(matchDate);
+                    viewHolder.team_1.setText(teamOne);
+                    viewHolder.team_2.setText(teamTwo);
                 }
             };
 

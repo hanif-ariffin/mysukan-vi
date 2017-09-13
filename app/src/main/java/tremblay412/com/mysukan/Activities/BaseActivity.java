@@ -4,8 +4,6 @@ import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.google.firebase.auth.FirebaseAuth;
-
 /**
  * Created by akarin on 12/09/17.
  */

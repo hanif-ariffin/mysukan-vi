@@ -11,7 +11,6 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import tremblay412.com.mysukan.Models.Sport;
 import tremblay412.com.mysukan.R;
 
 /**

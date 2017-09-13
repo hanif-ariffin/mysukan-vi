@@ -69,8 +69,8 @@ public class Match {
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("team_one", teamOne);
-        result.put("team_two", teamOne);
+        result.put("team_1", teamOne);
+        result.put("team_2", teamOne);
         result.put("winner", winner);
 
         return result;

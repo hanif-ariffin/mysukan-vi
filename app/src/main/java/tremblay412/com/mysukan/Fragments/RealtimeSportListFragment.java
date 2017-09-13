@@ -8,19 +8,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
-import java.util.Map;
-
 import tremblay412.com.mysukan.Activities.CreateSportActivity;
-import tremblay412.com.mysukan.Models.Sport;
 import tremblay412.com.mysukan.R;
-import tremblay412.com.mysukan.SportViewHolder;
+import tremblay412.com.mysukan.MatchDetailViewHolder;
 
 /**
  * Created by akarin on 07/09/17.
@@ -43,7 +39,7 @@ public class RealtimeSportListFragment extends BaseFragment implements View.OnCl
 
         View rootView = inflater.inflate(R.layout.realtime_fragment_sport_list, container, false);
 
-        sportNameRecyclerView = (RecyclerView) rootView.findViewById(R.id.fragment_sport_recyclerview_sport_list);
+        sportNameRecyclerView = (RecyclerView) rootView.findViewById(R.id.fragment_sport_listview_sport_list);
 
         sportNameReference = FirebaseDatabase.getInstance().getReference();
 
@@ -68,13 +64,13 @@ public class RealtimeSportListFragment extends BaseFragment implements View.OnCl
         sportNameRecyclerView.setLayoutManager(mManager);
 
         Query recentPostsQuery = sportNameReference.child("sport_list").limitToFirst(100);
-        mAdapter = new FirebaseRecyclerAdapter<String, SportViewHolder>(String.class, R.layout.include_item_sport,
-                SportViewHolder.class, recentPostsQuery) {
+        mAdapter = new FirebaseRecyclerAdapter<String, MatchDetailViewHolder>(String.class, R.layout.include_item_sport,
+                MatchDetailViewHolder.class, recentPostsQuery) {
             @Override
-            protected void populateViewHolder(SportViewHolder viewHolder, String model, int position) {
+            protected void populateViewHolder(MatchDetailViewHolder viewHolder, String model, int position) {
                 final DatabaseReference postRef = getRef(position);
                 Log.d(TAG, "RecyclerView position:" + position + " value:" + postRef.getKey());
-                viewHolder.sportName.setText(model);
+                viewHolder.match_time.setText(model);
             }
         };
 

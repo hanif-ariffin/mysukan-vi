@@ -1,20 +1,14 @@
 package tremblay412.com.mysukan.Activities;
 
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.view.ViewGroup;
-import android.widget.ListView;
 
 import tremblay412.com.mysukan.Fragments.LoginFragment;
 import tremblay412.com.mysukan.Fragments.MapFragment;
-import tremblay412.com.mysukan.Fragments.RealtimeSportListFragment;
 import tremblay412.com.mysukan.Fragments.SportListFragment;
 import tremblay412.com.mysukan.R;
 

@@ -36,9 +36,9 @@ public class SportListFragment extends BaseFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         Log.d(TAG, System.lineSeparator() + "ONCREATEVIEW" + System.lineSeparator());
 
-        View rootView = inflater.inflate(R.layout.fragment_sport_list, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_sports, container, false);
 
-        sportListView = (ListView) rootView.findViewById(R.id.fragment_sport_recyclerview_sport_list);
+        sportListView = (ListView) rootView.findViewById(R.id.fragment_sport_listview_sport_list);
         sportArrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, SportManager.getListOfSport());
         sportListView.setAdapter(sportArrayAdapter);
         sportListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -47,7 +47,7 @@ public class SportListFragment extends BaseFragment {
                 Log.d(TAG, "User clicked at View with id:" + position + " with item:" + sportArrayAdapter.getItem(position).toString());
                 Intent intent = new Intent(getActivity(), SportDetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("sportName", sportArrayAdapter.getItem(position).toString()); //Your id
+                bundle.putString("match_time", sportArrayAdapter.getItem(position).toString()); //Your id
                 intent.putExtras(bundle); //Put your id to your next Intent
                 startActivity(intent);
             }

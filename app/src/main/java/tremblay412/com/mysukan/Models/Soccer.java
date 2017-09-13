@@ -11,8 +11,8 @@ import java.util.Map;
 
 public class Soccer {
 
-    Long match_date, team_1_score_1, team_2_score_1;
-    String team_1_name, team_2_name, id;
+    public Long match_date, team_1_score_1, team_2_score_1;
+    public String team_1_name, team_2_name, id;
 
     // Functions requuired for Firebase
     public Soccer() {
