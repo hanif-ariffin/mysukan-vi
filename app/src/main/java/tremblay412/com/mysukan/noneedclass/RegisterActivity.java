@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan.Activities;
+package tremblay412.com.mysukan.noneedclass;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -15,6 +15,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import tremblay412.com.mysukan.R;
+import tremblay412.com.mysukan.activities.BaseActivity;
 
 public class RegisterActivity extends BaseActivity {
 

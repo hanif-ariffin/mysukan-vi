@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan.Fragments;
+package tremblay412.com.mysukan.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,9 +13,9 @@ import android.widget.ListView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 
-import tremblay412.com.mysukan.Activities.SportDetailActivity;
+import tremblay412.com.mysukan.activities.SportDetailActivity;
 import tremblay412.com.mysukan.R;
-import tremblay412.com.mysukan.SportManager;
+import tremblay412.com.mysukan.helper.SportManager;
 
 /**
  * Created by akarin on 07/09/17.

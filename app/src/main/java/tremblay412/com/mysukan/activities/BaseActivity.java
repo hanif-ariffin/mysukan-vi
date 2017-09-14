@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan.Activities;
+package tremblay412.com.mysukan.activities;
 
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;

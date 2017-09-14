@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan.Fragments;
+package tremblay412.com.mysukan.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import tremblay412.com.mysukan.R;
-import tremblay412.com.mysukan.SportManager;
+import tremblay412.com.mysukan.helper.SportManager;
 
 /**
  * Created by akarin on 07/09/17.

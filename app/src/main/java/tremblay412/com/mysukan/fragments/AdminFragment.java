@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan.Fragments;
+package tremblay412.com.mysukan.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

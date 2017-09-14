@@ -1,8 +1,10 @@
-package tremblay412.com.mysukan;
+package tremblay412.com.mysukan.helper;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
+
+import tremblay412.com.mysukan.R;
 
 /**
  * Created by akarin on 11/09/17.

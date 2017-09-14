@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan.Activities;
+package tremblay412.com.mysukan.activities;
 
 
 import android.os.Bundle;
@@ -7,9 +7,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
-import tremblay412.com.mysukan.Fragments.LoginFragment;
-import tremblay412.com.mysukan.Fragments.MapFragment;
-import tremblay412.com.mysukan.Fragments.SportListFragment;
+import tremblay412.com.mysukan.fragments.LoginFragment;
+import tremblay412.com.mysukan.fragments.MapFragment;
+import tremblay412.com.mysukan.fragments.SportListFragment;
 import tremblay412.com.mysukan.R;
 
 /**

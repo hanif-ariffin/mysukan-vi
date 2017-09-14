@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan;
+package tremblay412.com.mysukan.helper;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -15,6 +15,8 @@ import com.google.firebase.database.DatabaseReference;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import tremblay412.com.mysukan.R;
 
 /**
  * Created by akarin on 11/09/17.

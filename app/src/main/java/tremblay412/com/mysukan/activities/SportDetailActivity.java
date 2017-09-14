@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan.Activities;
+package tremblay412.com.mysukan.activities;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,10 +12,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
-import tremblay412.com.mysukan.MatchDetailViewHolder;
-import tremblay412.com.mysukan.Models.Soccer;
+import tremblay412.com.mysukan.helper.MatchDetailViewHolder;
+import tremblay412.com.mysukan.models.Soccer;
 import tremblay412.com.mysukan.R;
-import tremblay412.com.mysukan.SportManager;
+import tremblay412.com.mysukan.helper.SportManager;
 
 /**
  * Created by Akarin on 9/9/2017.

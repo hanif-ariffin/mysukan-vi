@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan.Fragments;
+package tremblay412.com.mysukan.fragments;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
