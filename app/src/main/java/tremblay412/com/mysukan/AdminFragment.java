@@ -59,6 +59,7 @@ public class AdminFragment extends BaseFragment{
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 args = new Bundle();
                 args.putString("sport_name",dataListView.getItemAtPosition(i).toString());
+                System.out.println(dataListView.getItemAtPosition(i).toString());
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 Fragment fr = new EditScoreFragment();
                 fr.setArguments(args);

@@ -16,6 +16,23 @@
         tools:layout_editor_absoluteY="8dp"
         tools:layout_editor_absoluteX="8dp">
 
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:srcCompat="@android:drawable/sym_def_app_icon"
+            android:layout_alignTop="@+id/imageView2"
+            android:layout_alignEnd="@+id/scoreTwo" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_above="@+id/teamOne"
+            android:layout_marginBottom="14dp"
+            android:layout_toStartOf="@+id/BTN_submit"
+            app:srcCompat="@android:drawable/sym_def_app_icon" />
+
         <Spinner
             android:id="@+id/scoreSix"
             android:layout_width="100dp"
@@ -23,16 +40,16 @@
             tools:layout_editor_absoluteX="202dp"
             tools:layout_editor_absoluteY="314dp"
             android:layout_below="@+id/scoreThree"
-            android:layout_alignStart="@+id/scoreThree" />
+            android:layout_toEndOf="@+id/scoreThree" />
 
         <Spinner
             android:id="@+id/scoreFive"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/scoreFour"
-            android:layout_toEndOf="@+id/scoreSix"
             tools:layout_editor_absoluteX="102dp"
-            tools:layout_editor_absoluteY="314dp" />
+            tools:layout_editor_absoluteY="314dp"
+            android:layout_below="@+id/scoreThree"
+            android:layout_toStartOf="@+id/scoreSix" />
 
         <Spinner
             android:id="@+id/scoreThree"
@@ -66,14 +83,13 @@
             android:id="@+id/textView10"
             android:layout_width="500dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
             android:text="TextView"
             android:textColor="@color/colorAccent"
             android:textSize="30sp"
             tools:layout_editor_absoluteX="163dp"
             tools:layout_editor_absoluteY="61dp"
-            android:layout_above="@+id/textView7"
-            android:layout_centerHorizontal="true" />
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
 
         <Spinner
             android:id="@+id/teamOne"
@@ -81,10 +97,9 @@
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="56dp"
             tools:layout_editor_absoluteY="175dp"
-            android:layout_marginTop="23dp"
-            android:layout_below="@+id/textView8"
-            android:layout_alignEnd="@+id/textView9"
-            android:layout_marginEnd="25dp" />
+            android:layout_above="@+id/textView9"
+            android:layout_toStartOf="@+id/textView9"
+            android:layout_marginBottom="30dp" />
 
         <Spinner
             android:id="@+id/scoreOne"
@@ -102,9 +117,10 @@
             android:text="Team 1"
             tools:layout_editor_absoluteX="110dp"
             tools:layout_editor_absoluteY="138dp"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="56dp"
             android:layout_alignParentTop="true"
-            android:layout_toStartOf="@+id/textView9" />
+            android:layout_toStartOf="@+id/BTN_submit"
+            android:layout_marginEnd="21dp" />
 
         <Button
             android:id="@+id/BTN_submit"
@@ -124,8 +140,9 @@
             android:text="Team 2"
             tools:layout_editor_absoluteX="222dp"
             tools:layout_editor_absoluteY="138dp"
-            android:layout_above="@+id/teamOne"
-            android:layout_alignEnd="@+id/textView10" />
+            android:layout_alignBaseline="@+id/textView8"
+            android:layout_alignBottom="@+id/textView8"
+            android:layout_toEndOf="@+id/BTN_submit" />
 
         <Spinner
             android:id="@+id/scoreTwo"
@@ -144,6 +161,7 @@
             tools:layout_editor_absoluteY="175dp"
             android:layout_alignTop="@+id/teamOne"
             android:layout_toEndOf="@+id/textView9" />
+
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

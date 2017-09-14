@@ -45,7 +45,7 @@ public class NewScoreFragment extends BaseFragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 args = new Bundle();
-                args.putString("sport_type",iListGames.getItemAtPosition(i).toString());
+                args.putString("sport_name",iListGames.getItemAtPosition(i).toString());
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 Fragment fr = new SubmitScore();

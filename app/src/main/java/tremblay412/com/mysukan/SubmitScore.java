@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,22 +19,33 @@ public class SubmitScore extends BaseFragment {
 
     private Spinner teamOne,teamTwo,scoreOne,scoreTwo, scoreThree, scoreFour, scoreFive, scoreSix;
     ArrayAdapter<CharSequence> teamAdapter, scoreAdapter;
-    private Button submit;
+    private Button submitButton;
     private TextView text;
-    public String name;
-
+    public String sport_name;
     private Bundle args;
     private DatabaseReference databaseSport;
+    private ImageView team_1_logo, team_2_logo;
+    private NameManager manager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView;
+
+        manager = new NameManager();
+
+        //get argument from previous fragment
         args = getArguments();
-        name = args.getString("sport_type");
-        if(name == "Soccer" || name == "Frisbee" ){
+        sport_name = args.getString("sport_name");
+
+        if(sport_name == "Soccer" || sport_name == "Frisbee" ){
             rootView = inflater.inflate(R.layout.submit_score_norm, container, false);
+
+            //ImageView construction
+            team_1_logo = (ImageView) rootView.findViewById(R.id.imageView2);
+            team_2_logo = (ImageView) rootView.findViewById(R.id.imageView3);
+
 
             teamOne = (Spinner)rootView.findViewById(R.id.teamOne);
             teamTwo = (Spinner)rootView.findViewById(R.id.teamTwo);
@@ -44,6 +57,19 @@ public class SubmitScore extends BaseFragment {
             teamOne.setAdapter(teamAdapter);
             teamTwo.setAdapter(teamAdapter);
 
+            teamOne.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    System.out.println(manager.getImageId(sport_name));
+                    team_1_logo.setImageResource(manager.getImageId(sport_name));
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                    System.out.println("ss");
+                }
+            });
+
             scoreAdapter = ArrayAdapter.createFromResource(getContext(),R.array.number,android.R.layout.simple_spinner_item);
             scoreAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             scoreOne.setAdapter(scoreAdapter);
@@ -52,6 +78,10 @@ public class SubmitScore extends BaseFragment {
         else
         {
             rootView = inflater.inflate(R.layout.submit_score_set, container, false);
+
+            //ImageView construction
+            team_1_logo = (ImageView) rootView.findViewById(R.id.imageView2);
+            team_2_logo = (ImageView) rootView.findViewById(R.id.imageView3);
 
             teamOne = (Spinner)rootView.findViewById(R.id.teamOne);
             teamTwo = (Spinner)rootView.findViewById(R.id.teamTwo);
@@ -77,26 +107,26 @@ public class SubmitScore extends BaseFragment {
             scoreSix.setAdapter(scoreAdapter);
         }
 
-        //get data from previous fragment
+        //set textHeader
         text = (TextView)rootView.findViewById(R.id.textView10);
-        text.setText(name);
+        text.setText(sport_name);
 
         //Change string to sync with database string
-        NameSwitcher switcher = new NameSwitcher();
-        name = switcher.UserToDatabase(name);
+
+        sport_name = manager.UserToDatabase(sport_name);
 
         //Database
         databaseSport = FirebaseDatabase.getInstance().getReference("games");
 
-        submit = (Button)rootView.findViewById(R.id.BTN_submit);
-        submit.setOnClickListener(new View.OnClickListener() {
+        submitButton = (Button)rootView.findViewById(R.id.BTN_submit);
+        submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String id = databaseSport.push().getKey();
 
-                if(name == "soccer" || name == "frisbee" ){
+                if(sport_name == "soccer" || sport_name == "frisbee" ){
                     SportNorm sport = new SportNorm(id,teamOne.getSelectedItem().toString(),teamTwo.getSelectedItem().toString(),Integer.parseInt(scoreOne.getSelectedItem().toString()),Integer.parseInt(scoreTwo.getSelectedItem().toString()));
-                    databaseSport.child(name).child(id).setValue(sport);
+                    databaseSport.child(sport_name).child(id).setValue(sport);
                     Toast.makeText(getContext(),"Sport added", Toast.LENGTH_LONG).show();
                 }
                 else
@@ -104,7 +134,7 @@ public class SubmitScore extends BaseFragment {
                     SportSet sport = new SportSet(id,teamOne.getSelectedItem().toString(),teamTwo.getSelectedItem().toString(),Integer.parseInt(scoreOne.getSelectedItem().toString()),Integer.parseInt(scoreTwo.getSelectedItem().toString())
                                                     ,Integer.parseInt(scoreThree.getSelectedItem().toString()),Integer.parseInt(scoreFour.getSelectedItem().toString())
                                                     ,Integer.parseInt(scoreFive.getSelectedItem().toString()),Integer.parseInt(scoreSix.getSelectedItem().toString()));
-                    databaseSport.child(name).child(id).setValue(sport);
+                    databaseSport.child(sport_name).child(id).setValue(sport);
                     Toast.makeText(getContext(),"Sport added", Toast.LENGTH_LONG).show();
                 }
 

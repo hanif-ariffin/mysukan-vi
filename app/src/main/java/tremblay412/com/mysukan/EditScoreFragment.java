@@ -3,7 +3,6 @@ package tremblay412.com.mysukan;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,7 +53,7 @@ public class EditScoreFragment extends BaseFragment {
         headerText.setText(sport_name);
 
         //switch name
-        NameSwitcher switcher = new NameSwitcher();
+        NameManager switcher = new NameManager();
         sport_name = switcher.UserToDatabase(sport_name);
 
 
@@ -99,10 +98,11 @@ public class EditScoreFragment extends BaseFragment {
         currentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                NameSwitcher switcher1 = new NameSwitcher();
+                NameManager switcher1 = new NameManager();
                 sport_name = switcher1.DatabaseToUser(sport_name);
                 args = new Bundle();
-                args.putString("sport_type",sport_name);
+                args.putString("sport_name",sport_name);
+                System.out.println(sport_name);
                 args.putString("id",arrayId.get(i).toString());
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

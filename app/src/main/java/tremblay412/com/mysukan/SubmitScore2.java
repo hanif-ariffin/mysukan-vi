@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -24,7 +23,7 @@ public class SubmitScore2 extends BaseFragment {
     private TextView textHeader;
     private List<String> checker;
     public String sport_name,id;
-    private NameSwitcher switcher;
+    private NameManager switcher;
 
     private Bundle args;
     private DatabaseReference databaseSport;
@@ -35,11 +34,18 @@ public class SubmitScore2 extends BaseFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView;
 
+        //array for checker
         checker = Arrays.asList("badminton_men_doubles","badminton_women_doubles","badminton_mixed_doubles","squash_men_singles","squash_women_singles");
+
+        //get argument from previous fragment
         args = getArguments();
-        sport_name = args.getString("sport_type");
+        sport_name = args.getString("sport_name");
         id = args.getString("id");
-        switcher = new NameSwitcher();
+
+        // switch name to appropriate name according to firebase
+        switcher = new NameManager();
+
+        // check which templete sport need to be use
         if(!checker.contains(switcher.UserToDatabase(sport_name)) ){
             rootView = inflater.inflate(R.layout.submit_score_norm, container, false);
 
@@ -86,24 +92,24 @@ public class SubmitScore2 extends BaseFragment {
             scoreSix.setAdapter(scoreAdapter);
         }
 
-        //get data from previous fragment
+        //set text for the header
         textHeader = (TextView)rootView.findViewById(R.id.textView10);
         textHeader.setText(sport_name);
 
         //Change string to sync with database string
-        NameSwitcher switcher = new NameSwitcher();
+        NameManager switcher = new NameManager();
         sport_name = switcher.UserToDatabase(sport_name);
 
-        //Database
+        //Database creation
         databaseSport = FirebaseDatabase.getInstance().getReference("games");
 
+        //on click listener for button
         submit = (Button)rootView.findViewById(R.id.BTN_submit);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 databaseSport = FirebaseDatabase.getInstance().getReference("games").child(sport_name).child(id);
                 if(!checker.contains(sport_name)) {
-                    System.out.println(id);
                     SportNorm sport = new SportNorm(id,teamOne.getSelectedItem().toString(),teamTwo.getSelectedItem().toString(),Integer.parseInt(scoreOne.getSelectedItem().toString()),Integer.parseInt(scoreTwo.getSelectedItem().toString()));
                     databaseSport.setValue(sport);
                 }else{
@@ -112,7 +118,6 @@ public class SubmitScore2 extends BaseFragment {
                             ,Integer.parseInt(scoreFive.getSelectedItem().toString()),Integer.parseInt(scoreSix.getSelectedItem().toString()));
                     databaseSport.setValue(sport);
                 }
-
             }
         });
 

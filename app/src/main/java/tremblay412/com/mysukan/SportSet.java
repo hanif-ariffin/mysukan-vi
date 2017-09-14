@@ -50,13 +50,9 @@ public class SportSet {
         this.team_1_score_3 = team_1_score_3;
     }
 
-    public String getId() {
-        return id;
-    }
+    public String getId() { return id;}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    public void setId(String id) { this.id = id;}
 
     public void setTeam_2_score_3(int team_2_score_3) {
         this.team_2_score_3 = team_2_score_3;
