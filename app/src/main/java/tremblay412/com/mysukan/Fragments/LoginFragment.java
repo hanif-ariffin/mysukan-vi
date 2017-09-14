@@ -1,9 +1,9 @@
-package tremblay412.com.mysukan;
+package tremblay412.com.mysukan.Fragments;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -19,6 +19,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
+
+import tremblay412.com.mysukan.R;
 
 public class LoginFragment extends BaseFragment {
 
@@ -37,11 +39,12 @@ public class LoginFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View rootView = inflater.inflate(R.layout.activity_login, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_login, container, false);
 
         ET_email = (EditText) rootView.findViewById(R.id.ET_email);
         ET_password = (EditText) rootView.findViewById(R.id.ET_password);
         LoginButton = (Button) rootView.findViewById(R.id.LoginButton);
+
         firebaseAuth = FirebaseAuth.getInstance();
 
         LoginButton.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +53,7 @@ public class LoginFragment extends BaseFragment {
                 UserLogin();
             }
         });
+
         return rootView;
     }
 
@@ -72,7 +76,6 @@ public class LoginFragment extends BaseFragment {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            hideProgressDialog();
                             Toast.makeText(getActivity(), "You are now logged in", Toast.LENGTH_SHORT).show();
 
                             /**
@@ -86,11 +89,10 @@ public class LoginFragment extends BaseFragment {
                             fragmentTransaction.add(R.id.container, adminFragment);
                             fragmentTransaction.commit();
                         } else {
-                            hideProgressDialog();
                             Toast.makeText(getActivity(), "Login failed. Please check your info", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
-
+        hideProgressDialog();
     }
 }

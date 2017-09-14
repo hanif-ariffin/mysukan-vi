@@ -1,9 +1,8 @@
-package tremblay412.com.mysukan;
+package tremblay412.com.mysukan.Activities;
 
 import android.app.ProgressDialog;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +14,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class RegisterActivity extends AppCompatActivity {
+import tremblay412.com.mysukan.R;
+
+public class RegisterActivity extends BaseActivity {
 
     private EditText ET_email;
     private EditText ET_password;
@@ -31,7 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         ET_email = (EditText) findViewById(R.id.ET_email);
         ET_password = (EditText) findViewById(R.id.ET_password);
-        ButtonRegister = (Button) findViewById(R.id.RegisterButton);
+        ButtonRegister = (Button) findViewById(R.id.activity_create_support_create_button);
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
 

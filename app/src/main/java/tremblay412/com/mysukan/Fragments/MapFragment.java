@@ -1,17 +1,11 @@
-package tremblay412.com.mysukan;
+package tremblay412.com.mysukan.Fragments;
 
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.support.annotation.DrawableRes;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.app.Fragment;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -22,16 +16,19 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import tremblay412.com.mysukan.R;
+
+
 /**
  * Created by User on 2017-09-07.
  */
 
-public class MapFragment extends BaseFragment implements OnMapReadyCallback{
+public class MapFragment extends BaseFragment implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private final static LatLng carletonU = new LatLng(45.385863, -75.695903);
-    private final static LatLng carletonU_UC = new LatLng(45.383331,-75.697630);
-    private final static LatLng carletonU_NormFynn = new LatLng(45.385860,-75.692811);
+    private final static LatLng carletonU_UC = new LatLng(45.383331, -75.697630);
+    private final static LatLng carletonU_NormFynn = new LatLng(45.385860, -75.692811);
     private final static LatLng carletonU_RavensNest = new LatLng(45.386450, -75.693282);
     private final static LatLng carletonU_FieldHouse = new LatLng(45.386843, -75.694530);
 
@@ -52,8 +49,8 @@ public class MapFragment extends BaseFragment implements OnMapReadyCallback{
         mMap = googleMap;
         int height = 170;
         int width = 100;
-        BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.mysukan_pinpoint);
-        Bitmap b=bitmapdraw.getBitmap();
+        BitmapDrawable bitmapdraw = (BitmapDrawable) getResources().getDrawable(R.drawable.mysukan_pinpoint);
+        Bitmap b = bitmapdraw.getBitmap();
         Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
 
         mMap.setBuildingsEnabled(true);

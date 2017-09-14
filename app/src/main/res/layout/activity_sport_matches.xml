@@ -1,42 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_page"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="tremblay412.com.mysukan.Fragments.LoginFragment">
+    android:layout_height="match_parent">
 
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center"
+    <include
+        android:id="@+id/include"
+        layout="@layout/include_item_enlarged_match_detail"
+        android:layout_width="370dp"
+        android:layout_height="79dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="32dp"
-        android:text="Scoreboard"
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="24sp"
-        app:layout_constraintHorizontal_bias="0.497"
+        android:layout_marginTop="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:id="@+id/listview1"
-        android:layout_width="match_parent"
-        android:layout_height="393dp"
-        android:layout_gravity="center"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/activity_sport_matches_recyclerview_match"
+        android:layout_width="368dp"
+        android:layout_height="401dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
+        app:layout_constraintTop_toBottomOf="@+id/include"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteY="102dp" />
 
 </android.support.constraint.ConstraintLayout>
