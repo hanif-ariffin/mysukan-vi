@@ -1,4 +1,3 @@
-
 package tremblay412.com.mysukan.activities;
 
 

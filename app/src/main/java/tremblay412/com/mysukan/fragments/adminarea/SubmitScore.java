@@ -136,8 +136,8 @@ public class SubmitScore extends BaseFragment {
                 else
                 {
                     SportSet sport = new SportSet(id,teamOne.getSelectedItem().toString(),teamTwo.getSelectedItem().toString(),Integer.parseInt(scoreOne.getSelectedItem().toString()),Integer.parseInt(scoreTwo.getSelectedItem().toString())
-                                                    ,Integer.parseInt(scoreThree.getSelectedItem().toString()),Integer.parseInt(scoreFour.getSelectedItem().toString())
-                                                    ,Integer.parseInt(scoreFive.getSelectedItem().toString()),Integer.parseInt(scoreSix.getSelectedItem().toString()));
+                            ,Integer.parseInt(scoreThree.getSelectedItem().toString()),Integer.parseInt(scoreFour.getSelectedItem().toString())
+                            ,Integer.parseInt(scoreFive.getSelectedItem().toString()),Integer.parseInt(scoreSix.getSelectedItem().toString()));
                     databaseSport.child(sport_name).child(id).setValue(sport);
                     Toast.makeText(getContext(),"Sport added", Toast.LENGTH_LONG).show();
                 }

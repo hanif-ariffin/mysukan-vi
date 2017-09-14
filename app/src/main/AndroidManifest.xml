@@ -33,6 +33,7 @@
         </activity>
         <activity android:name=".noneedclass.RegisterActivity"></activity>
         <activity android:name=".activities.SportDetailActivity"></activity>
+
     </application>
 
 </manifest>

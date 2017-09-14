@@ -58,10 +58,10 @@ public class NameManager {
                 data = "Rocket League";
                 break;
         }
-        
+
         return data;
     }
-    
+
     public String UserToDatabase(String data){
         this.data = data;
 
