@@ -1,3 +1,4 @@
+
 package tremblay412.com.mysukan.activities;
 
 
@@ -67,4 +68,3 @@ public class MainPageActivity extends BaseActivity {
 
 
 }
-

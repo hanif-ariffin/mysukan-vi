@@ -18,7 +18,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import tremblay412.com.mysukan.R;
 
-
 /**
  * Created by User on 2017-09-07.
  */

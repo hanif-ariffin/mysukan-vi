@@ -10,6 +10,8 @@ import android.widget.ListView;
 import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.helper.SportManager;
 
+import tremblay412.com.mysukan.R;
+
 /**
  * Created by akarin on 07/09/17.
  */
@@ -26,7 +28,7 @@ public class SportFragment extends BaseFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.main_page, container, false);
 
-        //mMainPage = findViewById(R.layout.main_page);
+
         iMainPage = (ViewGroup) rootView.findViewById(R.id.main_page);
 
         iListGames = (ListView) rootView.findViewById(R.id.listview1);
