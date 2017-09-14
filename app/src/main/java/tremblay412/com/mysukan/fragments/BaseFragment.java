@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan;
+package tremblay412.com.mysukan.fragments;
 
 import android.app.ProgressDialog;
 import android.support.v4.app.Fragment;

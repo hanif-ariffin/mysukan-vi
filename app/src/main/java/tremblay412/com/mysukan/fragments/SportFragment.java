@@ -1,8 +1,6 @@
-package tremblay412.com.mysukan;
+package tremblay412.com.mysukan.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +9,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import tremblay412.com.mysukan.R;
 
 /**
  * Created by akarin on 07/09/17.

@@ -1,4 +1,6 @@
-package tremblay412.com.mysukan;
+package tremblay412.com.mysukan.helper;
+
+import tremblay412.com.mysukan.R;
 
 /**
  * Created by Haziq on 2017-09-11.

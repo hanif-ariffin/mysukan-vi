@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan;
+package tremblay412.com.mysukan.fragments.adminarea;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -21,6 +21,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import tremblay412.com.mysukan.helper.NameManager;
+import tremblay412.com.mysukan.R;
+import tremblay412.com.mysukan.fragments.BaseFragment;
 
 public class EditScoreFragment extends BaseFragment {
 
