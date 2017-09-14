@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan.fragment;
+package tremblay412.com.mysukan.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import tremblay412.com.mysukan.R;
-import tremblay412.com.mysukan.helper.BaseFragment;
 
 /**
  * Created by akarin on 07/09/17.

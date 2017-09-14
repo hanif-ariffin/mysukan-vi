@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan.fragment.adminarea;
+package tremblay412.com.mysukan.fragments.adminarea;
 
 /**
  * Created by Haziq on 2017-09-10.

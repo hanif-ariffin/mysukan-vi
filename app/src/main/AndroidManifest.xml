@@ -21,7 +21,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MainPageActivity"
+            android:name=".activities.MainPageActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan">
@@ -32,9 +32,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".noneeedclass.RegisterActivity" />
-        <activity android:name=".fragment.adminarea.NewScoreFragment" />
-        <activity android:name=".fragment.adminarea.SubmitScore" />
-        <activity android:name=".fragment.adminarea.EditScoreFragment"></activity>
+        <activity android:name=".fragments.adminarea.NewScoreFragment" />
+        <activity android:name=".fragments.adminarea.SubmitScore" />
+        <activity android:name=".fragments.adminarea.EditScoreFragment"></activity>
     </application>
 
 </manifest>

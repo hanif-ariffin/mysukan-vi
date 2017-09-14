@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan.fragment;
+package tremblay412.com.mysukan.fragments;
 
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -20,8 +20,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 
 import tremblay412.com.mysukan.R;
-import tremblay412.com.mysukan.fragment.AdminFragment;
-import tremblay412.com.mysukan.helper.BaseFragment;
 
 public class LoginFragment extends BaseFragment {
 

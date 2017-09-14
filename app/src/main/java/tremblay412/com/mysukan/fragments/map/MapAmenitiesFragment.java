@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan.fragment.map;
+package tremblay412.com.mysukan.fragments.map;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -18,13 +18,13 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import tremblay412.com.mysukan.R;
-import tremblay412.com.mysukan.helper.BaseFragment;
+import tremblay412.com.mysukan.fragments.BaseFragment;
 
 /**
- * Created by User on 2017-09-07.
+ * Created by User on 2017-09-12.
  */
 
-public class MapVenueFragment extends BaseFragment implements OnMapReadyCallback{
+public class MapAmenitiesFragment extends BaseFragment implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private final static LatLng carletonU = new LatLng(45.385863, -75.695903);
@@ -66,6 +66,7 @@ public class MapVenueFragment extends BaseFragment implements OnMapReadyCallback
         Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
 
         mMap.setBuildingsEnabled(true);
+        mMap.addMarker(new MarkerOptions().position(carletonU).title("Carleton University").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
         mMap.addMarker(new MarkerOptions().position(carletonU_UC).title("University Centre").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
         mMap.addMarker(new MarkerOptions().position(carletonU_NormFynn).title("Norm Fynn").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
         mMap.addMarker(new MarkerOptions().position(carletonU_RavensNest).title("Raven's Nest").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));

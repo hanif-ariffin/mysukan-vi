@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan.fragment.adminarea;
+package tremblay412.com.mysukan.fragments.adminarea;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import tremblay412.com.mysukan.R;
-import tremblay412.com.mysukan.helper.BaseFragment;
+import tremblay412.com.mysukan.fragments.BaseFragment;
 
 public class NewScoreFragment extends BaseFragment {
 

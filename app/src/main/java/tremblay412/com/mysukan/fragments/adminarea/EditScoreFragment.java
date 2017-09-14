@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan.fragment.adminarea;
+package tremblay412.com.mysukan.fragments.adminarea;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -23,8 +23,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import tremblay412.com.mysukan.R;
-import tremblay412.com.mysukan.helper.BaseFragment;
-import tremblay412.com.mysukan.helper.NameSwitcher;
+import tremblay412.com.mysukan.fragments.BaseFragment;
+import tremblay412.com.mysukan.helper.NameManager;
 
 public class EditScoreFragment extends BaseFragment {
 
@@ -56,7 +56,7 @@ public class EditScoreFragment extends BaseFragment {
         headerText.setText(sport_name);
 
         //switch name
-        NameSwitcher switcher = new NameSwitcher();
+        NameManager switcher = new NameManager();
         sport_name = switcher.UserToDatabase(sport_name);
 
 
@@ -98,7 +98,7 @@ public class EditScoreFragment extends BaseFragment {
         currentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                NameSwitcher switcher1 = new NameSwitcher();
+                NameManager switcher1 = new NameManager();
                 sport_name = switcher1.DatabaseToUser(sport_name);
                 args = new Bundle();
                 args.putString("sport_type",sport_name);

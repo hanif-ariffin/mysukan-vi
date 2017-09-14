@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan;
+package tremblay412.com.mysukan.activities;
 
 
 import android.support.design.widget.TabLayout;
@@ -10,10 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 
-import tremblay412.com.mysukan.fragment.LoginFragment;
-import tremblay412.com.mysukan.fragment.MapFragment;
-import tremblay412.com.mysukan.fragment.map.MapVenueFragment;
-import tremblay412.com.mysukan.fragment.SportFragment;
+import tremblay412.com.mysukan.R;
+import tremblay412.com.mysukan.fragments.LoginFragment;
+import tremblay412.com.mysukan.fragments.MapFragment;
+import tremblay412.com.mysukan.fragments.SportFragment;
 
 /**
  * A login screen that offers login via email/password.

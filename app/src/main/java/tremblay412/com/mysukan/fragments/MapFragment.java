@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan.fragment;
+package tremblay412.com.mysukan.fragments;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -17,10 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import tremblay412.com.mysukan.R;
-import tremblay412.com.mysukan.fragment.map.MapAmenitiesFragment;
-import tremblay412.com.mysukan.fragment.map.MapRestaurantFragment;
-import tremblay412.com.mysukan.fragment.map.MapVenueFragment;
-import tremblay412.com.mysukan.helper.BaseFragment;
+import tremblay412.com.mysukan.fragments.map.MapAmenitiesFragment;
+import tremblay412.com.mysukan.fragments.map.MapRestaurantFragment;
+import tremblay412.com.mysukan.fragments.map.MapVenueFragment;
 
 /**
  * Created by User on 2017-09-12.

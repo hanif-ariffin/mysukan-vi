@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan.fragment.adminarea;
+package tremblay412.com.mysukan.fragments.adminarea;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,23 +13,17 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.Arrays;
-import java.util.List;
-
 import tremblay412.com.mysukan.R;
-import tremblay412.com.mysukan.fragment.adminarea.SportNorm;
-import tremblay412.com.mysukan.fragment.adminarea.SportSet;
-import tremblay412.com.mysukan.helper.BaseFragment;
-import tremblay412.com.mysukan.helper.NameSwitcher;
+import tremblay412.com.mysukan.fragments.BaseFragment;
+import tremblay412.com.mysukan.helper.NameManager;
 
-public class SubmitScore2 extends BaseFragment {
+public class SubmitScore extends BaseFragment {
 
     private Spinner teamOne,teamTwo,scoreOne,scoreTwo, scoreThree, scoreFour, scoreFive, scoreSix;
     ArrayAdapter<CharSequence> teamAdapter, scoreAdapter;
     private Button submit;
     private TextView text;
-    private List<String> checker;
-    public String sport_name;
+    public String name;
 
     private Bundle args;
     private DatabaseReference databaseSport;
@@ -40,8 +34,8 @@ public class SubmitScore2 extends BaseFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView;
         args = getArguments();
-        sport_name = args.getString("sport_type");
-        if(sport_name == "Soccer" || sport_name == "Frisbee" ){
+        name = args.getString("sport_type");
+        if(name == "Soccer" || name == "Frisbee" ){
             rootView = inflater.inflate(R.layout.submit_score_norm, container, false);
 
             teamOne = (Spinner)rootView.findViewById(R.id.teamOne);
@@ -87,14 +81,13 @@ public class SubmitScore2 extends BaseFragment {
             scoreSix.setAdapter(scoreAdapter);
         }
 
-        checker = Arrays.asList("badminton_men_doubles","badminton_women_doubles","badminton_mixed_doubles","squash_men_singles","squash_women_singles");
         //get data from previous fragment
         text = (TextView)rootView.findViewById(R.id.textView10);
-        text.setText(sport_name);
+        text.setText(name);
 
         //Change string to sync with database string
-        NameSwitcher switcher = new NameSwitcher();
-        sport_name = switcher.UserToDatabase(sport_name);
+        NameManager switcher = new NameManager();
+        name = switcher.UserToDatabase(name);
 
         //Database
         databaseSport = FirebaseDatabase.getInstance().getReference("games");
@@ -105,17 +98,20 @@ public class SubmitScore2 extends BaseFragment {
             public void onClick(View view) {
                 String id = databaseSport.push().getKey();
 
-                if(checker.contains(sport_name)) {
-                    SportSet sport = new SportSet(teamOne.getSelectedItem().toString(),teamTwo.getSelectedItem().toString(),Integer.parseInt(scoreOne.getSelectedItem().toString()),Integer.parseInt(scoreTwo.getSelectedItem().toString())
-                            ,Integer.parseInt(scoreThree.getSelectedItem().toString()),Integer.parseInt(scoreFour.getSelectedItem().toString())
-                            ,Integer.parseInt(scoreFive.getSelectedItem().toString()),Integer.parseInt(scoreSix.getSelectedItem().toString()));
-                    databaseSport.child(sport_name).child(id).setValue(sport);
-                    Toast.makeText(getContext(),"Sport edited", Toast.LENGTH_LONG).show();
-                }else{
+                if(name == "soccer" || name == "frisbee" ){
                     SportNorm sport = new SportNorm(teamOne.getSelectedItem().toString(),teamTwo.getSelectedItem().toString(),Integer.parseInt(scoreOne.getSelectedItem().toString()),Integer.parseInt(scoreTwo.getSelectedItem().toString()));
-                    databaseSport.child(sport_name).child(id).setValue(sport);
-                    Toast.makeText(getContext(),"Sport edited", Toast.LENGTH_LONG).show();
+                    databaseSport.child(name).child(id).setValue(sport);
+                    Toast.makeText(getContext(),"Sport added", Toast.LENGTH_LONG).show();
                 }
+                else
+                {
+                    SportSet sport = new SportSet(teamOne.getSelectedItem().toString(),teamTwo.getSelectedItem().toString(),Integer.parseInt(scoreOne.getSelectedItem().toString()),Integer.parseInt(scoreTwo.getSelectedItem().toString())
+                                                    ,Integer.parseInt(scoreThree.getSelectedItem().toString()),Integer.parseInt(scoreFour.getSelectedItem().toString())
+                                                    ,Integer.parseInt(scoreFive.getSelectedItem().toString()),Integer.parseInt(scoreSix.getSelectedItem().toString()));
+                    databaseSport.child(name).child(id).setValue(sport);
+                    Toast.makeText(getContext(),"Sport added", Toast.LENGTH_LONG).show();
+                }
+
 
             }
         });

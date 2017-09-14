@@ -4,9 +4,9 @@ package tremblay412.com.mysukan.helper;
  * Created by Haziq on 2017-09-11.
  */
 
-public class NameSwitcher {
+public class NameManager {
     String data;
-    public NameSwitcher(){}
+    public NameManager(){}
 
     public String DatabaseToUser(String data){
         this.data = data;

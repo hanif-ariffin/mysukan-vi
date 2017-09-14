@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan.fragment.map;
+package tremblay412.com.mysukan.fragments.map;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -18,20 +18,20 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import tremblay412.com.mysukan.R;
-import tremblay412.com.mysukan.helper.BaseFragment;
+import tremblay412.com.mysukan.fragments.BaseFragment;
 
 /**
  * Created by User on 2017-09-12.
  */
 
-public class MapAmenitiesFragment extends BaseFragment implements OnMapReadyCallback {
+public class MapRestaurantFragment extends BaseFragment implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private final static LatLng carletonU = new LatLng(45.385863, -75.695903);
-    private final static LatLng carletonU_UC = new LatLng(45.383331,-75.697630);
-    private final static LatLng carletonU_NormFynn = new LatLng(45.385860,-75.692811);
-    private final static LatLng carletonU_RavensNest = new LatLng(45.386450, -75.693282);
-    private final static LatLng carletonU_FieldHouse = new LatLng(45.386843, -75.694530);
+    private final static LatLng ottawaCity = new LatLng(45.410492, -75.683090);
+    private final static LatLng beaverTails = new LatLng(45.396261, -75.705869);
+    private final static LatLng arianaKabab = new LatLng(45.372508, -75.662594);
+    private final static LatLng sayCheese = new LatLng(45.379425, -75.667502);
+    private final static LatLng popeyes = new LatLng(45.378554, -75.644269);
     private static View view;
 
     @Override
@@ -66,16 +66,15 @@ public class MapAmenitiesFragment extends BaseFragment implements OnMapReadyCall
         Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
 
         mMap.setBuildingsEnabled(true);
-        mMap.addMarker(new MarkerOptions().position(carletonU).title("Carleton University").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
-        mMap.addMarker(new MarkerOptions().position(carletonU_UC).title("University Centre").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
-        mMap.addMarker(new MarkerOptions().position(carletonU_NormFynn).title("Norm Fynn").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
-        mMap.addMarker(new MarkerOptions().position(carletonU_RavensNest).title("Raven's Nest").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
-        mMap.addMarker(new MarkerOptions().position(carletonU_FieldHouse).title("Field House").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(carletonU, 13));
+        mMap.addMarker(new MarkerOptions().position(beaverTails).title("Beaver Tails").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
+        mMap.addMarker(new MarkerOptions().position(arianaKabab).title("Ariana Kabab").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
+        mMap.addMarker(new MarkerOptions().position(sayCheese).title("Say Cheese").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
+        mMap.addMarker(new MarkerOptions().position(popeyes).title("Popeyes").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(ottawaCity, 13));
 
         CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(carletonU)      // Sets the center of the map to location user
-                .zoom(15)                   // Sets the zoom
+                .target(ottawaCity)      // Sets the center of the map to location user
+                .zoom(12)                   // Sets the zoom
                 .bearing(0)                // Sets the orientation of the camera to east
                 .tilt(0)                   // Sets the tilt of the camera to 30 degrees
                 .build();                   // Creates a CameraPosition from the builder
