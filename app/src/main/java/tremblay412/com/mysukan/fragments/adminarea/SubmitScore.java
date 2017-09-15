@@ -43,7 +43,7 @@ public class SubmitScore extends BaseFragment {
         args = getArguments();
         sport_name = args.getString("sport_name");
 
-        if(sport_name == "Soccer" || sport_name == "Frisbee" ){
+        if(sport_name == "SingleScoreMatch" || sport_name == "Frisbee" ){
             rootView = inflater.inflate(R.layout.submit_score_norm, container, false);
 
             //ImageView construction

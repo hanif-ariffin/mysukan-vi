@@ -11,42 +11,30 @@ import java.util.List;
 
 public class SportManager {
 
-    private final static String TAG = "SportManager";
-
-    public static List<String> getListOfSport() {
-        List<String> sports = new ArrayList<>();
-        sports.add("Soccer");
-        return sports;
-    }
-
-    public static String convertToDb(String sportName) {
-        String result = "";
-        switch (sportName) {
-            case ("Soccer"):
-                result = "soccer";
-                break;
-            default:
-                Log.wtf(TAG, "SPORT NAME NOT FOUND");
-                result = "SPORT NAME NOT FOUND";
-        }
-
-        return result;
-    }
-
     public static List<String> getGames() {
-        List<String> lGames = new ArrayList<>();
-        lGames.add("Volleyball");
-        lGames.add("Telematch (F)");
-        lGames.add("Dodgeball");
-        lGames.add("Frisbee");
-        lGames.add("Badminton");
-        lGames.add("Squash");
-        lGames.add("Volleyball (F)");
-        lGames.add("Netball");
-        lGames.add("Basketball");
-        lGames.add("Football");
-        lGames.add("Fifa (E-Games)");
-        lGames.add("Rocket League (E-games)");
-        return lGames;
+        List<String> listOfGames = new ArrayList<>();
+        listOfGames.add("Soccer");
+        listOfGames.add("Badminton Men Doubles");
+        listOfGames.add("Badminton Women Doubles");
+        listOfGames.add("Badminton Mixed Doubles");
+        listOfGames.add("Squash Men Singles");
+        listOfGames.add("Squash Women Singles");
+        listOfGames.add("Frisbee");
+        listOfGames.add("Dodgeball");
+        listOfGames.add("Netball");
+        listOfGames.add("Basketball");
+        listOfGames.add("Sepak Takraw");
+        listOfGames.add("Volleyball");
+        listOfGames.add("Fifa");
+        listOfGames.add("Rocket League");
+        return listOfGames;
+    }
+
+    public static boolean isSingleScore(String sportName) {
+        if (sportName.equals("Soccer") || sportName.equals("Squash")) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }

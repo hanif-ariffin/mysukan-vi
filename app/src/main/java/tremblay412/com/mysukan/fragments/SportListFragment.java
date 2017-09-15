@@ -38,7 +38,7 @@ public class SportListFragment extends BaseFragment {
         View rootView = inflater.inflate(R.layout.fragment_sports, container, false);
 
         sportListView = (ListView) rootView.findViewById(R.id.fragment_sport_listview_sport_list);
-        sportArrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, SportManager.getListOfSport());
+        sportArrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, SportManager.getGames());
         sportListView.setAdapter(sportArrayAdapter);
         sportListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

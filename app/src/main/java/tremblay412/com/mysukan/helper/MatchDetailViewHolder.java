@@ -12,7 +12,7 @@ import tremblay412.com.mysukan.R;
 
 public class MatchDetailViewHolder extends RecyclerView.ViewHolder {
 
-    public TextView sportName;
+    //public TextView sportName;
     public TextView match_time;
     public TextView team_1;
     public TextView team_2;
@@ -20,7 +20,7 @@ public class MatchDetailViewHolder extends RecyclerView.ViewHolder {
     public MatchDetailViewHolder(View itemView) {
         super(itemView);
 
-        sportName = (TextView) itemView.findViewById(R.id.include_item_sport_name);
+        //sportName = (TextView) itemView.findViewById(R.id.include_item_sport_name);
         match_time = (TextView) itemView.findViewById(R.id.text_minimized_time);
         team_1 = (TextView) itemView.findViewById(R.id.text_minimized_team_1);
         team_2 = (TextView) itemView.findViewById(R.id.text_minimized_team_2);

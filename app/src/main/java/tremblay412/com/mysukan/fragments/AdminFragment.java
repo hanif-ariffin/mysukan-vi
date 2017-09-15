@@ -81,7 +81,7 @@ public class AdminFragment extends BaseFragment {
     private List<String> getGames() {
         List<String> lGames = new ArrayList<>();
         lGames.add("Volleyball");
-        lGames.add("Soccer");
+        lGames.add("SingleScoreMatch");
         lGames.add("Badminton Men Doubles");
         lGames.add("Badminton Women Doubles");
         lGames.add("Badminton Mixed Doubles");

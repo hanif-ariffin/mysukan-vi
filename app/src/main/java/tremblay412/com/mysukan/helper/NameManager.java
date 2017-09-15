@@ -9,14 +9,16 @@ import tremblay412.com.mysukan.R;
 public class NameManager {
     String data;
     int dataInt;
-    public NameManager(){}
 
-    public String DatabaseToUser(String data){
+    public NameManager() {
+    }
+
+    public String DatabaseToUser(String data) {
         this.data = data;
 
-        switch (data){
+        switch (data) {
             case "soccer":
-                data = "Soccer";
+                data = "Soocer";
                 break;
             case "badminton_men_doubles":
                 data = "Badminton Men Doubles";
@@ -62,10 +64,10 @@ public class NameManager {
         return data;
     }
 
-    public String UserToDatabase(String data){
+    public String UserToDatabase(String data) {
         this.data = data;
 
-        switch (data){
+        switch (data) {
             case "Soccer":
                 data = "soccer";
                 break;
@@ -112,10 +114,10 @@ public class NameManager {
         return data;
     }
 
-    public int getImageId(String data){
+    public int getImageId(String data) {
         this.data = data;
 
-        switch (data){
+        switch (data) {
             case "Carleton":
                 dataInt = R.drawable.carleton_logo;
                 break;

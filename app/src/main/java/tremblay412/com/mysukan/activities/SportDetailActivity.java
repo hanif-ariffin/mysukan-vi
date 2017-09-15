@@ -13,9 +13,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
 import tremblay412.com.mysukan.helper.MatchDetailViewHolder;
-import tremblay412.com.mysukan.models.Soccer;
+import tremblay412.com.mysukan.helper.NameManager;
+import tremblay412.com.mysukan.models.SingleScoreMatch;
 import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.helper.SportManager;
+import tremblay412.com.mysukan.models.TripleScoreMatch;
 
 /**
  * Created by Akarin on 9/9/2017.
@@ -50,27 +52,38 @@ public class SportDetailActivity extends BaseActivity implements AdapterView.OnI
             mManager.setStackFromEnd(true);
             sportNameRecyclerView.setLayoutManager(mManager);
 
-            Query recentPostsQuery = sportNameReference.child("games").child(SportManager.convertToDb(sportName));
-            Log.d(TAG, recentPostsQuery.toString());
-            mAdapter = new FirebaseRecyclerAdapter<Soccer, MatchDetailViewHolder>(Soccer.class, R.layout.include_item_minimized_match_detail,
-                    MatchDetailViewHolder.class, recentPostsQuery) {
-                @Override
-                protected void populateViewHolder(final MatchDetailViewHolder viewHolder, final Soccer model, final int position) {
-                    final DatabaseReference postRef = getRef(position);
+            NameManager nameManager = new NameManager();
+            Query queryResult = sportNameReference.child("games").child(nameManager.UserToDatabase(sportName)).limitToFirst(100);
+            Log.d(TAG, "Received sportName:" + sportName + " isSingleScore:" + SportManager.isSingleScore(sportName));
 
-                    Log.d(TAG, "Model obtained with values id:" + model.id + " match_date:" + model.match_date + " team_1_name:" + model.team_1_name + " team_2_name:" + model.team_2_name);
-                    Log.d(TAG, "" + viewHolder.sportName + " " + viewHolder.match_time + " " + viewHolder.team_1 + " " + viewHolder.team_2);
+            if (SportManager.isSingleScore(sportName)) {
+                mAdapter = new FirebaseRecyclerAdapter<SingleScoreMatch, MatchDetailViewHolder>(SingleScoreMatch.class, R.layout.include_item_minimized_match_detail,
+                        MatchDetailViewHolder.class, queryResult) {
+                    @Override
+                    protected void populateViewHolder(final MatchDetailViewHolder viewHolder, final SingleScoreMatch model, final int position) {
+                        final DatabaseReference postRef = getRef(position);
+                        Log.d(TAG, "postRef with position:" + position + " contains:" + postRef.toString());
+                        Log.d(TAG, "Model obtained with values id:" + model.id + " match_date:" + model.match_date + " team_1_name:" + model.team_1_name + " team_2_name:" + model.team_2_name);
 
-                    String matchDate = "" + model.match_date;
-                    String teamOne = "" + model.team_1_name;
-                    String teamTwo = "" + model.team_2_name;
+                        viewHolder.match_time.setText("" + model.match_date);
+                        viewHolder.team_1.setText(model.team_1_name);
+                        viewHolder.team_2.setText(model.team_2_name);
+                    }
+                };
+            } else {
+                mAdapter = new FirebaseRecyclerAdapter<TripleScoreMatch, MatchDetailViewHolder>(TripleScoreMatch.class, R.layout.include_item_minimized_match_detail,
+                        MatchDetailViewHolder.class, queryResult) {
+                    @Override
+                    protected void populateViewHolder(MatchDetailViewHolder viewHolder, TripleScoreMatch model, final int position) {
 
-                    viewHolder.match_time.setText(matchDate);
-                    viewHolder.team_1.setText(teamOne);
-                    viewHolder.team_2.setText(teamTwo);
-                }
-            };
+                        Log.d(TAG, "Model obtained with values id:" + model.id + " match_date:" + model.match_date + " team_1_name:" + model.team_1_name + " team_2_name:" + model.team_2_name);
 
+                        viewHolder.match_time.setText("" + model.match_date);
+                        viewHolder.team_1.setText(model.team_1_name);
+                        viewHolder.team_2.setText(model.team_2_name);
+                    }
+                };
+            }
             sportNameRecyclerView.setAdapter(mAdapter);
         }
     }
