@@ -38,8 +38,11 @@ public class SportDetailActivity extends BaseActivity {
     /**
      * SportDetail's top enlarged UI
      */
-    private TextView teamOneName, teamTwoName;
-    private ImageView teamOneImage, teamTwoImage;
+    private TextView textViewteamOneName, textViewteamTwoName;
+    private ImageView imageViewteamOneImage, imageViewteamTwoImage;
+
+    NameManager nameManager;
+
     String sportName; // or other values
 
 
@@ -49,10 +52,10 @@ public class SportDetailActivity extends BaseActivity {
         setContentView(R.layout.activity_sport_matches);
 
         // Get the XML object
-        teamOneName = (TextView) findViewById(R.id.include_item_enlarged_match_detail_text_team_one);
-        teamTwoName = (TextView) findViewById(R.id.include_item_enlarged_match_detail_text_team_one);
-        teamOneImage = (ImageView) findViewById(R.id.include_item_enlarged_match_detail_image_team_one);
-        teamTwoImage = (ImageView) findViewById(R.id.include_item_enlarged_match_detail_image_team_two);
+        textViewteamOneName = (TextView) findViewById(R.id.include_item_enlarged_match_detail_text_team_one);
+        textViewteamTwoName = (TextView) findViewById(R.id.include_item_enlarged_match_detail_text_team_two);
+        imageViewteamOneImage = (ImageView) findViewById(R.id.include_item_enlarged_match_detail_image_team_one);
+        imageViewteamTwoImage = (ImageView) findViewById(R.id.include_item_enlarged_match_detail_image_team_two);
 
 
         // Bundle received from the Activity creating this Activity
@@ -71,7 +74,7 @@ public class SportDetailActivity extends BaseActivity {
             mManager.setStackFromEnd(true);
             sportNameRecyclerView.setLayoutManager(mManager);
 
-            final NameManager nameManager = new NameManager();
+            nameManager = new NameManager();
             Query queryResult = sportNameReference.child("games").child(nameManager.UserToDatabase(sportName));
 
             Log.d(TAG, "Received sportName:" + sportName + " isSingleScore:" + SportManager.isSingleScore(sportName));
@@ -91,35 +94,33 @@ public class SportDetailActivity extends BaseActivity {
                         @Override
                         public void onClick(View v) {
                             Log.d(TAG, "User clicked at match with id:" + model.id);
-                            teamOneName.setText(model.team_1_name);
-                            teamOneImage.setImageResource(nameManager.getImageId(model.team_1_name));
-                            teamTwoName.setText(model.team_2_name);
-                            teamTwoImage.setImageResource(nameManager.getImageId(model.team_2_name));
+                            updateEnlargeMatchDetail(model.team_1_name, model.team_2_name);
                         }
                     });
                     viewHolder.team_2.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             Log.d(TAG, "User clicked at match with id:" + model.id);
-                            teamOneName.setText(model.team_1_name);
-                            teamOneImage.setImageResource(nameManager.getImageId(model.team_1_name));
-                            teamTwoName.setText(model.team_2_name);
-                            teamTwoImage.setImageResource(nameManager.getImageId(model.team_2_name));
+                            updateEnlargeMatchDetail(model.team_1_name, model.team_2_name);
                         }
                     });
                     viewHolder.match_time.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             Log.d(TAG, "User clicked at match with id:" + model.id);
-                            teamOneName.setText(model.team_1_name);
-                            teamOneImage.setImageResource(nameManager.getImageId(model.team_1_name));
-                            teamTwoName.setText(model.team_2_name);
-                            teamTwoImage.setImageResource(nameManager.getImageId(model.team_2_name));
+                            updateEnlargeMatchDetail(model.team_1_name, model.team_2_name);
                         }
                     });
                 }
             };
             sportNameRecyclerView.setAdapter(mAdapter);
         }
+    }
+
+    public void updateEnlargeMatchDetail(String teamOneName, String teamTwoName) {
+        textViewteamOneName.setText(teamOneName);
+        imageViewteamOneImage.setImageResource(nameManager.getImageId(teamOneName));
+        textViewteamTwoName.setText(teamTwoName);
+        imageViewteamTwoImage.setImageResource(nameManager.getImageId(teamTwoName));
     }
 }
