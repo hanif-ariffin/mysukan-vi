@@ -38,15 +38,13 @@ public class SportDetailActivity extends BaseActivity {
     private RecyclerView sportNameRecyclerView;
     private DatabaseReference sportNameReference;
 
-    /**
-     * SportDetail's top enlarged UI
-     */
+    // Enlarged match detail UI hooks
     private TextView textViewteamOneName, textViewteamTwoName, matchScore;
     private ImageView imageViewteamOneImage, imageViewteamTwoImage;
 
-    NameManager nameManager;
 
-    String sportName; // or other values
+    // Current sport
+    String sportName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,8 +74,7 @@ public class SportDetailActivity extends BaseActivity {
             mManager.setStackFromEnd(true);
             sportNameRecyclerView.setLayoutManager(mManager);
 
-            nameManager = new NameManager();
-            Query queryResult = sportNameReference.child("games").child(nameManager.UserToDatabase(sportName));
+            Query queryResult = sportNameReference.child("games").child(NameManager.UserToDatabase(sportName));
 
             Log.d(TAG, "Received sportName:" + sportName + " isSingleScore:" + SportManager.isSingleScore(sportName));
             mAdapter = new FirebaseRecyclerAdapter<SingleScoreMatch, MatchDetailViewHolder>(SingleScoreMatch.class, R.layout.include_item_minimized_match_detail,
@@ -124,9 +121,9 @@ public class SportDetailActivity extends BaseActivity {
 
     public void updateEnlargedMatchDetail(String teamOneName, String teamTwoName, Long teamOneScore, Long teamTwoScore) {
         textViewteamOneName.setText(teamOneName);
-        imageViewteamOneImage.setImageResource(nameManager.getImageId(teamOneName));
+        imageViewteamOneImage.setImageResource(NameManager.getImageId(teamOneName));
         textViewteamTwoName.setText(teamTwoName);
-        imageViewteamTwoImage.setImageResource(nameManager.getImageId(teamTwoName));
+        imageViewteamTwoImage.setImageResource(NameManager.getImageId(teamTwoName));
         matchScore.setText(teamOneScore + " - " + teamTwoScore);
     }
 }
