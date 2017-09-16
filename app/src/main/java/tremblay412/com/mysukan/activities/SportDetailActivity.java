@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
@@ -45,6 +46,7 @@ public class SportDetailActivity extends BaseActivity {
 
     // Current sport
     String sportName;
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +59,9 @@ public class SportDetailActivity extends BaseActivity {
         imageViewteamOneImage = (ImageView) findViewById(R.id.include_item_enlarged_match_detail_image_team_one);
         imageViewteamTwoImage = (ImageView) findViewById(R.id.include_item_enlarged_match_detail_image_team_two);
         matchScore = (TextView) findViewById(R.id.include_item_enlarged_match_detail_score);
+
+        // Initialized Firebase authentication
+        firebaseAuth = FirebaseAuth.getInstance();
 
         // Bundle received from the Activity creating this Activity
         Bundle bundle = getIntent().getExtras();
@@ -125,5 +130,11 @@ public class SportDetailActivity extends BaseActivity {
         textViewteamTwoName.setText(teamTwoName);
         imageViewteamTwoImage.setImageResource(NameManager.getImageId(teamTwoName));
         matchScore.setText(teamOneScore + " - " + teamTwoScore);
+
+        if (firebaseAuth.getCurrentUser() != null) {
+            Log.d(TAG, "User logged in with email:" + firebaseAuth.getCurrentUser().getEmail());
+        } else {
+            Log.d(TAG, "User is not logged in");
+        }
     }
 }

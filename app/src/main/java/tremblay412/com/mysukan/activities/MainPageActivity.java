@@ -64,6 +64,4 @@ public class MainPageActivity extends BaseActivity {
 
         return iconTab;
     }
-
-
 }
