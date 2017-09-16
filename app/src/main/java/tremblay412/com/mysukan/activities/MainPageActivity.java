@@ -7,10 +7,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
+import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.fragments.LoginFragment;
 import tremblay412.com.mysukan.fragments.MapFragment;
 import tremblay412.com.mysukan.fragments.SportListFragment;
-import tremblay412.com.mysukan.R;
 
 /**
  * A login screen that offers login via email/password.
