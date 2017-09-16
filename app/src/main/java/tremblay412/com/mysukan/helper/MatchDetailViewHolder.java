@@ -12,6 +12,7 @@ import tremblay412.com.mysukan.R;
 
 public class MatchDetailViewHolder extends RecyclerView.ViewHolder {
 
+    private static final String TAG = "MatchDetailViewHolder";
     public TextView match_time;
     public TextView team_1;
     public TextView team_2;

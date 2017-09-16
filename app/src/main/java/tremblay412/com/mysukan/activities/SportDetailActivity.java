@@ -13,6 +13,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.helper.MatchDetailViewHolder;
 import tremblay412.com.mysukan.helper.NameManager;
@@ -38,13 +41,12 @@ public class SportDetailActivity extends BaseActivity {
     /**
      * SportDetail's top enlarged UI
      */
-    private TextView textViewteamOneName, textViewteamTwoName;
+    private TextView textViewteamOneName, textViewteamTwoName, matchScore;
     private ImageView imageViewteamOneImage, imageViewteamTwoImage;
 
     NameManager nameManager;
 
     String sportName; // or other values
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +58,7 @@ public class SportDetailActivity extends BaseActivity {
         textViewteamTwoName = (TextView) findViewById(R.id.include_item_enlarged_match_detail_text_team_two);
         imageViewteamOneImage = (ImageView) findViewById(R.id.include_item_enlarged_match_detail_image_team_one);
         imageViewteamTwoImage = (ImageView) findViewById(R.id.include_item_enlarged_match_detail_image_team_two);
-
+        matchScore = (TextView) findViewById(R.id.include_item_enlarged_match_detail_score);
 
         // Bundle received from the Activity creating this Activity
         Bundle bundle = getIntent().getExtras();
@@ -85,30 +87,33 @@ public class SportDetailActivity extends BaseActivity {
                     final DatabaseReference postRef = getRef(position);
                     Log.d(TAG, "postRef with position:" + position + " contains:" + postRef.toString());
                     Log.d(TAG, "Model obtained with values id:" + model.id + " match_date:" + model.match_date + " team_1_name:" + model.team_1_name + " team_2_name:" + model.team_2_name);
-
-                    viewHolder.match_time.setText("" + model.match_date);
+                    String time = "";
+                    if (model.match_date != null) {
+                        time = new SimpleDateFormat("HH:mm a").format(new Date(model.match_date * 1000L));
+                    }
+                    viewHolder.match_time.setText(time);
                     viewHolder.team_1.setText(model.team_1_name);
                     viewHolder.team_2.setText(model.team_2_name);
 
                     viewHolder.team_1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Log.d(TAG, "User clicked at match with id:" + model.id);
-                            updateEnlargeMatchDetail(model.team_1_name, model.team_2_name);
+                            Log.d(TAG, "User clicked at a match with id:" + model.id);
+                            updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, model.team_1_score_1, model.team_2_score_1);
                         }
                     });
                     viewHolder.team_2.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Log.d(TAG, "User clicked at match with id:" + model.id);
-                            updateEnlargeMatchDetail(model.team_1_name, model.team_2_name);
+                            Log.d(TAG, "User clicked at a match with id:" + model.id);
+                            updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, model.team_1_score_1, model.team_2_score_1);
                         }
                     });
                     viewHolder.match_time.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Log.d(TAG, "User clicked at match with id:" + model.id);
-                            updateEnlargeMatchDetail(model.team_1_name, model.team_2_name);
+                            Log.d(TAG, "User clicked at a match with id:" + model.id);
+                            updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, model.team_1_score_1, model.team_2_score_1);
                         }
                     });
                 }
@@ -117,10 +122,11 @@ public class SportDetailActivity extends BaseActivity {
         }
     }
 
-    public void updateEnlargeMatchDetail(String teamOneName, String teamTwoName) {
+    public void updateEnlargedMatchDetail(String teamOneName, String teamTwoName, Long teamOneScore, Long teamTwoScore) {
         textViewteamOneName.setText(teamOneName);
         imageViewteamOneImage.setImageResource(nameManager.getImageId(teamOneName));
         textViewteamTwoName.setText(teamTwoName);
         imageViewteamTwoImage.setImageResource(nameManager.getImageId(teamTwoName));
+        matchScore.setText(teamOneScore + " - " + teamTwoScore);
     }
 }

@@ -1,5 +1,7 @@
 package tremblay412.com.mysukan.helper;
 
+import android.util.Log;
+
 import tremblay412.com.mysukan.R;
 
 /**
@@ -7,15 +9,10 @@ import tremblay412.com.mysukan.R;
  */
 
 public class NameManager {
-    String data;
-    int dataInt;
 
-    public NameManager() {
-    }
+    private static final String TAG = "NameManager";
 
-    public String DatabaseToUser(String data) {
-        this.data = data;
-
+    public static String DatabaseToUser(String data) {
         switch (data) {
             case "soccer":
                 data = "Soocer";
@@ -59,13 +56,16 @@ public class NameManager {
             case "rocket_league":
                 data = "Rocket League";
                 break;
+            default:
+                Log.wtf(TAG, "Unable to find matching replacement for data:" + data);
+                data = "UNDEFINED";
+                break;
         }
 
         return data;
     }
 
-    public String UserToDatabase(String data) {
-        this.data = data;
+    public static String UserToDatabase(String data) {
 
         switch (data) {
             case "Soccer":
@@ -110,12 +110,17 @@ public class NameManager {
             case "Rocket League":
                 data = "rocket_league";
                 break;
+            default:
+                Log.wtf(TAG, "Unable to find matching replacement for data:" + data);
+                data = "UNDEFINED";
+                break;
         }
         return data;
     }
 
-    public int getImageId(String data) {
-        this.data = data;
+    public static int getImageId(String data) {
+
+        int dataInt = 0;
 
         switch (data) {
             case "Carleton":
@@ -138,6 +143,16 @@ public class NameManager {
                 break;
             case "UBC":
                 dataInt = R.drawable.ubc_logo;
+                break;
+            case "Ottawa":
+                dataInt = R.drawable.uottawa_logo;
+                break;
+            case "Queens":
+                dataInt = R.drawable.queens_logo;
+                break;
+            default:
+                Log.wtf(TAG, "Unable to find matching image for data:" + data);
+                dataInt = 0;
                 break;
         }
         return dataInt;

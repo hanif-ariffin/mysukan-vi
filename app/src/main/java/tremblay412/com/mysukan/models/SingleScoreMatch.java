@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class SingleScoreMatch {
 
-    public Long match_date, team_1_score, team_2_score;
+    public Long match_date, team_1_score_1, team_2_score_1;
     public String team_1_name, team_2_name, id;
 
     // Functions required for Firebase
@@ -29,11 +29,11 @@ public class SingleScoreMatch {
 
         // First team
         map.put("team_1_name", team_1_name);
-        map.put("team_1_score", team_1_score);
+        map.put("team_1_score_1", team_1_score_1);
 
         // Second team
         map.put("team_2_name", team_2_name);
-        map.put("team_2_score", team_2_score);
+        map.put("team_2_score_1", team_2_score_1);
 
         return map;
     }
