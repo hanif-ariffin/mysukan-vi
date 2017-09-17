@@ -1,5 +1,7 @@
 package tremblay412.com.mysukan.helper;
 
+import android.util.Log;
+
 import tremblay412.com.mysukan.R;
 
 /**
@@ -7,16 +9,13 @@ import tremblay412.com.mysukan.R;
  */
 
 public class NameManager {
-    String data;
-    int dataInt;
-    public NameManager(){}
 
-    public String DatabaseToUser(String data){
-        this.data = data;
+    private static final String TAG = "NameManager";
 
-        switch (data){
+    public static String DatabaseToUser(String data) {
+        switch (data) {
             case "soccer":
-                data = "Soccer";
+                data = "Soocer";
                 break;
             case "badminton_men_doubles":
                 data = "Badminton Men Doubles";
@@ -57,15 +56,18 @@ public class NameManager {
             case "rocket_league":
                 data = "Rocket League";
                 break;
+            default:
+                Log.wtf(TAG, "Unable to find matching replacement for data:" + data);
+                data = "UNDEFINED";
+                break;
         }
-        
+
         return data;
     }
-    
-    public String UserToDatabase(String data){
-        this.data = data;
 
-        switch (data){
+    public static String UserToDatabase(String data) {
+
+        switch (data) {
             case "Soccer":
                 data = "soccer";
                 break;
@@ -108,14 +110,19 @@ public class NameManager {
             case "Rocket League":
                 data = "rocket_league";
                 break;
+            default:
+                Log.wtf(TAG, "Unable to find matching replacement for data:" + data);
+                data = "UNDEFINED";
+                break;
         }
         return data;
     }
 
-    public int getImageId(String data){
-        this.data = data;
+    public static int getImageId(String data) {
 
-        switch (data){
+        int dataInt = 0;
+
+        switch (data) {
             case "Carleton":
                 dataInt = R.drawable.carleton_logo;
                 break;
@@ -136,6 +143,16 @@ public class NameManager {
                 break;
             case "UBC":
                 dataInt = R.drawable.ubc_logo;
+                break;
+            case "Ottawa":
+                dataInt = R.drawable.uottawa_logo;
+                break;
+            case "Queens":
+                dataInt = R.drawable.queens_logo;
+                break;
+            default:
+                Log.wtf(TAG, "Unable to find matching image for data:" + data);
+                dataInt = 0;
                 break;
         }
         return dataInt;

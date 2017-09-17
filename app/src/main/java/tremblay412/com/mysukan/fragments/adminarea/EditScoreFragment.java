@@ -1,9 +1,9 @@
 package tremblay412.com.mysukan.fragments.adminarea;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,9 +22,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import tremblay412.com.mysukan.helper.NameManager;
 import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.fragments.BaseFragment;
+import tremblay412.com.mysukan.helper.NameManager;
 
 public class EditScoreFragment extends BaseFragment {
 
@@ -41,24 +41,23 @@ public class EditScoreFragment extends BaseFragment {
     private ListView currentList;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.activity_edit_score,container,false);
+        View view = inflater.inflate(R.layout.activity_edit_score, container, false);
 
-        checker = Arrays.asList("badminton_men_doubles","badminton_women_doubles","badminton_mixed_doubles","squash_men_singles","squash_women_singles");
+        checker = Arrays.asList("badminton_men_doubles", "badminton_women_doubles", "badminton_mixed_doubles", "squash_men_singles", "squash_women_singles");
         arrayId = new ArrayList<>();
 
         sportSet = new ArrayList<>();
         sportNorm = new ArrayList<>();
 
         args = getArguments();
-        sport_name =  args.getString("sport_name");
-        headerText = (TextView)view.findViewById(R.id.textView5);
+        sport_name = args.getString("sport_name");
+        headerText = (TextView) view.findViewById(R.id.textView5);
         headerText.setText(sport_name);
 
         //switch name
-        NameManager switcher = new NameManager();
-        sport_name = switcher.UserToDatabase(sport_name);
+        sport_name = NameManager.UserToDatabase(sport_name);
 
 
         final ArrayAdapter<String> lArrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, data1);
@@ -70,15 +69,14 @@ public class EditScoreFragment extends BaseFragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 sportSet.clear();
                 data1.clear();
-                for(DataSnapshot sportSnapshot : dataSnapshot.getChildren()){
-                    if(checker.contains(sport_name)) {
+                for (DataSnapshot sportSnapshot : dataSnapshot.getChildren()) {
+                    if (checker.contains(sport_name)) {
                         SportSet sport = sportSnapshot.getValue(SportSet.class);
                         sportSet.add(sport);
                         arrayId.add(sport.getId());
                         data1.add(sport.team_1_name + " vs " + sport.team_2_name);
                         lArrayAdapter.notifyDataSetChanged();
-                    }
-                    else{
+                    } else {
                         SportNorm sport = sportSnapshot.getValue(SportNorm.class);
                         sportNorm.add(sport);
                         id = sport.getId();
@@ -96,23 +94,22 @@ public class EditScoreFragment extends BaseFragment {
             }
         });
 
-        currentList = (ListView)view.findViewById(R.id.listView11);
+        currentList = (ListView) view.findViewById(R.id.listView11);
         currentList.setAdapter(lArrayAdapter);
 
         currentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                NameManager switcher1 = new NameManager();
-                sport_name = switcher1.DatabaseToUser(sport_name);
+                sport_name = NameManager.DatabaseToUser(sport_name);
                 args = new Bundle();
-                args.putString("sport_name",sport_name);
+                args.putString("sport_name", sport_name);
                 System.out.println(sport_name);
-                args.putString("id",arrayId.get(i).toString());
+                args.putString("id", arrayId.get(i).toString());
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 Fragment fr = new SubmitScore2();
                 fr.setArguments(args);
-                fragmentTransaction.replace(R.id.edit_score,fr,fr.toString());
+                fragmentTransaction.replace(R.id.edit_score, fr, fr.toString());
                 fragmentTransaction.commit();
             }
         });

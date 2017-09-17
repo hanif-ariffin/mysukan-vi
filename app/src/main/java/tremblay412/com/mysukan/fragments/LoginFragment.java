@@ -1,10 +1,10 @@
 package tremblay412.com.mysukan.fragments;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,16 +17,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
 
 import tremblay412.com.mysukan.R;
 
 public class LoginFragment extends BaseFragment {
 
-    // [START define_database_reference]
-    private DatabaseReference mDatabase;
-    // [END define_database_reference]
-
+    private static final String TAG = "LoginFragment";
 
     private EditText ET_email, ET_password;
     private Button LoginButton;
@@ -40,9 +36,12 @@ public class LoginFragment extends BaseFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         rootView = inflater.inflate(R.layout.activity_login, container, false);
 
+        //Initialize XML hookss
         ET_email = (EditText) rootView.findViewById(R.id.ET_email);
         ET_password = (EditText) rootView.findViewById(R.id.ET_password);
         LoginButton = (Button) rootView.findViewById(R.id.LoginButton);
+
+        // Initialize Firebase authentication
         firebaseAuth = FirebaseAuth.getInstance();
 
         LoginButton.setOnClickListener(new View.OnClickListener() {
@@ -74,28 +73,22 @@ public class LoginFragment extends BaseFragment {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()) {
-
                             hideProgressDialog();
                             LoginButton.setVisibility(View.INVISIBLE);
-                            Toast.makeText(getActivity(), "You are now logged in", Toast.LENGTH_SHORT).show();
+
                             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
                             Fragment fr = new AdminFragment();
-                            fragmentTransaction.replace(R.id.login_fragment,fr,fr.toString());
+                            fragmentTransaction.replace(R.id.login_fragment, fr, fr.toString());
                             fragmentTransaction.commit();
 
-
-
+                            Toast.makeText(getActivity(), "You are now logged in", Toast.LENGTH_SHORT).show();
                         } else {
                             hideProgressDialog();
                             Toast.makeText(getActivity(), "Login failed. Please check your info", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
-
     }
-
-//    private Boolean getIsSuccess{
-//
-//    }
 }

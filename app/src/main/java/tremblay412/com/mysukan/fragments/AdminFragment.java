@@ -1,9 +1,9 @@
 package tremblay412.com.mysukan.fragments;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,26 +14,26 @@ import android.widget.ListView;
 
 import com.google.firebase.database.DatabaseReference;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import tremblay412.com.mysukan.fragments.adminarea.EditScoreFragment;
-import tremblay412.com.mysukan.fragments.adminarea.NewScoreFragment;
 import tremblay412.com.mysukan.R;
+import tremblay412.com.mysukan.fragments.adminarea.NewScoreFragment;
+import tremblay412.com.mysukan.helper.SportManager;
 
-public class AdminFragment extends BaseFragment{
+public class AdminFragment extends BaseFragment {
     Button newScore;
     private DatabaseReference databaseSport;
     private ListView dataListView;
-    private Bundle args;
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.activity_admin,container,false);
+    private Bundle bundle;
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
+        View view = inflater.inflate(R.layout.activity_admin, container, false);
+        setMenuVisibility(true);
+        setHasOptionsMenu(true);
         dataListView = (ListView) view.findViewById(R.id.listview00);
 
-        newScore = (Button)view.findViewById(R.id.BTN_newscore);
+        newScore = (Button) view.findViewById(R.id.BTN_newscore);
         newScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,16 +41,13 @@ public class AdminFragment extends BaseFragment{
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 android.support.v4.app.Fragment fr = new NewScoreFragment();
-                fragmentTransaction.replace(R.id.activity_admin,fr,fr.toString());
+                fragmentTransaction.replace(R.id.activity_admin, fr, fr.toString());
                 fragmentTransaction.commit();
             }
         });
 
 
-
-
-
-        ArrayAdapter<String> lArrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, getGames());
+        ArrayAdapter<String> lArrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, SportManager.getGames());
         dataListView.setAdapter(lArrayAdapter);
 
         //Listener for listview
@@ -61,37 +58,16 @@ public class AdminFragment extends BaseFragment{
                 newScore.setVisibility(View.INVISIBLE);
                 dataListView.setVisibility(View.INVISIBLE);
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                args = new Bundle();
-                args.putString("sport_name",dataListView.getItemAtPosition(i).toString());
-                System.out.println(dataListView.getItemAtPosition(i).toString());
+                bundle = new Bundle();
+                bundle.putString("sport_name", dataListView.getItemAtPosition(i).toString());
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 Fragment fr = new EditScoreFragment();
-                fr.setArguments(args);
-                fragmentTransaction.replace(R.id.activity_admin,fr,fr.toString());
+                fr.setArguments(bundle);
+                fragmentTransaction.replace(R.id.activity_admin, fr, fr.toString());
                 fragmentTransaction.commit();
             }
         });
 
         return view;
-    }
-
-
-    private List<String> getGames() {
-        List<String> lGames = new ArrayList<>();
-        lGames.add("Volleyball");
-        lGames.add("Soccer");
-        lGames.add("Badminton Men Doubles");
-        lGames.add("Badminton Women Doubles");
-        lGames.add("Badminton Mixed Doubles");
-        lGames.add("Squash Men Singles");
-        lGames.add("Squash Women Singles");
-        lGames.add("Frisbee");
-        lGames.add("Dodgeball");
-        lGames.add("Netball");
-        lGames.add("Basketball");
-        lGames.add("Sepak Takraw");
-        lGames.add("Fifa");
-        lGames.add("Rocket League");
-        return lGames;
     }
 }
