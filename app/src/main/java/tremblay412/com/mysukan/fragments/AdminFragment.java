@@ -14,8 +14,8 @@ import android.widget.ListView;
 
 import com.google.firebase.database.DatabaseReference;
 
-import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.fragments.adminarea.EditScoreFragment;
+import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.fragments.adminarea.NewScoreFragment;
 import tremblay412.com.mysukan.helper.SportManager;
 

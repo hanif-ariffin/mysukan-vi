@@ -16,9 +16,9 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import java.util.ArrayList;
 import java.util.List;
 
+import tremblay412.com.mysukan.fragments.map.MapRestaurantFragment;
 import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.fragments.map.MapAmenitiesFragment;
-import tremblay412.com.mysukan.fragments.map.MapRestaurantFragment;
 import tremblay412.com.mysukan.fragments.map.MapVenueFragment;
 
 /**

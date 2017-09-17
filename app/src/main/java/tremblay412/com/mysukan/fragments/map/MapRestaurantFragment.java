@@ -61,8 +61,8 @@ public class MapRestaurantFragment extends BaseFragment implements OnMapReadyCal
         mMap = googleMap;
         int height = 170;
         int width = 100;
-        BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.mysukan_pinpoint);
-        Bitmap b=bitmapdraw.getBitmap();
+        BitmapDrawable bitmapdraw = (BitmapDrawable) getResources().getDrawable(R.drawable.mysukan_pinpoint);
+        Bitmap b = bitmapdraw.getBitmap();
         Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
 
         mMap.setBuildingsEnabled(true);

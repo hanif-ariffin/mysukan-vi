@@ -12,13 +12,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.fragments.BaseFragment;
 import tremblay412.com.mysukan.helper.SportManager;
-import tremblay412.com.mysukan.helper.SportNameAdapter;
 
 public class NewScoreFragment extends BaseFragment {
 

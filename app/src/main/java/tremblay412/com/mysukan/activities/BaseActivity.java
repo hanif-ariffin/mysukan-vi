@@ -48,7 +48,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int i = item.getItemId();
-        if (i == R.id.menu_action_logout) {
+        if (i == R.id.menu_developers_info) {
             FirebaseAuth.getInstance().signOut();
             return true;
         } else {

@@ -15,9 +15,9 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import tremblay412.com.mysukan.helper.NameManager;
 import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.fragments.BaseFragment;
-import tremblay412.com.mysukan.helper.NameManager;
 
 public class SubmitScore extends BaseFragment {
 

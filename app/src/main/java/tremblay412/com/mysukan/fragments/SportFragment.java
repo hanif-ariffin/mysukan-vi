@@ -10,10 +10,6 @@ import android.widget.ListView;
 import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.helper.SportManager;
 
-import tremblay412.com.mysukan.R;
-
-import tremblay412.com.mysukan.R;
-
 /**
  * Created by akarin on 07/09/17.
  */
