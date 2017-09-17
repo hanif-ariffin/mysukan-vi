@@ -17,12 +17,12 @@ import com.google.firebase.database.Query;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.helper.MatchDetailViewHolder;
 import tremblay412.com.mysukan.helper.NameManager;
 import tremblay412.com.mysukan.helper.SportManager;
 import tremblay412.com.mysukan.models.SingleScoreMatch;
 import tremblay412.com.mysukan.models.TripleScoreMatch;
-import tremblay412.com.mysukan.R;
 
 /**
  * Created by Akarin on 9/9/2017.

@@ -73,23 +73,22 @@ public class LoginFragment extends BaseFragment {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()) {
-
                             hideProgressDialog();
                             LoginButton.setVisibility(View.INVISIBLE);
-                            Toast.makeText(getActivity(), "You are now logged in", Toast.LENGTH_SHORT).show();
+
                             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
                             Fragment fr = new AdminFragment();
                             fragmentTransaction.replace(R.id.login_fragment, fr, fr.toString());
                             fragmentTransaction.commit();
 
-
+                            Toast.makeText(getActivity(), "You are now logged in", Toast.LENGTH_SHORT).show();
                         } else {
                             hideProgressDialog();
                             Toast.makeText(getActivity(), "Login failed. Please check your info", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
-
     }
 }

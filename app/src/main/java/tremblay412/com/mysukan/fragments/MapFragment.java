@@ -45,7 +45,6 @@ public class MapFragment extends BaseFragment implements OnMapReadyCallback {
         TabLayout tabs = (TabLayout) view.findViewById(R.id.result_tabs);
         tabs.setupWithViewPager(viewPager);
 
-
         return view;
 
     }
@@ -59,14 +58,10 @@ public class MapFragment extends BaseFragment implements OnMapReadyCallback {
         adapter.addFragment(new MapRestaurantFragment(), "Restaurant");
         adapter.addFragment(new MapAmenitiesFragment(), "Amenities");
         viewPager.setAdapter(adapter);
-
-
-
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-
     }
 
     static class Adapter extends FragmentPagerAdapter {
