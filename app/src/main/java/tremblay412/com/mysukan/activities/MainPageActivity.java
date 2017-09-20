@@ -26,6 +26,9 @@ public class MainPageActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_page_with_fragment);
 
+        getSupportActionBar().setTitle("Scoreboard");
+
+
         // Create the adapter that will return a fragment for each section
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             private final Fragment[] mFragments = new Fragment[]{
@@ -54,6 +57,31 @@ public class MainPageActivity extends BaseActivity {
         for (int i = 0; i < getIconTab().length; i++) {
             tabLayout.getTabAt(i).setIcon(getIconTab()[i]);
         }
+
+        mViewPager
+                .setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+                    String[] tabsTitles = new String[]{"Scoreboard", "Venue", "Admin Login"};
+                    @Override
+                    public void onPageSelected(int position) {
+                        // TODO Auto-generated method stub
+
+
+                        getSupportActionBar().setTitle(tabsTitles[position]);
+                    }
+
+                    @Override
+                    public void onPageScrolled(int arg0, float arg1, int arg2) {
+                        // TODO Auto-generated method stub
+
+                    }
+
+                    @Override
+                    public void onPageScrollStateChanged(int pos) {
+                        // TODO Auto-generated method stub
+
+                    }
+                });
     }
 
     private int[] getIconTab() {
