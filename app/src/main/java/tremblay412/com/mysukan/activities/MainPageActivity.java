@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan.Activities;
+package tremblay412.com.mysukan.activities;
 
 
 import android.os.Bundle;
@@ -7,9 +7,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
-import tremblay412.com.mysukan.Fragments.LoginFragment;
-import tremblay412.com.mysukan.Fragments.MapFragment;
-import tremblay412.com.mysukan.Fragments.SportListFragment;
+import tremblay412.com.mysukan.fragments.LoginFragment;
+import tremblay412.com.mysukan.fragments.MapFragment;
+import tremblay412.com.mysukan.fragments.SportListFragment;
 import tremblay412.com.mysukan.R;
 
 /**
@@ -25,6 +25,9 @@ public class MainPageActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_page_with_fragment);
+
+        getSupportActionBar().setTitle("Scoreboard");
+
 
         // Create the adapter that will return a fragment for each section
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
@@ -54,6 +57,31 @@ public class MainPageActivity extends BaseActivity {
         for (int i = 0; i < getIconTab().length; i++) {
             tabLayout.getTabAt(i).setIcon(getIconTab()[i]);
         }
+
+        mViewPager
+                .setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+                    String[] tabsTitles = new String[]{"Scoreboard", "Venue", "Admin Login"};
+                    @Override
+                    public void onPageSelected(int position) {
+                        // TODO Auto-generated method stub
+
+
+                        getSupportActionBar().setTitle(tabsTitles[position]);
+                    }
+
+                    @Override
+                    public void onPageScrolled(int arg0, float arg1, int arg2) {
+                        // TODO Auto-generated method stub
+
+                    }
+
+                    @Override
+                    public void onPageScrollStateChanged(int pos) {
+                        // TODO Auto-generated method stub
+
+                    }
+                });
     }
 
     private int[] getIconTab() {
@@ -64,7 +92,4 @@ public class MainPageActivity extends BaseActivity {
 
         return iconTab;
     }
-
-
 }
-

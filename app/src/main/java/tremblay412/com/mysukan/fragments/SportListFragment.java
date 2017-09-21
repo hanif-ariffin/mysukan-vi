@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan.Fragments;
+package tremblay412.com.mysukan.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,9 +13,9 @@ import android.widget.ListView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 
-import tremblay412.com.mysukan.Activities.SportDetailActivity;
 import tremblay412.com.mysukan.R;
-import tremblay412.com.mysukan.SportManager;
+import tremblay412.com.mysukan.activities.SportDetailActivity;
+import tremblay412.com.mysukan.helper.SportManager;
 
 /**
  * Created by akarin on 07/09/17.
@@ -38,8 +38,10 @@ public class SportListFragment extends BaseFragment {
         View rootView = inflater.inflate(R.layout.fragment_sports, container, false);
 
         sportListView = (ListView) rootView.findViewById(R.id.fragment_sport_listview_sport_list);
-        sportArrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, SportManager.getListOfSport());
+
+        sportArrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, SportManager.getGames());
         sportListView.setAdapter(sportArrayAdapter);
+
         sportListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
@@ -51,6 +53,7 @@ public class SportListFragment extends BaseFragment {
                 startActivity(intent);
             }
         });
+
         return rootView;
     }
 

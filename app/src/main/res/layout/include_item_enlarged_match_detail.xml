@@ -1,60 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="1">
+    android:layout_height="200dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/include_item_enlarged_match_detail_image_team_one"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/uottawa_logo" />
+
+    <TextView
+        android:id="@+id/include_item_enlarged_match_detail_text_team_one"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="9dp"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="@+id/include_item_enlarged_match_detail_image_team_one"
+        app:layout_constraintTop_toBottomOf="@+id/include_item_enlarged_match_detail_image_team_one" />
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+    <ImageView
+        android:id="@+id/include_item_enlarged_match_detail_image_team_two"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/uottawa_logo" />
 
-            <ImageView
-                android:id="@+id/image_team_one"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                app:srcCompat="@drawable/account_32" />
+    <TextView
+        android:id="@+id/include_item_enlarged_match_detail_text_team_two"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-8dp"
+        android:layout_marginTop="9dp"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="@+id/include_item_enlarged_match_detail_image_team_two"
+        app:layout_constraintTop_toBottomOf="@+id/include_item_enlarged_match_detail_image_team_two" />
 
+    <TextView
+        android:id="@+id/include_item_enlarged_match_detail_score_1"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        app:layout_constraintLeft_toRightOf="@+id/include_item_enlarged_match_detail_image_team_one"
+        app:layout_constraintRight_toLeftOf="@+id/include_item_enlarged_match_detail_image_team_two"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/text_team_one"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="text_team_one" />
+    <TextView
+        android:id="@+id/include_item_enlarged_match_detail_score_2"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="13dp"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="@+id/include_item_enlarged_match_detail_score_1"
+        app:layout_constraintRight_toRightOf="@+id/include_item_enlarged_match_detail_score_1"
+        app:layout_constraintTop_toBottomOf="@+id/include_item_enlarged_match_detail_score_1" />
 
-        </LinearLayout>
+    <TextView
+        android:id="@+id/include_item_enlarged_match_detail_score_3"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="@+id/include_item_enlarged_match_detail_score_2"
+        app:layout_constraintRight_toRightOf="@+id/include_item_enlarged_match_detail_score_2"
+        app:layout_constraintTop_toBottomOf="@+id/include_item_enlarged_match_detail_score_2" />
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/image_team_two"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                app:srcCompat="@drawable/account_32" />
-
-            <TextView
-                android:id="@+id/text_team_two"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="text_team_two" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
