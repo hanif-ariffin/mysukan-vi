@@ -15,6 +15,9 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Arrays;
+import java.util.List;
+
 import tremblay412.com.mysukan.helper.NameManager;
 import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.fragments.BaseFragment;
@@ -28,7 +31,7 @@ public class SubmitScore extends BaseFragment {
     public String sport_name;
     private Bundle args;
     private DatabaseReference databaseSport;
-    private ImageView team_1_logo, team_2_logo;
+    private List<String> checker;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,13 +43,12 @@ public class SubmitScore extends BaseFragment {
         args = getArguments();
         sport_name = args.getString("sport_name");
 
-        if (sport_name == "SingleScoreMatch" || sport_name == "Frisbee") {
+
+        //array for checker
+        checker = Arrays.asList("badminton_men_doubles", "badminton_women_doubles", "badminton_mixed_doubles", "squash_men_singles", "squash_women_singles");
+
+        if (!checker.contains(NameManager.UserToDatabase(sport_name))) {
             rootView = inflater.inflate(R.layout.submit_score_norm, container, false);
-
-            //ImageView construction
-            team_1_logo = (ImageView) rootView.findViewById(R.id.imageView2);
-            team_2_logo = (ImageView) rootView.findViewById(R.id.imageView3);
-
 
             teamOne = (Spinner) rootView.findViewById(R.id.teamOne);
             teamTwo = (Spinner) rootView.findViewById(R.id.teamTwo);
@@ -58,29 +60,12 @@ public class SubmitScore extends BaseFragment {
             teamOne.setAdapter(teamAdapter);
             teamTwo.setAdapter(teamAdapter);
 
-            teamOne.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                    System.out.println(NameManager.getImageId(sport_name));
-                    team_1_logo.setImageResource(NameManager.getImageId(sport_name));
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> adapterView) {
-                    System.out.println("ss");
-                }
-            });
-
             scoreAdapter = ArrayAdapter.createFromResource(getContext(), R.array.number, android.R.layout.simple_spinner_item);
             scoreAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             scoreOne.setAdapter(scoreAdapter);
             scoreTwo.setAdapter(scoreAdapter);
         } else {
             rootView = inflater.inflate(R.layout.submit_score_set, container, false);
-
-            //ImageView construction
-            team_1_logo = (ImageView) rootView.findViewById(R.id.imageView2);
-            team_2_logo = (ImageView) rootView.findViewById(R.id.imageView3);
 
             teamOne = (Spinner) rootView.findViewById(R.id.teamOne);
             teamTwo = (Spinner) rootView.findViewById(R.id.teamTwo);
