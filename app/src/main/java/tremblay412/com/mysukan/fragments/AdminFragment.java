@@ -1,6 +1,7 @@
 package tremblay412.com.mysukan.fragments;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -20,7 +21,7 @@ import tremblay412.com.mysukan.fragments.adminarea.NewScoreFragment;
 import tremblay412.com.mysukan.helper.SportManager;
 
 public class AdminFragment extends BaseFragment {
-    Button newScore;
+    FloatingActionButton newScore;
     private DatabaseReference databaseSport;
     private ListView dataListView;
     private Bundle bundle;
@@ -33,7 +34,7 @@ public class AdminFragment extends BaseFragment {
         setHasOptionsMenu(true);
         dataListView = (ListView) view.findViewById(R.id.listview00);
 
-        newScore = (Button) view.findViewById(R.id.BTN_newscore);
+        newScore = (FloatingActionButton) view.findViewById(R.id.BTN_newscore);
         newScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
