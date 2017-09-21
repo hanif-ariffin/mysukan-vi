@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:clickable="true"
-    tools:context="tremblay412.com.mysukan.fragments.adminarea.SubmitScore"
+    tools:context="tremblay412.com.mysukan.fragments.adminarea.CreateMatch"
     tools:layout_editor_absoluteY="81dp"
     tools:layout_editor_absoluteX="0dp">
 

@@ -1,5 +1,6 @@
 package tremblay412.com.mysukan.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -9,8 +10,10 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,6 +22,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import tremblay412.com.mysukan.R;
+import tremblay412.com.mysukan.activities.AdminActivity;
+import tremblay412.com.mysukan.helper.SportManager;
 
 public class LoginFragment extends BaseFragment {
 
@@ -27,7 +32,6 @@ public class LoginFragment extends BaseFragment {
     private EditText ET_email, ET_password;
     private Button LoginButton;
     private FirebaseAuth firebaseAuth;
-
     private View rootView;
 
     @Override
@@ -73,15 +77,10 @@ public class LoginFragment extends BaseFragment {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()) {
-                            hideProgressDialog();
-                            LoginButton.setVisibility(View.INVISIBLE);
 
-                            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-                            Fragment fr = new AdminFragment();
-                            fragmentTransaction.replace(R.id.login_fragment, fr, fr.toString());
-                            fragmentTransaction.commit();
+                             Intent intent = new Intent(getActivity(), AdminActivity.class);
+                             startActivity(intent);
+                             hideProgressDialog();
 
                             Toast.makeText(getActivity(), "You are now logged in", Toast.LENGTH_SHORT).show();
                         } else {

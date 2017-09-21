@@ -22,7 +22,7 @@ import tremblay412.com.mysukan.helper.NameManager;
 import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.fragments.BaseFragment;
 
-public class SubmitScore extends BaseFragment {
+public class CreateMatch extends BaseFragment {
 
     private Spinner teamOne, teamTwo, scoreOne, scoreTwo, scoreThree, scoreFour, scoreFive, scoreSix;
     ArrayAdapter<CharSequence> teamAdapter, scoreAdapter;

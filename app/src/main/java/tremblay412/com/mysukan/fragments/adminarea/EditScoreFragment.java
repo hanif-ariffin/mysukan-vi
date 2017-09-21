@@ -108,6 +108,7 @@ public class EditScoreFragment extends BaseFragment {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 Fragment fr = new SubmitScore2();
+                fragmentTransaction.addToBackStack(null);
                 fr.setArguments(args);
                 fragmentTransaction.replace(R.id.edit_score, fr, fr.toString());
                 fragmentTransaction.commit();

@@ -47,7 +47,8 @@ public class NewScoreFragment extends BaseFragment {
                 args.putString("sport_name", iListGames.getItemAtPosition(i).toString());
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                Fragment fr = new SubmitScore();
+                fragmentTransaction.addToBackStack(null);
+                Fragment fr = new CreateMatch();
                 fr.setArguments(args);
                 fragmentTransaction.replace(R.id.new_score_fragment, fr, fr.toString());
                 fragmentTransaction.commit();
