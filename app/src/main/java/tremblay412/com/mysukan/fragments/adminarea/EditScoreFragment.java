@@ -67,8 +67,7 @@ public class EditScoreFragment extends BaseFragment {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                sportSet.clear();
-                data1.clear();
+
                 for (DataSnapshot sportSnapshot : dataSnapshot.getChildren()) {
                     if (checker.contains(sport_name)) {
                         SportSet sport = sportSnapshot.getValue(SportSet.class);
@@ -100,14 +99,22 @@ public class EditScoreFragment extends BaseFragment {
         currentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                sport_name = NameManager.DatabaseToUser(sport_name);
+
                 args = new Bundle();
+
+                if (checker.contains(sport_name)) {
+                    args.putString("teamOne", sportSet.get(i).getTeam_1_name());
+                    args.putString("teamTwo", sportSet.get(i).getTeam_2_name());
+                } else {
+                    args.putString("teamOne", sportNorm.get(i).getTeam_1_name());
+                    args.putString("teamTwo", sportNorm.get(i).getTeam_2_name());
+                }
+                args.putString("id", sportSet.get(i).toString());
+                sport_name = NameManager.DatabaseToUser(sport_name);
                 args.putString("sport_name", sport_name);
-                System.out.println(sport_name);
-                args.putString("id", arrayId.get(i).toString());
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                Fragment fr = new SubmitScore2();
+                Fragment fr = new EditScore();
                 fragmentTransaction.addToBackStack(null);
                 fr.setArguments(args);
                 fragmentTransaction.replace(R.id.edit_score, fr, fr.toString());

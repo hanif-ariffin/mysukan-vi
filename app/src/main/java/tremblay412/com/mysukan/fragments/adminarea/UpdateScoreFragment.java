@@ -31,19 +31,6 @@ public class UpdateScoreFragment extends BaseFragment {
         setHasOptionsMenu(true);
         dataListView = (ListView) view.findViewById(R.id.listview00);
 
-//        newScore = (FloatingActionButton) view.findViewById(R.id.BTN_newscore);
-//        newScore.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                newScore.setVisibility(View.INVISIBLE);
-//                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//                android.support.v4.app.Fragment fr = new NewScoreFragment();
-//                fragmentTransaction.replace(R.id.activity_admin, fr, fr.toString());
-//                fragmentTransaction.commit();
-//            }
-//        });
-
 
         ArrayAdapter<String> lArrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, SportManager.getGames());
         dataListView.setAdapter(lArrayAdapter);

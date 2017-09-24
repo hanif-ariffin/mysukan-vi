@@ -19,7 +19,7 @@ import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.fragments.BaseFragment;
 import tremblay412.com.mysukan.helper.NameManager;
 
-public class SubmitScore2 extends BaseFragment {
+public class EditScore extends BaseFragment {
 
     private Spinner teamOne, teamTwo, scoreOne, scoreTwo, scoreThree, scoreFour, scoreFive, scoreSix;
     ArrayAdapter<CharSequence> teamAdapter, scoreAdapter;
@@ -47,27 +47,21 @@ public class SubmitScore2 extends BaseFragment {
 
         // check which templete sport need to be use
         if (!checker.contains(NameManager.UserToDatabase(sport_name))) {
-            rootView = inflater.inflate(R.layout.submit_score_norm, container, false);
+            rootView = inflater.inflate(R.layout.edit_score_norm, container, false);
 
-            teamOne = (Spinner) rootView.findViewById(R.id.teamOne);
-            teamTwo = (Spinner) rootView.findViewById(R.id.teamTwo);
+
             scoreOne = (Spinner) rootView.findViewById(R.id.scoreOne);
             scoreTwo = (Spinner) rootView.findViewById(R.id.scoreTwo);
 
-            teamAdapter = ArrayAdapter.createFromResource(getContext(), R.array.team_list, android.R.layout.simple_spinner_item);
-            teamAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            teamOne.setAdapter(teamAdapter);
-            teamTwo.setAdapter(teamAdapter);
 
             scoreAdapter = ArrayAdapter.createFromResource(getContext(), R.array.number, android.R.layout.simple_spinner_item);
             scoreAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             scoreOne.setAdapter(scoreAdapter);
             scoreTwo.setAdapter(scoreAdapter);
         } else {
-            rootView = inflater.inflate(R.layout.submit_score_set, container, false);
+            rootView = inflater.inflate(R.layout.edit_score_set, container, false);
 
-            teamOne = (Spinner) rootView.findViewById(R.id.teamOne);
-            teamTwo = (Spinner) rootView.findViewById(R.id.teamTwo);
+
             scoreOne = (Spinner) rootView.findViewById(R.id.scoreOne);
             scoreTwo = (Spinner) rootView.findViewById(R.id.scoreTwo);
             scoreThree = (Spinner) rootView.findViewById(R.id.scoreThree);
@@ -75,10 +69,6 @@ public class SubmitScore2 extends BaseFragment {
             scoreFive = (Spinner) rootView.findViewById(R.id.scoreFive);
             scoreSix = (Spinner) rootView.findViewById(R.id.scoreSix);
 
-            teamAdapter = ArrayAdapter.createFromResource(getContext(), R.array.team_list, android.R.layout.simple_spinner_item);
-            teamAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            teamOne.setAdapter(teamAdapter);
-            teamTwo.setAdapter(teamAdapter);
 
             scoreAdapter = ArrayAdapter.createFromResource(getContext(), R.array.number, android.R.layout.simple_spinner_item);
             scoreAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -106,10 +96,10 @@ public class SubmitScore2 extends BaseFragment {
             public void onClick(View view) {
                 databaseSport = FirebaseDatabase.getInstance().getReference("games").child(sport_name).child(id);
                 if (!checker.contains(sport_name)) {
-                    SportNorm sport = new SportNorm(id, teamOne.getSelectedItem().toString(), teamTwo.getSelectedItem().toString(), Integer.parseInt(scoreOne.getSelectedItem().toString()), Integer.parseInt(scoreTwo.getSelectedItem().toString()));
+                    SportNorm sport = new SportNorm(0,id, teamOne.getSelectedItem().toString(), teamTwo.getSelectedItem().toString(), Integer.parseInt(scoreOne.getSelectedItem().toString()), Integer.parseInt(scoreTwo.getSelectedItem().toString()));
                     databaseSport.setValue(sport);
                 } else {
-                    SportSet sport = new SportSet(id, teamOne.getSelectedItem().toString(), teamTwo.getSelectedItem().toString(), Integer.parseInt(scoreOne.getSelectedItem().toString()), Integer.parseInt(scoreTwo.getSelectedItem().toString())
+                    SportSet sport = new SportSet(0,id, teamOne.getSelectedItem().toString(), teamTwo.getSelectedItem().toString(), Integer.parseInt(scoreOne.getSelectedItem().toString()), Integer.parseInt(scoreTwo.getSelectedItem().toString())
                             , Integer.parseInt(scoreThree.getSelectedItem().toString()), Integer.parseInt(scoreFour.getSelectedItem().toString())
                             , Integer.parseInt(scoreFive.getSelectedItem().toString()), Integer.parseInt(scoreSix.getSelectedItem().toString()));
                     databaseSport.setValue(sport);
