@@ -10,25 +10,13 @@
     tools:context=".activities.MainPageActivity">
 
 
-    <TextView
-        android:id="@+id/title_scoreboard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="top|center"
-        android:layout_marginTop="15dp"
-        android:text="Scoreboard"
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="24sp" />
-
     <ListView
         android:id="@+id/fragment_sport_listview_sport_list"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/title_scoreboard"
-        android:layout_marginTop="15dp"
+        android:layout_alignParentTop="true"
         android:clipToPadding="false"
         android:padding="5dp"
         android:scrollbars="vertical"
