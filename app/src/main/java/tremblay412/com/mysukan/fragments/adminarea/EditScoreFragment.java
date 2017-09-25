@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,12 +64,11 @@ public class EditScoreFragment extends BaseFragment {
         final ArrayAdapter<String> lArrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, data1);
         //retrieve data from database
         database = FirebaseDatabase.getInstance().getReference("games").child(sport_name);
+        sportSet.clear();
+        sportNorm.clear();
         database.addListenerForSingleValueEvent(new ValueEventListener() {
-
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                sportSet.clear();
-                data1.clear();
                 for (DataSnapshot sportSnapshot : dataSnapshot.getChildren()) {
                     if (checker.contains(sport_name)) {
                         SportSet sport = sportSnapshot.getValue(SportSet.class);
@@ -100,14 +100,26 @@ public class EditScoreFragment extends BaseFragment {
         currentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                sport_name = NameManager.DatabaseToUser(sport_name);
+
                 args = new Bundle();
+
+                if (checker.contains(sport_name)) {
+                    args.putString("teamOne", sportSet.get(i).getTeam_1_name());
+                    args.putString("teamTwo", sportSet.get(i).getTeam_2_name());
+                    args.putString("id", sportSet.get(i).getId());
+                    args.putLong("match_date", sportSet.get(i).match_date);
+                } else {
+                    args.putString("teamOne", sportNorm.get(i).getTeam_1_name());
+                    args.putString("teamTwo", sportNorm.get(i).getTeam_2_name());
+                    args.putString("id", sportNorm.get(i).getId());
+                    args.putLong("match_date", sportNorm.get(i).match_date);
+                }
+
                 args.putString("sport_name", sport_name);
-                System.out.println(sport_name);
-                args.putString("id", arrayId.get(i).toString());
+                sport_name = NameManager.DatabaseToUser(sport_name);
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                Fragment fr = new SubmitScore2();
+                Fragment fr = new EditScore();
                 fragmentTransaction.addToBackStack(null);
                 fr.setArguments(args);
                 fragmentTransaction.replace(R.id.edit_score, fr, fr.toString());

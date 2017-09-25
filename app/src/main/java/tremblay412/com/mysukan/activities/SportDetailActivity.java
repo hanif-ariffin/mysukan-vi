@@ -83,7 +83,7 @@ public class SportDetailActivity extends BaseActivity {
             mManager.setStackFromEnd(true);
             sportNameRecyclerView.setLayoutManager(mManager);
 
-            Query queryResult = sportNameReference.child("games").child(NameManager.UserToDatabase(sportName));
+            Query queryResult = sportNameReference.child("games").child(NameManager.UserToDatabase(sportName)).orderByChild("match_date");
 
             Log.d(TAG, "Received sportName:" + sportName + " isSingleScore:" + SportManager.isSingleScore(sportName));
 
