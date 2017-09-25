@@ -82,9 +82,10 @@ public class LoginFragment extends BaseFragment {
                              startActivity(intent);
                              hideProgressDialog();
 
-                            Toast.makeText(getActivity(), "You are now logged in", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "You are now logged in with email:" + firebaseAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
                         } else {
                             hideProgressDialog();
+
                             Toast.makeText(getActivity(), "Login failed. Please check your info", Toast.LENGTH_SHORT).show();
                         }
                     }
