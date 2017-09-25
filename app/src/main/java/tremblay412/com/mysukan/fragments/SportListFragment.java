@@ -56,9 +56,4 @@ public class SportListFragment extends BaseFragment {
 
         return rootView;
     }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
 }

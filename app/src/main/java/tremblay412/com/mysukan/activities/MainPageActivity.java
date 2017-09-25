@@ -11,6 +11,7 @@ import tremblay412.com.mysukan.fragments.LoginFragment;
 import tremblay412.com.mysukan.fragments.MapFragment;
 import tremblay412.com.mysukan.fragments.SportListFragment;
 import tremblay412.com.mysukan.R;
+import tremblay412.com.mysukan.fragments.SportListFragmentWithGrid;
 
 /**
  * A login screen that offers login via email/password.
@@ -62,6 +63,7 @@ public class MainPageActivity extends BaseActivity {
                 .setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
                     String[] tabsTitles = new String[]{"Scoreboard", "Venue", "Admin Login"};
+
                     @Override
                     public void onPageSelected(int position) {
                         // TODO Auto-generated method stub
@@ -88,7 +90,7 @@ public class MainPageActivity extends BaseActivity {
         int[] iconTab = new int[]{
                 R.drawable.list_32,
                 R.drawable.map_32,
-                R.drawable.account_32,};
+                R.drawable.account_32};
 
         return iconTab;
     }

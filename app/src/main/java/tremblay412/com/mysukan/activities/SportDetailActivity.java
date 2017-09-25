@@ -140,7 +140,7 @@ public class SportDetailActivity extends BaseActivity {
                         Log.d(TAG, "Model obtained with values id:" + model.id + " match_date:" + model.match_date + " team_1_name:" + model.team_1_name + " team_2_name:" + model.team_2_name);
                         String time = "";
                         if (model.match_date != null) {
-                            time = new SimpleDateFormat("HH:mm a").format(new Date(model.match_date * 1000L));
+                            time = new SimpleDateFormat("EE HH:mm a").format(new Date(model.match_date * 1000L));
                         }
                         viewHolder.match_time.setText(time);
                         viewHolder.team_1.setText(model.team_1_name);
