@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "118371621027-ahg51s3h69ob5p4l992k68ppq51abeik.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tremblay412.com.mysukan",
+            "certificate_hash": "cd5b8275fb1343fe2053ccd6b84af1937b4d7dfa"
+          }
+        },
+        {
           "client_id": "118371621027-mdc49oe4v7fn5ljgmn0j1fim90dbn1c6.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -56,15 +64,15 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "118371621027-g1l62mg4171fb05lnq3hj35qn0836o3b.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
               "client_id": "118371621027-6tl5tlvp8mhp7g4amuhgdfbfka0gpe2h.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
                 "bundle_id": "hazimiasyraf.Mysukan"
               }
+            },
+            {
+              "client_id": "118371621027-g1l62mg4171fb05lnq3hj35qn0836o3b.apps.googleusercontent.com",
+              "client_type": 3
             }
           ]
         },
