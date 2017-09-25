@@ -1,7 +1,6 @@
 package tremblay412.com.mysukan.fragments.adminarea;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -89,7 +88,7 @@ public class EditScore extends BaseFragment {
         teamTwoName.setText(args.getString("teamTwo"));
 
         //set text for the header
-        textHeader = (TextView) rootView.findViewById(R.id.textView10);
+        textHeader = (TextView) rootView.findViewById(R.id.submit_score_norm_header);
         textHeader.setText(sport_name);
 
         // change sport_name back to database

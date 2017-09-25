@@ -1,19 +1,13 @@
 package tremblay412.com.mysukan.fragments.adminarea;
 
-import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -126,7 +120,7 @@ public class CreateMatch extends BaseFragment {
 
 
         //set textHeader
-        text = (TextView) rootView.findViewById(R.id.textView10);
+        text = (TextView) rootView.findViewById(R.id.submit_score_norm_header);
         text.setText(sport_name);
 
         //Change string to sync with database string
