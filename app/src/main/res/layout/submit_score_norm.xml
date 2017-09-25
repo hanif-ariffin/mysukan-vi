@@ -82,14 +82,22 @@
             android:layout_toEndOf="@+id/BTN_submit" />
 
         <TextView
-            android:id="@+id/datePicker"
+            android:id="@+id/daPicker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/BTN_submit"
+            android:layout_below="@+id/teamOne"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="79dp"
+            android:layout_marginTop="74dp"
             android:text="Click Here to Update Date"
             android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/teamOne"
+            android:text="Match Time" />
 
     </RelativeLayout>
 

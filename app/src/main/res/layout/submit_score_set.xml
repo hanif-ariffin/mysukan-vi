@@ -39,6 +39,16 @@
             android:layout_marginStart="27dp" />
 
         <TextView
+            android:id="@+id/datePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/BTN_submit"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="79dp"
+            android:text="Click Here to Update Date"
+            android:textSize="30sp" />
+
+        <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -82,6 +92,14 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="39dp"
             android:layout_marginTop="61dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/datePicker"
+            android:layout_toEndOf="@+id/teamOne"
+            android:text="Match Time" />
 
     </RelativeLayout>
 

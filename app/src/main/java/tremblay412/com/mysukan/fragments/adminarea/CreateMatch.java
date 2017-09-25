@@ -5,6 +5,7 @@ import android.app.TimePickerDialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
@@ -37,11 +40,12 @@ public class CreateMatch extends BaseFragment {
     ArrayAdapter<CharSequence> teamAdapter, scoreAdapter;
     private Button submitButton;
     private TextView text, datePicker1;
-    public String sport_name;
+    public String sport_name, hour , minute;
     private Bundle args;
     private DatabaseReference databaseSport;
     private List<String> checker;
     private TimePickerDialog.OnTimeSetListener mTimeSetListener;
+    private long unixTime ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -79,25 +83,17 @@ public class CreateMatch extends BaseFragment {
             teamTwo.setAdapter(teamAdapter);
 
         }
-        int year,month,day,hour,minute;
-        year = 2017;
-        month = 10;
-        day = 7;
 
-        datePicker1 = (TextView)rootView.findViewById(R.id.datePicker);
+
+        datePicker1 = (TextView) rootView.findViewById(R.id.datePicker);
         datePicker1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Calendar cal = Calendar.getInstance();
-
-
-                hour = cal.get(Calendar.HOUR_OF_DAY);
-                minute = cal.get(Calendar.MINUTE);
-
-                TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(),mTimeSetListener, hour, minute,true);
+                int hour = cal.get(Calendar.HOUR_OF_DAY);
+                int minute = cal.get(Calendar.MINUTE);
+                TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), mTimeSetListener, hour, minute, true);
                 timePickerDialog.show();
-
-
             }
         });
 
@@ -105,7 +101,26 @@ public class CreateMatch extends BaseFragment {
         mTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                datePicker1.setText( i + ":"+ i1);
+                datePicker1.setText(i + ":" +i1);
+                hour = String.valueOf(i);
+                minute = String.valueOf(i1);
+
+
+                String date = "7";
+                String month = "October";
+                String year = "2017";
+                String seconds = "00";
+
+                String dateString = date + " " + month + " " + year + " " + hour + ":" + minute + ":" + seconds + " GMT - 4";
+                DateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy HH:mm:ss z");
+
+                try {
+                    Date dateData = dateFormat.parse(dateString);
+                    unixTime = (Long) dateData.getTime() / 1000;
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                Log.d("CreateMatch", unixTime + "");
             }
         };
 
@@ -120,7 +135,6 @@ public class CreateMatch extends BaseFragment {
 
         //Database
         databaseSport = FirebaseDatabase.getInstance().getReference("games");
-
         submitButton = (Button) rootView.findViewById(R.id.BTN_submit);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,11 +142,11 @@ public class CreateMatch extends BaseFragment {
                 String id = databaseSport.push().getKey();
 
                 if (sport_name == "soccer" || sport_name == "frisbee") {
-                    SportNorm sport = new SportNorm(0,id, teamOne.getSelectedItem().toString(), teamTwo.getSelectedItem().toString(), 0,0);
+                    SportNorm sport = new SportNorm(unixTime, id, teamOne.getSelectedItem().toString(), teamTwo.getSelectedItem().toString(), 0, 0);
                     databaseSport.child(sport_name).child(id).setValue(sport);
                     Toast.makeText(getContext(), "Sport added", Toast.LENGTH_LONG).show();
                 } else {
-                    SportSet sport = new SportSet(0,id, teamOne.getSelectedItem().toString(), teamTwo.getSelectedItem().toString(), 0,0,0,0,0,0);
+                    SportSet sport = new SportSet(unixTime, id, teamOne.getSelectedItem().toString(), teamTwo.getSelectedItem().toString(), 0, 0, 0, 0, 0, 0);
                     databaseSport.child(sport_name).child(id).setValue(sport);
                     Toast.makeText(getContext(), "Sport added", Toast.LENGTH_LONG).show();
                 }

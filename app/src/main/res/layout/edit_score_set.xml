@@ -127,6 +127,23 @@
             android:layout_below="@+id/textView9"
             android:layout_toEndOf="@+id/textView9" />
 
+        <TextView
+            android:id="@+id/teamOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_below="@+id/textView8"
+            android:layout_alignEnd="@+id/textView8"
+            android:layout_marginTop="72dp" />
+
+        <TextView
+            android:id="@+id/teamTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/teamOne"
+            android:layout_alignEnd="@+id/scoreTwo"
+            android:text="TextView" />
+
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
