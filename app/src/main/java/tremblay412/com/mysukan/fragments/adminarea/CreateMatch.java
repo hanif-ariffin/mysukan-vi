@@ -51,10 +51,6 @@ public class CreateMatch extends BaseFragment {
         args = getArguments();
         sport_name = args.getString("sport_name");
 
-        //array for checker
-        checker = Arrays.asList("badminton_men_doubles", "badminton_women_doubles", "badminton_mixed_doubles", "squash_men_singles", "squash_women_singles");
-
-        if (!checker.contains(NameManager.UserToDatabase(sport_name))) {
             rootView = inflater.inflate(R.layout.submit_score_norm, container, false);
 
             teamOne = (Spinner) rootView.findViewById(R.id.teamOne);
@@ -65,18 +61,6 @@ public class CreateMatch extends BaseFragment {
             teamOne.setAdapter(teamAdapter);
             teamTwo.setAdapter(teamAdapter);
 
-        } else {
-            rootView = inflater.inflate(R.layout.submit_score_set, container, false);
-
-            teamOne = (Spinner) rootView.findViewById(R.id.teamOne);
-            teamTwo = (Spinner) rootView.findViewById(R.id.teamTwo);
-
-            teamAdapter = ArrayAdapter.createFromResource(getContext(), R.array.team_list, android.R.layout.simple_spinner_item);
-            teamAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            teamOne.setAdapter(teamAdapter);
-            teamTwo.setAdapter(teamAdapter);
-
-        }
 
 
         datePicker1 = (TextView) rootView.findViewById(R.id.datePicker);
@@ -86,7 +70,7 @@ public class CreateMatch extends BaseFragment {
                 Calendar cal = Calendar.getInstance();
                 int hour = cal.get(Calendar.HOUR_OF_DAY);
                 int minute = cal.get(Calendar.MINUTE);
-                TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), mTimeSetListener, hour, minute, true);
+                TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(),R.style.DialogTheme, mTimeSetListener, hour, minute, true);
                 timePickerDialog.show();
             }
         });
@@ -95,10 +79,11 @@ public class CreateMatch extends BaseFragment {
         mTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                datePicker1.setText(i + ":" +i1);
+
+                datePicker1.setText(singleDigit(i) + ":" +singleDigit(i1));
+
                 hour = String.valueOf(i);
                 minute = String.valueOf(i1);
-
 
                 String date = "7";
                 String month = "October";
@@ -121,7 +106,7 @@ public class CreateMatch extends BaseFragment {
 
         //set textHeader
         text = (TextView) rootView.findViewById(R.id.submit_score_norm_header);
-        text.setText(sport_name);
+        text.setText(" " + sport_name + " ");
 
         //Change string to sync with database string
 
@@ -150,5 +135,15 @@ public class CreateMatch extends BaseFragment {
         });
 
         return rootView;
+    }
+
+    //this method is to add 0 for time example 05:07
+    private String singleDigit(int aNumber){
+
+        if (aNumber >= 0 && aNumber < 10 )
+        return "0"+ String.valueOf(aNumber);
+        else {
+            return String.valueOf(aNumber);
+        }
     }
 }

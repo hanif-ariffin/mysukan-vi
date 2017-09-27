@@ -10,101 +10,129 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="81dp">
 
-    <RelativeLayout
-        android:layout_width="368dp"
-        android:layout_height="495dp"
-        android:layout_marginBottom="8dp"
+    <TextView
+        android:id="@+id/submit_score_norm_header"
+        android:layout_width="258dp"
+        android:layout_height="72dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="62dp"
+        android:background="@drawable/rectangle_black"
+        android:text=" DEFAULT HEADER"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textSize="25sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.505" />
 
-        <TextView
-            android:id="@+id/submit_score_norm_header"
-            android:layout_width="500dp"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/team_2_name"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="32dp"
-            android:text="DEFAULT HEADER"
-            android:textColor="@color/colorAccent"
-            android:textSize="30sp"
-            tools:layout_editor_absoluteX="163dp"
-            tools:layout_editor_absoluteY="61dp" />
+    <Button
+        android:id="@+id/BTN_submit"
+        android:layout_width="145dp"
+        android:layout_height="37dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/round_corners_submitbutton"
+        android:text="Submit"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/datePicker"
+        app:layout_constraintVertical_bias="0.22" />
 
-        <Spinner
-            android:id="@+id/teamOne"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/score_text"
-            android:layout_below="@+id/team_1_name"
-            android:layout_marginEnd="25dp"
-            android:layout_marginTop="23dp"
-            tools:layout_editor_absoluteX="56dp"
-            tools:layout_editor_absoluteY="175dp" />
+    <TextView
+        android:id="@+id/datePicker"
+        android:layout_width="92dp"
+        android:layout_height="90dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/time_schedule"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textColorLink="@color/colorAccent"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableRow3" />
 
-        <TextView
-            android:id="@+id/team_1_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="120dp"
-            android:layout_toStartOf="@+id/score_text"
-            android:text="Team 1"
-            tools:layout_editor_absoluteX="110dp"
-            tools:layout_editor_absoluteY="138dp" />
-
-        <Button
-            android:id="@+id/BTN_submit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="75dp"
-            android:text="Submit"
-            tools:layout_editor_absoluteX="148dp"
-            tools:layout_editor_absoluteY="421dp" />
+    <TableRow
+        android:id="@+id/tableRow3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="9dp"
+        android:background="@drawable/rectangle"
+        android:orientation="horizontal"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableRow">
 
         <TextView
             android:id="@+id/team_2_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/teamOne"
-            android:layout_alignEnd="@+id/submit_score_norm_header"
-            android:text="Team 2"
-            tools:layout_editor_absoluteX="222dp"
-            tools:layout_editor_absoluteY="138dp" />
+            android:text="  Team 2:"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
 
         <Spinner
             android:id="@+id/teamTwo"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/teamOne"
-            android:layout_toEndOf="@+id/BTN_submit"
-            tools:layout_editor_absoluteX="211dp"
-            tools:layout_editor_absoluteY="175dp" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="25dp"
+        android:alwaysDrawnWithCache="false"
+        android:background="@drawable/rectangle"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/submit_score_norm_header">
 
         <TextView
-            android:id="@+id/datePicker"
+            android:id="@+id/team_1_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/teamOne"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="74dp"
-            android:text="Click Here to Update Date"
-            android:textSize="30sp" />
+            android:text="  Team 1:"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/match_time"
+        <Spinner
+            android:id="@+id/teamOne"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/teamOne"
-            android:text="Match Time" />
+            android:layout_height="wrap_content" />
 
-    </RelativeLayout>
+    </TableRow>
+
 
 </android.support.constraint.ConstraintLayout>
