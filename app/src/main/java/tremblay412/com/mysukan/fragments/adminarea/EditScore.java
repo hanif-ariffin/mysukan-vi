@@ -80,11 +80,13 @@ public class EditScore extends BaseFragment {
             scoreTwo.setAdapter(scoreAdapter);
         }
 
+        sport_name = NameManager.DatabaseToUser(sport_name);
+
         //set text for the header
         textHeader = (TextView) rootView.findViewById(R.id.submit_score_norm_header);
         textHeader.setText(sport_name);
 
-        sport_name = NameManager.DatabaseToUser(sport_name);
+
 
         // team Textview
         teamTwoName = (TextView)  rootView.findViewById(R.id.teamTwo);
