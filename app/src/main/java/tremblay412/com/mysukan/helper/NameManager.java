@@ -15,7 +15,7 @@ public class NameManager {
     public static String DatabaseToUser(String data) {
         switch (data) {
             case "soccer":
-                data = "Soocer";
+                data = "Soccer";
                 break;
             case "badminton_men_doubles":
                 data = "Badminton Men Doubles";

@@ -30,13 +30,14 @@ import tremblay412.com.mysukan.helper.NameManager;
 public class EditScoreFragment extends BaseFragment {
 
     private Bundle args;
-    public String sport_name, id;
+    public String id;
+    private String sport_name;
     private TextView headerText;
     private DatabaseReference database;
 
     public List<SportSet> sportSet;
     public List<SportNorm> sportNorm;
-    private static List<String> data1 = new ArrayList<>();
+    private List<String> data1 = new ArrayList<>();
     private List<String> checker, arrayId;
 
     private ListView currentList;
@@ -66,6 +67,7 @@ public class EditScoreFragment extends BaseFragment {
         database = FirebaseDatabase.getInstance().getReference("games").child(sport_name);
         sportSet.clear();
         sportNorm.clear();
+        data1.clear();
         database.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

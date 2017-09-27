@@ -26,7 +26,8 @@ public class EditScore extends BaseFragment {
     private Button submit;
     private TextView textHeader, teamOneName , teamTwoName;
     private List<String> checker;
-    public String sport_name, id;
+    public String id;
+    private static String sport_name;
     private long match_date;
 
     private Bundle args;
@@ -79,6 +80,10 @@ public class EditScore extends BaseFragment {
             scoreTwo.setAdapter(scoreAdapter);
         }
 
+        //set text for the header
+        textHeader = (TextView) rootView.findViewById(R.id.submit_score_norm_header);
+        textHeader.setText(sport_name);
+
         sport_name = NameManager.DatabaseToUser(sport_name);
 
         // team Textview
@@ -86,10 +91,6 @@ public class EditScore extends BaseFragment {
         teamOneName = (TextView)  rootView.findViewById(R.id.teamOne);
         teamOneName.setText(args.getString("teamOne"));
         teamTwoName.setText(args.getString("teamTwo"));
-
-        //set text for the header
-        textHeader = (TextView) rootView.findViewById(R.id.submit_score_norm_header);
-        textHeader.setText(sport_name);
 
         // change sport_name back to database
         sport_name = NameManager.UserToDatabase(sport_name);
