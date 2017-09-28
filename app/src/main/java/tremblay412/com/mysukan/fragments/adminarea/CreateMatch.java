@@ -92,7 +92,7 @@ public class CreateMatch extends BaseFragment {
                 String year = "2017";
                 String seconds = "00";
 
-                String dateString = date + " " + month + " " + year + " " + hour + ":" + minute + ":" + seconds + " GMT - 4";
+                String dateString = date + " " + month + " " + year + " " + hour + ":" + minute + ":" + seconds + " EDT";
                 DateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy HH:mm:ss z");
 
                 try {

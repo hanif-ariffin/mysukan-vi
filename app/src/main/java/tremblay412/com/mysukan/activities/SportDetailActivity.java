@@ -16,12 +16,17 @@ import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.helper.MatchDetailViewHolder;
@@ -80,12 +85,13 @@ public class SportDetailActivity extends BaseActivity {
         } else {
             sportName = bundle.getString("sport_name");
             sportNameRecyclerView = (RecyclerView) findViewById(R.id.activity_sport_matches_recyclerview_match);
+            getSupportActionBar().setTitle(sportName);
 
             sportNameReference = FirebaseDatabase.getInstance().getReference();
 
             mManager = new LinearLayoutManager(this);
-            mManager.setReverseLayout(true);
-            mManager.setStackFromEnd(true);
+            //mManager.setReverseLayout(true);
+            //mManager.setStackFromEnd(true);
             sportNameRecyclerView.setLayoutManager(mManager);
 
             Query queryResult = sportNameReference.child("games").child(NameManager.UserToDatabase(sportName)).orderByChild("match_date");
