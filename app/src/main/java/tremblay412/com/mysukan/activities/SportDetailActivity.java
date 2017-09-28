@@ -1,9 +1,14 @@
 package tremblay412.com.mysukan.activities;
 
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -203,4 +208,16 @@ public class SportDetailActivity extends BaseActivity {
             Log.d(TAG, "User is not logged in");
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu, menu);
+        if (menu != null) {
+            menu.findItem(R.id.winner).setVisible(true);
+            menu.findItem(R.id.menu_developers_info).setVisible(false);
+        }
+        return true;
+    }
+
 }
