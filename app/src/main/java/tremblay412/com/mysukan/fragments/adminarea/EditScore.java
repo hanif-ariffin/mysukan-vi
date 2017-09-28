@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -110,11 +111,13 @@ public class EditScore extends BaseFragment {
                 if (!checker.contains(sport_name)) {
                     SportNorm sport = new SportNorm(match_date,id, teamOneName.getText().toString(), teamTwoName.getText().toString(), Integer.parseInt(scoreOne.getSelectedItem().toString()), Integer.parseInt(scoreTwo.getSelectedItem().toString()));
                     databaseSport.setValue(sport);
+                    Toast.makeText(getContext(), "Score Updated", Toast.LENGTH_LONG).show();
                 } else {
                     SportSet sport = new SportSet(match_date,id, teamOneName.getText().toString(), teamTwoName.getText().toString(), Integer.parseInt(scoreOne.getSelectedItem().toString()), Integer.parseInt(scoreTwo.getSelectedItem().toString())
                             , Integer.parseInt(scoreThree.getSelectedItem().toString()), Integer.parseInt(scoreFour.getSelectedItem().toString())
                             , Integer.parseInt(scoreFive.getSelectedItem().toString()), Integer.parseInt(scoreSix.getSelectedItem().toString()));
                     databaseSport.setValue(sport);
+                    Toast.makeText(getContext(), "Score Updated", Toast.LENGTH_LONG).show();
                 }
             }
         });
