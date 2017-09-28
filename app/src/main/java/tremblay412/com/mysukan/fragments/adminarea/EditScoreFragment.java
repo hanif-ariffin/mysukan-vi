@@ -31,7 +31,7 @@ public class EditScoreFragment extends BaseFragment {
 
     private Bundle args;
     public String id;
-    private String sport_name;
+    private static String sport_name;
     private TextView headerText;
     private DatabaseReference database;
 
@@ -118,7 +118,6 @@ public class EditScoreFragment extends BaseFragment {
                 }
 
                 args.putString("sport_name", sport_name);
-                sport_name = NameManager.DatabaseToUser(sport_name);
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 Fragment fr = new EditScore();
