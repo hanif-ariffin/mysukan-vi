@@ -35,7 +35,7 @@
     <Button
         android:id="@+id/BTN_submit"
         android:layout_width="145dp"
-        android:layout_height="37dp"
+        android:layout_height="48dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="8dp"
@@ -63,7 +63,6 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
         android:background="@drawable/time_schedule"
         android:gravity="center"
         android:textColor="@android:color/white"
@@ -71,68 +70,81 @@
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableRow3" />
-
-    <TableRow
-        android:id="@+id/tableRow3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="9dp"
-        android:background="@drawable/rectangle"
-        android:orientation="horizontal"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableRow">
-
-        <TextView
-            android:id="@+id/team_2_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="  Team 2:"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@android:color/background_dark"
-            android:textSize="18sp" />
-
-        <Spinner
-            android:id="@+id/teamTwo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginTop="25dp"
-        android:alwaysDrawnWithCache="false"
-        android:background="@drawable/rectangle"
-        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout3" />
+
+    <TableLayout
+        android:id="@+id/tableLayout3"
+        android:layout_width="251dp"
+        android:layout_height="84dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="22dp"
+        android:background="@drawable/rectangle_background"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/submit_score_norm_header">
 
-        <TextView
-            android:id="@+id/team_1_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="  Team 1:"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@android:color/background_dark"
-            android:textSize="18sp" />
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rectangle"
+            android:gravity="center">
 
-        <Spinner
-            android:id="@+id/teamOne"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/team_2_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Team 2:"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp" />
 
-    </TableRow>
+            <Spinner
+                android:id="@+id/teamTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:alwaysDrawnWithCache="false"
+            android:background="@drawable/rectangle"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/team_1_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Team 1:"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/teamOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </TableRow>
+
+    </TableLayout>
 
 
 </android.support.constraint.ConstraintLayout>
