@@ -1,23 +1,15 @@
 package tremblay412.com.mysukan.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.GridView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-
 import tremblay412.com.mysukan.R;
-import tremblay412.com.mysukan.activities.SportDetailActivity;
 import tremblay412.com.mysukan.helper.ImageAdapter;
 import tremblay412.com.mysukan.helper.SportManager;
 
@@ -26,12 +18,8 @@ import tremblay412.com.mysukan.helper.SportManager;
  */
 
 public class SportListFragmentWithGrid extends BaseFragment {
-    private static final String TAG = "SportListFragment";
+    private static final String TAG = "SportListFragmentWithGrid";
 
-    private FirebaseRecyclerAdapter mAdapter;
-    private LinearLayoutManager mManager;
-    ArrayAdapter<String> sportArrayAdapter;
-    private ListView sportListView;
     private GridView gridView;
 
     @Override
@@ -39,16 +27,16 @@ public class SportListFragmentWithGrid extends BaseFragment {
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
-        View rootView = inflater.inflate(R.layout.main, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_sports_with_grids, container, false);
 
-        gridView = (GridView) rootView.findViewById(R.id.gridView1);
+        gridView = (GridView) rootView.findViewById(R.id.fragment_sports_with_grids_gridview);
 
-        gridView.setAdapter(new ImageAdapter(getActivity(), (String[]) SportManager.getGames().toArray()));
+        gridView.setAdapter(new ImageAdapter(getActivity(), SportManager.getGames()));
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                Toast.makeText(getContext(),((TextView) v.findViewById(R.id.grid_item_label)).getText(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), ((TextView) v.findViewById(R.id.grid_item_label)).getText(), Toast.LENGTH_SHORT).show();
 
             }
         });

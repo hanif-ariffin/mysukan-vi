@@ -12,13 +12,15 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 import tremblay412.com.mysukan.R;
 
 public class ImageAdapter extends BaseAdapter {
     private Context context;
-    private final String[] mobileValues;
+    private final List<String> mobileValues;
 
-    public ImageAdapter(Context context, String[] mobileValues) {
+    public ImageAdapter(Context context, List<String> mobileValues) {
         this.context = context;
         this.mobileValues = mobileValues;
     }
@@ -34,19 +36,19 @@ public class ImageAdapter extends BaseAdapter {
 
             gridView = new View(context);
 
-            // get layout from mobile.xml
-            gridView = inflater.inflate(R.layout.mobile, null);
+            // get layout from include_sport_image_buttone_sport_image_button.xml
+            gridView = inflater.inflate(R.layout.include_item_sport_image_button, null);
 
             // set value into textview
             TextView textView = (TextView) gridView
                     .findViewById(R.id.grid_item_label);
-            textView.setText(mobileValues[position]);
+            textView.setText(mobileValues.get(position));
 
             // set image based on selected text
             ImageView imageView = (ImageView) gridView
                     .findViewById(R.id.grid_item_image);
 
-            String mobile = mobileValues[position];
+            String mobile = mobileValues.get(position);
 
             if (mobile.equals("Soccer")) {
                 imageView.setImageResource(R.drawable.soccer);
@@ -67,7 +69,7 @@ public class ImageAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return mobileValues.length;
+        return mobileValues.size();
     }
 
     @Override

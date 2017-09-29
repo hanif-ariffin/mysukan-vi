@@ -7,11 +7,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
+import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.fragments.LoginFragment;
 import tremblay412.com.mysukan.fragments.MapFragment;
 import tremblay412.com.mysukan.fragments.SportListFragment;
-import tremblay412.com.mysukan.R;
-import tremblay412.com.mysukan.fragments.SportListFragmentWithGrid;
 
 /**
  * A login screen that offers login via email/password.
@@ -67,21 +66,17 @@ public class MainPageActivity extends BaseActivity {
                     @Override
                     public void onPageSelected(int position) {
                         // TODO Auto-generated method stub
-
-
                         getSupportActionBar().setTitle(tabsTitles[position]);
                     }
 
                     @Override
                     public void onPageScrolled(int arg0, float arg1, int arg2) {
                         // TODO Auto-generated method stub
-
                     }
 
                     @Override
                     public void onPageScrollStateChanged(int pos) {
                         // TODO Auto-generated method stub
-
                     }
                 });
     }

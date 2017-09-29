@@ -5,17 +5,18 @@
     android:layout_height="180dp">
 
     <ImageView
-        android:id="@+id/include_item_enlarged_match_detail_image_team_one"
+        android:id="@+id/include_item_enlarged_match_detail_image_team_1"
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/question_mark" />
 
     <TextView
-        android:id="@+id/include_item_enlarged_match_detail_text_team_one"
+        android:id="@+id/include_item_enlarged_match_detail_text_team_1"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
@@ -23,21 +24,22 @@
         android:gravity="center"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="@+id/include_item_enlarged_match_detail_image_team_one"
-        app:layout_constraintTop_toBottomOf="@+id/include_item_enlarged_match_detail_image_team_one" />
+        app:layout_constraintLeft_toLeftOf="@+id/include_item_enlarged_match_detail_image_team_1"
+        app:layout_constraintTop_toBottomOf="@+id/include_item_enlarged_match_detail_image_team_1" />
 
     <ImageView
-        android:id="@+id/include_item_enlarged_match_detail_image_team_two"
+        android:id="@+id/include_item_enlarged_match_detail_image_team_2"
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/question_mark" />
 
     <TextView
-        android:id="@+id/include_item_enlarged_match_detail_text_team_two"
+        android:id="@+id/include_item_enlarged_match_detail_text_team_2"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="-8dp"
@@ -45,8 +47,8 @@
         android:gravity="center"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="@+id/include_item_enlarged_match_detail_image_team_two"
-        app:layout_constraintTop_toBottomOf="@+id/include_item_enlarged_match_detail_image_team_two" />
+        app:layout_constraintLeft_toLeftOf="@+id/include_item_enlarged_match_detail_image_team_2"
+        app:layout_constraintTop_toBottomOf="@+id/include_item_enlarged_match_detail_image_team_2" />
 
     <TextView
         android:id="@+id/include_item_enlarged_match_detail_score_1"
@@ -59,8 +61,8 @@
         android:textColor="@android:color/background_dark"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@+id/include_item_enlarged_match_detail_image_team_one"
-        app:layout_constraintRight_toLeftOf="@+id/include_item_enlarged_match_detail_image_team_two"
+        app:layout_constraintLeft_toRightOf="@+id/include_item_enlarged_match_detail_image_team_1"
+        app:layout_constraintRight_toLeftOf="@+id/include_item_enlarged_match_detail_image_team_2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView

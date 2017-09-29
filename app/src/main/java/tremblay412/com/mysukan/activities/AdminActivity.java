@@ -3,15 +3,16 @@ package tremblay412.com.mysukan.activities;
 /**
  * Created by User on 2017-09-20.
  */
+
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
-import tremblay412.com.mysukan.fragments.adminarea.UpdateScoreFragment;
 import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.fragments.adminarea.NewScoreFragment;
+import tremblay412.com.mysukan.fragments.adminarea.UpdateScoreFragment;
 
 /**
  * A login screen that offers login via email/password.

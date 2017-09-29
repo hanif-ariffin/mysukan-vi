@@ -18,7 +18,7 @@
 
             <TextView
                 android:id="@+id/text_minimized_time"
-                android:layout_width="wrap_content"
+                android:layout_width="96dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="match_time" />
@@ -33,7 +33,7 @@
 
             <TextView
                 android:id="@+id/text_minimized_team_1"
-                android:layout_width="190dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="text_team_one" />

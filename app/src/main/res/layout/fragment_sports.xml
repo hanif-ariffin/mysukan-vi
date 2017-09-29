@@ -20,6 +20,6 @@
         android:clipToPadding="false"
         android:padding="5dp"
         android:scrollbars="vertical"
-        tools:listitem="@layout/include_item_sport" />
+        tools:listitem="@layout/include_item_sport_text" />
 
 </RelativeLayout>

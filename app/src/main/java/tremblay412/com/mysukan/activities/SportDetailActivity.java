@@ -1,34 +1,25 @@
 package tremblay412.com.mysukan.activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.DrawableRes;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.helper.MatchDetailViewHolder;
@@ -41,7 +32,7 @@ import tremblay412.com.mysukan.models.TripleScoreMatch;
  * Created by Akarin on 9/9/2017.
  */
 
-public class SportDetailActivity extends BaseActivity {
+public class SportDetailActivity extends AppCompatActivity {
 
     private static final String TAG = "SportDetailActivity";
 
@@ -68,10 +59,10 @@ public class SportDetailActivity extends BaseActivity {
         setContentView(R.layout.activity_sport_matches);
 
         // Get the XML object
-        textViewteamOneName = (TextView) findViewById(R.id.include_item_enlarged_match_detail_text_team_one);
-        textViewteamTwoName = (TextView) findViewById(R.id.include_item_enlarged_match_detail_text_team_two);
-        imageViewteamOneImage = (ImageView) findViewById(R.id.include_item_enlarged_match_detail_image_team_one);
-        imageViewteamTwoImage = (ImageView) findViewById(R.id.include_item_enlarged_match_detail_image_team_two);
+        textViewteamOneName = (TextView) findViewById(R.id.include_item_enlarged_match_detail_text_team_1);
+        textViewteamTwoName = (TextView) findViewById(R.id.include_item_enlarged_match_detail_text_team_2);
+        imageViewteamOneImage = (ImageView) findViewById(R.id.include_item_enlarged_match_detail_image_team_1);
+        imageViewteamTwoImage = (ImageView) findViewById(R.id.include_item_enlarged_match_detail_image_team_2);
         matchScoreOne = (TextView) findViewById(R.id.include_item_enlarged_match_detail_score_1);
         matchScoreTwo = (TextView) findViewById(R.id.include_item_enlarged_match_detail_score_2);
         matchScoreThree = (TextView) findViewById(R.id.include_item_enlarged_match_detail_score_3);
@@ -225,7 +216,7 @@ public class SportDetailActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int i = item.getItemId();
         if (i == R.id.winner) {
-            Intent intent = new Intent(SportDetailActivity.this,WinnerActivity.class);
+            Intent intent = new Intent(SportDetailActivity.this, WinnerActivity.class);
             Bundle bundle = new Bundle();
             bundle.putString("sport_name", sportName); //Your id
             intent.putExtras(bundle);
@@ -235,5 +226,4 @@ public class SportDetailActivity extends BaseActivity {
             return super.onOptionsItemSelected(item);
         }
     }
-
 }
