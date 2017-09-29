@@ -36,7 +36,7 @@ public class NewScoreFragment extends BaseFragment {
 
         //Listview for sport
         iListGames = (ListView) rootView.findViewById(R.id.sport_listview);
-        ListAdapter lArrayAdapter = new ListAdapter(getActivity(),R.layout.listview_component, SportManager.getGames());
+        ListAdapter lArrayAdapter = new ListAdapter(getActivity(), R.layout.listview_component, SportManager.getGames());
         iListGames.setAdapter(lArrayAdapter);
 
         //Listener for listview

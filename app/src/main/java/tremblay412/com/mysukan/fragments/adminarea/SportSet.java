@@ -5,15 +5,16 @@ package tremblay412.com.mysukan.fragments.adminarea;
  */
 
 public class SportSet {
-    String team_1_name,team_2_name,id;
-    int team_1_score_1,team_2_score_1, team_1_score_2, team_2_score_2, team_1_score_3, team_2_score_3;
+    String team_1_name, team_2_name, id;
+    int team_1_score_1, team_2_score_1, team_1_score_2, team_2_score_2, team_1_score_3, team_2_score_3;
     long match_date;
 
-    public SportSet(){}
+    public SportSet() {
+    }
 
-    public SportSet(long match_date, String id, String team_1_name, String team_2_name, int team_1_score_1, int team_2_score_1, int team_1_score_2, int team_2_score_2, int team_1_score_3, int team_2_score_3){
+    public SportSet(long match_date, String id, String team_1_name, String team_2_name, int team_1_score_1, int team_2_score_1, int team_1_score_2, int team_2_score_2, int team_1_score_3, int team_2_score_3) {
         this.id = id;
-        this.team_1_name=  team_1_name;
+        this.team_1_name = team_1_name;
         this.team_2_name = team_2_name;
         this.team_1_score_1 = team_1_score_1;
         this.team_2_score_1 = team_2_score_1;
@@ -52,9 +53,13 @@ public class SportSet {
         this.team_1_score_3 = team_1_score_3;
     }
 
-    public String getId() { return id;}
+    public String getId() {
+        return id;
+    }
 
-    public void setId(String id) { this.id = id;}
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public void setTeam_2_score_3(int team_2_score_3) {
         this.team_2_score_3 = team_2_score_3;

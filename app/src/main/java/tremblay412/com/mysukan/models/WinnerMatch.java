@@ -1,10 +1,5 @@
 package tremblay412.com.mysukan.models;
 
-import com.google.firebase.database.Exclude;
-
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Created by User on 2017-09-28.
  */
@@ -13,11 +8,11 @@ public class WinnerMatch {
 
     public String first_place, second_place, third_place;
 
-    public WinnerMatch(){
+    public WinnerMatch() {
 
     }
 
-    public WinnerMatch(String firstPlace, String secondPlace, String thirdPlace){
+    public WinnerMatch(String firstPlace, String secondPlace, String thirdPlace) {
         this.first_place = firstPlace;
         this.second_place = secondPlace;
         this.third_place = thirdPlace;

@@ -26,8 +26,6 @@ public class BaseActivity extends AppCompatActivity {
             mProgressDialog.setCancelable(false);
             currentMessage = message;
             mProgressDialog.setMessage(message);
-        } else {
-            Log.d(TAG, "ProcessDialog is not null with message:" + currentMessage);
         }
 
         mProgressDialog.show();

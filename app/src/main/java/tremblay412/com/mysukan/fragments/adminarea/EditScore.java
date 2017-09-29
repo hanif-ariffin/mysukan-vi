@@ -1,7 +1,6 @@
 package tremblay412.com.mysukan.fragments.adminarea;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,10 +22,10 @@ import tremblay412.com.mysukan.helper.NameManager;
 
 public class EditScore extends BaseFragment {
 
-    private Spinner  scoreOne, scoreTwo, scoreThree, scoreFour, scoreFive, scoreSix;
+    private Spinner scoreOne, scoreTwo, scoreThree, scoreFour, scoreFive, scoreSix;
     ArrayAdapter<CharSequence> scoreAdapter;
     private Button submit, delete;
-    private TextView textHeader, teamOneName , teamTwoName;
+    private TextView textHeader, teamOneName, teamTwoName;
     private List<String> checker;
     public String id;
     private static String sport_name;
@@ -90,8 +89,8 @@ public class EditScore extends BaseFragment {
 
 
         // team Textview
-        teamTwoName = (TextView)  rootView.findViewById(R.id.teamTwo);
-        teamOneName = (TextView)  rootView.findViewById(R.id.teamOne);
+        teamTwoName = (TextView) rootView.findViewById(R.id.teamTwo);
+        teamOneName = (TextView) rootView.findViewById(R.id.teamOne);
         teamOneName.setText(args.getString("teamOne"));
         teamTwoName.setText(args.getString("teamTwo"));
 
@@ -109,11 +108,11 @@ public class EditScore extends BaseFragment {
 
                 databaseSport = FirebaseDatabase.getInstance().getReference("games").child(sport_name).child(id);
                 if (!checker.contains(sport_name)) {
-                    SportNorm sport = new SportNorm(match_date,id, teamOneName.getText().toString(), teamTwoName.getText().toString(), Integer.parseInt(scoreOne.getSelectedItem().toString()), Integer.parseInt(scoreTwo.getSelectedItem().toString()));
+                    SportNorm sport = new SportNorm(match_date, id, teamOneName.getText().toString(), teamTwoName.getText().toString(), Integer.parseInt(scoreOne.getSelectedItem().toString()), Integer.parseInt(scoreTwo.getSelectedItem().toString()));
                     databaseSport.setValue(sport);
                     Toast.makeText(getContext(), "Score Updated", Toast.LENGTH_LONG).show();
                 } else {
-                    SportSet sport = new SportSet(match_date,id, teamOneName.getText().toString(), teamTwoName.getText().toString(), Integer.parseInt(scoreOne.getSelectedItem().toString()), Integer.parseInt(scoreTwo.getSelectedItem().toString())
+                    SportSet sport = new SportSet(match_date, id, teamOneName.getText().toString(), teamTwoName.getText().toString(), Integer.parseInt(scoreOne.getSelectedItem().toString()), Integer.parseInt(scoreTwo.getSelectedItem().toString())
                             , Integer.parseInt(scoreThree.getSelectedItem().toString()), Integer.parseInt(scoreFour.getSelectedItem().toString())
                             , Integer.parseInt(scoreFive.getSelectedItem().toString()), Integer.parseInt(scoreSix.getSelectedItem().toString()));
                     databaseSport.setValue(sport);
@@ -122,13 +121,13 @@ public class EditScore extends BaseFragment {
             }
         });
 
-        delete = (Button)rootView.findViewById(R.id.BTN_delete);
+        delete = (Button) rootView.findViewById(R.id.BTN_delete);
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseDatabase.getInstance().getReference("games").child(sport_name).child(id).removeValue();
                 getActivity().getSupportFragmentManager().popBackStack();
-                Toast.makeText(getContext(),sport_name + " : " + teamOneName.getText().toString() + " vs " + teamTwoName.getText().toString() + " deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), sport_name + " : " + teamOneName.getText().toString() + " vs " + teamTwoName.getText().toString() + " deleted", Toast.LENGTH_SHORT).show();
 
             }
         });
