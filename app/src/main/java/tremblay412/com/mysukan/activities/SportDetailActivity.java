@@ -1,5 +1,7 @@
 package tremblay412.com.mysukan.activities;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.DrawableRes;
 import android.support.v7.app.AppCompatActivity;
@@ -224,6 +226,21 @@ public class SportDetailActivity extends BaseActivity {
             menu.findItem(R.id.menu_developers_info).setVisible(false);
         }
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int i = item.getItemId();
+        if (i == R.id.winner) {
+            Intent intent = new Intent(SportDetailActivity.this,WinnerActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("sport_name", sportName); //Your id
+            intent.putExtras(bundle);
+            startActivity(intent);
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
     }
 
 }

@@ -150,6 +150,9 @@ public class NameManager {
             case "Queens":
                 dataInt = R.drawable.queens_logo;
                 break;
+            case "Calgary":
+                dataInt = R.drawable.calgary_logo;
+                break;
             default:
                 Log.wtf(TAG, "Unable to find matching image for data:" + data);
                 dataInt = 0;

@@ -28,6 +28,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.WinnerActivity"></activity>
         <activity android:name=".activities.SportDetailActivity"></activity>
         <activity android:name=".activities.AdminActivity"></activity>
 
