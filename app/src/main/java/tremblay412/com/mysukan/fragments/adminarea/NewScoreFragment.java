@@ -14,6 +14,7 @@ import android.widget.ListView;
 
 import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.fragments.BaseFragment;
+import tremblay412.com.mysukan.helper.ListAdapter;
 import tremblay412.com.mysukan.helper.SportManager;
 
 public class NewScoreFragment extends BaseFragment {
@@ -35,7 +36,7 @@ public class NewScoreFragment extends BaseFragment {
 
         //Listview for sport
         iListGames = (ListView) rootView.findViewById(R.id.sport_listview);
-        ArrayAdapter<String> lArrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, SportManager.getGames());
+        ListAdapter lArrayAdapter = new ListAdapter(getActivity(),R.layout.listview_component, SportManager.getGames());
         iListGames.setAdapter(lArrayAdapter);
 
         //Listener for listview

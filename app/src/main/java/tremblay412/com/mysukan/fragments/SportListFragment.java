@@ -45,7 +45,6 @@ public class SportListFragment extends BaseFragment {
         sportListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Log.d(TAG, "User clicked at View with id:" + position + " with item:" + sportArrayAdapter.getItem(position).toString());
                 Intent intent = new Intent(getActivity(), SportDetailActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("sport_name", sportArrayAdapter.getItem(position).toString()); //Your id

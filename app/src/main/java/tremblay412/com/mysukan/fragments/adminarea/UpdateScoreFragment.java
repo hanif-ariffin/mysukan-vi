@@ -15,6 +15,7 @@ import com.google.firebase.database.DatabaseReference;
 
 import tremblay412.com.mysukan.fragments.BaseFragment;
 import tremblay412.com.mysukan.R;
+import tremblay412.com.mysukan.helper.ListAdapter;
 import tremblay412.com.mysukan.helper.SportManager;
 
 public class UpdateScoreFragment extends BaseFragment {
@@ -31,7 +32,7 @@ public class UpdateScoreFragment extends BaseFragment {
         dataListView = (ListView) view.findViewById(R.id.listview00);
 
 
-        ArrayAdapter<String> lArrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, SportManager.getGames());
+        ListAdapter lArrayAdapter = new ListAdapter(getActivity(), R.layout.listview_component, SportManager.getGames());
         dataListView.setAdapter(lArrayAdapter);
 
         //Listener for listview

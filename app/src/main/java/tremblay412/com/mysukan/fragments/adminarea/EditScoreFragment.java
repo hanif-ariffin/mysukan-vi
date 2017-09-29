@@ -28,6 +28,7 @@ import java.util.TimerTask;
 
 import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.fragments.BaseFragment;
+import tremblay412.com.mysukan.helper.ListAdapter;
 import tremblay412.com.mysukan.helper.NameManager;
 
 public class EditScoreFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
@@ -65,7 +66,7 @@ public class EditScoreFragment extends BaseFragment implements SwipeRefreshLayou
         sport_name = NameManager.UserToDatabase(sport_name);
 
 
-        final ArrayAdapter<String> lArrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, data1);
+        final ListAdapter lArrayAdapter = new ListAdapter(getActivity(), R.layout.listview_component, data1);
         //retrieve data from database
         database = FirebaseDatabase.getInstance().getReference("games").child(sport_name);
 
