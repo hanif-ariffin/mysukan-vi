@@ -23,7 +23,6 @@ import tremblay412.com.mysukan.fragments.adminarea.SportNorm;
 import tremblay412.com.mysukan.fragments.adminarea.SportSet;
 import tremblay412.com.mysukan.helper.MatchDetailViewHolder;
 import tremblay412.com.mysukan.helper.NameManager;
-import tremblay412.com.mysukan.helper.WinnerMatchViewHolder;
 import tremblay412.com.mysukan.models.TripleScoreMatch;
 import tremblay412.com.mysukan.models.WinnerMatch;
 
