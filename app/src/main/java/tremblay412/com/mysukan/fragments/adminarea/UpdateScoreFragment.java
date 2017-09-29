@@ -19,7 +19,6 @@ import tremblay412.com.mysukan.helper.SportManager;
 
 public class UpdateScoreFragment extends BaseFragment {
 
-    private DatabaseReference databaseSport;
     private ListView dataListView;
     private Bundle bundle;
 

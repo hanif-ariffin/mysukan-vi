@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,12 +23,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.fragments.BaseFragment;
 import tremblay412.com.mysukan.helper.NameManager;
 
-public class EditScoreFragment extends BaseFragment {
+public class EditScoreFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 
     private Bundle args;
     public String id;
@@ -39,7 +42,7 @@ public class EditScoreFragment extends BaseFragment {
     public List<SportNorm> sportNorm;
     private List<String> data1 = new ArrayList<>();
     private List<String> checker, arrayId;
-
+    private SwipeRefreshLayout mSwipeRefreshLayout;
     private ListView currentList;
 
     @Override
@@ -65,12 +68,13 @@ public class EditScoreFragment extends BaseFragment {
         final ArrayAdapter<String> lArrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, data1);
         //retrieve data from database
         database = FirebaseDatabase.getInstance().getReference("games").child(sport_name);
-        sportSet.clear();
-        sportNorm.clear();
-        data1.clear();
+
         database.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                sportSet.clear();
+                sportNorm.clear();
+                data1.clear();
                 for (DataSnapshot sportSnapshot : dataSnapshot.getChildren()) {
                     if (checker.contains(sport_name)) {
                         SportSet sport = sportSnapshot.getValue(SportSet.class);
@@ -98,6 +102,42 @@ public class EditScoreFragment extends BaseFragment {
 
         currentList = (ListView) view.findViewById(R.id.listView11);
         currentList.setAdapter(lArrayAdapter);
+        mSwipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.swipe_refresh);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                database.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        sportSet.clear();
+                        sportNorm.clear();
+                        data1.clear();
+                        for (DataSnapshot sportSnapshot : dataSnapshot.getChildren()) {
+                            if (checker.contains(sport_name)) {
+                                SportSet sport = sportSnapshot.getValue(SportSet.class);
+                                sportSet.add(sport);
+                                arrayId.add(sport.getId());
+                                data1.add(sport.team_1_name + " vs " + sport.team_2_name);
+                                lArrayAdapter.notifyDataSetChanged();
+                            } else {
+                                SportNorm sport = sportSnapshot.getValue(SportNorm.class);
+                                sportNorm.add(sport);
+                                id = sport.getId();
+                                data1.add(sport.team_1_name + " vs " + sport.team_2_name);
+                                arrayId.add(sport.getId());
+                                lArrayAdapter.notifyDataSetChanged();
+                            }
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+            mSwipeRefreshLayout.setRefreshing(false);}
+        });
 
         currentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -132,4 +172,8 @@ public class EditScoreFragment extends BaseFragment {
     }
 
 
+    @Override
+    public void onRefresh() {
+
+    }
 }

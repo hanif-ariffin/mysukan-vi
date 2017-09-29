@@ -1,6 +1,7 @@
 package tremblay412.com.mysukan.fragments.adminarea;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,9 +23,9 @@ import tremblay412.com.mysukan.helper.NameManager;
 
 public class EditScore extends BaseFragment {
 
-    private Spinner teamOne, teamTwo, scoreOne, scoreTwo, scoreThree, scoreFour, scoreFive, scoreSix;
-    ArrayAdapter<CharSequence> teamAdapter, scoreAdapter;
-    private Button submit;
+    private Spinner  scoreOne, scoreTwo, scoreThree, scoreFour, scoreFive, scoreSix;
+    ArrayAdapter<CharSequence> scoreAdapter;
+    private Button submit, delete;
     private TextView textHeader, teamOneName , teamTwoName;
     private List<String> checker;
     public String id;
@@ -38,7 +39,7 @@ public class EditScore extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View rootView;
+        final View rootView;
 
         //array for checker
         checker = Arrays.asList("badminton_men_doubles", "badminton_women_doubles", "badminton_mixed_doubles", "squash_men_singles", "squash_women_singles");
@@ -88,7 +89,6 @@ public class EditScore extends BaseFragment {
         textHeader.setText(sport_name);
 
 
-
         // team Textview
         teamTwoName = (TextView)  rootView.findViewById(R.id.teamTwo);
         teamOneName = (TextView)  rootView.findViewById(R.id.teamOne);
@@ -119,6 +119,17 @@ public class EditScore extends BaseFragment {
                     databaseSport.setValue(sport);
                     Toast.makeText(getContext(), "Score Updated", Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+
+        delete = (Button)rootView.findViewById(R.id.BTN_delete);
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseDatabase.getInstance().getReference("games").child(sport_name).child(id).removeValue();
+                getActivity().getSupportFragmentManager().popBackStack();
+                Toast.makeText(getContext(),sport_name + " : " + teamOneName.getText().toString() + " vs " + teamTwoName.getText().toString() + " deleted", Toast.LENGTH_SHORT).show();
+
             }
         });
 
