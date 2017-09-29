@@ -96,12 +96,17 @@ public class SportDetailActivity extends AppCompatActivity {
                     protected void populateViewHolder(final MatchDetailViewHolder viewHolder, final SingleScoreMatch model, final int position) {
                         final DatabaseReference postRef = getRef(position);
                         String time = "";
+
                         if (model.match_date != null) {
-                            time = new SimpleDateFormat("EE HH:mm a").format(new Date(model.match_date * 1000L));
+                            time = new SimpleDateFormat("HH:mm a").format(new Date(model.match_date* 1000L));
                         }
                         viewHolder.match_time.setText(time);
                         viewHolder.team_1.setText(model.team_1_name);
                         viewHolder.team_2.setText(model.team_2_name);
+
+                        if (position == 0){
+                            updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1}, new Long[]{model.team_2_score_1});
+                        }
 
                         viewHolder.team_1.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -136,12 +141,18 @@ public class SportDetailActivity extends AppCompatActivity {
                         Log.d(TAG, "postRef with position:" + position + " contains:" + postRef.toString());
                         Log.d(TAG, "Model obtained with values id:" + model.id + " match_date:" + model.match_date + " team_1_name:" + model.team_1_name + " team_2_name:" + model.team_2_name);
                         String time = "";
+
                         if (model.match_date != null) {
-                            time = new SimpleDateFormat("EE HH:mm a").format(new Date(model.match_date * 1000L));
+                            time = new SimpleDateFormat("HH:mm a").format(new Date(model.match_date * 1000L));
                         }
                         viewHolder.match_time.setText(time);
                         viewHolder.team_1.setText(model.team_1_name);
                         viewHolder.team_2.setText(model.team_2_name);
+
+                        if(position == 0){
+                            updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1, model.team_1_score_2, model.team_1_score_3}, new Long[]{model.team_2_score_1, model.team_2_score_2, model.team_2_score_3});
+                        }
+
 
                         viewHolder.team_1.setOnClickListener(new View.OnClickListener() {
                             @Override

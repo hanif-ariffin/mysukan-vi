@@ -47,11 +47,10 @@
         android:text="CREATE NEW MATCH"
         android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/datePicker"
-        app:layout_constraintVertical_bias="0.22" />
+        app:layout_constraintVertical_bias="0.126" />
 
     <TextView
         android:id="@+id/datePicker"
