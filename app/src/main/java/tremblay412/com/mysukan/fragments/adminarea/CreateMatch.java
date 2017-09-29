@@ -76,6 +76,7 @@ public class CreateMatch extends BaseFragment {
         //array for checker
         checker = Arrays.asList("badminton_men_doubles", "badminton_women_doubles", "badminton_mixed_doubles", "squash_men_singles", "squash_women_singles");
 
+            unixTime = 0;
         mTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int i, int i1) {
@@ -119,6 +120,9 @@ public class CreateMatch extends BaseFragment {
             public void onClick(View view) {
                 String id = databaseSport.push().getKey();
 
+                if (unixTime ==0){
+                    Toast.makeText(getContext(), "Please set the schedule!", Toast.LENGTH_LONG).show();
+                }else{
                 if (!checker.contains(sport_name)) {
                     SportNorm sport = new SportNorm(unixTime, id, teamOne.getSelectedItem().toString(), teamTwo.getSelectedItem().toString(), 0, 0);
                     databaseSport.child(sport_name).child(id).setValue(sport);
@@ -127,7 +131,7 @@ public class CreateMatch extends BaseFragment {
                     SportSet sport = new SportSet(unixTime, id, teamOne.getSelectedItem().toString(), teamTwo.getSelectedItem().toString(), 0, 0, 0, 0, 0, 0);
                     databaseSport.child(sport_name).child(id).setValue(sport);
                     Toast.makeText(getContext(), "Sport added", Toast.LENGTH_LONG).show();
-                }
+                }}
 
 
             }
