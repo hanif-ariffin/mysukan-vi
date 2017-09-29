@@ -197,7 +197,7 @@ public class SportDetailActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu, menu);
         if (menu != null) {
             menu.findItem(R.id.winner).setVisible(true);
-            menu.findItem(R.id.menu_developers_info).setVisible(false);
+            menu.findItem(R.id.menu_item_developers_info).setVisible(false);
         }
         return true;
     }
@@ -205,10 +205,9 @@ public class SportDetailActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int i = item.getItemId();
-        if (i == R.id.winner) {
-            Intent intent = new Intent(SportDetailActivity.this, WinnerActivity.class);
+        if (i == R.id.menu_item_sponsors) {
+            Intent intent = new Intent(this, WinnerActivity.class);
             Bundle bundle = new Bundle();
-            bundle.putString("sport_name", sportName); //Your id
             intent.putExtras(bundle);
             startActivity(intent);
             return true;

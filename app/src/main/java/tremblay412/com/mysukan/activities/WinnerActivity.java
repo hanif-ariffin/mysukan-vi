@@ -6,7 +6,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseListAdapter;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -49,8 +48,6 @@ public class WinnerActivity extends BaseActivity {
         sportName = bundle.getString("sport_name");
 
         getSupportActionBar().setTitle(sportName + " Champion");
-        // Initialized Firebase authentication
-        firebaseAuth = FirebaseAuth.getInstance();
 
         database = FirebaseDatabase.getInstance().getReference("ranking").child(NameManager.UserToDatabase(sportName));
 
@@ -87,7 +84,7 @@ public class WinnerActivity extends BaseActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu, menu);
         if (menu != null) {
-            menu.findItem(R.id.menu_developers_info).setVisible(false);
+            menu.findItem(R.id.menu_item_developers_info).setVisible(false);
         }
         return true;
     }
