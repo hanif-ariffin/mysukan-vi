@@ -115,5 +115,9 @@
         <item>Women Singles</item>
     </string-array>
 
+    <!--
+    CUSTOM VALUES
+    -->
+    <string name="fragment_sports_icon_height">200dp</string>
 
 </resources>
