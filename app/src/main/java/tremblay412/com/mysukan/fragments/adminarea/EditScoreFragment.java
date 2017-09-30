@@ -5,12 +5,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -23,8 +21,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.fragments.BaseFragment;
@@ -103,7 +99,7 @@ public class EditScoreFragment extends BaseFragment implements SwipeRefreshLayou
 
         currentList = (ListView) view.findViewById(R.id.listView11);
         currentList.setAdapter(lArrayAdapter);
-        mSwipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.swipe_refresh);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -137,7 +133,8 @@ public class EditScoreFragment extends BaseFragment implements SwipeRefreshLayou
 
                     }
                 });
-            mSwipeRefreshLayout.setRefreshing(false);}
+                mSwipeRefreshLayout.setRefreshing(false);
+            }
         });
 
         currentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {

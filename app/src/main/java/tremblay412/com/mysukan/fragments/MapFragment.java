@@ -16,9 +16,9 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import java.util.ArrayList;
 import java.util.List;
 
-import tremblay412.com.mysukan.fragments.map.MapRestaurantFragment;
 import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.fragments.map.MapAmenitiesFragment;
+import tremblay412.com.mysukan.fragments.map.MapRestaurantFragment;
 import tremblay412.com.mysukan.fragments.map.MapVenueFragment;
 
 /**
@@ -36,7 +36,7 @@ public class MapFragment extends BaseFragment implements OnMapReadyCallback {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.maps_fragment_new_tabs,container, false);
+        View view = inflater.inflate(R.layout.maps_fragment_new_tabs, container, false);
         // Setting ViewPager for each Tabs
 
         ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewpager);

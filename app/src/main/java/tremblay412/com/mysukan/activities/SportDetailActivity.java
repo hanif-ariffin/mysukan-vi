@@ -83,8 +83,6 @@ public class SportDetailActivity extends AppCompatActivity {
             sportNameReference = FirebaseDatabase.getInstance().getReference();
 
             mManager = new LinearLayoutManager(this);
-            //mManager.setReverseLayout(true);
-            //mManager.setStackFromEnd(true);
             sportNameRecyclerView.setLayoutManager(mManager);
 
             Query queryResult = sportNameReference.child("games").child(NameManager.UserToDatabase(sportName)).orderByChild("match_date");
@@ -98,13 +96,13 @@ public class SportDetailActivity extends AppCompatActivity {
                         String time = "";
 
                         if (model.match_date != null) {
-                            time = new SimpleDateFormat("HH:mm a").format(new Date(model.match_date* 1000L));
+                            time = new SimpleDateFormat("HH:mm a").format(new Date(model.match_date * 1000L));
                         }
                         viewHolder.match_time.setText(time);
                         viewHolder.team_1.setText(model.team_1_name);
                         viewHolder.team_2.setText(model.team_2_name);
 
-                        if (position == 0){
+                        if (position == 0) {
                             updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1}, new Long[]{model.team_2_score_1});
                         }
 
@@ -138,8 +136,6 @@ public class SportDetailActivity extends AppCompatActivity {
                     @Override
                     protected void populateViewHolder(final MatchDetailViewHolder viewHolder, final TripleScoreMatch model, final int position) {
                         final DatabaseReference postRef = getRef(position);
-                        Log.d(TAG, "postRef with position:" + position + " contains:" + postRef.toString());
-                        Log.d(TAG, "Model obtained with values id:" + model.id + " match_date:" + model.match_date + " team_1_name:" + model.team_1_name + " team_2_name:" + model.team_2_name);
                         String time = "";
 
                         if (model.match_date != null) {
@@ -149,7 +145,7 @@ public class SportDetailActivity extends AppCompatActivity {
                         viewHolder.team_1.setText(model.team_1_name);
                         viewHolder.team_2.setText(model.team_2_name);
 
-                        if(position == 0){
+                        if (position == 0) {
                             updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1, model.team_1_score_2, model.team_1_score_3}, new Long[]{model.team_2_score_1, model.team_2_score_2, model.team_2_score_3});
                         }
 
@@ -157,7 +153,6 @@ public class SportDetailActivity extends AppCompatActivity {
                         viewHolder.team_1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Log.d(TAG, "User clicked at a match with id:" + model.id);
                                 updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1, model.team_1_score_2, model.team_1_score_3}, new Long[]{model.team_2_score_1, model.team_2_score_2, model.team_2_score_3});
                             }
                         });
@@ -166,7 +161,6 @@ public class SportDetailActivity extends AppCompatActivity {
                         {
                             @Override
                             public void onClick(View v) {
-                                Log.d(TAG, "User clicked at a match with id:" + model.id);
                                 updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1, model.team_1_score_2, model.team_1_score_3}, new Long[]{model.team_2_score_1, model.team_2_score_2, model.team_2_score_3});
                             }
                         });
@@ -175,7 +169,6 @@ public class SportDetailActivity extends AppCompatActivity {
                         {
                             @Override
                             public void onClick(View v) {
-                                Log.d(TAG, "User clicked at a match with id:" + model.id);
                                 updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1, model.team_1_score_2, model.team_1_score_3}, new Long[]{model.team_2_score_1, model.team_2_score_2, model.team_2_score_3});
                             }
                         });
@@ -208,11 +201,6 @@ public class SportDetailActivity extends AppCompatActivity {
             matchScoreTwo.setTextSize(30);
             matchScoreThree.setText("");
         }
-        if (firebaseAuth.getCurrentUser() != null) {
-            Log.d(TAG, "User logged in with email:" + firebaseAuth.getCurrentUser().getEmail());
-        } else {
-            Log.d(TAG, "User is not logged in");
-        }
     }
 
     @Override
@@ -221,7 +209,7 @@ public class SportDetailActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu, menu);
         if (menu != null) {
             menu.findItem(R.id.winner).setVisible(true);
-            menu.findItem(R.id.menu_developers_info).setVisible(false);
+            menu.findItem(R.id.menu_item_developers_info).setVisible(false);
         }
         return true;
     }
@@ -230,10 +218,14 @@ public class SportDetailActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int i = item.getItemId();
         if (i == R.id.winner) {
-            Intent intent = new Intent(SportDetailActivity.this, WinnerActivity.class);
+            Intent intent = new Intent(this, WinnerActivity.class);
             Bundle bundle = new Bundle();
-            bundle.putString("sport_name", sportName); //Your id
+            bundle.putString("sport_name", sportName);
             intent.putExtras(bundle);
+            startActivity(intent);
+            return true;
+        } else if (i == R.id.menu_item_sponsors) {
+            Intent intent = new Intent(this, SponsorsActivity.class);
             startActivity(intent);
             return true;
         } else {

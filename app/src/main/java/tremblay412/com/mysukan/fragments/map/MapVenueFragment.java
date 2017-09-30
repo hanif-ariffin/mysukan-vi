@@ -24,12 +24,12 @@ import tremblay412.com.mysukan.fragments.BaseFragment;
  * Created by User on 2017-09-07.
  */
 
-public class MapVenueFragment extends BaseFragment implements OnMapReadyCallback{
+public class MapVenueFragment extends BaseFragment implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private final static LatLng carletonU = new LatLng(45.385863, -75.695903);
-    private final static LatLng carletonU_UC = new LatLng(45.383331,-75.697630);
-    private final static LatLng carletonU_NormFynn = new LatLng(45.385860,-75.692811);
+    private final static LatLng carletonU_UC = new LatLng(45.383331, -75.697630);
+    private final static LatLng carletonU_NormFynn = new LatLng(45.385860, -75.692811);
     private final static LatLng carletonU_RavensNest = new LatLng(45.386450, -75.693282);
     private final static LatLng carletonU_FieldHouse = new LatLng(45.386843, -75.694530);
     private static View view;
@@ -61,8 +61,8 @@ public class MapVenueFragment extends BaseFragment implements OnMapReadyCallback
         mMap = googleMap;
         int height = 170;
         int width = 100;
-        BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.mysukan_pinpoint);
-        Bitmap b=bitmapdraw.getBitmap();
+        BitmapDrawable bitmapdraw = (BitmapDrawable) getResources().getDrawable(R.drawable.mysukan_pinpoint);
+        Bitmap b = bitmapdraw.getBitmap();
         Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
 
         mMap.setBuildingsEnabled(true);

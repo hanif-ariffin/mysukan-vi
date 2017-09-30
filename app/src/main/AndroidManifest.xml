@@ -31,7 +31,7 @@
         <activity android:name=".activities.WinnerActivity"></activity>
         <activity android:name=".activities.SportDetailActivity"></activity>
         <activity android:name=".activities.AdminActivity"></activity>
-
+        <activity android:name=".activities.SponsorsActivity"></activity>
     </application>
 
 </manifest>

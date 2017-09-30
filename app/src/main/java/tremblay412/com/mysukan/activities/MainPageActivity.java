@@ -24,7 +24,7 @@ public class MainPageActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_page_with_fragment);
+        setContentView(R.layout.activity_main_page_with_fragment);
 
         getSupportActionBar().setTitle("Scoreboard");
 

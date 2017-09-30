@@ -57,7 +57,6 @@ public class NameManager {
                 data = "Rocket League";
                 break;
             default:
-                Log.wtf(TAG, "Unable to find matching replacement for data:" + data);
                 data = "UNDEFINED";
                 break;
         }
@@ -111,7 +110,6 @@ public class NameManager {
                 data = "rocket_league";
                 break;
             default:
-                Log.wtf(TAG, "Unable to find matching replacement for data:" + data);
                 data = "UNDEFINED";
                 break;
         }
@@ -154,7 +152,6 @@ public class NameManager {
                 dataInt = R.drawable.calgary_logo;
                 break;
             default:
-                Log.wtf(TAG, "Unable to find matching image for data:" + data);
                 dataInt = 0;
                 break;
         }

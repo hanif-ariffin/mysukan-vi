@@ -3,17 +3,12 @@ package tremblay412.com.mysukan.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,7 +18,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.activities.AdminActivity;
-import tremblay412.com.mysukan.helper.SportManager;
 
 public class LoginFragment extends BaseFragment {
 
@@ -78,9 +72,9 @@ public class LoginFragment extends BaseFragment {
 
                         if (task.isSuccessful()) {
 
-                             Intent intent = new Intent(getActivity(), AdminActivity.class);
-                             startActivity(intent);
-                             hideProgressDialog();
+                            Intent intent = new Intent(getActivity(), AdminActivity.class);
+                            startActivity(intent);
+                            hideProgressDialog();
 
                             Toast.makeText(getActivity(), "You are now logged in with email:" + firebaseAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
                         } else {

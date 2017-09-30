@@ -2,7 +2,6 @@ package tremblay412.com.mysukan.fragments.adminarea;
 
 import android.app.TimePickerDialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,9 +23,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import tremblay412.com.mysukan.helper.NameManager;
 import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.fragments.BaseFragment;
+import tremblay412.com.mysukan.helper.NameManager;
 
 public class CreateMatch extends BaseFragment {
 
@@ -34,12 +33,12 @@ public class CreateMatch extends BaseFragment {
     ArrayAdapter<CharSequence> teamAdapter, scoreAdapter;
     private Button submitButton;
     private TextView text, datePicker1;
-    public String sport_name, hour , minute;
+    public String sport_name, hour, minute;
     private Bundle args;
     private DatabaseReference databaseSport;
     private List<String> checker;
     private TimePickerDialog.OnTimeSetListener mTimeSetListener;
-    private long unixTime ;
+    private long unixTime;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,16 +50,15 @@ public class CreateMatch extends BaseFragment {
         args = getArguments();
         sport_name = args.getString("sport_name");
 
-            rootView = inflater.inflate(R.layout.submit_score_norm, container, false);
+        rootView = inflater.inflate(R.layout.submit_score_norm, container, false);
 
-            teamOne = (Spinner) rootView.findViewById(R.id.teamOne);
-            teamTwo = (Spinner) rootView.findViewById(R.id.teamTwo);
+        teamOne = (Spinner) rootView.findViewById(R.id.teamOne);
+        teamTwo = (Spinner) rootView.findViewById(R.id.teamTwo);
 
-            teamAdapter = ArrayAdapter.createFromResource(getContext(), R.array.team_list, android.R.layout.simple_spinner_item);
-            teamAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            teamOne.setAdapter(teamAdapter);
-            teamTwo.setAdapter(teamAdapter);
-
+        teamAdapter = ArrayAdapter.createFromResource(getContext(), R.array.team_list, android.R.layout.simple_spinner_item);
+        teamAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        teamOne.setAdapter(teamAdapter);
+        teamTwo.setAdapter(teamAdapter);
 
 
         datePicker1 = (TextView) rootView.findViewById(R.id.datePicker);
@@ -70,7 +68,7 @@ public class CreateMatch extends BaseFragment {
                 Calendar cal = Calendar.getInstance();
                 int hour = cal.get(Calendar.HOUR_OF_DAY);
                 int minute = cal.get(Calendar.MINUTE);
-                TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(),R.style.DialogTheme, mTimeSetListener, hour, minute, true);
+                TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), R.style.DialogTheme, mTimeSetListener, hour, minute, true);
                 timePickerDialog.show();
             }
         });
@@ -83,7 +81,7 @@ public class CreateMatch extends BaseFragment {
             @Override
             public void onTimeSet(TimePicker timePicker, int i, int i1) {
 
-                datePicker1.setText(singleDigit(i) + ":" +singleDigit(i1));
+                datePicker1.setText(singleDigit(i) + ":" + singleDigit(i1));
 
                 hour = String.valueOf(i);
                 minute = String.valueOf(i1);
@@ -102,7 +100,6 @@ public class CreateMatch extends BaseFragment {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                Log.d("CreateMatch", unixTime + "");
             }
         };
 
@@ -144,10 +141,10 @@ public class CreateMatch extends BaseFragment {
     }
 
     //this method is to add 0 for time example 05:07
-    private String singleDigit(int aNumber){
+    private String singleDigit(int aNumber) {
 
-        if (aNumber >= 0 && aNumber < 10 )
-        return "0"+ String.valueOf(aNumber);
+        if (aNumber >= 0 && aNumber < 10)
+            return "0" + String.valueOf(aNumber);
         else {
             return String.valueOf(aNumber);
         }

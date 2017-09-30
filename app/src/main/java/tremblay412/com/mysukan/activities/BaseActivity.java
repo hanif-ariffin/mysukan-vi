@@ -1,12 +1,11 @@
 package tremblay412.com.mysukan.activities;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import com.google.firebase.auth.FirebaseAuth;
 
 import tremblay412.com.mysukan.R;
 
@@ -26,8 +25,6 @@ public class BaseActivity extends AppCompatActivity {
             mProgressDialog.setCancelable(false);
             currentMessage = message;
             mProgressDialog.setMessage(message);
-        } else {
-            Log.d(TAG, "ProcessDialog is not null with message:" + currentMessage);
         }
 
         mProgressDialog.show();
@@ -48,8 +45,13 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int i = item.getItemId();
-        if (i == R.id.menu_developers_info) {
-            FirebaseAuth.getInstance().signOut();
+        if (i == R.id.menu_item_developers_info) {
+            return true;
+        } else if (i == R.id.menu_item_sponsors) {
+            Intent intent = new Intent(BaseActivity.this, SponsorsActivity.class);
+            Bundle bundle = new Bundle();
+            intent.putExtras(bundle);
+            startActivity(intent);
             return true;
         } else {
             return super.onOptionsItemSelected(item);
