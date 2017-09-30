@@ -191,9 +191,10 @@ public class SportDetailActivity extends AppCompatActivity {
         imageViewteamOneImage.setImageResource(NameManager.getImageId(teamOneName));
         textViewteamTwoName.setText(teamTwoName);
         imageViewteamTwoImage.setImageResource(NameManager.getImageId(teamTwoName));
-        matchScoreOne.setText(teamOneScore[0] + " - " + teamTwoScore[0]);
 
         if (teamOneScore.length > 1 && teamTwoScore.length > 1) {
+            matchScoreOne.setText(teamOneScore[0] + " - " + teamTwoScore[0]);
+
             if (teamOneScore[1] != null && teamTwoScore[1] != null) {
                 matchScoreTwo.setText(teamOneScore[1] + " - " + teamTwoScore[2]);
             }
@@ -202,7 +203,9 @@ public class SportDetailActivity extends AppCompatActivity {
                 matchScoreThree.setText(teamOneScore[2] + " - " + teamTwoScore[2]);
             }
         } else {
-            matchScoreTwo.setText("");
+            matchScoreOne.setText("");
+            matchScoreTwo.setText(teamOneScore[0] + " - " + teamTwoScore[0]);
+            matchScoreTwo.setTextSize(30);
             matchScoreThree.setText("");
         }
         if (firebaseAuth.getCurrentUser() != null) {
