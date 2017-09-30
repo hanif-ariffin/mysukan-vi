@@ -19,6 +19,8 @@ import java.util.List;
 import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.fragments.BaseFragment;
 import tremblay412.com.mysukan.helper.NameManager;
+import tremblay412.com.mysukan.models.SingleScoreMatch;
+import tremblay412.com.mysukan.models.TripleScoreMatch;
 
 public class EditScore extends BaseFragment {
 
@@ -108,13 +110,13 @@ public class EditScore extends BaseFragment {
 
                 databaseSport = FirebaseDatabase.getInstance().getReference("games").child(sport_name).child(id);
                 if (!checker.contains(sport_name)) {
-                    SportNorm sport = new SportNorm(match_date, id, teamOneName.getText().toString(), teamTwoName.getText().toString(), Integer.parseInt(scoreOne.getSelectedItem().toString()), Integer.parseInt(scoreTwo.getSelectedItem().toString()));
+                    SingleScoreMatch sport = new SingleScoreMatch(match_date, id, teamOneName.getText().toString(), teamTwoName.getText().toString(), Long.parseLong(scoreOne.getSelectedItem().toString()), Long.parseLong(scoreTwo.getSelectedItem().toString()));
                     databaseSport.setValue(sport);
                     Toast.makeText(getContext(), "Score Updated", Toast.LENGTH_LONG).show();
                 } else {
-                    SportSet sport = new SportSet(match_date, id, teamOneName.getText().toString(), teamTwoName.getText().toString(), Integer.parseInt(scoreOne.getSelectedItem().toString()), Integer.parseInt(scoreTwo.getSelectedItem().toString())
-                            , Integer.parseInt(scoreThree.getSelectedItem().toString()), Integer.parseInt(scoreFour.getSelectedItem().toString())
-                            , Integer.parseInt(scoreFive.getSelectedItem().toString()), Integer.parseInt(scoreSix.getSelectedItem().toString()));
+                    TripleScoreMatch sport = new TripleScoreMatch(match_date, id, teamOneName.getText().toString(), teamTwoName.getText().toString(), Long.parseLong(scoreOne.getSelectedItem().toString()), Long.parseLong(scoreTwo.getSelectedItem().toString())
+                            , Long.parseLong(scoreThree.getSelectedItem().toString()), Long.parseLong(scoreFour.getSelectedItem().toString())
+                            , Long.parseLong(scoreFive.getSelectedItem().toString()), Long.parseLong(scoreSix.getSelectedItem().toString()));
                     databaseSport.setValue(sport);
                     Toast.makeText(getContext(), "Score Updated", Toast.LENGTH_LONG).show();
                 }

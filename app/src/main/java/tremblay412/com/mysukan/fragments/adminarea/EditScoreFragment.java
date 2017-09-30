@@ -26,6 +26,8 @@ import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.fragments.BaseFragment;
 import tremblay412.com.mysukan.helper.ListAdapter;
 import tremblay412.com.mysukan.helper.NameManager;
+import tremblay412.com.mysukan.models.SingleScoreMatch;
+import tremblay412.com.mysukan.models.TripleScoreMatch;
 
 public class EditScoreFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 
@@ -35,8 +37,8 @@ public class EditScoreFragment extends BaseFragment implements SwipeRefreshLayou
     private TextView headerText;
     private DatabaseReference database;
 
-    public List<SportSet> sportSet;
-    public List<SportNorm> sportNorm;
+    public List<TripleScoreMatch> sportSet;
+    public List<SingleScoreMatch> sportNorm;
     private List<String> data1 = new ArrayList<>();
     private List<String> checker, arrayId;
     private SwipeRefreshLayout mSwipeRefreshLayout;
@@ -74,17 +76,17 @@ public class EditScoreFragment extends BaseFragment implements SwipeRefreshLayou
                 data1.clear();
                 for (DataSnapshot sportSnapshot : dataSnapshot.getChildren()) {
                     if (checker.contains(sport_name)) {
-                        SportSet sport = sportSnapshot.getValue(SportSet.class);
+                        TripleScoreMatch sport = sportSnapshot.getValue(TripleScoreMatch.class);
                         sportSet.add(sport);
-                        arrayId.add(sport.getId());
+                        arrayId.add(sport.id);
                         data1.add(sport.team_1_name + " vs " + sport.team_2_name);
                         lArrayAdapter.notifyDataSetChanged();
                     } else {
-                        SportNorm sport = sportSnapshot.getValue(SportNorm.class);
+                        SingleScoreMatch sport = sportSnapshot.getValue(SingleScoreMatch.class);
                         sportNorm.add(sport);
-                        id = sport.getId();
+                        id = sport.id;
                         data1.add(sport.team_1_name + " vs " + sport.team_2_name);
-                        arrayId.add(sport.getId());
+                        arrayId.add(sport.id);
                         lArrayAdapter.notifyDataSetChanged();
                     }
                 }
@@ -111,17 +113,17 @@ public class EditScoreFragment extends BaseFragment implements SwipeRefreshLayou
                         data1.clear();
                         for (DataSnapshot sportSnapshot : dataSnapshot.getChildren()) {
                             if (checker.contains(sport_name)) {
-                                SportSet sport = sportSnapshot.getValue(SportSet.class);
+                                TripleScoreMatch sport = sportSnapshot.getValue(TripleScoreMatch.class);
                                 sportSet.add(sport);
-                                arrayId.add(sport.getId());
+                                arrayId.add(sport.id);
                                 data1.add(sport.team_1_name + " vs " + sport.team_2_name);
                                 lArrayAdapter.notifyDataSetChanged();
                             } else {
-                                SportNorm sport = sportSnapshot.getValue(SportNorm.class);
+                                SingleScoreMatch sport = sportSnapshot.getValue(SingleScoreMatch.class);
                                 sportNorm.add(sport);
-                                id = sport.getId();
+                                id = sport.id;
                                 data1.add(sport.team_1_name + " vs " + sport.team_2_name);
-                                arrayId.add(sport.getId());
+                                arrayId.add(sport.id);
                                 lArrayAdapter.notifyDataSetChanged();
                             }
                         }
@@ -144,14 +146,14 @@ public class EditScoreFragment extends BaseFragment implements SwipeRefreshLayou
                 args = new Bundle();
 
                 if (checker.contains(sport_name)) {
-                    args.putString("teamOne", sportSet.get(i).getTeam_1_name());
-                    args.putString("teamTwo", sportSet.get(i).getTeam_2_name());
-                    args.putString("id", sportSet.get(i).getId());
+                    args.putString("teamOne", sportSet.get(i).team_1_name);
+                    args.putString("teamTwo", sportSet.get(i).team_2_name);
+                    args.putString("id", sportSet.get(i).id);
                     args.putLong("match_date", sportSet.get(i).match_date);
                 } else {
-                    args.putString("teamOne", sportNorm.get(i).getTeam_1_name());
-                    args.putString("teamTwo", sportNorm.get(i).getTeam_2_name());
-                    args.putString("id", sportNorm.get(i).getId());
+                    args.putString("teamOne", sportNorm.get(i).team_1_name);
+                    args.putString("teamTwo", sportNorm.get(i).team_2_name);
+                    args.putString("id", sportNorm.get(i).id);
                     args.putLong("match_date", sportNorm.get(i).match_date);
                 }
 
