@@ -1,7 +1,9 @@
 package tremblay412.com.mysukan.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -84,8 +86,24 @@ public class WinnerActivity extends BaseActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu, menu);
         if (menu != null) {
-            menu.findItem(R.id.menu_item_developers_info).setVisible(false);
+            menu.findItem(R.id.winner).setVisible(false);
         }
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int i = item.getItemId();
+        if (i == R.id.menu_item_sponsors) {
+            Intent intent = new Intent(WinnerActivity.this, SponsorsActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (i == R.id.menu_item_developers_info) {
+            Intent intent = new Intent(WinnerActivity.this, InfoActivity.class);
+            startActivity(intent);
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
     }
 }
