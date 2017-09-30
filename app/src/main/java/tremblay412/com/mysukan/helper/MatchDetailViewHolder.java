@@ -13,6 +13,7 @@ import tremblay412.com.mysukan.R;
 public class MatchDetailViewHolder extends RecyclerView.ViewHolder {
 
     private static final String TAG = "MatchDetailViewHolder";
+    public TextView vs;
     public TextView match_time;
     public TextView team_1;
     public TextView team_2;
@@ -23,5 +24,6 @@ public class MatchDetailViewHolder extends RecyclerView.ViewHolder {
         match_time = (TextView) itemView.findViewById(R.id.text_minimized_time);
         team_1 = (TextView) itemView.findViewById(R.id.text_minimized_team_1);
         team_2 = (TextView) itemView.findViewById(R.id.text_minimized_team_2);
+        vs = (TextView) itemView.findViewById(R.id.text_minimized_vs);
     }
 }

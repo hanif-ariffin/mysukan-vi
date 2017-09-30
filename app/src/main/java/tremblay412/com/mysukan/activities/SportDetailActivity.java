@@ -112,6 +112,7 @@ public class SportDetailActivity extends AppCompatActivity {
                                 updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1}, new Long[]{model.team_2_score_1});
                             }
                         });
+
                         viewHolder.team_2.setOnClickListener(new View.OnClickListener()
 
                         {
@@ -120,7 +121,17 @@ public class SportDetailActivity extends AppCompatActivity {
                                 updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1}, new Long[]{model.team_2_score_1});
                             }
                         });
+
                         viewHolder.match_time.setOnClickListener(new View.OnClickListener()
+
+                        {
+                            @Override
+                            public void onClick(View v) {
+                                updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1}, new Long[]{model.team_2_score_1});
+                            }
+                        });
+
+                        viewHolder.vs.setOnClickListener(new View.OnClickListener()
 
                         {
                             @Override
@@ -149,13 +160,13 @@ public class SportDetailActivity extends AppCompatActivity {
                             updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1, model.team_1_score_2, model.team_1_score_3}, new Long[]{model.team_2_score_1, model.team_2_score_2, model.team_2_score_3});
                         }
 
-
                         viewHolder.team_1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1, model.team_1_score_2, model.team_1_score_3}, new Long[]{model.team_2_score_1, model.team_2_score_2, model.team_2_score_3});
                             }
                         });
+
                         viewHolder.team_2.setOnClickListener(new View.OnClickListener()
 
                         {
@@ -164,7 +175,17 @@ public class SportDetailActivity extends AppCompatActivity {
                                 updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1, model.team_1_score_2, model.team_1_score_3}, new Long[]{model.team_2_score_1, model.team_2_score_2, model.team_2_score_3});
                             }
                         });
+
                         viewHolder.match_time.setOnClickListener(new View.OnClickListener()
+
+                        {
+                            @Override
+                            public void onClick(View v) {
+                                updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1, model.team_1_score_2, model.team_1_score_3}, new Long[]{model.team_2_score_1, model.team_2_score_2, model.team_2_score_3});
+                            }
+                        });
+
+                        viewHolder.vs.setOnClickListener(new View.OnClickListener()
 
                         {
                             @Override
