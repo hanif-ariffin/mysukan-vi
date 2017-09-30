@@ -2,7 +2,6 @@ package tremblay412.com.mysukan.activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -46,11 +45,11 @@ public class BaseActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int i = item.getItemId();
         if (i == R.id.menu_item_developers_info) {
+            Intent intent = new Intent(BaseActivity.this, InfoActivity.class);
+            startActivity(intent);
             return true;
         } else if (i == R.id.menu_item_sponsors) {
             Intent intent = new Intent(BaseActivity.this, SponsorsActivity.class);
-            Bundle bundle = new Bundle();
-            intent.putExtras(bundle);
             startActivity(intent);
             return true;
         } else {

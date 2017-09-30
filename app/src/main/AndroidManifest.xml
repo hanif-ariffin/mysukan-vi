@@ -28,13 +28,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.WinnerActivity"
+        <activity
+            android:name=".activities.WinnerActivity"
             android:screenOrientation="portrait"></activity>
-        <activity android:name=".activities.SportDetailActivity"
+        <activity
+            android:name=".activities.SportDetailActivity"
             android:screenOrientation="portrait"></activity>
-        <activity android:name=".activities.AdminActivity"
+        <activity
+            android:name=".activities.AdminActivity"
             android:screenOrientation="portrait"></activity>
-        <activity android:name=".activities.SponsorsActivity"
+        <activity
+            android:name=".activities.SponsorsActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activities.InfoActivity"
             android:screenOrientation="portrait"></activity>
     </application>
 
