@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
@@ -51,7 +50,6 @@ public class SportDetailActivity extends AppCompatActivity {
 
     // Current sport
     String sportName;
-    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,9 +64,6 @@ public class SportDetailActivity extends AppCompatActivity {
         matchScoreOne = (TextView) findViewById(R.id.include_item_enlarged_match_detail_score_1);
         matchScoreTwo = (TextView) findViewById(R.id.include_item_enlarged_match_detail_score_2);
         matchScoreThree = (TextView) findViewById(R.id.include_item_enlarged_match_detail_score_3);
-
-        // Initialized Firebase authentication
-        firebaseAuth = FirebaseAuth.getInstance();
 
         // Bundle received from the Activity creating this Activity
         Bundle bundle = getIntent().getExtras();
@@ -106,34 +101,7 @@ public class SportDetailActivity extends AppCompatActivity {
                             updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1}, new Long[]{model.team_2_score_1});
                         }
 
-                        viewHolder.team_1.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1}, new Long[]{model.team_2_score_1});
-                            }
-                        });
-
-                        viewHolder.team_2.setOnClickListener(new View.OnClickListener()
-
-                        {
-                            @Override
-                            public void onClick(View v) {
-                                updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1}, new Long[]{model.team_2_score_1});
-                            }
-                        });
-
-                        viewHolder.match_time.setOnClickListener(new View.OnClickListener()
-
-                        {
-                            @Override
-                            public void onClick(View v) {
-                                updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1}, new Long[]{model.team_2_score_1});
-                            }
-                        });
-
-                        viewHolder.vs.setOnClickListener(new View.OnClickListener()
-
-                        {
+                        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1}, new Long[]{model.team_2_score_1});
@@ -160,34 +128,7 @@ public class SportDetailActivity extends AppCompatActivity {
                             updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1, model.team_1_score_2, model.team_1_score_3}, new Long[]{model.team_2_score_1, model.team_2_score_2, model.team_2_score_3});
                         }
 
-                        viewHolder.team_1.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1, model.team_1_score_2, model.team_1_score_3}, new Long[]{model.team_2_score_1, model.team_2_score_2, model.team_2_score_3});
-                            }
-                        });
-
-                        viewHolder.team_2.setOnClickListener(new View.OnClickListener()
-
-                        {
-                            @Override
-                            public void onClick(View v) {
-                                updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1, model.team_1_score_2, model.team_1_score_3}, new Long[]{model.team_2_score_1, model.team_2_score_2, model.team_2_score_3});
-                            }
-                        });
-
-                        viewHolder.match_time.setOnClickListener(new View.OnClickListener()
-
-                        {
-                            @Override
-                            public void onClick(View v) {
-                                updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1, model.team_1_score_2, model.team_1_score_3}, new Long[]{model.team_2_score_1, model.team_2_score_2, model.team_2_score_3});
-                            }
-                        });
-
-                        viewHolder.vs.setOnClickListener(new View.OnClickListener()
-
-                        {
+                        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1, model.team_1_score_2, model.team_1_score_3}, new Long[]{model.team_2_score_1, model.team_2_score_2, model.team_2_score_3});
@@ -210,6 +151,7 @@ public class SportDetailActivity extends AppCompatActivity {
             matchScoreOne.setText(teamOneScore[0] + " - " + teamTwoScore[0]);
 
             if (teamOneScore[1] != null && teamTwoScore[1] != null) {
+                matchScoreTwo.setTextSize(20);
                 matchScoreTwo.setText(teamOneScore[1] + " - " + teamTwoScore[2]);
             }
 
@@ -254,6 +196,14 @@ public class SportDetailActivity extends AppCompatActivity {
             return true;
         } else {
             return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mAdapter != null) {
+            mAdapter.cleanup();
         }
     }
 }
