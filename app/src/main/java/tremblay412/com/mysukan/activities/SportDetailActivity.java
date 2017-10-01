@@ -1,8 +1,9 @@
 package tremblay412.com.mysukan.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -11,9 +12,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
@@ -32,7 +33,7 @@ import tremblay412.com.mysukan.models.TripleScoreMatch;
  * Created by Akarin on 9/9/2017.
  */
 
-public class SportDetailActivity extends AppCompatActivity {
+public class SportDetailActivity extends BaseActivity {
 
     private static final String TAG = "SportDetailActivity";
 
@@ -51,12 +52,14 @@ public class SportDetailActivity extends AppCompatActivity {
 
     // Current sport
     String sportName;
-    private FirebaseAuth firebaseAuth;
+    protected InitTask _initTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sport_matches);
+
+        showProgressDialog("Querying database...");
 
         // Get the XML object
         textViewteamOneName = (TextView) findViewById(R.id.include_item_enlarged_match_detail_text_team_1);
@@ -67,15 +70,14 @@ public class SportDetailActivity extends AppCompatActivity {
         matchScoreTwo = (TextView) findViewById(R.id.include_item_enlarged_match_detail_score_2);
         matchScoreThree = (TextView) findViewById(R.id.include_item_enlarged_match_detail_score_3);
 
-        // Initialized Firebase authentication
-        firebaseAuth = FirebaseAuth.getInstance();
-
         // Bundle received from the Activity creating this Activity
         Bundle bundle = getIntent().getExtras();
+
 
         if (bundle == null) {
             Log.wtf(TAG, "BUNDLE IS NULL, THE ACTIVITY CALLING THIS INTENT DOES NOT PROVIDE THE SPORT NAME REQUIRED");
         } else {
+            Log.i(TAG, "Bundle is not null, proceeding to retrieve information from database");
             sportName = bundle.getString("sport_name");
             sportNameRecyclerView = (RecyclerView) findViewById(R.id.activity_sport_matches_recyclerview_match);
             getSupportActionBar().setTitle(sportName);
@@ -88,6 +90,7 @@ public class SportDetailActivity extends AppCompatActivity {
             Query queryResult = sportNameReference.child("games").child(NameManager.UserToDatabase(sportName)).orderByChild("match_date");
 
             if (SportManager.isSingleScore(sportName)) {
+                Log.i(TAG, "Bundle is a single score type match");
                 mAdapter = new FirebaseRecyclerAdapter<SingleScoreMatch, MatchDetailViewHolder>(SingleScoreMatch.class, R.layout.include_item_minimized_match_detail,
                         MatchDetailViewHolder.class, queryResult) {
                     @Override
@@ -106,23 +109,7 @@ public class SportDetailActivity extends AppCompatActivity {
                             updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1}, new Long[]{model.team_2_score_1});
                         }
 
-                        viewHolder.team_1.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1}, new Long[]{model.team_2_score_1});
-                            }
-                        });
-                        viewHolder.team_2.setOnClickListener(new View.OnClickListener()
-
-                        {
-                            @Override
-                            public void onClick(View v) {
-                                updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1}, new Long[]{model.team_2_score_1});
-                            }
-                        });
-                        viewHolder.match_time.setOnClickListener(new View.OnClickListener()
-
-                        {
+                        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1}, new Long[]{model.team_2_score_1});
@@ -131,6 +118,7 @@ public class SportDetailActivity extends AppCompatActivity {
                     }
                 };
             } else {
+                Log.i(TAG, "Bundle is a triple score type match");
                 mAdapter = new FirebaseRecyclerAdapter<TripleScoreMatch, MatchDetailViewHolder>(TripleScoreMatch.class, R.layout.include_item_minimized_match_detail,
                         MatchDetailViewHolder.class, queryResult) {
                     @Override
@@ -149,24 +137,7 @@ public class SportDetailActivity extends AppCompatActivity {
                             updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1, model.team_1_score_2, model.team_1_score_3}, new Long[]{model.team_2_score_1, model.team_2_score_2, model.team_2_score_3});
                         }
 
-
-                        viewHolder.team_1.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1, model.team_1_score_2, model.team_1_score_3}, new Long[]{model.team_2_score_1, model.team_2_score_2, model.team_2_score_3});
-                            }
-                        });
-                        viewHolder.team_2.setOnClickListener(new View.OnClickListener()
-
-                        {
-                            @Override
-                            public void onClick(View v) {
-                                updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1, model.team_1_score_2, model.team_1_score_3}, new Long[]{model.team_2_score_1, model.team_2_score_2, model.team_2_score_3});
-                            }
-                        });
-                        viewHolder.match_time.setOnClickListener(new View.OnClickListener()
-
-                        {
+                        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1, model.team_1_score_2, model.team_1_score_3}, new Long[]{model.team_2_score_1, model.team_2_score_2, model.team_2_score_3});
@@ -175,7 +146,10 @@ public class SportDetailActivity extends AppCompatActivity {
                     }
                 };
             }
+
             sportNameRecyclerView.setAdapter(mAdapter);
+            _initTask = new InitTask();
+            _initTask.execute(this);
         }
     }
 
@@ -189,6 +163,7 @@ public class SportDetailActivity extends AppCompatActivity {
             matchScoreOne.setText(teamOneScore[0] + " - " + teamTwoScore[0]);
 
             if (teamOneScore[1] != null && teamTwoScore[1] != null) {
+                matchScoreTwo.setTextSize(20);
                 matchScoreTwo.setText(teamOneScore[1] + " - " + teamTwoScore[2]);
             }
 
@@ -201,6 +176,87 @@ public class SportDetailActivity extends AppCompatActivity {
             matchScoreTwo.setTextSize(30);
             matchScoreThree.setText("");
         }
+
+        hideProgressDialog();
+    }
+
+    protected class InitTask extends AsyncTask<Context, Integer, Boolean> {
+
+        private static final String TAG = "InitTask";
+
+        // -- run intensive processes here
+        // -- notice that the datatype of the first param in the class definition matches the param passed to this
+        // method
+        // -- and that the datatype of the last param in the class definition matches the return type of this method
+        @Override
+        protected Boolean doInBackground(Context[] params) {
+            // -- on every iteration
+            // -- runs a while loop that causes the thread to sleep for 50 milliseconds
+            // -- publishes the progress - calls the onProgressUpdate handler defined below
+            // -- and increments the counter variable i by one
+            int waitCounter = 0;
+            int sleepTime = 200;
+            int maxWaitTime = sleepTime / 4;
+            while (isProcessDialogShowing()) {
+                try {
+                    Thread.sleep(sleepTime);
+                    publishProgress(waitCounter);
+                    if (waitCounter > maxWaitTime) {
+                        hideProgressDialog();
+                    }
+                    waitCounter++;
+                } catch (Exception e) {
+                    Log.i(TAG, e.getMessage());
+                }
+            }
+            return waitCounter > maxWaitTime;
+        }
+
+        // -- gets called just before thread begins
+        @Override
+        protected void onPreExecute() {
+            Log.i(TAG, "onPreExecute()");
+            super.onPreExecute();
+        }
+
+        // -- called from the publish progress
+        // -- notice that the datatype of the second param gets passed to this method
+        @Override
+        protected void onProgressUpdate(Integer[] values) {
+            super.onProgressUpdate(values);
+            Log.i(TAG, "onProgressUpdate(): " + String.valueOf(values[0]));
+
+        }
+
+        // -- called if the cancel button is pressed
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+            Log.i(TAG, "onCancelled()");
+        }
+
+        // -- called as soon as doInBackground method completes
+        // -- notice that the third param gets passed to this method
+        @Override
+        protected void onPostExecute(Boolean result) {
+            super.onPostExecute(result);
+            Log.i(TAG, "onPostExecute(): " + result);
+
+            if (result) {
+                notifyUserOfDatabaseFail();
+            } else {
+                notifyUserOfDatabaseSuccess();
+            }
+        }
+
+    }
+
+    private void notifyUserOfDatabaseFail() {
+        Toast.makeText(this, "Unable to query database! Perhaps no match is recorded yet?", Toast.LENGTH_LONG).show();
+    }
+
+    private void notifyUserOfDatabaseSuccess() {
+        Toast.makeText(this, "Query to database successful!", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -235,6 +291,14 @@ public class SportDetailActivity extends AppCompatActivity {
             return true;
         } else {
             return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mAdapter != null) {
+            mAdapter.cleanup();
         }
     }
 }
