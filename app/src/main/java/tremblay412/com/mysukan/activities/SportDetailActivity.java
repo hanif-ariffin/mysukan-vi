@@ -2,7 +2,6 @@ package tremblay412.com.mysukan.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -31,7 +30,7 @@ import tremblay412.com.mysukan.models.TripleScoreMatch;
  * Created by Akarin on 9/9/2017.
  */
 
-public class SportDetailActivity extends AppCompatActivity {
+public class SportDetailActivity extends BaseActivity {
 
     private static final String TAG = "SportDetailActivity";
 
@@ -55,6 +54,8 @@ public class SportDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sport_matches);
+
+        showProgressDialog("Querying database...");
 
         // Get the XML object
         textViewteamOneName = (TextView) findViewById(R.id.include_item_enlarged_match_detail_text_team_1);
@@ -164,6 +165,8 @@ public class SportDetailActivity extends AppCompatActivity {
             matchScoreTwo.setTextSize(30);
             matchScoreThree.setText("");
         }
+
+        hideProgressDialog();
     }
 
     @Override

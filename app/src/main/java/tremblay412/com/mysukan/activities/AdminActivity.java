@@ -59,7 +59,7 @@ public class AdminActivity extends BaseActivity {
         tabLayout.getTabAt(1).setText("Update Score");
 
         mViewPager
-                .setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                .addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
                     String[] tabsTitles = new String[]{"New Score", "Update Score"};
 

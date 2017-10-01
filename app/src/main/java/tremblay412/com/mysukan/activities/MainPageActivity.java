@@ -59,7 +59,7 @@ public class MainPageActivity extends BaseActivity {
         }
 
         mViewPager
-                .setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                .addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
                     String[] tabsTitles = new String[]{"Scoreboard", "Venue", "Admin Login"};
 
