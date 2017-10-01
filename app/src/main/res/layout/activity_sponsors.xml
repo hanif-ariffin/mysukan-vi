@@ -15,6 +15,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"></LinearLayout>
+
             <TextView
                 android:id="@+id/text_sponsor_gold"
                 android:layout_width="match_parent"
@@ -22,11 +28,12 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:ems="10"
-                android:fontFamily="sans-serif-condensed"
+                android:fontFamily="serif"
                 android:text="GOLD"
                 android:textAlignment="center"
                 android:textColor="@android:color/holo_orange_light"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -36,55 +43,53 @@
 
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/image_sponsor_malaysia"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                app:srcCompat="@drawable/sponsor_jata_malaysia_gold_advisor" />
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/image_sponsor_mara"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/sponsor_mara_gold" />
+
+                <ImageView
+                    android:id="@+id/image_sponsor_malaysia"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/sponsor_jata_malaysia_gold_advisor" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:layout_weight="1"
-                android:orientation="horizontal">
-
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/image_sponsor_mara"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                app:srcCompat="@drawable/sponsor_mara_gold" />
+                android:orientation="horizontal"></LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
+                <ImageView
+                    android:id="@+id/image_sponsor_mohe"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/sponsor_logo_mohe_gold" />
+
+                <ImageView
+                    android:id="@+id/image_sponsor_jpa"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/sponsor_jpa_gold" />
             </LinearLayout>
-
-            <ImageView
-                android:id="@+id/image_sponsor_jpa"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/sponsor_jpa_gold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/image_sponsor_mohe"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/sponsor_logo_mohe_gold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -101,12 +106,13 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:ems="10"
-                android:fontFamily="sans-serif-condensed"
+                android:fontFamily="serif"
                 android:gravity="center_vertical"
                 android:text="BRONZE"
                 android:textAlignment="center"
                 android:textColor="#cc6633"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -116,12 +122,27 @@
 
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/image_sponsor_masat"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/sponsor_masat_bronze" />
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/image_sponsor_dmdi"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/sponsor_dmdi_bronze" />
+
+                <ImageView
+                    android:id="@+id/image_sponsor_masat"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/sponsor_masat_bronze" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -131,42 +152,26 @@
 
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/image_sponsor_dmdi"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/sponsor_dmdi_bronze" />
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
+                <ImageView
+                    android:id="@+id/image_sponsor_is_enterprise"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/sponsor_is_enterprise_bronze" />
+
+                <ImageView
+                    android:id="@+id/image_sponsor_tbtb"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/sponsor_tbtb_bronze" />
             </LinearLayout>
-
-            <ImageView
-                android:id="@+id/image_sponsor_is_enterprise"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/sponsor_is_enterprise_bronze" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/image_sponsor_tbtb"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/sponsor_tbtb_bronze" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -181,11 +186,12 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:ems="10"
-                android:fontFamily="sans-serif-condensed"
+                android:fontFamily="serif"
                 android:gravity="center_vertical"
                 android:text="COLLABORATORS"
                 android:textAlignment="center"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/image_sponsor_mso"

@@ -209,6 +209,8 @@ public class SportDetailActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu, menu);
         if (menu != null) {
             menu.findItem(R.id.winner).setVisible(true);
+            menu.findItem(R.id.menu_item_developers_info).setVisible(false);
+            menu.findItem(R.id.menu_item_sponsors).setVisible(false);
         }
         return true;
     }

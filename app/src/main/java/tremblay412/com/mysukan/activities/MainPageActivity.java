@@ -11,6 +11,7 @@ import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.fragments.LoginFragment;
 import tremblay412.com.mysukan.fragments.MapFragment;
 import tremblay412.com.mysukan.fragments.SportListFragment;
+import tremblay412.com.mysukan.fragments.SportListFragmentGrid;
 
 /**
  * A login screen that offers login via email/password.
@@ -32,7 +33,7 @@ public class MainPageActivity extends BaseActivity {
         // Create the adapter that will return a fragment for each section
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             private final Fragment[] mFragments = new Fragment[]{
-                    new SportListFragment(),
+                    new SportListFragmentGrid(),
                     new MapFragment(),
                     new LoginFragment()
             };
