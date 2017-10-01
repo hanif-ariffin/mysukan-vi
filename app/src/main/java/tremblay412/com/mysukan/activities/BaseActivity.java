@@ -52,6 +52,10 @@ public class BaseActivity extends AppCompatActivity {
             Intent intent = new Intent(BaseActivity.this, SponsorsActivity.class);
             startActivity(intent);
             return true;
+        } else if (i == R.id.menu_async_task_example) {
+            Intent intent = new Intent(BaseActivity.this, AsyncTaskExample.class);
+            startActivity(intent);
+            return true;
         } else {
             return super.onOptionsItemSelected(item);
         }

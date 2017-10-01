@@ -13,6 +13,11 @@
         android:title="Sponsors"
         android:visible="true"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_async_task_example"
+        android:title="Async Task"
+        android:visible="true"
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/winner"
