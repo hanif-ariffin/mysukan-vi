@@ -21,7 +21,8 @@
                 android:layout_width="96dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="match_time" />
+                android:text="match_time"
+                android:textAlignment="center" />
 
         </LinearLayout>
 
@@ -34,9 +35,9 @@
                 android:id="@+id/text_minimized_team_1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="text_team_one"
                 android:gravity="center"
-                android:textAlignment="textEnd" />
+                android:text="text_team_one"
+                android:textAlignment="center" />
 
         </LinearLayout>
 
@@ -48,11 +49,13 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/vs"
-                android:layout_width="32dp"
-                android:layout_height="25dp"
+                android:id="@+id/text_minimized_vs"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/vs"
                 android:gravity="center"
-                android:background="@drawable/vs"/>
+                android:textAlignment="center"
+                android:textSize="10sp" />
 
         </LinearLayout>
 
@@ -67,7 +70,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="text_team_two"
-                android:textAlignment="textStart" />
+                android:textAlignment="center" />
 
         </LinearLayout>
 

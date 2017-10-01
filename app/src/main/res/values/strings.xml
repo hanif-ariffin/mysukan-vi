@@ -13,7 +13,7 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="android_application_version">v2</string>
+    <string name="android_application_version">v6-release-loading_screens!</string>
 
     <string-array name="number">
         <item>0</item>

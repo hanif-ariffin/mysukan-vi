@@ -3,6 +3,7 @@ package tremblay412.com.mysukan.activities;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -33,6 +34,14 @@ public class BaseActivity extends AppCompatActivity {
         if (mProgressDialog != null && mProgressDialog.isShowing()) {
             mProgressDialog.dismiss();
         }
+    }
+
+    public boolean isProcessDialogShowing() {
+        if (mProgressDialog != null) {
+            return mProgressDialog.isShowing();
+        }
+        Log.d(TAG, "mProcessDialog is null");
+        return false;
     }
 
     @Override
