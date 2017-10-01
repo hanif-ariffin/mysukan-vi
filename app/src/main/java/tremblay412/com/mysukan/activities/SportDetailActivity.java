@@ -1,6 +1,8 @@
 package tremblay412.com.mysukan.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -49,6 +52,7 @@ public class SportDetailActivity extends BaseActivity {
 
     // Current sport
     String sportName;
+    protected InitTask _initTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,9 +73,11 @@ public class SportDetailActivity extends BaseActivity {
         // Bundle received from the Activity creating this Activity
         Bundle bundle = getIntent().getExtras();
 
+
         if (bundle == null) {
             Log.wtf(TAG, "BUNDLE IS NULL, THE ACTIVITY CALLING THIS INTENT DOES NOT PROVIDE THE SPORT NAME REQUIRED");
         } else {
+            Log.i(TAG, "Bundle is not null, proceeding to retrieve information from database");
             sportName = bundle.getString("sport_name");
             sportNameRecyclerView = (RecyclerView) findViewById(R.id.activity_sport_matches_recyclerview_match);
             getSupportActionBar().setTitle(sportName);
@@ -84,6 +90,7 @@ public class SportDetailActivity extends BaseActivity {
             Query queryResult = sportNameReference.child("games").child(NameManager.UserToDatabase(sportName)).orderByChild("match_date");
 
             if (SportManager.isSingleScore(sportName)) {
+                Log.i(TAG, "Bundle is a single score type match");
                 mAdapter = new FirebaseRecyclerAdapter<SingleScoreMatch, MatchDetailViewHolder>(SingleScoreMatch.class, R.layout.include_item_minimized_match_detail,
                         MatchDetailViewHolder.class, queryResult) {
                     @Override
@@ -111,6 +118,7 @@ public class SportDetailActivity extends BaseActivity {
                     }
                 };
             } else {
+                Log.i(TAG, "Bundle is a triple score type match");
                 mAdapter = new FirebaseRecyclerAdapter<TripleScoreMatch, MatchDetailViewHolder>(TripleScoreMatch.class, R.layout.include_item_minimized_match_detail,
                         MatchDetailViewHolder.class, queryResult) {
                     @Override
@@ -138,7 +146,10 @@ public class SportDetailActivity extends BaseActivity {
                     }
                 };
             }
+
             sportNameRecyclerView.setAdapter(mAdapter);
+            _initTask = new InitTask();
+            _initTask.execute(this);
         }
     }
 
@@ -167,6 +178,85 @@ public class SportDetailActivity extends BaseActivity {
         }
 
         hideProgressDialog();
+    }
+
+    protected class InitTask extends AsyncTask<Context, Integer, Boolean> {
+
+        private static final String TAG = "InitTask";
+
+        // -- run intensive processes here
+        // -- notice that the datatype of the first param in the class definition matches the param passed to this
+        // method
+        // -- and that the datatype of the last param in the class definition matches the return type of this method
+        @Override
+        protected Boolean doInBackground(Context[] params) {
+            // -- on every iteration
+            // -- runs a while loop that causes the thread to sleep for 50 milliseconds
+            // -- publishes the progress - calls the onProgressUpdate handler defined below
+            // -- and increments the counter variable i by one
+            int waitCounter = 0;
+            int sleepTime = 200;
+            int maxWaitTime = sleepTime / 4;
+            while (isProcessDialogShowing()) {
+                try {
+                    Thread.sleep(sleepTime);
+                    publishProgress(waitCounter);
+                    if (waitCounter > maxWaitTime) {
+                        hideProgressDialog();
+                    }
+                    waitCounter++;
+                } catch (Exception e) {
+                    Log.i(TAG, e.getMessage());
+                }
+            }
+            return waitCounter > maxWaitTime;
+        }
+
+        // -- gets called just before thread begins
+        @Override
+        protected void onPreExecute() {
+            Log.i(TAG, "onPreExecute()");
+            super.onPreExecute();
+        }
+
+        // -- called from the publish progress
+        // -- notice that the datatype of the second param gets passed to this method
+        @Override
+        protected void onProgressUpdate(Integer[] values) {
+            super.onProgressUpdate(values);
+            Log.i(TAG, "onProgressUpdate(): " + String.valueOf(values[0]));
+
+        }
+
+        // -- called if the cancel button is pressed
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+            Log.i(TAG, "onCancelled()");
+        }
+
+        // -- called as soon as doInBackground method completes
+        // -- notice that the third param gets passed to this method
+        @Override
+        protected void onPostExecute(Boolean result) {
+            super.onPostExecute(result);
+            Log.i(TAG, "onPostExecute(): " + result);
+
+            if (result) {
+                notifyUserOfDatabaseFail();
+            } else {
+                notifyUserOfDatabaseSuccess();
+            }
+        }
+
+    }
+
+    private void notifyUserOfDatabaseFail() {
+        Toast.makeText(this, "Unable to query database! Perhaps no match is recorded yet?", Toast.LENGTH_LONG).show();
+    }
+
+    private void notifyUserOfDatabaseSuccess() {
+        Toast.makeText(this, "Query to database successful!", Toast.LENGTH_SHORT).show();
     }
 
     @Override

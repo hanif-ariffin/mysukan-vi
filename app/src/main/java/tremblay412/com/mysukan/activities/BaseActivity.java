@@ -3,6 +3,7 @@ package tremblay412.com.mysukan.activities;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -35,6 +36,14 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
+    public boolean isProcessDialogShowing() {
+        if (mProgressDialog != null) {
+            return mProgressDialog.isShowing();
+        }
+        Log.d(TAG, "mProcessDialog is null");
+        return false;
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -50,10 +59,6 @@ public class BaseActivity extends AppCompatActivity {
             return true;
         } else if (i == R.id.menu_item_sponsors) {
             Intent intent = new Intent(BaseActivity.this, SponsorsActivity.class);
-            startActivity(intent);
-            return true;
-        } else if (i == R.id.menu_async_task_example) {
-            Intent intent = new Intent(BaseActivity.this, AsyncTaskExample.class);
             startActivity(intent);
             return true;
         } else {

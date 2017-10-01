@@ -46,9 +46,6 @@
         <activity
             android:name=".activities.OverallWinnerActivity"
             android:screenOrientation="portrait"></activity>
-        <activity
-            android:name=".activities.AsyncTaskExample"
-            android:screenOrientation="portrait"></activity>
 
     </application>
 
