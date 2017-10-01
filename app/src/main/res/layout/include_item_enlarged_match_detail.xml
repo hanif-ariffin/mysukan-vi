@@ -12,8 +12,7 @@
         android:layout_marginTop="8dp"
         android:gravity="center"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/question_mark" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/include_item_enlarged_match_detail_text_team_1"
@@ -35,8 +34,7 @@
         android:layout_marginTop="8dp"
         android:gravity="center"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/question_mark" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/include_item_enlarged_match_detail_text_team_2"
