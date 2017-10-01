@@ -33,7 +33,8 @@ public class MainPageActivity extends BaseActivity {
         // Create the adapter that will return a fragment for each section
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             private final Fragment[] mFragments = new Fragment[]{
-                    new SportListFragmentGrid(),
+                    new SportListFragment(),
+                    // change to SportListFragmentGrid to view logo
                     new MapFragment(),
                     new LoginFragment()
             };
