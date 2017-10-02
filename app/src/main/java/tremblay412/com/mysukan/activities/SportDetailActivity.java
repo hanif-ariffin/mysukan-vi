@@ -46,7 +46,7 @@ public class SportDetailActivity extends BaseActivity {
     private DatabaseReference sportNameReference;
 
     // Enlarged match detail UI hooks
-    private TextView textViewteamOneName, textViewteamTwoName, textViewCustomTeamOneName, textViewCustomTeamTwoName, matchScoreOne, matchScoreTwo, matchScoreThree;
+    private TextView textViewteamOneName, textViewteamTwoName, textViewCustomTeamOneName, textViewCustomTeamTwoName, matchScoreOne, matchScoreTwo, matchScoreThree, noMatchFound;
     private ImageView imageViewteamOneImage, imageViewteamTwoImage;
 
 
@@ -71,6 +71,7 @@ public class SportDetailActivity extends BaseActivity {
         matchScoreOne = (TextView) findViewById(R.id.include_item_enlarged_match_detail_score_1);
         matchScoreTwo = (TextView) findViewById(R.id.include_item_enlarged_match_detail_score_2);
         matchScoreThree = (TextView) findViewById(R.id.include_item_enlarged_match_detail_score_3);
+        noMatchFound = (TextView) findViewById(R.id.no_match_found);
 
         // Bundle received from the Activity creating this Activity
         Bundle bundle = getIntent().getExtras();
@@ -238,7 +239,7 @@ public class SportDetailActivity extends BaseActivity {
             // -- publishes the progress - calls the onProgressUpdate handler defined below
             // -- and increments the counter variable i by one
             int waitCounter = 0;
-            int sleepTime = 200;
+            int sleepTime = 50;
             int maxWaitTime = sleepTime / 4;
             while (isProcessDialogShowing()) {
                 try {
@@ -287,6 +288,7 @@ public class SportDetailActivity extends BaseActivity {
 
             if (result) {
                 notifyUserOfDatabaseFail();
+                noMatchFound.setVisibility(View.VISIBLE);
             } else {
                 notifyUserOfDatabaseSuccess();
             }
