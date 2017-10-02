@@ -29,7 +29,7 @@ public class EditScore extends BaseFragment {
     private Button submit, delete;
     private TextView textHeader, teamOneName, teamTwoName;
     private List<String> checker;
-    public String id;
+    public String id, customNameOne, customNameTwo;
     private static String sport_name;
     private long match_date;
 
@@ -96,6 +96,9 @@ public class EditScore extends BaseFragment {
         teamOneName.setText(args.getString("teamOne"));
         teamTwoName.setText(args.getString("teamTwo"));
 
+        customNameOne = args.getString("customNameTeamOne");
+        customNameTwo = args.getString("customNameTeamTwo");
+
         // change sport_name back to database
         sport_name = NameManager.UserToDatabase(sport_name);
 
@@ -110,11 +113,11 @@ public class EditScore extends BaseFragment {
 
                 databaseSport = FirebaseDatabase.getInstance().getReference("games").child(sport_name).child(id);
                 if (!checker.contains(sport_name)) {
-                    SingleScoreMatch sport = new SingleScoreMatch(match_date, id, teamOneName.getText().toString(), teamTwoName.getText().toString(), Long.parseLong(scoreOne.getSelectedItem().toString()), Long.parseLong(scoreTwo.getSelectedItem().toString()));
+                    SingleScoreMatch sport = new SingleScoreMatch(match_date, id, teamOneName.getText().toString(), teamTwoName.getText().toString(), customNameOne,customNameTwo, Long.parseLong(scoreOne.getSelectedItem().toString()), Long.parseLong(scoreTwo.getSelectedItem().toString()));
                     databaseSport.setValue(sport);
                     Toast.makeText(getContext(), "Score Updated", Toast.LENGTH_LONG).show();
                 } else {
-                    TripleScoreMatch sport = new TripleScoreMatch(match_date, id, teamOneName.getText().toString(), teamTwoName.getText().toString(), Long.parseLong(scoreOne.getSelectedItem().toString()), Long.parseLong(scoreTwo.getSelectedItem().toString())
+                    TripleScoreMatch sport = new TripleScoreMatch(match_date, id, teamOneName.getText().toString(), teamTwoName.getText().toString(), customNameOne,customNameTwo, Long.parseLong(scoreOne.getSelectedItem().toString()), Long.parseLong(scoreTwo.getSelectedItem().toString())
                             , Long.parseLong(scoreThree.getSelectedItem().toString()), Long.parseLong(scoreFour.getSelectedItem().toString())
                             , Long.parseLong(scoreFive.getSelectedItem().toString()), Long.parseLong(scoreSix.getSelectedItem().toString()));
                     databaseSport.setValue(sport);

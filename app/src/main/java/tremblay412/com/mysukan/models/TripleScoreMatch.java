@@ -11,17 +11,19 @@ import java.util.Map;
 
 public class TripleScoreMatch {
     public Long match_date, team_1_score_1, team_2_score_1, team_1_score_2, team_2_score_2, team_1_score_3, team_2_score_3;
-    public String team_1_name, team_2_name, id;
+    public String team_1_name, team_2_name, id, custom_name_1, custom_name_2;
 
     // Functions required for Firebase
     public TripleScoreMatch() {
         // Default constructor for Firebase
     }
 
-    public TripleScoreMatch(Long match_date, String id, String team_1_name, String team_2_name, Long team_1_score_1, Long team_2_score_1, Long team_1_score_2, Long team_2_score_2, Long team_1_score_3, Long team_2_score_3) {
+    public TripleScoreMatch(Long match_date, String id, String team_1_name, String team_2_name, String custom_name_1, String custom_name_2, Long team_1_score_1, Long team_2_score_1, Long team_1_score_2, Long team_2_score_2, Long team_1_score_3, Long team_2_score_3) {
         this.id = id;
         this.team_1_name = team_1_name;
         this.team_2_name = team_2_name;
+        this.custom_name_1 = custom_name_1;
+        this.custom_name_2 = custom_name_2;
         this.team_1_score_1 = team_1_score_1;
         this.team_2_score_1 = team_2_score_1;
         this.team_1_score_2 = team_1_score_2;
@@ -41,12 +43,14 @@ public class TripleScoreMatch {
 
         // First team
         map.put("team_1_name", team_1_name);
+        map.put("custom_name_1", custom_name_1);
         map.put("team_1_score_1", team_1_score_1);
         map.put("team_1_score_2", team_1_score_2);
         map.put("team_1_score_3", team_1_score_3);
 
         // Second team
         map.put("team_2_name", team_2_name);
+        map.put("custom_name_2", custom_name_2);
         map.put("team_2_score_1", team_2_score_1);
         map.put("team_2_score_2", team_2_score_2);
         map.put("team_2_score_3", team_2_score_3);

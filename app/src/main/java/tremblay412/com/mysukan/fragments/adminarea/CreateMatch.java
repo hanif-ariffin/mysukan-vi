@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -35,7 +36,9 @@ public class CreateMatch extends BaseFragment {
     ArrayAdapter<CharSequence> teamAdapter, scoreAdapter;
     private Button submitButton;
     private TextView text, datePicker1;
+    private EditText teamOneCustomName, teamTwoCustomName;
     public String sport_name, hour, minute;
+    private static String lCustomNameOne, lCustomNameTwo;
     private Bundle args;
     private DatabaseReference databaseSport;
     private List<String> checker;
@@ -56,6 +59,9 @@ public class CreateMatch extends BaseFragment {
 
         teamOne = (Spinner) rootView.findViewById(R.id.teamOne);
         teamTwo = (Spinner) rootView.findViewById(R.id.teamTwo);
+
+        teamOneCustomName = (EditText) rootView.findViewById(R.id.custom_team_name_one);
+        teamTwoCustomName = (EditText) rootView.findViewById(R.id.custom_team_name_two);
 
         teamAdapter = ArrayAdapter.createFromResource(getContext(), R.array.team_list, android.R.layout.simple_spinner_item);
         teamAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -93,12 +99,12 @@ public class CreateMatch extends BaseFragment {
                 String year = "2017";
                 String seconds = "00";
 
-                String dateString = date + " " + month + " " + year + " " + hour + ":" + minute + ":" + seconds + " EDT";
-                DateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy HH:mm:ss z");
+                String dateString = date + " " + month + " " + year + " " + hour + ":" + minute + ":" + seconds + " " + "EDT";
+                DateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy HH:mm:ss Z");
 
                 try {
                     Date dateData = dateFormat.parse(dateString);
-                    unixTime = (Long) dateData.getTime() / 1000;
+                    unixTime = dateData.getTime() / 1000;
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
@@ -126,13 +132,17 @@ public class CreateMatch extends BaseFragment {
                     Toast.makeText(getContext(), "Please set the schedule!", Toast.LENGTH_LONG).show();
                 } else {
                     if (!checker.contains(sport_name)) {
-                        SingleScoreMatch sport = new SingleScoreMatch(unixTime, id, teamOne.getSelectedItem().toString(), teamTwo.getSelectedItem().toString(), 0L, 0L);
+
+                        SingleScoreMatch sport = new SingleScoreMatch(unixTime, id, teamOne.getSelectedItem().toString(), teamTwo.getSelectedItem().toString(),teamOneCustomName.getText().toString(),teamTwoCustomName.getText().toString(),0L, 0L);
                         databaseSport.child(sport_name).child(id).setValue(sport);
                         Toast.makeText(getContext(), "Sport added", Toast.LENGTH_LONG).show();
+
                     } else {
-                        TripleScoreMatch sport = new TripleScoreMatch(unixTime, id, teamOne.getSelectedItem().toString(), teamTwo.getSelectedItem().toString(), 0L, 0L, 0L, 0L, 0L, 0L);
+
+                        TripleScoreMatch sport = new TripleScoreMatch(unixTime, id, teamOne.getSelectedItem().toString(), teamTwo.getSelectedItem().toString(),teamOneCustomName.getText().toString(),teamTwoCustomName.getText().toString(), 0L, 0L, 0L, 0L, 0L, 0L);
                         databaseSport.child(sport_name).child(id).setValue(sport);
                         Toast.makeText(getContext(), "Sport added", Toast.LENGTH_LONG).show();
+
                     }
                 }
 

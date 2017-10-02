@@ -46,7 +46,7 @@ public class SportDetailActivity extends BaseActivity {
     private DatabaseReference sportNameReference;
 
     // Enlarged match detail UI hooks
-    private TextView textViewteamOneName, textViewteamTwoName, matchScoreOne, matchScoreTwo, matchScoreThree;
+    private TextView textViewteamOneName, textViewteamTwoName, textViewCustomTeamOneName, textViewCustomTeamTwoName, matchScoreOne, matchScoreTwo, matchScoreThree;
     private ImageView imageViewteamOneImage, imageViewteamTwoImage;
 
 
@@ -64,6 +64,8 @@ public class SportDetailActivity extends BaseActivity {
         // Get the XML object
         textViewteamOneName = (TextView) findViewById(R.id.include_item_enlarged_match_detail_text_team_1);
         textViewteamTwoName = (TextView) findViewById(R.id.include_item_enlarged_match_detail_text_team_2);
+        textViewCustomTeamOneName = (TextView) findViewById(R.id.include_item_enlarged_match_detail_text_custom_name_1);
+        textViewCustomTeamTwoName = (TextView) findViewById(R.id.include_item_enlarged_match_detail_text_custom_name_2);
         imageViewteamOneImage = (ImageView) findViewById(R.id.include_item_enlarged_match_detail_image_team_1);
         imageViewteamTwoImage = (ImageView) findViewById(R.id.include_item_enlarged_match_detail_image_team_2);
         matchScoreOne = (TextView) findViewById(R.id.include_item_enlarged_match_detail_score_1);
@@ -102,17 +104,36 @@ public class SportDetailActivity extends BaseActivity {
                             time = new SimpleDateFormat("HH:mm a").format(new Date(model.match_date * 1000L));
                         }
                         viewHolder.match_time.setText(time);
-                        viewHolder.team_1.setText(model.team_1_name);
-                        viewHolder.team_2.setText(model.team_2_name);
+                        if(model.custom_name_1 != null){
+                            if(!model.custom_name_1.isEmpty()){
+                                viewHolder.team_1.setText(model.custom_name_1);
+                            }else{
+                                viewHolder.team_1.setText(model.team_1_name);
+                            }
+
+                        }else{
+                            viewHolder.team_1.setText(model.team_1_name);
+                        }
+
+                        if(model.custom_name_2 != null){
+                            if(!model.custom_name_2.isEmpty()){
+                                viewHolder.team_2.setText(model.custom_name_2);
+                            }else{
+                                viewHolder.team_2.setText(model.team_2_name);
+                            }
+
+                        }else{
+                            viewHolder.team_2.setText(model.team_2_name);
+                        }
 
                         if (position == 0) {
-                            updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1}, new Long[]{model.team_2_score_1});
+                            updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, model.custom_name_1, model.custom_name_2, new Long[]{model.team_1_score_1}, new Long[]{model.team_2_score_1});
                         }
 
                         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1}, new Long[]{model.team_2_score_1});
+                                updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, model.custom_name_1, model.custom_name_2, new Long[]{model.team_1_score_1}, new Long[]{model.team_2_score_1});
                             }
                         });
                     }
@@ -130,17 +151,36 @@ public class SportDetailActivity extends BaseActivity {
                             time = new SimpleDateFormat("HH:mm a").format(new Date(model.match_date * 1000L));
                         }
                         viewHolder.match_time.setText(time);
-                        viewHolder.team_1.setText(model.team_1_name);
-                        viewHolder.team_2.setText(model.team_2_name);
+                        if(model.custom_name_1 != null){
+                            if(!model.custom_name_1.isEmpty()){
+                                viewHolder.team_1.setText(model.custom_name_1);
+                            }else{
+                                viewHolder.team_1.setText(model.team_1_name);
+                            }
+
+                        }else{
+                            viewHolder.team_1.setText(model.team_1_name);
+                        }
+
+                        if(model.custom_name_2 != null){
+                            if(!model.custom_name_2.isEmpty()){
+                                viewHolder.team_2.setText(model.custom_name_2);
+                            }else{
+                                viewHolder.team_2.setText(model.team_2_name);
+                            }
+
+                        }else{
+                            viewHolder.team_2.setText(model.team_2_name);
+                        }
 
                         if (position == 0) {
-                            updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1, model.team_1_score_2, model.team_1_score_3}, new Long[]{model.team_2_score_1, model.team_2_score_2, model.team_2_score_3});
+                            updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, model.custom_name_1, model.custom_name_2, new Long[]{model.team_1_score_1, model.team_1_score_2, model.team_1_score_3}, new Long[]{model.team_2_score_1, model.team_2_score_2, model.team_2_score_3});
                         }
 
                         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, new Long[]{model.team_1_score_1, model.team_1_score_2, model.team_1_score_3}, new Long[]{model.team_2_score_1, model.team_2_score_2, model.team_2_score_3});
+                                updateEnlargedMatchDetail(model.team_1_name, model.team_2_name, model.custom_name_1, model.custom_name_2, new Long[]{model.team_1_score_1, model.team_1_score_2, model.team_1_score_3}, new Long[]{model.team_2_score_1, model.team_2_score_2, model.team_2_score_3});
                             }
                         });
                     }
@@ -153,9 +193,12 @@ public class SportDetailActivity extends BaseActivity {
         }
     }
 
-    public void updateEnlargedMatchDetail(String teamOneName, String teamTwoName, Long[] teamOneScore, Long[] teamTwoScore) {
+    public void updateEnlargedMatchDetail(String teamOneName, String teamTwoName, String customNameTeamOne, String customNameTeamTwo, Long[] teamOneScore, Long[] teamTwoScore) {
         textViewteamOneName.setText(teamOneName);
         imageViewteamOneImage.setImageResource(NameManager.getImageId(teamOneName));
+            textViewCustomTeamOneName.setText(customNameTeamOne);
+            textViewCustomTeamTwoName.setText(customNameTeamTwo);
+
         textViewteamTwoName.setText(teamTwoName);
         imageViewteamTwoImage.setImageResource(NameManager.getImageId(teamTwoName));
 

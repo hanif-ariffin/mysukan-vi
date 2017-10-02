@@ -68,36 +68,52 @@ public class EditScoreFragment extends BaseFragment implements SwipeRefreshLayou
         //retrieve data from database
         database = FirebaseDatabase.getInstance().getReference("games").child(sport_name);
 
-        database.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                sportSet.clear();
-                sportNorm.clear();
-                data1.clear();
-                for (DataSnapshot sportSnapshot : dataSnapshot.getChildren()) {
-                    if (checker.contains(sport_name)) {
-                        TripleScoreMatch sport = sportSnapshot.getValue(TripleScoreMatch.class);
-                        sportSet.add(sport);
-                        arrayId.add(sport.id);
-                        data1.add(sport.team_1_name + " vs " + sport.team_2_name);
-                        lArrayAdapter.notifyDataSetChanged();
-                    } else {
-                        SingleScoreMatch sport = sportSnapshot.getValue(SingleScoreMatch.class);
-                        sportNorm.add(sport);
-                        id = sport.id;
-                        data1.add(sport.team_1_name + " vs " + sport.team_2_name);
-                        arrayId.add(sport.id);
-                        lArrayAdapter.notifyDataSetChanged();
-                    }
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+//        database.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                sportSet.clear();
+//                sportNorm.clear();
+//                data1.clear();
+//                for (DataSnapshot sportSnapshot : dataSnapshot.getChildren()) {
+//                    if (checker.contains(sport_name)) {
+//                        TripleScoreMatch sport = sportSnapshot.getValue(TripleScoreMatch.class);
+//                        sportSet.add(sport);
+//                        arrayId.add(sport.id);
+//                        if(sport.custom_name_1 != null){
+//                            if(!sport.custom_name_2.isEmpty()){
+//                                data1.add(sport.team_1_name+ " : " + sport.custom_name_1 + " vs " + sport.team_2_name + " : " + sport.custom_name_2);
+//                            }else{
+//                                data1.add(sport.team_1_name + " vs " + sport.team_2_name);
+//                            }
+//                        }else {
+//                            data1.add(sport.team_1_name + " vs " + sport.team_2_name);
+//                        }
+//                        lArrayAdapter.notifyDataSetChanged();
+//                    } else {
+//                        SingleScoreMatch sport = sportSnapshot.getValue(SingleScoreMatch.class);
+//                        sportNorm.add(sport);
+//                        id = sport.id;
+//                        if(sport.custom_name_1 != null){
+//                            if(!sport.custom_name_2.isEmpty()){
+//                                data1.add(sport.team_1_name+ " : " + sport.custom_name_1 + " vs " + sport.team_2_name + " : " + sport.custom_name_2);
+//                            }else{
+//                                data1.add(sport.team_1_name + " vs " + sport.team_2_name);
+//                            }
+//                        }else {
+//                            data1.add(sport.team_1_name + " vs " + sport.team_2_name);
+//                        }
+//                        arrayId.add(sport.id);
+//                        lArrayAdapter.notifyDataSetChanged();
+//                    }
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
 
         currentList = (ListView) view.findViewById(R.id.listView11);
         currentList.setAdapter(lArrayAdapter);
@@ -116,13 +132,29 @@ public class EditScoreFragment extends BaseFragment implements SwipeRefreshLayou
                                 TripleScoreMatch sport = sportSnapshot.getValue(TripleScoreMatch.class);
                                 sportSet.add(sport);
                                 arrayId.add(sport.id);
-                                data1.add(sport.team_1_name + " vs " + sport.team_2_name);
+                                if(sport.custom_name_1 != null){
+                                    if(!sport.custom_name_2.isEmpty()){
+                                        data1.add(sport.team_1_name+ " : " + sport.custom_name_1 + " vs " + sport.team_2_name + " : " + sport.custom_name_2);
+                                    }else{
+                                        data1.add(sport.team_1_name + " vs " + sport.team_2_name);
+                                    }
+                                }else {
+                                    data1.add(sport.team_1_name + " vs " + sport.team_2_name);
+                                }
                                 lArrayAdapter.notifyDataSetChanged();
                             } else {
                                 SingleScoreMatch sport = sportSnapshot.getValue(SingleScoreMatch.class);
                                 sportNorm.add(sport);
                                 id = sport.id;
-                                data1.add(sport.team_1_name + " vs " + sport.team_2_name);
+                                if(sport.custom_name_1 != null){
+                                    if(!sport.custom_name_2.isEmpty()){
+                                        data1.add(sport.team_1_name+ " : " + sport.custom_name_1 + " vs " + sport.team_2_name + " : " + sport.custom_name_2);
+                                    }else{
+                                        data1.add(sport.team_1_name + " vs " + sport.team_2_name);
+                                    }
+                                }else {
+                                    data1.add(sport.team_1_name + " vs " + sport.team_2_name);
+                                }
                                 arrayId.add(sport.id);
                                 lArrayAdapter.notifyDataSetChanged();
                             }
@@ -147,12 +179,16 @@ public class EditScoreFragment extends BaseFragment implements SwipeRefreshLayou
 
                 if (checker.contains(sport_name)) {
                     args.putString("teamOne", sportSet.get(i).team_1_name);
+                    args.putString("customNameTeamOne", sportSet.get(i).custom_name_1);
                     args.putString("teamTwo", sportSet.get(i).team_2_name);
+                    args.putString("customNameTeamTwo",sportSet.get(i).custom_name_2);
                     args.putString("id", sportSet.get(i).id);
                     args.putLong("match_date", sportSet.get(i).match_date);
                 } else {
                     args.putString("teamOne", sportNorm.get(i).team_1_name);
+                    args.putString("customNameTeamOne", sportNorm.get(i).custom_name_1);
                     args.putString("teamTwo", sportNorm.get(i).team_2_name);
+                    args.putString("customNameTeamTwo",sportNorm.get(i).custom_name_2);
                     args.putString("id", sportNorm.get(i).id);
                     args.putLong("match_date", sportNorm.get(i).match_date);
                 }
