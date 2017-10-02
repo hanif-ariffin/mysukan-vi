@@ -89,15 +89,32 @@ public class EditScore extends BaseFragment {
         textHeader = (TextView) rootView.findViewById(R.id.submit_score_norm_header);
         textHeader.setText(sport_name);
 
+        customNameOne = args.getString("customNameTeamOne");
+        customNameTwo = args.getString("customNameTeamTwo");
 
         // team Textview
         teamTwoName = (TextView) rootView.findViewById(R.id.teamTwo);
         teamOneName = (TextView) rootView.findViewById(R.id.teamOne);
-        teamOneName.setText(args.getString("teamOne"));
-        teamTwoName.setText(args.getString("teamTwo"));
 
-        customNameOne = args.getString("customNameTeamOne");
-        customNameTwo = args.getString("customNameTeamTwo");
+        if( customNameOne != null){
+            if( !customNameOne.isEmpty()){
+                teamOneName.setText(customNameOne);
+            }else{
+                teamOneName.setText(args.getString("teamOne"));
+            }
+        }else {
+            teamOneName.setText(args.getString("teamOne"));
+        }
+        if( customNameTwo != null){
+            if( !customNameTwo.isEmpty()){
+                teamTwoName.setText(customNameTwo);
+            }else{
+                teamTwoName.setText(args.getString("teamTwo"));
+            }
+        }else {
+            teamTwoName.setText(args.getString("teamTwo"));
+        }
+
 
         // change sport_name back to database
         sport_name = NameManager.UserToDatabase(sport_name);
