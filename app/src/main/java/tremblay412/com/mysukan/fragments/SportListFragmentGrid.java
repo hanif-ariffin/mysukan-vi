@@ -26,7 +26,7 @@ public class SportListFragmentGrid extends BaseFragment {
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
-        View rootView = inflater.inflate(R.layout.latest_fragment_button_sportlist, container, false);
+        View rootView = inflater.inflate(R.layout.sportlist_fragment_grid, container, false);
 
         button = (Button) rootView.findViewById(R.id.soccer_male);
 

@@ -29,7 +29,7 @@ public class EditScore extends BaseFragment {
     private Button submit, delete;
     private TextView textHeader, teamOneName, teamTwoName;
     private List<String> checker;
-    public String id, customNameOne, customNameTwo;
+    private String id, customNameOne, customNameTwo, uniTeamNameOne, uniTeamNameTwo ;
     private static String sport_name;
     private long match_date;
 
@@ -89,8 +89,12 @@ public class EditScore extends BaseFragment {
         textHeader = (TextView) rootView.findViewById(R.id.submit_score_norm_header);
         textHeader.setText(sport_name);
 
+
         customNameOne = args.getString("customNameTeamOne");
         customNameTwo = args.getString("customNameTeamTwo");
+
+        uniTeamNameOne = args.getString("teamOne");
+        uniTeamNameTwo = args.getString("teamTwo");
 
         // team Textview
         teamTwoName = (TextView) rootView.findViewById(R.id.teamTwo);
@@ -100,19 +104,19 @@ public class EditScore extends BaseFragment {
             if( !customNameOne.isEmpty()){
                 teamOneName.setText(customNameOne);
             }else{
-                teamOneName.setText(args.getString("teamOne"));
+                teamOneName.setText(uniTeamNameOne);
             }
         }else {
-            teamOneName.setText(args.getString("teamOne"));
+            teamOneName.setText(uniTeamNameOne);
         }
         if( customNameTwo != null){
             if( !customNameTwo.isEmpty()){
                 teamTwoName.setText(customNameTwo);
             }else{
-                teamTwoName.setText(args.getString("teamTwo"));
+                teamTwoName.setText(uniTeamNameTwo);
             }
         }else {
-            teamTwoName.setText(args.getString("teamTwo"));
+            teamTwoName.setText(uniTeamNameTwo);
         }
 
 
@@ -130,11 +134,11 @@ public class EditScore extends BaseFragment {
 
                 databaseSport = FirebaseDatabase.getInstance().getReference("games").child(sport_name).child(id);
                 if (!checker.contains(sport_name)) {
-                    SingleScoreMatch sport = new SingleScoreMatch(match_date, id, teamOneName.getText().toString(), teamTwoName.getText().toString(), customNameOne,customNameTwo, Long.parseLong(scoreOne.getSelectedItem().toString()), Long.parseLong(scoreTwo.getSelectedItem().toString()));
+                    SingleScoreMatch sport = new SingleScoreMatch(match_date, id, uniTeamNameOne, uniTeamNameTwo, customNameOne,customNameTwo, Long.parseLong(scoreOne.getSelectedItem().toString()), Long.parseLong(scoreTwo.getSelectedItem().toString()));
                     databaseSport.setValue(sport);
                     Toast.makeText(getContext(), "Score Updated", Toast.LENGTH_LONG).show();
                 } else {
-                    TripleScoreMatch sport = new TripleScoreMatch(match_date, id, teamOneName.getText().toString(), teamTwoName.getText().toString(), customNameOne,customNameTwo, Long.parseLong(scoreOne.getSelectedItem().toString()), Long.parseLong(scoreTwo.getSelectedItem().toString())
+                    TripleScoreMatch sport = new TripleScoreMatch(match_date, id, uniTeamNameOne, uniTeamNameTwo, customNameOne,customNameTwo, Long.parseLong(scoreOne.getSelectedItem().toString()), Long.parseLong(scoreTwo.getSelectedItem().toString())
                             , Long.parseLong(scoreThree.getSelectedItem().toString()), Long.parseLong(scoreFour.getSelectedItem().toString())
                             , Long.parseLong(scoreFive.getSelectedItem().toString()), Long.parseLong(scoreSix.getSelectedItem().toString()));
                     databaseSport.setValue(sport);
@@ -149,7 +153,7 @@ public class EditScore extends BaseFragment {
             public void onClick(View view) {
                 FirebaseDatabase.getInstance().getReference("games").child(sport_name).child(id).removeValue();
                 getActivity().getSupportFragmentManager().popBackStack();
-                Toast.makeText(getContext(), sport_name + " : " + teamOneName.getText().toString() + " vs " + teamTwoName.getText().toString() + " deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), sport_name + " : " + uniTeamNameOne + " vs " + uniTeamNameTwo + " deleted", Toast.LENGTH_SHORT).show();
 
             }
         });
