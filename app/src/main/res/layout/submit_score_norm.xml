@@ -71,16 +71,16 @@
 
     <TableLayout
         android:id="@+id/tableLayout3"
-        android:layout_width="341dp"
-        android:layout_height="173dp"
+        android:layout_width="337dp"
+        android:layout_height="182dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="14dp"
         android:background="@drawable/rectangle_background"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/submit_score_norm_header"
-        tools:layout_editor_absoluteY="129dp">
+        app:layout_constraintHorizontal_bias="0.571">
 
         <TableRow
             android:id="@+id/tableRow"
