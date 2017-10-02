@@ -3,8 +3,7 @@ package tremblay412.com.mysukan.activities;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -29,25 +28,31 @@ public class OverallWinnerActivity extends BaseActivity {
 
 
     private FirebaseDatabase databaseReference;
-    private HashMap<String, Tuple<String, Integer>> universityScoreMap;
-    PriorityQueue<String> universityRanking;
     private static final String TAG = "OverrallWinnerActivity";
+    private HashMap<String, Tuple<String, Integer>> universityScoreMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sport_matches);
+        setContentView(R.layout.activity_overrall_winner);
 
         getSupportActionBar().setTitle("Overrall Winner");
 
         // Initialized Firebase reference
         databaseReference = FirebaseDatabase.getInstance();
 
-        universityRanking = new PriorityQueue<>();
-        universityScoreMap = new HashMap<>();
 
-        String[] sports = NameManager.SportTypeSafeNames.getSportTypeSafeNames();
+        /**
+         overralWinnerListView = (ListView) findViewById(R.id.activity_overrall_winner_listview);
+         overralWinnerListView.setFastScrollEnabled(true);
+         overrallWinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, );
+
+
+
+         **/
+        universityScoreMap = new HashMap<>();
         ArrayList<DatabaseReference> ref = new ArrayList<>();
+        String[] sports = NameManager.SportTypeSafeNames.getSportTypeSafeNames();
         for (int a = 0; a < sports.length; a++) {
             ref.add(databaseReference.getReference());
             ref.get(a).
@@ -58,8 +63,7 @@ public class OverallWinnerActivity extends BaseActivity {
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             for (DataSnapshot sportSnapshot : dataSnapshot.getChildren()) {
                                 String names = sportSnapshot.getValue(String.class);
-                                universityScoreMap.get(names).second++;
-                                updateListView(names);
+                                updatePriorityQueue(names);
                             }
                         }
 
@@ -71,8 +75,14 @@ public class OverallWinnerActivity extends BaseActivity {
         }
     }
 
-    private void updateListView(String names) {
-        Log.i(TAG, universityScoreMap.get(names).toString());
+    private void updatePriorityQueue(String names) {
+        if (universityScoreMap.containsKey(names)) {
+            universityScoreMap.get(names).second++;
+            Log.i(TAG, "Incremented item in map:" + universityScoreMap.get(names).toString());
+        } else {
+            universityScoreMap.put(names, new Tuple<String, Integer>(names, 0));
+            Log.i(TAG, "Inserted a new item:" + names + " into the map");
+        }
     }
 
 }
