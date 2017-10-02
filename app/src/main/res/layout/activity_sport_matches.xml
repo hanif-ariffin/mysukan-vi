@@ -15,6 +15,7 @@
         android:id="@+id/activity_sport_matches_recyclerview_match"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="center"
         android:textAlignment="center" />
 
 </LinearLayout>

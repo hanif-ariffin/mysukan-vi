@@ -1,13 +1,11 @@
 package tremblay412.com.mysukan.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -18,7 +16,6 @@ import java.util.ArrayList;
 
 import tremblay412.com.mysukan.R;
 import tremblay412.com.mysukan.helper.NameManager;
-import tremblay412.com.mysukan.models.WinnerMatch;
 
 /**
  * Created by User on 2017-09-28.
@@ -26,13 +23,11 @@ import tremblay412.com.mysukan.models.WinnerMatch;
 
 public class WinnerActivity extends BaseActivity {
 
-    private FirebaseListAdapter<WinnerMatch> mAdapter;
     private ImageView imageViewFirstPlace, imageViewSecondPlace, imageViewThirdPlace;
     private TextView textViewFirstPlace, textViewSecondPlace, textViewThirdPlace;
     // Current sport
     String sportName;
     private DatabaseReference database;
-    private static WinnerMatch iWinnerMatch;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +44,7 @@ public class WinnerActivity extends BaseActivity {
         Bundle bundle = getIntent().getExtras();
         sportName = bundle.getString("sport_name");
 
-        getSupportActionBar().setTitle(sportName + " Champion");
+        getSupportActionBar().setTitle(sportName + " Champions");
 
         database = FirebaseDatabase.getInstance().getReference("ranking").child(NameManager.UserToDatabase(sportName));
 
@@ -69,6 +64,8 @@ public class WinnerActivity extends BaseActivity {
                     imageViewFirstPlace.setImageResource(NameManager.getImageId(lWinner.get(0)));
                     imageViewSecondPlace.setImageResource(NameManager.getImageId(lWinner.get(1)));
                     imageViewThirdPlace.setImageResource(NameManager.getImageId(lWinner.get(2)));
+                } else {
+                    Toast.makeText(getApplicationContext(), "Not all 3 winners are announced yet", Toast.LENGTH_LONG);
                 }
 
             }

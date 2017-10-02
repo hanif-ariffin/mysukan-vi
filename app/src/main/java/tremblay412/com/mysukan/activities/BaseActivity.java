@@ -61,6 +61,10 @@ public class BaseActivity extends AppCompatActivity {
             Intent intent = new Intent(BaseActivity.this, SponsorsActivity.class);
             startActivity(intent);
             return true;
+        } else if (i == R.id.menu_item_overrall_score) {
+            Intent intent = new Intent(BaseActivity.this, OverallWinnerActivity.class);
+            startActivity(intent);
+            return true;
         } else {
             return super.onOptionsItemSelected(item);
         }
