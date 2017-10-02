@@ -14,8 +14,8 @@
         android:visible="true"
         app:showAsAction="never" />
     <item
-        android:id="@+id/menu_async_task_example"
-        android:title="Async Task"
+        android:id="@+id/menu_item_overrall_score"
+        android:title="Overrall Score"
         android:visible="true"
         app:showAsAction="never" />
 
