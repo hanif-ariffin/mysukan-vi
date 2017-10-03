@@ -47,8 +47,11 @@
         <activity
             android:name=".activities.OverallWinnerActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".annoucement.AnnouncementActivity" />
-        <activity android:name=".annoucement.AddAnnouncement"></activity>
+        <activity android:name=".annoucement.AnnouncementActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".annoucement.AddAnnouncement"
+            android:screenOrientation="portrait"></activity>
+
     </application>
 
 </manifest>

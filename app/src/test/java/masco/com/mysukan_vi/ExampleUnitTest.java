@@ -1,4 +1,4 @@
-package tremblay412.com.mysukan_vi;
+package masco.com.mysukan_vi;
 
 import org.junit.Test;
 

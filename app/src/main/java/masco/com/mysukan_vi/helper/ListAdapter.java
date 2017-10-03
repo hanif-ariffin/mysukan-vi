@@ -16,11 +16,11 @@ import java.util.List;
 
 import masco.com.mysukan_vi.R;
 
-public class ListAdapter extends ArrayAdapter<String> {
+public class ListAdapter<E> extends ArrayAdapter<E> {
 
-    List<String> arrayList = new ArrayList<>();
+    List<E> arrayList = new ArrayList<>();
 
-    public ListAdapter(Context context, int textViewResourceId, List<String> objects) {
+    public ListAdapter(Context context, int textViewResourceId, List<E> objects) {
         super(context, textViewResourceId, objects);
         arrayList = objects;
     }
@@ -37,7 +37,7 @@ public class ListAdapter extends ArrayAdapter<String> {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         v = inflater.inflate(R.layout.listview_component, null);
         TextView textView = (TextView) v.findViewById(R.id.text1);
-        textView.setText(arrayList.get(position));
+        textView.setText("" + arrayList.get(position));
         return v;
 
     }

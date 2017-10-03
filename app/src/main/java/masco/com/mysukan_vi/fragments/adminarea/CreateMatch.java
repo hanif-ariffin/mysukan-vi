@@ -128,9 +128,9 @@ public class CreateMatch extends BaseFragment {
             public void onClick(View view) {
                 String id = databaseSport.push().getKey();
 
-                if(teamOneCustomName.getText().length()> 9 || teamTwoCustomName.getText().length()>9){
+                if (teamOneCustomName.getText().length() > 9 || teamTwoCustomName.getText().length() > 9) {
                     Toast.makeText(getContext(), "Custom team name must be less than 9 characters!", Toast.LENGTH_LONG).show();
-                }else {
+                } else {
                     if (unixTime == 0) {
                         Toast.makeText(getContext(), "Please set the schedule!", Toast.LENGTH_LONG).show();
                     } else {

@@ -15,14 +15,14 @@
         android:id="@+id/no_match_found"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="No Match Found!"
         android:textAlignment="center"
-        android:visibility="invisible" />
+        android:visibility="gone" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/activity_sport_matches_recyclerview_match"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="center"
         android:textAlignment="center" />
 
 </LinearLayout>
