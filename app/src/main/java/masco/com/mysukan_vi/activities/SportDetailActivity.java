@@ -298,7 +298,7 @@ public class SportDetailActivity extends BaseActivity {
     }
 
     private void notifyUserOfDatabaseFail() {
-        Toast.makeText(this, "Unable to query database! Perhaps no match is recorded yet?", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Unable to query database! Perhaps no match is recorded yet?", Toast.LENGTH_SHORT).show();
     }
 
     private void notifyUserOfDatabaseSuccess() {

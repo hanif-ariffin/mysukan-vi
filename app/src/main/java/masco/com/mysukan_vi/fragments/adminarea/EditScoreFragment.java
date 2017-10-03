@@ -29,7 +29,7 @@ import masco.com.mysukan_vi.helper.NameManager;
 import masco.com.mysukan_vi.models.SingleScoreMatch;
 import masco.com.mysukan_vi.models.TripleScoreMatch;
 
-public class EditScoreFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
+public class EditScoreFragment extends BaseFragment {
 
     private Bundle args;
     public String id;
@@ -57,6 +57,7 @@ public class EditScoreFragment extends BaseFragment implements SwipeRefreshLayou
 
         args = getArguments();
         sport_name = args.getString("sport_name");
+
         headerText = (TextView) view.findViewById(R.id.textView5);
         headerText.setText(sport_name);
 
@@ -67,6 +68,8 @@ public class EditScoreFragment extends BaseFragment implements SwipeRefreshLayou
         final ListAdapter lArrayAdapter = new ListAdapter(getActivity(), R.layout.listview_component, data1);
         //retrieve data from database
         database = FirebaseDatabase.getInstance().getReference("games").child(sport_name);
+        currentList = (ListView) view.findViewById(R.id.listView11);
+        currentList.setAdapter(lArrayAdapter);
 
         database.addValueEventListener(new ValueEventListener() {
             @Override
@@ -115,12 +118,41 @@ public class EditScoreFragment extends BaseFragment implements SwipeRefreshLayou
             }
         });
 
+        currentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                args = new Bundle();
+
+                if (checker.contains(sport_name)) {
+                    args.putString("teamOne", sportSet.get(i).team_1_name);
+                    args.putString("customNameTeamOne", sportSet.get(i).custom_name_1);
+                    args.putString("teamTwo", sportSet.get(i).team_2_name);
+                    args.putString("customNameTeamTwo",sportSet.get(i).custom_name_2);
+                    args.putString("id", sportSet.get(i).id);
+                    args.putLong("match_date", sportSet.get(i).match_date);
+                } else {
+                    args.putString("teamOne", sportNorm.get(i).team_1_name);
+                    args.putString("customNameTeamOne", sportNorm.get(i).custom_name_1);
+                    args.putString("teamTwo", sportNorm.get(i).team_2_name);
+                    args.putString("customNameTeamTwo",sportNorm.get(i).custom_name_2);
+                    args.putString("id", sportNorm.get(i).id);
+                    args.putLong("match_date", sportNorm.get(i).match_date);
+                }
+
+                args.putString("sport_name", sport_name);
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                Fragment fr = new EditScore();
+                fragmentTransaction.addToBackStack(null);
+                fr.setArguments(args);
+                fragmentTransaction.replace(R.id.edit_score, fr, fr.toString());
+                fragmentTransaction.commit();
+            }
+        });
+
+
         return view;
     }
 
-
-    @Override
-    public void onRefresh() {
-
-    }
 }

@@ -136,13 +136,13 @@ public class EditScore extends BaseFragment {
                 if (!checker.contains(sport_name)) {
                     SingleScoreMatch sport = new SingleScoreMatch(match_date, id, uniTeamNameOne, uniTeamNameTwo, customNameOne,customNameTwo, Long.parseLong(scoreOne.getSelectedItem().toString()), Long.parseLong(scoreTwo.getSelectedItem().toString()));
                     databaseSport.setValue(sport);
-                    Toast.makeText(getContext(), "Score Updated", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "Score Updated", Toast.LENGTH_SHORT).show();
                 } else {
                     TripleScoreMatch sport = new TripleScoreMatch(match_date, id, uniTeamNameOne, uniTeamNameTwo, customNameOne,customNameTwo, Long.parseLong(scoreOne.getSelectedItem().toString()), Long.parseLong(scoreTwo.getSelectedItem().toString())
                             , Long.parseLong(scoreThree.getSelectedItem().toString()), Long.parseLong(scoreFour.getSelectedItem().toString())
                             , Long.parseLong(scoreFive.getSelectedItem().toString()), Long.parseLong(scoreSix.getSelectedItem().toString()));
                     databaseSport.setValue(sport);
-                    Toast.makeText(getContext(), "Score Updated", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "Score Updated", Toast.LENGTH_SHORT).show();
                 }
             }
         });
