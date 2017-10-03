@@ -78,9 +78,9 @@ public class SportDetailActivity extends BaseActivity {
 
 
         if (bundle == null) {
-            Log.wtf(TAG, "BUNDLE IS NULL, THE ACTIVITY CALLING THIS INTENT DOES NOT PROVIDE THE SPORT NAME REQUIRED");
+
         } else {
-            Log.i(TAG, "Bundle is not null, proceeding to retrieve information from database");
+
             sportName = bundle.getString("sport_name");
             sportNameRecyclerView = (RecyclerView) findViewById(R.id.activity_sport_matches_recyclerview_match);
             getSupportActionBar().setTitle(sportName);
@@ -93,7 +93,6 @@ public class SportDetailActivity extends BaseActivity {
             Query queryResult = sportNameReference.child("games").child(NameManager.UserToDatabase(sportName)).orderByChild("match_date");
 
             if (SportManager.isSingleScore(sportName)) {
-                Log.i(TAG, "Bundle is a single score type match");
                 mAdapter = new FirebaseRecyclerAdapter<SingleScoreMatch, MatchDetailViewHolder>(SingleScoreMatch.class, R.layout.include_item_minimized_match_detail,
                         MatchDetailViewHolder.class, queryResult) {
                     @Override
@@ -140,7 +139,6 @@ public class SportDetailActivity extends BaseActivity {
                     }
                 };
             } else {
-                Log.i(TAG, "Bundle is a triple score type match");
                 mAdapter = new FirebaseRecyclerAdapter<TripleScoreMatch, MatchDetailViewHolder>(TripleScoreMatch.class, R.layout.include_item_minimized_match_detail,
                         MatchDetailViewHolder.class, queryResult) {
                     @Override
@@ -240,27 +238,32 @@ public class SportDetailActivity extends BaseActivity {
             // -- and increments the counter variable i by one
             int waitCounter = 0;
             int sleepTime = 50;
-            int maxWaitTime = sleepTime / 4;
+            int maxWaitTime = 100;
             while (isProcessDialogShowing()) {
                 try {
+                    Log.d(TAG, "Sleeping" + waitCounter);
                     Thread.sleep(sleepTime);
                     publishProgress(waitCounter);
                     if (waitCounter > maxWaitTime) {
-                        notifyUserOfDatabaseFail();
-                        hideProgressDialog();
+                        /**
+                         * Fail -> false
+                         */
+                        return false;
                     }
                     waitCounter++;
                 } catch (Exception e) {
 
                 }
             }
-            return waitCounter > maxWaitTime;
+            /**
+             * Success -> true
+             */
+            return true;
         }
 
         // -- gets called just before thread begins
         @Override
         protected void onPreExecute() {
-
             super.onPreExecute();
         }
 
@@ -269,15 +272,12 @@ public class SportDetailActivity extends BaseActivity {
         @Override
         protected void onProgressUpdate(Integer[] values) {
             super.onProgressUpdate(values);
-
-
         }
 
         // -- called if the cancel button is pressed
         @Override
         protected void onCancelled() {
             super.onCancelled();
-
         }
 
         // -- called as soon as doInBackground method completes
@@ -287,11 +287,12 @@ public class SportDetailActivity extends BaseActivity {
             super.onPostExecute(result);
 
             if (result) {
+                notifyUserOfDatabaseSuccess();
+            } else {
                 notifyUserOfDatabaseFail();
+                hideProgressDialog();
                 noMatchFound.setText("No Match Found!");
                 noMatchFound.setVisibility(View.VISIBLE);
-            } else {
-                notifyUserOfDatabaseSuccess();
             }
         }
 

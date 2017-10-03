@@ -36,12 +36,12 @@ public class WinnerActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_winner);
 
-        imageViewFirstPlace = (ImageView) findViewById(R.id.firstplace);
-        imageViewSecondPlace = (ImageView) findViewById(R.id.secondplace);
-        imageViewThirdPlace = (ImageView) findViewById(R.id.thirdplace);
-        textViewFirstPlace = (TextView) findViewById(R.id.textfirstplace);
-        textViewSecondPlace = (TextView) findViewById(R.id.textsecondplace);
-        textViewThirdPlace = (TextView) findViewById(R.id.textthirdplace);
+        imageViewFirstPlace = (ImageView) findViewById(R.id.image_first_place);
+        imageViewSecondPlace = (ImageView) findViewById(R.id.image_second_place);
+        imageViewThirdPlace = (ImageView) findViewById(R.id.image_third_place);
+        textViewFirstPlace = (TextView) findViewById(R.id.text_first_place);
+        textViewSecondPlace = (TextView) findViewById(R.id.text_second_place);
+        textViewThirdPlace = (TextView) findViewById(R.id.text_third_place);
 
         // Bundle received from the Activity creating this Activity
         Bundle bundle = getIntent().getExtras();
