@@ -27,7 +27,10 @@ import java.util.List;
 import masco.com.mysukan_vi.R;
 import masco.com.mysukan_vi.helper.NameManager;
 import masco.com.mysukan_vi.helper.SingleScoreMatchAdapter;
+import masco.com.mysukan_vi.helper.SportManager;
+import masco.com.mysukan_vi.helper.TripleScoreMatchAdapter;
 import masco.com.mysukan_vi.models.SingleScoreMatch;
+import masco.com.mysukan_vi.models.TripleScoreMatch;
 
 /**
  * Created by Akarin on 9/9/2017.
@@ -46,16 +49,17 @@ public class SportDetailActivity extends BaseActivity {
     String sportName;
     protected InitTask iniTask;
 
-    private DatabaseReference NEW_DATABASE;
-    private List<SingleScoreMatch> NEW_DATA;
-    private ListView NEW_LIST_VIEW;
+    private DatabaseReference databaseReference;
+    private List<SingleScoreMatch> singleScoreList;
+    private List<TripleScoreMatch> tripleScoreList;
+    private ListView matchesListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sport_matches);
 
-        showProgressDialog("Querying NEW_DATABASE...");
+        showProgressDialog("Querying databaseReference...");
 
         // Get the XML object
         textViewteamOneName = (TextView) findViewById(R.id.include_item_enlarged_match_detail_text_team_1);
@@ -78,40 +82,98 @@ public class SportDetailActivity extends BaseActivity {
 
             sportName = bundle.getString("sport_name");
 
-            NEW_DATA = new ArrayList<>();
-            NEW_LIST_VIEW = (ListView) findViewById(R.id.activity_sport_matches_listview);
-            final SingleScoreMatchAdapter scoreAdapter = new SingleScoreMatchAdapter(SportDetailActivity.this, R.layout.include_item_minimized_match_detail, NEW_DATA);
-            NEW_LIST_VIEW.setAdapter(scoreAdapter);
-            NEW_DATABASE = FirebaseDatabase.getInstance().getReference("games").child(NameManager.UserToDatabase(sportName));
+            matchesListView = (ListView) findViewById(R.id.activity_sport_matches_listview);
+            databaseReference = FirebaseDatabase.getInstance().getReference("games").child(NameManager.UserToDatabase(sportName));
 
+            if (SportManager.isSingleScore(sportName)) {
+                singleScoreList = new ArrayList<>();
+                final SingleScoreMatchAdapter scoreAdapter = new SingleScoreMatchAdapter(SportDetailActivity.this, R.layout.include_item_minimized_match_detail, singleScoreList);
+                matchesListView.setAdapter(scoreAdapter);
 
-            NEW_DATABASE.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    NEW_DATA.clear();
-                    for (DataSnapshot Snapshot : dataSnapshot.getChildren()) {
-                        SingleScoreMatch match = Snapshot.getValue(SingleScoreMatch.class);
-                        NEW_DATA.add(match);
-                        updateEnlargedMatchDetail(NEW_DATA.get(0).team_1_name, NEW_DATA.get(0).team_2_name, NEW_DATA.get(0).custom_name_1, NEW_DATA.get(0).custom_name_2, new Long[]{NEW_DATA.get(0).team_1_score_1}, new Long[]{NEW_DATA.get(0).team_2_score_1});
-                        hideProgressDialog();
+                databaseReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        singleScoreList.clear();
+                        for (DataSnapshot Snapshot : dataSnapshot.getChildren()) {
+                            SingleScoreMatch match = Snapshot.getValue(SingleScoreMatch.class);
+                            singleScoreList.add(match);
+                            updateEnlargedMatchDetail(singleScoreList.get(0).team_1_name, singleScoreList.get(0).team_2_name, singleScoreList.get(0).custom_name_1, singleScoreList.get(0).custom_name_2, new Long[]{singleScoreList.get(0).team_1_score_1}, new Long[]{singleScoreList.get(0).team_2_score_1});
+                            hideProgressDialog();
+                        }
+                        Collections.reverse(singleScoreList);
+                        scoreAdapter.notifyDataSetChanged();
                     }
-                    Collections.reverse(NEW_DATA);
-                    scoreAdapter.notifyDataSetChanged();
-                }
 
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
 
-                }
-            });
+                    }
+                });
 
 
-            NEW_LIST_VIEW.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    updateEnlargedMatchDetail(NEW_DATA.get(i).team_1_name, NEW_DATA.get(i).team_2_name, NEW_DATA.get(i).custom_name_1, NEW_DATA.get(i).custom_name_2, new Long[]{NEW_DATA.get(i).team_1_score_1}, new Long[]{NEW_DATA.get(i).team_2_score_1});
-                }
-            });
+                matchesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        updateEnlargedMatchDetail(singleScoreList.get(i).team_1_name, singleScoreList.get(i).team_2_name, singleScoreList.get(i).custom_name_1, singleScoreList.get(i).custom_name_2, new Long[]{singleScoreList.get(i).team_1_score_1}, new Long[]{singleScoreList.get(i).team_2_score_1});
+                    }
+                });
+            } else {
+                tripleScoreList = new ArrayList<>();
+                final TripleScoreMatchAdapter scoreAdapter = new TripleScoreMatchAdapter(SportDetailActivity.this, R.layout.include_item_minimized_match_detail, tripleScoreList);
+                matchesListView.setAdapter(scoreAdapter);
+
+                databaseReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        tripleScoreList.clear();
+                        for (DataSnapshot Snapshot : dataSnapshot.getChildren()) {
+                            TripleScoreMatch match = Snapshot.getValue(TripleScoreMatch.class);
+                            tripleScoreList.add(match);
+                            updateEnlargedMatchDetail(
+                                    tripleScoreList.get(0).team_1_name, tripleScoreList.get(0).team_2_name,
+                                    tripleScoreList.get(0).custom_name_1, tripleScoreList.get(0).custom_name_2,
+                                    new Long[]{
+                                            tripleScoreList.get(0).team_1_score_1,
+                                            tripleScoreList.get(0).team_1_score_2,
+                                            tripleScoreList.get(0).team_1_score_3
+                                    },
+                                    new Long[]{
+                                            tripleScoreList.get(0).team_2_score_1,
+                                            tripleScoreList.get(0).team_2_score_2,
+                                            tripleScoreList.get(0).team_2_score_3
+                                    });
+                            hideProgressDialog();
+                        }
+                        Collections.reverse(tripleScoreList);
+                        scoreAdapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
+
+                matchesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        updateEnlargedMatchDetail(
+                                tripleScoreList.get(i).team_1_name, tripleScoreList.get(i).team_2_name,
+                                tripleScoreList.get(i).custom_name_1, tripleScoreList.get(i).custom_name_2,
+                                new Long[]{
+                                        tripleScoreList.get(i).team_1_score_1,
+                                        tripleScoreList.get(i).team_1_score_2,
+                                        tripleScoreList.get(i).team_1_score_3
+                                },
+                                new Long[]{
+                                        tripleScoreList.get(i).team_2_score_1,
+                                        tripleScoreList.get(i).team_2_score_2,
+                                        tripleScoreList.get(i).team_2_score_3
+                                });
+                    }
+                });
+            }
             getSupportActionBar().setTitle(sportName);
 
             iniTask = new InitTask();
@@ -224,11 +286,11 @@ public class SportDetailActivity extends BaseActivity {
     }
 
     private void notifyUserOfDatabaseFail() {
-        Toast.makeText(this, "Unable to query NEW_DATABASE! Perhaps no match is recorded yet?", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Unable to query databaseReference! Perhaps no match is recorded yet?", Toast.LENGTH_SHORT).show();
     }
 
     private void notifyUserOfDatabaseSuccess() {
-        Toast.makeText(this, "Query to NEW_DATABASE successful!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Query to databaseReference successful!", Toast.LENGTH_SHORT).show();
     }
 
     @Override

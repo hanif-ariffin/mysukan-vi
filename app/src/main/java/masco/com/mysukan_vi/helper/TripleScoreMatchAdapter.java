@@ -16,17 +16,17 @@ import java.util.List;
 import java.util.TimeZone;
 
 import masco.com.mysukan_vi.R;
-import masco.com.mysukan_vi.models.SingleScoreMatch;
+import masco.com.mysukan_vi.models.TripleScoreMatch;
 
 /**
  * Created by Haziq on 2017-10-02.
  */
 
-public class SingleScoreMatchAdapter extends ArrayAdapter<SingleScoreMatch> {
+public class TripleScoreMatchAdapter extends ArrayAdapter<TripleScoreMatch> {
 
-    List<SingleScoreMatch> matchesList = new ArrayList<>();
+    List<TripleScoreMatch> matchesList = new ArrayList<>();
 
-    public SingleScoreMatchAdapter(Context context, int textViewResourceId, List<SingleScoreMatch> objects) {
+    public TripleScoreMatchAdapter(Context context, int textViewResourceId, List<TripleScoreMatch> objects) {
         super(context, textViewResourceId, objects);
         matchesList = objects;
     }
