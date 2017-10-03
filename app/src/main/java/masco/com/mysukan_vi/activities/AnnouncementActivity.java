@@ -1,8 +1,8 @@
-package masco.com.mysukan_vi.annoucement;
+package masco.com.mysukan_vi.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 import masco.com.mysukan_vi.R;
+import masco.com.mysukan_vi.annoucement.Announcement;
 import masco.com.mysukan_vi.helper.AnnoucementAdapter;
 
 public class AnnouncementActivity extends AppCompatActivity {
@@ -34,7 +35,7 @@ public class AnnouncementActivity extends AppCompatActivity {
         setContentView(R.layout.activity_announcement);
 
         data = new ArrayList<>();
-        listView = (ListView)findViewById(R.id.listAnnoucement);
+        listView = (ListView) findViewById(R.id.listAnnoucement);
         final AnnoucementAdapter lArrayAdapter = new AnnoucementAdapter(AnnouncementActivity.this, R.layout.listview_annoucement, data);
         listView.setAdapter(lArrayAdapter);
         database = FirebaseDatabase.getInstance().getReference("announcement");
@@ -60,6 +61,7 @@ public class AnnouncementActivity extends AppCompatActivity {
             }
         });
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -77,7 +79,7 @@ public class AnnouncementActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int i = item.getItemId();
         if (i == R.id.add_button) {
-            Intent intent = new Intent(AnnouncementActivity.this, AddAnnouncement.class);
+            Intent intent = new Intent(AnnouncementActivity.this, AddAnnouncementActivity.class);
             startActivity(intent);
             return true;
         } else {

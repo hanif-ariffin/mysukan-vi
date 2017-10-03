@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import masco.com.mysukan_vi.R;
 import masco.com.mysukan_vi.activities.SportDetailActivity;
+import masco.com.mysukan_vi.helper.NameManager;
 
 /**
  * Created by r3xas on 9/25/2017.
@@ -17,17 +18,16 @@ import masco.com.mysukan_vi.activities.SportDetailActivity;
 public class SportListFragmentGrid extends BaseFragment {
     private static final String TAG = "SportListFragmentGrid";
 
-    private Button button;
-    private Button button_basketball_male;
+    private Button button_basketball;
     private Button button_soccer_male;
     private Button button_badminton_men_doubles;
     private Button button_badminton_women_doubles;
     private Button button_badminton_mixed_doubles;
     private Button button_squash_men_singles;
-    private Button button_frisbee_male;
+    private Button button_frisbee;
     private Button button_squash_women_singles;
-    private Button button_netball_female;
-    private Button button_dodgeball_female;
+    private Button button_netball;
+    private Button button_dodgeball;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,7 +36,7 @@ public class SportListFragmentGrid extends BaseFragment {
 
         View rootView = inflater.inflate(R.layout.sportlist_fragment_grid, container, false);
 
-        button_soccer_male = (Button) rootView.findViewById(R.id.soccer_male);
+        button_soccer_male = (Button) rootView.findViewById(R.id.button_soccer);
 
         button_soccer_male.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,14 +44,14 @@ public class SportListFragmentGrid extends BaseFragment {
 
                 Intent intent = new Intent(getActivity(), SportDetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("sport_name", "Soccer"); //Your id
+                bundle.putString("sport_name", NameManager.SportCasualNames.SOCCER); //Your id
                 intent.putExtras(bundle); //Put your id to your next Intent
                 startActivity(intent);
 
             }
         });
 
-        button_badminton_men_doubles = (Button) rootView.findViewById(R.id.badminton_men_doubles);
+        button_badminton_men_doubles = (Button) rootView.findViewById(R.id.button_badminton_men_doubles);
 
         button_badminton_men_doubles.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,14 +59,14 @@ public class SportListFragmentGrid extends BaseFragment {
 
                 Intent intent = new Intent(getActivity(), SportDetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("sport_name", "Badminton Men Doubles"); //Your id
+                bundle.putString("sport_name", NameManager.SportCasualNames.BADMINTON_MEN_DOUBLES); //Your id
                 intent.putExtras(bundle); //Put your id to your next Intent
                 startActivity(intent);
 
             }
         });
 
-        button_badminton_women_doubles = (Button) rootView.findViewById(R.id.badminton_women_doubles);
+        button_badminton_women_doubles = (Button) rootView.findViewById(R.id.button_badminton_women_doubles);
 
         button_badminton_women_doubles.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +74,7 @@ public class SportListFragmentGrid extends BaseFragment {
 
                 Intent intent = new Intent(getActivity(), SportDetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("sport_name", "Badminton Women Doubles"); //Your id
+                bundle.putString("sport_name", NameManager.SportCasualNames.BADMINTON_WOMEN_DOUBLES); //Your id
                 intent.putExtras(bundle); //Put your id to your next Intent
                 startActivity(intent);
 
@@ -82,7 +82,7 @@ public class SportListFragmentGrid extends BaseFragment {
         });
 
 
-        button_badminton_mixed_doubles = (Button) rootView.findViewById(R.id.badminton_mixed_doubles);
+        button_badminton_mixed_doubles = (Button) rootView.findViewById(R.id.button_badminton_mixed_doubles);
 
         button_badminton_mixed_doubles.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,14 +90,14 @@ public class SportListFragmentGrid extends BaseFragment {
 
                 Intent intent = new Intent(getActivity(), SportDetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("sport_name", "Badminton Mixed Doubles"); //Your id
+                bundle.putString("sport_name", NameManager.SportCasualNames.BADMINTON_MIXED_DOUBLES); //Your id
                 intent.putExtras(bundle); //Put your id to your next Intent
                 startActivity(intent);
 
             }
         });
 
-        button_squash_men_singles = (Button) rootView.findViewById(R.id.squash_men_singles);
+        button_squash_men_singles = (Button) rootView.findViewById(R.id.button_squash_men_singles);
 
         button_squash_men_singles.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,14 +105,14 @@ public class SportListFragmentGrid extends BaseFragment {
 
                 Intent intent = new Intent(getActivity(), SportDetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("sport_name", "Squash Men Singles"); //Your id
+                bundle.putString("sport_name", NameManager.SportCasualNames.SQUASH_MEN_SINGLES); //Your id
                 intent.putExtras(bundle); //Put your id to your next Intent
                 startActivity(intent);
 
             }
         });
 
-        button_squash_women_singles = (Button) rootView.findViewById(R.id.squash_women_singles);
+        button_squash_women_singles = (Button) rootView.findViewById(R.id.button_squash_women_singles);
 
         button_squash_women_singles.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,67 +120,67 @@ public class SportListFragmentGrid extends BaseFragment {
 
                 Intent intent = new Intent(getActivity(), SportDetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("sport_name", "Squash Women Singles"); //Your id
+                bundle.putString("sport_name", NameManager.SportCasualNames.SQUASH_WOMEN_SINGLES); //Your id
                 intent.putExtras(bundle); //Put your id to your next Intent
                 startActivity(intent);
 
             }
         });
 
-        button_frisbee_male = (Button) rootView.findViewById(R.id.frisbee_male);
+        button_frisbee = (Button) rootView.findViewById(R.id.button_frisbee);
 
-        button_frisbee_male.setOnClickListener(new View.OnClickListener() {
+        button_frisbee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent = new Intent(getActivity(), SportDetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("sport_name", "Frisbee"); //Your id
+                bundle.putString("sport_name", NameManager.SportCasualNames.FRISBEE); //Your id
                 intent.putExtras(bundle); //Put your id to your next Intent
                 startActivity(intent);
 
             }
         });
 
-        button_dodgeball_female = (Button) rootView.findViewById(R.id.dodgeball_female);
+        button_dodgeball = (Button) rootView.findViewById(R.id.button_dodgeball);
 
-        button_dodgeball_female.setOnClickListener(new View.OnClickListener() {
+        button_dodgeball.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent = new Intent(getActivity(), SportDetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("sport_name", "Dodgeball"); //Your id
+                bundle.putString("sport_name", NameManager.SportCasualNames.DODGEBALL); //Your id
                 intent.putExtras(bundle); //Put your id to your next Intent
                 startActivity(intent);
 
             }
         });
 
-        button_netball_female = (Button) rootView.findViewById(R.id.netball_female);
+        button_netball = (Button) rootView.findViewById(R.id.button_netball);
 
-        button_netball_female.setOnClickListener(new View.OnClickListener() {
+        button_netball.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent = new Intent(getActivity(), SportDetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("sport_name", "Netball"); //Your id
+                bundle.putString("sport_name", NameManager.SportCasualNames.NETBALL); //Your id
                 intent.putExtras(bundle); //Put your id to your next Intent
                 startActivity(intent);
 
             }
         });
 
-        button_basketball_male = (Button) rootView.findViewById(R.id.basketball_male);
+        button_basketball = (Button) rootView.findViewById(R.id.button_basketball);
 
-        button_basketball_male.setOnClickListener(new View.OnClickListener() {
+        button_basketball.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent = new Intent(getActivity(), SportDetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("sport_name", "Basketball"); //Your id
+                bundle.putString("sport_name", NameManager.SportCasualNames.BASKETBALL); //Your id
                 intent.putExtras(bundle); //Put your id to your next Intent
                 startActivity(intent);
 

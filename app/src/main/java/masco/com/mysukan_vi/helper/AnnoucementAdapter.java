@@ -24,7 +24,7 @@ import masco.com.mysukan_vi.annoucement.Announcement;
 
 public class AnnoucementAdapter extends ArrayAdapter<Announcement> {
 
-    private String OUTPUT_DATE_FORMATE="hh:mm a";
+    private String OUTPUT_DATE_FORMATE = "hh:mm a";
     List<Announcement> arrayList = new ArrayList<>();
 
     public AnnoucementAdapter(Context context, int textViewResourceId, List<Announcement> objects) {
@@ -55,7 +55,7 @@ public class AnnoucementAdapter extends ArrayAdapter<Announcement> {
 
         int gmtOffset = TimeZone.getDefault().getRawOffset();
 
-        textView3.setText(getDateFromUTCTimestamp(arrayList.get(position).getTime(),OUTPUT_DATE_FORMATE));
+        textView3.setText(getDateFromUTCTimestamp(arrayList.get(position).getTime(), OUTPUT_DATE_FORMATE));
         return v;
 
     }

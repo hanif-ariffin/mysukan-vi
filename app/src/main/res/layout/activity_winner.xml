@@ -18,11 +18,11 @@
         android:layout_marginStart="6dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.967"
+        app:layout_constraintHorizontal_bias="0.04"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498" />
+        app:layout_constraintVertical_bias="0.283" />
 
     <TextView
         android:id="@+id/text_first_place"
@@ -38,7 +38,8 @@
         app:layout_constraintLeft_toLeftOf="@+id/image_first_place"
         app:layout_constraintRight_toRightOf="@+id/image_first_place"
         app:layout_constraintTop_toBottomOf="@+id/image_first_place"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:layout_marginTop="8dp" />
 
     <TextView
         android:id="@+id/text_second_place"
@@ -55,7 +56,8 @@
         app:layout_constraintLeft_toLeftOf="@+id/image_second_place"
         app:layout_constraintRight_toRightOf="@+id/image_second_place"
         app:layout_constraintTop_toBottomOf="@+id/image_second_place"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:layout_marginTop="8dp" />
 
     <ImageView
         android:id="@+id/image_pedestal"
@@ -71,7 +73,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.977"
+        app:layout_constraintVertical_bias="0.598"
         app:srcCompat="@drawable/ranking_place"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp" />
@@ -90,7 +92,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498" />
+        app:layout_constraintVertical_bias="0.174" />
 
     <TextView
         android:id="@+id/text_third_place"
@@ -107,7 +109,8 @@
         app:layout_constraintLeft_toLeftOf="@+id/image_third_place"
         app:layout_constraintRight_toRightOf="@+id/image_third_place"
         app:layout_constraintTop_toBottomOf="@+id/image_third_place"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:layout_marginTop="8dp" />
 
     <ImageView
         android:id="@+id/image_third_place"
@@ -120,11 +123,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.032"
+        app:layout_constraintHorizontal_bias="0.959"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.488" />
+        app:layout_constraintVertical_bias="0.326" />
 
 
 </android.support.constraint.ConstraintLayout>

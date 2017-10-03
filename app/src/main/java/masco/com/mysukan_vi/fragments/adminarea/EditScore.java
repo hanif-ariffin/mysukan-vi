@@ -29,7 +29,7 @@ public class EditScore extends BaseFragment {
     private Button submit, delete;
     private TextView textHeader, teamOneName, teamTwoName;
     private List<String> checker;
-    private String id, customNameOne, customNameTwo, uniTeamNameOne, uniTeamNameTwo ;
+    private String id, customNameOne, customNameTwo, uniTeamNameOne, uniTeamNameTwo;
     private static String sport_name;
     private long match_date;
 
@@ -100,22 +100,22 @@ public class EditScore extends BaseFragment {
         teamTwoName = (TextView) rootView.findViewById(R.id.teamTwo);
         teamOneName = (TextView) rootView.findViewById(R.id.teamOne);
 
-        if( customNameOne != null){
-            if( !customNameOne.isEmpty()){
+        if (customNameOne != null) {
+            if (!customNameOne.isEmpty()) {
                 teamOneName.setText(customNameOne);
-            }else{
+            } else {
                 teamOneName.setText(uniTeamNameOne);
             }
-        }else {
+        } else {
             teamOneName.setText(uniTeamNameOne);
         }
-        if( customNameTwo != null){
-            if( !customNameTwo.isEmpty()){
+        if (customNameTwo != null) {
+            if (!customNameTwo.isEmpty()) {
                 teamTwoName.setText(customNameTwo);
-            }else{
+            } else {
                 teamTwoName.setText(uniTeamNameTwo);
             }
-        }else {
+        } else {
             teamTwoName.setText(uniTeamNameTwo);
         }
 
@@ -134,11 +134,11 @@ public class EditScore extends BaseFragment {
 
                 databaseSport = FirebaseDatabase.getInstance().getReference("games").child(sport_name).child(id);
                 if (!checker.contains(sport_name)) {
-                    SingleScoreMatch sport = new SingleScoreMatch(match_date, id, uniTeamNameOne, uniTeamNameTwo, customNameOne,customNameTwo, Long.parseLong(scoreOne.getSelectedItem().toString()), Long.parseLong(scoreTwo.getSelectedItem().toString()));
+                    SingleScoreMatch sport = new SingleScoreMatch(match_date, id, uniTeamNameOne, uniTeamNameTwo, customNameOne, customNameTwo, Long.parseLong(scoreOne.getSelectedItem().toString()), Long.parseLong(scoreTwo.getSelectedItem().toString()));
                     databaseSport.setValue(sport);
                     Toast.makeText(getContext(), "Score Updated", Toast.LENGTH_LONG).show();
                 } else {
-                    TripleScoreMatch sport = new TripleScoreMatch(match_date, id, uniTeamNameOne, uniTeamNameTwo, customNameOne,customNameTwo, Long.parseLong(scoreOne.getSelectedItem().toString()), Long.parseLong(scoreTwo.getSelectedItem().toString())
+                    TripleScoreMatch sport = new TripleScoreMatch(match_date, id, uniTeamNameOne, uniTeamNameTwo, customNameOne, customNameTwo, Long.parseLong(scoreOne.getSelectedItem().toString()), Long.parseLong(scoreTwo.getSelectedItem().toString())
                             , Long.parseLong(scoreThree.getSelectedItem().toString()), Long.parseLong(scoreFour.getSelectedItem().toString())
                             , Long.parseLong(scoreFive.getSelectedItem().toString()), Long.parseLong(scoreSix.getSelectedItem().toString()));
                     databaseSport.setValue(sport);

@@ -6,14 +6,27 @@ import android.support.annotation.NonNull;
  * Created by Haziq on 2017-10-02.
  */
 
-public class Announcement implements Comparable<Announcement>{
+public class Announcement implements Comparable<Announcement> {
 
-    public Announcement(){}
+    String id, subject, message;
+    Long time;
 
-    public Announcement(String subject, String message, Long time){
+    public Announcement() {
+    }
+
+    public Announcement(String id, String subject, String message, Long time) {
+        this.id = id;
         this.subject = subject;
         this.message = message;
         this.time = time;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getSubject() {
@@ -40,14 +53,11 @@ public class Announcement implements Comparable<Announcement>{
         this.time = time;
     }
 
-    String subject, message;
-    Long time;
-
     @Override
     public int compareTo(@NonNull Announcement announcement) {
-        if(time < announcement.time){
+        if (time < announcement.time) {
             return 1;
-        } else if (time == announcement.time){
+        } else if (time == announcement.time) {
             return 0;
         } else {
             return -1;

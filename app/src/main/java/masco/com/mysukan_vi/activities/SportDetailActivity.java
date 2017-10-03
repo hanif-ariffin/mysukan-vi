@@ -52,7 +52,7 @@ public class SportDetailActivity extends BaseActivity {
 
     // Current sport
     String sportName;
-    protected InitTask _initTask;
+    protected InitTask iniTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -187,8 +187,8 @@ public class SportDetailActivity extends BaseActivity {
             }
 
             sportNameRecyclerView.setAdapter(mAdapter);
-            _initTask = new InitTask();
-            _initTask.execute(this);
+            iniTask = new InitTask();
+            iniTask.execute(this);
         }
     }
 
@@ -347,5 +347,6 @@ public class SportDetailActivity extends BaseActivity {
         if (mAdapter != null) {
             mAdapter.cleanup();
         }
+        finish();
     }
 }

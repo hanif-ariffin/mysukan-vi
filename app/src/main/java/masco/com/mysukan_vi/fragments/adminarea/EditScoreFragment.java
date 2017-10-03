@@ -1,14 +1,10 @@
 package masco.com.mysukan_vi.fragments.adminarea;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -79,13 +75,13 @@ public class EditScoreFragment extends BaseFragment implements SwipeRefreshLayou
                         TripleScoreMatch sport = sportSnapshot.getValue(TripleScoreMatch.class);
                         sportSet.add(sport);
                         arrayId.add(sport.id);
-                        if(sport.custom_name_1 != null){
-                            if(!sport.custom_name_2.isEmpty()){
-                                data1.add(sport.team_1_name+ " : " + sport.custom_name_1 + " vs " + sport.team_2_name + " : " + sport.custom_name_2);
-                            }else{
+                        if (sport.custom_name_1 != null) {
+                            if (!sport.custom_name_2.isEmpty()) {
+                                data1.add(sport.team_1_name + " : " + sport.custom_name_1 + " vs " + sport.team_2_name + " : " + sport.custom_name_2);
+                            } else {
                                 data1.add(sport.team_1_name + " vs " + sport.team_2_name);
                             }
-                        }else {
+                        } else {
                             data1.add(sport.team_1_name + " vs " + sport.team_2_name);
                         }
                         lArrayAdapter.notifyDataSetChanged();
@@ -93,13 +89,13 @@ public class EditScoreFragment extends BaseFragment implements SwipeRefreshLayou
                         SingleScoreMatch sport = sportSnapshot.getValue(SingleScoreMatch.class);
                         sportNorm.add(sport);
                         id = sport.id;
-                        if(sport.custom_name_1 != null){
-                            if(!sport.custom_name_2.isEmpty()){
-                                data1.add(sport.team_1_name+ " : " + sport.custom_name_1 + " vs " + sport.team_2_name + " : " + sport.custom_name_2);
-                            }else{
+                        if (sport.custom_name_1 != null) {
+                            if (!sport.custom_name_2.isEmpty()) {
+                                data1.add(sport.team_1_name + " : " + sport.custom_name_1 + " vs " + sport.team_2_name + " : " + sport.custom_name_2);
+                            } else {
                                 data1.add(sport.team_1_name + " vs " + sport.team_2_name);
                             }
-                        }else {
+                        } else {
                             data1.add(sport.team_1_name + " vs " + sport.team_2_name);
                         }
                         arrayId.add(sport.id);

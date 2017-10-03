@@ -16,7 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import masco.com.mysukan_vi.annoucement.AnnouncementActivity;
+import masco.com.mysukan_vi.activities.AnnouncementActivity;
 import masco.com.mysukan_vi.R;
 import masco.com.mysukan_vi.activities.AdminActivity;
 
