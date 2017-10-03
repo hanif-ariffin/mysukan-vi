@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="5dp"
     android:weightSum="1"
-    tools:context=".activities.MainPageActivity">
+    tools:context="masco.com.mysukan_vi.activities.MainPageActivity">
 
 
     <ListView

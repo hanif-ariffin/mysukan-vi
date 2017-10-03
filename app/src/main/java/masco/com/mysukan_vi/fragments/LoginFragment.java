@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import masco.com.mysukan_vi.annoucement.AnnouncementActivity;
 import masco.com.mysukan_vi.R;
 import masco.com.mysukan_vi.activities.AdminActivity;
 
@@ -65,24 +66,32 @@ public class LoginFragment extends BaseFragment {
         }
         showProgressDialog("Loading");
 
-        firebaseAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
+        if( email.equals("announcement") && password.equals("announcement")){
+            startActivity(new Intent(getContext(), AnnouncementActivity.class));
+            hideProgressDialog();
+        }
+        else{
+            firebaseAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
 
-                        if (task.isSuccessful()) {
+                            if (task.isSuccessful()) {
 
-                            Intent intent = new Intent(getActivity(), AdminActivity.class);
-                            startActivity(intent);
-                            hideProgressDialog();
+                                Intent intent = new Intent(getActivity(), AdminActivity.class);
+                                startActivity(intent);
+                                hideProgressDialog();
 
-                            Toast.makeText(getActivity(), "You are now logged in with email:" + firebaseAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
-                        } else {
-                            hideProgressDialog();
+                                Toast.makeText(getActivity(), "You are now logged in with email:" + firebaseAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
+                            } else {
+                                hideProgressDialog();
 
-                            Toast.makeText(getActivity(), "Login failed. Please check your info", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "Login failed. Please check your info", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                });
+                    });
+        }
+
+
     }
 }

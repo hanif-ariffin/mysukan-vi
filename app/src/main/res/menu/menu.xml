@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activities.BaseActivity">
+    tools:context="masco.com.mysukan_vi.activities.BaseActivity">
 
     <item
         android:id="@+id/menu_item_developers_info"
@@ -24,6 +24,14 @@
         android:icon="@drawable/trophy_icon"
         android:orderInCategory="100"
         android:title="winner"
+        android:visible="false"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/add_button"
+        android:icon="@drawable/add_button"
+        android:orderInCategory="100"
+        android:title="add"
         android:visible="false"
         app:showAsAction="always" />
 
