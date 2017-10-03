@@ -105,25 +105,25 @@ public class SportDetailActivity extends BaseActivity {
                             time = new SimpleDateFormat("HH:mm a").format(new Date(model.match_date * 1000L));
                         }
                         viewHolder.match_time.setText(time);
-                        if(model.custom_name_1 != null){
-                            if(!model.custom_name_1.isEmpty()){
+                        if (model.custom_name_1 != null) {
+                            if (!model.custom_name_1.isEmpty()) {
                                 viewHolder.team_1.setText(model.custom_name_1);
-                            }else{
+                            } else {
                                 viewHolder.team_1.setText(model.team_1_name);
                             }
 
-                        }else{
+                        } else {
                             viewHolder.team_1.setText(model.team_1_name);
                         }
 
-                        if(model.custom_name_2 != null){
-                            if(!model.custom_name_2.isEmpty()){
+                        if (model.custom_name_2 != null) {
+                            if (!model.custom_name_2.isEmpty()) {
                                 viewHolder.team_2.setText(model.custom_name_2);
-                            }else{
+                            } else {
                                 viewHolder.team_2.setText(model.team_2_name);
                             }
 
-                        }else{
+                        } else {
                             viewHolder.team_2.setText(model.team_2_name);
                         }
 
@@ -152,25 +152,25 @@ public class SportDetailActivity extends BaseActivity {
                             time = new SimpleDateFormat("HH:mm a").format(new Date(model.match_date * 1000L));
                         }
                         viewHolder.match_time.setText(time);
-                        if(model.custom_name_1 != null){
-                            if(!model.custom_name_1.isEmpty()){
+                        if (model.custom_name_1 != null) {
+                            if (!model.custom_name_1.isEmpty()) {
                                 viewHolder.team_1.setText(model.custom_name_1);
-                            }else{
+                            } else {
                                 viewHolder.team_1.setText(model.team_1_name);
                             }
 
-                        }else{
+                        } else {
                             viewHolder.team_1.setText(model.team_1_name);
                         }
 
-                        if(model.custom_name_2 != null){
-                            if(!model.custom_name_2.isEmpty()){
+                        if (model.custom_name_2 != null) {
+                            if (!model.custom_name_2.isEmpty()) {
                                 viewHolder.team_2.setText(model.custom_name_2);
-                            }else{
+                            } else {
                                 viewHolder.team_2.setText(model.team_2_name);
                             }
 
-                        }else{
+                        } else {
                             viewHolder.team_2.setText(model.team_2_name);
                         }
 
@@ -197,8 +197,8 @@ public class SportDetailActivity extends BaseActivity {
     public void updateEnlargedMatchDetail(String teamOneName, String teamTwoName, String customNameTeamOne, String customNameTeamTwo, Long[] teamOneScore, Long[] teamTwoScore) {
         textViewteamOneName.setText(teamOneName);
         imageViewteamOneImage.setImageResource(NameManager.getImageId(teamOneName));
-            textViewCustomTeamOneName.setText(customNameTeamOne);
-            textViewCustomTeamTwoName.setText(customNameTeamTwo);
+        textViewCustomTeamOneName.setText(customNameTeamOne);
+        textViewCustomTeamTwoName.setText(customNameTeamTwo);
 
         textViewteamTwoName.setText(teamTwoName);
         imageViewteamTwoImage.setImageResource(NameManager.getImageId(teamTwoName));
@@ -246,11 +246,12 @@ public class SportDetailActivity extends BaseActivity {
                     Thread.sleep(sleepTime);
                     publishProgress(waitCounter);
                     if (waitCounter > maxWaitTime) {
+                        notifyUserOfDatabaseFail();
                         hideProgressDialog();
                     }
                     waitCounter++;
                 } catch (Exception e) {
-                    Log.i(TAG, e.getMessage());
+
                 }
             }
             return waitCounter > maxWaitTime;
@@ -259,7 +260,7 @@ public class SportDetailActivity extends BaseActivity {
         // -- gets called just before thread begins
         @Override
         protected void onPreExecute() {
-            Log.i(TAG, "onPreExecute()");
+
             super.onPreExecute();
         }
 
@@ -268,7 +269,7 @@ public class SportDetailActivity extends BaseActivity {
         @Override
         protected void onProgressUpdate(Integer[] values) {
             super.onProgressUpdate(values);
-            Log.i(TAG, "onProgressUpdate(): " + String.valueOf(values[0]));
+
 
         }
 
@@ -276,7 +277,7 @@ public class SportDetailActivity extends BaseActivity {
         @Override
         protected void onCancelled() {
             super.onCancelled();
-            Log.i(TAG, "onCancelled()");
+
         }
 
         // -- called as soon as doInBackground method completes
@@ -284,7 +285,6 @@ public class SportDetailActivity extends BaseActivity {
         @Override
         protected void onPostExecute(Boolean result) {
             super.onPostExecute(result);
-            Log.i(TAG, "onPostExecute(): " + result);
 
             if (result) {
                 notifyUserOfDatabaseFail();
