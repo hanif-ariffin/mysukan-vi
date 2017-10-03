@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="tremblay412.com.mysukan"
+    package="masco.com.mysukan_vi"
     android:versionCode="2"
     android:versionName="0.2">
 
@@ -18,7 +18,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".activities.MainPageActivity"
+            android:name="masco.com.mysukan_vi.activities.MainPageActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan">
@@ -29,23 +29,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.WinnerActivity"
+            android:name="masco.com.mysukan_vi.activities.WinnerActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activities.SportDetailActivity"
+            android:name="masco.com.mysukan_vi.activities.SportDetailActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activities.AdminActivity"
+            android:name="masco.com.mysukan_vi.activities.AdminActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"></activity>
         <activity
-            android:name=".activities.SponsorsActivity"
+            android:name="masco.com.mysukan_vi.activities.SponsorsActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activities.InfoActivity"
+            android:name="masco.com.mysukan_vi.activities.InfoActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activities.OverallWinnerActivity"
+            android:name="masco.com.mysukan_vi.activities.OverallWinnerActivity"
             android:screenOrientation="portrait"></activity>
 
     </application>
