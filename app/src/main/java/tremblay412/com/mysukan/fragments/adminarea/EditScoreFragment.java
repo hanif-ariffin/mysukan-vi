@@ -68,108 +68,108 @@ public class EditScoreFragment extends BaseFragment implements SwipeRefreshLayou
         //retrieve data from database
         database = FirebaseDatabase.getInstance().getReference("games").child(sport_name);
 
-//        database.addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                sportSet.clear();
-//                sportNorm.clear();
-//                data1.clear();
-//                for (DataSnapshot sportSnapshot : dataSnapshot.getChildren()) {
-//                    if (checker.contains(sport_name)) {
-//                        TripleScoreMatch sport = sportSnapshot.getValue(TripleScoreMatch.class);
-//                        sportSet.add(sport);
-//                        arrayId.add(sport.id);
-//                        if(sport.custom_name_1 != null){
-//                            if(!sport.custom_name_2.isEmpty()){
-//                                data1.add(sport.team_1_name+ " : " + sport.custom_name_1 + " vs " + sport.team_2_name + " : " + sport.custom_name_2);
-//                            }else{
-//                                data1.add(sport.team_1_name + " vs " + sport.team_2_name);
-//                            }
-//                        }else {
-//                            data1.add(sport.team_1_name + " vs " + sport.team_2_name);
-//                        }
-//                        lArrayAdapter.notifyDataSetChanged();
-//                    } else {
-//                        SingleScoreMatch sport = sportSnapshot.getValue(SingleScoreMatch.class);
-//                        sportNorm.add(sport);
-//                        id = sport.id;
-//                        if(sport.custom_name_1 != null){
-//                            if(!sport.custom_name_2.isEmpty()){
-//                                data1.add(sport.team_1_name+ " : " + sport.custom_name_1 + " vs " + sport.team_2_name + " : " + sport.custom_name_2);
-//                            }else{
-//                                data1.add(sport.team_1_name + " vs " + sport.team_2_name);
-//                            }
-//                        }else {
-//                            data1.add(sport.team_1_name + " vs " + sport.team_2_name);
-//                        }
-//                        arrayId.add(sport.id);
-//                        lArrayAdapter.notifyDataSetChanged();
-//                    }
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        });
-
-        currentList = (ListView) view.findViewById(R.id.listView11);
-        currentList.setAdapter(lArrayAdapter);
-        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh);
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        database.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onRefresh() {
-                database.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        sportSet.clear();
-                        sportNorm.clear();
-                        data1.clear();
-                        for (DataSnapshot sportSnapshot : dataSnapshot.getChildren()) {
-                            if (checker.contains(sport_name)) {
-                                TripleScoreMatch sport = sportSnapshot.getValue(TripleScoreMatch.class);
-                                sportSet.add(sport);
-                                arrayId.add(sport.id);
-                                if(sport.custom_name_1 != null){
-                                    if(!sport.custom_name_2.isEmpty()){
-                                        data1.add(sport.team_1_name+ " : " + sport.custom_name_1 + " vs " + sport.team_2_name + " : " + sport.custom_name_2);
-                                    }else{
-                                        data1.add(sport.team_1_name + " vs " + sport.team_2_name);
-                                    }
-                                }else {
-                                    data1.add(sport.team_1_name + " vs " + sport.team_2_name);
-                                }
-                                lArrayAdapter.notifyDataSetChanged();
-                            } else {
-                                SingleScoreMatch sport = sportSnapshot.getValue(SingleScoreMatch.class);
-                                sportNorm.add(sport);
-                                id = sport.id;
-                                if(sport.custom_name_1 != null){
-                                    if(!sport.custom_name_2.isEmpty()){
-                                        data1.add(sport.team_1_name+ " : " + sport.custom_name_1 + " vs " + sport.team_2_name + " : " + sport.custom_name_2);
-                                    }else{
-                                        data1.add(sport.team_1_name + " vs " + sport.team_2_name);
-                                    }
-                                }else {
-                                    data1.add(sport.team_1_name + " vs " + sport.team_2_name);
-                                }
-                                arrayId.add(sport.id);
-                                lArrayAdapter.notifyDataSetChanged();
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                sportSet.clear();
+                sportNorm.clear();
+                data1.clear();
+                for (DataSnapshot sportSnapshot : dataSnapshot.getChildren()) {
+                    if (checker.contains(sport_name)) {
+                        TripleScoreMatch sport = sportSnapshot.getValue(TripleScoreMatch.class);
+                        sportSet.add(sport);
+                        arrayId.add(sport.id);
+                        if(sport.custom_name_1 != null){
+                            if(!sport.custom_name_2.isEmpty()){
+                                data1.add(sport.team_1_name+ " : " + sport.custom_name_1 + " vs " + sport.team_2_name + " : " + sport.custom_name_2);
+                            }else{
+                                data1.add(sport.team_1_name + " vs " + sport.team_2_name);
                             }
+                        }else {
+                            data1.add(sport.team_1_name + " vs " + sport.team_2_name);
                         }
-
+                        lArrayAdapter.notifyDataSetChanged();
+                    } else {
+                        SingleScoreMatch sport = sportSnapshot.getValue(SingleScoreMatch.class);
+                        sportNorm.add(sport);
+                        id = sport.id;
+                        if(sport.custom_name_1 != null){
+                            if(!sport.custom_name_2.isEmpty()){
+                                data1.add(sport.team_1_name+ " : " + sport.custom_name_1 + " vs " + sport.team_2_name + " : " + sport.custom_name_2);
+                            }else{
+                                data1.add(sport.team_1_name + " vs " + sport.team_2_name);
+                            }
+                        }else {
+                            data1.add(sport.team_1_name + " vs " + sport.team_2_name);
+                        }
+                        arrayId.add(sport.id);
+                        lArrayAdapter.notifyDataSetChanged();
                     }
+                }
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
+            }
 
-                    }
-                });
-                mSwipeRefreshLayout.setRefreshing(false);
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
             }
         });
+
+//        currentList = (ListView) view.findViewById(R.id.listView11);
+//        currentList.setAdapter(lArrayAdapter);
+//        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh);
+//        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//                database.addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(DataSnapshot dataSnapshot) {
+//                        sportSet.clear();
+//                        sportNorm.clear();
+//                        data1.clear();
+//                        for (DataSnapshot sportSnapshot : dataSnapshot.getChildren()) {
+//                            if (checker.contains(sport_name)) {
+//                                TripleScoreMatch sport = sportSnapshot.getValue(TripleScoreMatch.class);
+//                                sportSet.add(sport);
+//                                arrayId.add(sport.id);
+//                                if(sport.custom_name_1 != null){
+//                                    if(!sport.custom_name_2.isEmpty()){
+//                                        data1.add(sport.team_1_name+ " : " + sport.custom_name_1 + " vs " + sport.team_2_name + " : " + sport.custom_name_2);
+//                                    }else{
+//                                        data1.add(sport.team_1_name + " vs " + sport.team_2_name);
+//                                    }
+//                                }else {
+//                                    data1.add(sport.team_1_name + " vs " + sport.team_2_name);
+//                                }
+//                                lArrayAdapter.notifyDataSetChanged();
+//                            } else {
+//                                SingleScoreMatch sport = sportSnapshot.getValue(SingleScoreMatch.class);
+//                                sportNorm.add(sport);
+//                                id = sport.id;
+//                                if(sport.custom_name_1 != null){
+//                                    if(!sport.custom_name_2.isEmpty()){
+//                                        data1.add(sport.team_1_name+ " : " + sport.custom_name_1 + " vs " + sport.team_2_name + " : " + sport.custom_name_2);
+//                                    }else{
+//                                        data1.add(sport.team_1_name + " vs " + sport.team_2_name);
+//                                    }
+//                                }else {
+//                                    data1.add(sport.team_1_name + " vs " + sport.team_2_name);
+//                                }
+//                                arrayId.add(sport.id);
+//                                lArrayAdapter.notifyDataSetChanged();
+//                            }
+//                        }
+//
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(DatabaseError databaseError) {
+//
+//                    }
+//                });
+//                mSwipeRefreshLayout.setRefreshing(false);
+//            }
+//        });
 
         currentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

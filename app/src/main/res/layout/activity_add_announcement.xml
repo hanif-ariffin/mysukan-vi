@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="tremblay412.com.mysukan.annoucement.AddAnnouncement">
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="41dp"
+        android:layout_marginTop="46dp"
+        android:text="Subject"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:text="Messages"
+        app:layout_constraintTop_toBottomOf="@+id/subjectText"
+        android:layout_marginLeft="41dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/subjectText"
+        android:layout_width="294dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="41dp"
+        android:layout_marginTop="27dp"
+        android:ems="10"
+        android:hint="Subject goes here"
+        android:inputType="textPersonName"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <EditText
+        android:id="@+id/messageText"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="19dp"
+        android:ems="10"
+        android:hint="Message goes here"
+        android:inputType="textPersonName"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <Button
+        android:id="@+id/addAnnoucement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="134dp"
+        android:layout_marginTop="27dp"
+        android:text="Announce"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/messageText" />
+</android.support.constraint.ConstraintLayout>

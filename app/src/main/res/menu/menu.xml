@@ -27,5 +27,13 @@
         android:visible="false"
         app:showAsAction="always" />
 
+    <item
+        android:id="@+id/add_button"
+        android:icon="@drawable/add_button"
+        android:orderInCategory="100"
+        android:title="add"
+        android:visible="false"
+        app:showAsAction="always" />
+
 
 </menu>
