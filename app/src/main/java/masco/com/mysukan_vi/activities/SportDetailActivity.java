@@ -288,6 +288,7 @@ public class SportDetailActivity extends BaseActivity {
 
             if (result) {
                 notifyUserOfDatabaseFail();
+                noMatchFound.setText("No Match Found!");
                 noMatchFound.setVisibility(View.VISIBLE);
             } else {
                 notifyUserOfDatabaseSuccess();
