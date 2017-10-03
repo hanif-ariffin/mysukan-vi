@@ -246,8 +246,9 @@ public class SportDetailActivity extends BaseActivity {
                     Thread.sleep(sleepTime);
                     publishProgress(waitCounter);
                     if (waitCounter > maxWaitTime) {
-                        notifyUserOfDatabaseFail();
+                       // notifyUserOfDatabaseFail();
                         hideProgressDialog();
+
                     }
                     waitCounter++;
                 } catch (Exception e) {
