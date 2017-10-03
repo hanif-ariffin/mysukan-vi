@@ -16,18 +16,16 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.PriorityQueue;
 
 import masco.com.mysukan_vi.R;
 import masco.com.mysukan_vi.annoucement.Announcement;
-import masco.com.mysukan_vi.helper.AnnoucementAdapter;
+import masco.com.mysukan_vi.helper.AnnouncementAdapter;
 
 public class AnnouncementActivity extends AppCompatActivity {
 
     private DatabaseReference database;
     private List<Announcement> data;
     private ListView listView;
-    private PriorityQueue<Announcement> pq = new PriorityQueue<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +34,7 @@ public class AnnouncementActivity extends AppCompatActivity {
 
         data = new ArrayList<>();
         listView = (ListView) findViewById(R.id.listAnnoucement);
-        final AnnoucementAdapter lArrayAdapter = new AnnoucementAdapter(AnnouncementActivity.this, R.layout.listview_annoucement, data);
+        final AnnouncementAdapter lArrayAdapter = new AnnouncementAdapter(AnnouncementActivity.this, R.layout.include_item_annoucement, data);
         listView.setAdapter(lArrayAdapter);
         database = FirebaseDatabase.getInstance().getReference("announcement");
 

@@ -1,10 +1,14 @@
 package masco.com.mysukan_vi.fragments.adminarea;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -124,14 +128,14 @@ public class EditScoreFragment extends BaseFragment {
                     args.putString("teamOne", sportSet.get(i).team_1_name);
                     args.putString("customNameTeamOne", sportSet.get(i).custom_name_1);
                     args.putString("teamTwo", sportSet.get(i).team_2_name);
-                    args.putString("customNameTeamTwo",sportSet.get(i).custom_name_2);
+                    args.putString("customNameTeamTwo", sportSet.get(i).custom_name_2);
                     args.putString("id", sportSet.get(i).id);
                     args.putLong("match_date", sportSet.get(i).match_date);
                 } else {
                     args.putString("teamOne", sportNorm.get(i).team_1_name);
                     args.putString("customNameTeamOne", sportNorm.get(i).custom_name_1);
                     args.putString("teamTwo", sportNorm.get(i).team_2_name);
-                    args.putString("customNameTeamTwo",sportNorm.get(i).custom_name_2);
+                    args.putString("customNameTeamTwo", sportNorm.get(i).custom_name_2);
                     args.putString("id", sportNorm.get(i).id);
                     args.putLong("match_date", sportNorm.get(i).match_date);
                 }

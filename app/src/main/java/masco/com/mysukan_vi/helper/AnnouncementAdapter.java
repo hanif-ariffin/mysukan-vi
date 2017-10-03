@@ -22,12 +22,12 @@ import masco.com.mysukan_vi.annoucement.Announcement;
  * Created by Haziq on 2017-10-02.
  */
 
-public class AnnoucementAdapter extends ArrayAdapter<Announcement> {
+public class AnnouncementAdapter extends ArrayAdapter<Announcement> {
 
     private String OUTPUT_DATE_FORMATE = "hh:mm a";
     List<Announcement> arrayList = new ArrayList<>();
 
-    public AnnoucementAdapter(Context context, int textViewResourceId, List<Announcement> objects) {
+    public AnnouncementAdapter(Context context, int textViewResourceId, List<Announcement> objects) {
         super(context, textViewResourceId, objects);
         arrayList = objects;
     }
@@ -42,7 +42,7 @@ public class AnnoucementAdapter extends ArrayAdapter<Announcement> {
 
         View v = convertView;
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        v = inflater.inflate(R.layout.listview_annoucement, null);
+        v = inflater.inflate(R.layout.include_item_annoucement, null);
         TextView textView1 = (TextView) v.findViewById(R.id.textView10);
         TextView textView2 = (TextView) v.findViewById(R.id.textView11);
         TextView textView3 = (TextView) v.findViewById(R.id.textView55);
