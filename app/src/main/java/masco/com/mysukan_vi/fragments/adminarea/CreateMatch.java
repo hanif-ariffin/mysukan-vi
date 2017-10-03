@@ -129,22 +129,22 @@ public class CreateMatch extends BaseFragment {
                 String id = databaseSport.push().getKey();
 
                 if (teamOneCustomName.getText().length() > 9 || teamTwoCustomName.getText().length() > 9) {
-                    Toast.makeText(getContext(), "Custom team name must be less than 9 characters!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "Custom team name must be less than 9 characters!", Toast.LENGTH_SHORT).show();
                 } else {
                     if (unixTime == 0) {
-                        Toast.makeText(getContext(), "Please set the schedule!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), "Please set the schedule!", Toast.LENGTH_SHORT).show();
                     } else {
                         if (!checker.contains(sport_name)) {
 
                             SingleScoreMatch sport = new SingleScoreMatch(unixTime, id, teamOne.getSelectedItem().toString(), teamTwo.getSelectedItem().toString(), teamOneCustomName.getText().toString(), teamTwoCustomName.getText().toString(), 0L, 0L);
                             databaseSport.child(sport_name).child(id).setValue(sport);
-                            Toast.makeText(getContext(), "Sport added", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getContext(), "Sport added", Toast.LENGTH_SHORT).show();
 
                         } else {
 
                             TripleScoreMatch sport = new TripleScoreMatch(unixTime, id, teamOne.getSelectedItem().toString(), teamTwo.getSelectedItem().toString(), teamOneCustomName.getText().toString(), teamTwoCustomName.getText().toString(), 0L, 0L, 0L, 0L, 0L, 0L);
                             databaseSport.child(sport_name).child(id).setValue(sport);
-                            Toast.makeText(getContext(), "Sport added", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getContext(), "Sport added", Toast.LENGTH_SHORT).show();
 
                         }
                     }
