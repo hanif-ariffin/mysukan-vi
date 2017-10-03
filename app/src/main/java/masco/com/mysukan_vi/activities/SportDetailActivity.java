@@ -239,7 +239,7 @@ public class SportDetailActivity extends BaseActivity {
             // -- publishes the progress - calls the onProgressUpdate handler defined below
             // -- and increments the counter variable i by one
             int waitCounter = 0;
-            int sleepTime = 50;
+            int sleepTime = 70;
             int maxWaitTime = sleepTime / 4;
             while (isProcessDialogShowing()) {
                 try {
