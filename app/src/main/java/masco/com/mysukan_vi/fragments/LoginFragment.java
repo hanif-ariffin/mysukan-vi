@@ -53,8 +53,8 @@ public class LoginFragment extends BaseFragment {
     }
 
     private void UserLogin() {
-        String email = ET_email.getText().toString();
-        String password = ET_password.getText().toString();
+        final String email = ET_email.getText().toString();
+        final String password = ET_password.getText().toString();
 
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getActivity(), "Please enter email", Toast.LENGTH_SHORT).show();
@@ -66,31 +66,30 @@ public class LoginFragment extends BaseFragment {
         }
         showProgressDialog("Loading");
 
-        if( email.equals("announcement") && password.equals("announcement")){
-            startActivity(new Intent(getContext(), AnnouncementActivity.class));
-            hideProgressDialog();
-        }
-        else{
-            firebaseAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
 
-                            if (task.isSuccessful()) {
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
 
+                        if (task.isSuccessful()) {
+
+                            if (email.equals("announcement@mysukanvi.com") && password.equals("announcement")) {
+                                startActivity(new Intent(getContext(), AnnouncementActivity.class));
+                                hideProgressDialog();
+                            } else {
                                 Intent intent = new Intent(getActivity(), AdminActivity.class);
                                 startActivity(intent);
                                 hideProgressDialog();
-
-                                Toast.makeText(getActivity(), "You are now logged in with email:" + firebaseAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
-                            } else {
-                                hideProgressDialog();
-
-                                Toast.makeText(getActivity(), "Login failed. Please check your info", Toast.LENGTH_SHORT).show();
                             }
+                            Toast.makeText(getActivity(), "You are now logged in with email:" + firebaseAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
+                        } else {
+                            hideProgressDialog();
+
+                            Toast.makeText(getActivity(), "Login failed. Please check your info", Toast.LENGTH_SHORT).show();
                         }
-                    });
-        }
+                    }
+                });
 
 
     }

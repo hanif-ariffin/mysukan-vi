@@ -26,7 +26,6 @@ import java.util.List;
 
 import masco.com.mysukan_vi.R;
 import masco.com.mysukan_vi.helper.NameManager;
-import masco.com.mysukan_vi.helper.SingleScoreMatchAdapter;
 import masco.com.mysukan_vi.helper.SportManager;
 import masco.com.mysukan_vi.helper.TripleScoreMatchAdapter;
 import masco.com.mysukan_vi.models.SingleScoreMatch;
@@ -39,7 +38,7 @@ import masco.com.mysukan_vi.models.TripleScoreMatch;
 public class SportDetailActivity extends BaseActivity {
 
     private static final String TAG = "SportDetailActivity";
-
+    private static final Long LONG_NULL = -1L;
     // Enlarged match detail UI hooks
     private TextView textViewteamOneName, textViewteamTwoName, textViewCustomTeamOneName, textViewCustomTeamTwoName, matchScoreOne, matchScoreTwo, matchScoreThree, noMatchFound;
     private ImageView imageViewteamOneImage, imageViewteamTwoImage;
@@ -50,7 +49,6 @@ public class SportDetailActivity extends BaseActivity {
     protected InitTask iniTask;
 
     private DatabaseReference databaseReference;
-    private List<SingleScoreMatch> singleScoreList;
     private List<TripleScoreMatch> tripleScoreList;
     private ListView matchesListView;
 
@@ -86,21 +84,40 @@ public class SportDetailActivity extends BaseActivity {
             databaseReference = FirebaseDatabase.getInstance().getReference("games").child(NameManager.UserToDatabase(sportName));
 
             if (SportManager.isSingleScore(sportName)) {
-                singleScoreList = new ArrayList<>();
-                final SingleScoreMatchAdapter scoreAdapter = new SingleScoreMatchAdapter(SportDetailActivity.this, R.layout.include_item_minimized_match_detail, singleScoreList);
+                tripleScoreList = new ArrayList<>();
+                final TripleScoreMatchAdapter scoreAdapter = new TripleScoreMatchAdapter(SportDetailActivity.this, R.layout.include_item_minimized_match_detail, tripleScoreList);
                 matchesListView.setAdapter(scoreAdapter);
 
                 databaseReference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        singleScoreList.clear();
+                        tripleScoreList.clear();
                         for (DataSnapshot Snapshot : dataSnapshot.getChildren()) {
                             SingleScoreMatch match = Snapshot.getValue(SingleScoreMatch.class);
-                            singleScoreList.add(match);
-                            updateEnlargedMatchDetail(singleScoreList.get(0).team_1_name, singleScoreList.get(0).team_2_name, singleScoreList.get(0).custom_name_1, singleScoreList.get(0).custom_name_2, new Long[]{singleScoreList.get(0).team_1_score_1}, new Long[]{singleScoreList.get(0).team_2_score_1});
+                            tripleScoreList.add(new TripleScoreMatch(
+                                    match.match_date,
+                                    match.id,
+                                    match.team_1_name, match.team_2_name, //String team_1_name, String team_2_name,
+                                    match.custom_name_1, match.custom_name_2, //String custom_name_1, String custom_name_2,
+                                    match.team_1_score_1, match.team_2_score_1, //Long team_1_score_1, Long team_2_score_1,
+                                    LONG_NULL, LONG_NULL, //Long team_1_score_2, Long team_2_score_2,
+                                    LONG_NULL, LONG_NULL//Long team_1_score_3, Long team_2_score_3
+                            ));
+                            updateEnlargedMatchDetail(
+                                    tripleScoreList.get(0).team_1_name, tripleScoreList.get(0).team_2_name,
+                                    tripleScoreList.get(0).custom_name_1, tripleScoreList.get(0).custom_name_2,
+                                    new Long[]{
+                                            tripleScoreList.get(0).team_1_score_1,
+                                            LONG_NULL,
+                                            LONG_NULL
+                                    },
+                                    new Long[]{
+                                            tripleScoreList.get(0).team_2_score_1,
+                                            LONG_NULL,
+                                            LONG_NULL
+                                    });
                             hideProgressDialog();
                         }
-                        Collections.reverse(singleScoreList);
                         scoreAdapter.notifyDataSetChanged();
                     }
 
@@ -114,7 +131,19 @@ public class SportDetailActivity extends BaseActivity {
                 matchesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        updateEnlargedMatchDetail(singleScoreList.get(i).team_1_name, singleScoreList.get(i).team_2_name, singleScoreList.get(i).custom_name_1, singleScoreList.get(i).custom_name_2, new Long[]{singleScoreList.get(i).team_1_score_1}, new Long[]{singleScoreList.get(i).team_2_score_1});
+                        updateEnlargedMatchDetail(
+                                tripleScoreList.get(i).team_1_name, tripleScoreList.get(i).team_2_name,
+                                tripleScoreList.get(i).custom_name_1, tripleScoreList.get(i).custom_name_2,
+                                new Long[]{
+                                        tripleScoreList.get(i).team_1_score_1,
+                                        LONG_NULL,
+                                        LONG_NULL
+                                },
+                                new Long[]{
+                                        tripleScoreList.get(i).team_1_score_1,
+                                        LONG_NULL,
+                                        LONG_NULL
+                                });
                     }
                 });
             } else {
@@ -144,7 +173,6 @@ public class SportDetailActivity extends BaseActivity {
                                     });
                             hideProgressDialog();
                         }
-                        Collections.reverse(tripleScoreList);
                         scoreAdapter.notifyDataSetChanged();
                     }
 
@@ -190,22 +218,20 @@ public class SportDetailActivity extends BaseActivity {
         textViewteamTwoName.setText(teamTwoName);
         imageViewteamTwoImage.setImageResource(NameManager.getImageId(teamTwoName));
 
-        if (teamOneScore.length > 1 && teamTwoScore.length > 1) {
-            matchScoreOne.setText(teamOneScore[0] + " - " + teamTwoScore[0]);
+        /**
+         * If the first score is LONG_NULL ==> Its a match with a single scoring
+         * Else ==> Its a match with three score
+         */
+        if (teamOneScore[0].equals(LONG_NULL) && teamTwoScore[0].equals(LONG_NULL)) {
+            matchScoreTwo.setText(teamOneScore[1] + " - " + teamTwoScore[1]);
+            matchScoreTwo.setTextSize(30L);
 
-            if (teamOneScore[1] != null && teamTwoScore[1] != null) {
-                matchScoreTwo.setTextSize(20);
-                matchScoreTwo.setText(teamOneScore[1] + " - " + teamTwoScore[2]);
-            }
-
-            if (teamOneScore[2] != null && teamTwoScore[2] != null) {
-                matchScoreThree.setText(teamOneScore[2] + " - " + teamTwoScore[2]);
-            }
-        } else {
             matchScoreOne.setText("");
-            matchScoreTwo.setText(teamOneScore[0] + " - " + teamTwoScore[0]);
-            matchScoreTwo.setTextSize(30);
             matchScoreThree.setText("");
+        } else {
+            matchScoreOne.setText(teamOneScore[0] + " - " + teamTwoScore[0]);
+            matchScoreTwo.setText(teamOneScore[1] + " - " + teamTwoScore[1]);
+            matchScoreThree.setText(teamOneScore[2] + " - " + teamTwoScore[2]);
         }
     }
 
@@ -228,7 +254,6 @@ public class SportDetailActivity extends BaseActivity {
             int maxWaitTime = 50;
             while (isProcessDialogShowing()) {
                 try {
-                    Log.d(TAG, "Sleeping" + waitCounter);
                     Thread.sleep(sleepTime);
                     publishProgress(waitCounter);
                     if (waitCounter > maxWaitTime) {
