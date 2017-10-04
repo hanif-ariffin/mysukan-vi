@@ -157,14 +157,16 @@ public class MainPageActivity extends BaseActivity {
         PendingIntent pi = PendingIntent.getActivity(MainPageActivity.this,0,intent,0);
         Notification.Builder builder = new Notification.Builder(MainPageActivity.this);
 
-        builder.setContentTitle(data.get(0).getSubject())
+        if(!data.isEmpty()) {
+            builder.setContentTitle(data.get(0).getSubject())
                 .setContentText(data.get(0).getMessage())
                 .setSmallIcon(R.drawable.logo_mysukan)
-                .setLargeIcon(BitmapFactory.decodeResource(getResources(),R.drawable.logo_mysukan))
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.logo_mysukan))
                 .setContentIntent(pi)
-                .setVibrate(new long[] {Notification.DEFAULT_VIBRATE})
+                .setVibrate(new long[]{Notification.DEFAULT_VIBRATE})
                 .setPriority(Notification.PRIORITY_MAX);
-        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(0, builder.build());
+            NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            notificationManager.notify(0, builder.build());
+        }
     }
 }

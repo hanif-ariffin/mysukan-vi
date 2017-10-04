@@ -35,6 +35,7 @@ public class AnnouncementActivity extends AppCompatActivity {
     private DatabaseReference database;
     private List<Announcement> data;
     private ListView listView;
+    private static int index;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,12 +72,12 @@ public class AnnouncementActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+                index = i;
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(AnnouncementActivity.this);
                 builder1.setCancelable(true);
-                builder1.setMessage("Message : " + data.get(i).getMessage());
-                AlertDialog alert11 = builder1.create();
-                alert11.setTitle("Subject : " +data.get(i).getSubject());
+                builder1.setMessage(data.get(i).getMessage());
+                //AlertDialog alert11 = builder1.create();
+                //alert11.setTitle("Subject : " +data.get(i).getSubject());
                 builder1.setPositiveButton(
                         "OK",
                         new DialogInterface.OnClickListener() {
@@ -84,7 +85,14 @@ public class AnnouncementActivity extends AppCompatActivity {
                                 dialog.cancel();
                             }
                         });
-                alert11.show();
+                builder1.setNegativeButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        FirebaseDatabase.getInstance().getReference("announcement").child(data.get(index).getId()).removeValue();
+                    }
+                });
+                builder1.show();
+
             }
         });
     }
