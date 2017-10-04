@@ -36,6 +36,8 @@ public class WinnerActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_winner);
 
+        getSupportActionBar().setTitle(sportName + " Champion");
+
         imageViewFirstPlace = (ImageView) findViewById(R.id.image_first_place);
         imageViewSecondPlace = (ImageView) findViewById(R.id.image_second_place);
         imageViewThirdPlace = (ImageView) findViewById(R.id.image_third_place);
@@ -46,8 +48,6 @@ public class WinnerActivity extends BaseActivity {
         // Bundle received from the Activity creating this Activity
         Bundle bundle = getIntent().getExtras();
         sportName = bundle.getString("sport_name");
-
-        getSupportActionBar().setTitle(sportName + " Champion");
 
         database = FirebaseDatabase.getInstance().getReference("ranking").child(NameManager.UserToDatabase(sportName));
 
@@ -81,13 +81,6 @@ public class WinnerActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu, menu);
-        if (menu != null) {
-            menu.findItem(R.id.winner).setVisible(false);
-            menu.findItem(R.id.menu_item_sponsors).setVisible(false);
-            menu.findItem(R.id.menu_item_developers_info).setVisible(false);
-        }
         return true;
     }
 }

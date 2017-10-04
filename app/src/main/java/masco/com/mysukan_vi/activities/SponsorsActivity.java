@@ -1,6 +1,7 @@
 package masco.com.mysukan_vi.activities;
 
 import android.os.Bundle;
+import android.view.Menu;
 
 import masco.com.mysukan_vi.R;
 
@@ -16,5 +17,10 @@ public class SponsorsActivity extends BaseActivity {
         setContentView(R.layout.activity_sponsors);
 
         getSupportActionBar().setTitle("MySukan VI Sponsors");
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return true;
     }
 }
