@@ -74,6 +74,10 @@ public class BaseActivity extends AppCompatActivity {
             Intent intent = new Intent(BaseActivity.this, SponsorsActivity.class);
             startActivity(intent);
             return true;
+        } else if (i == R.id.menu_item_developer_awesome){
+            Intent intent = new Intent(BaseActivity.this, DeveloperAwesomeActivity.class);
+            startActivity(intent);
+            return true;
         } else {
             return super.onOptionsItemSelected(item);
         }
