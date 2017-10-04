@@ -9,6 +9,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.Menu;
 
 import masco.com.mysukan_vi.R;
 import masco.com.mysukan_vi.fragments.adminarea.NewScoreFragment;
@@ -85,4 +86,16 @@ public class AdminActivity extends BaseActivity {
                 });
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu, menu);
+        if (menu != null) {
+            menu.findItem(R.id.menu_item_developers_info).setVisible(false);
+            menu.findItem(R.id.menu_item_sponsors).setVisible(false);
+            menu.findItem(R.id.menu_item_overall_score).setVisible(false);
+        }
+        return true;
+    }
+
 }
