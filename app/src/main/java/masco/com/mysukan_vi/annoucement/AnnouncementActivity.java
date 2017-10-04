@@ -1,10 +1,20 @@
-package masco.com.mysukan_vi.activities;
+package masco.com.mysukan_vi.annoucement;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -18,7 +28,6 @@ import java.util.Collections;
 import java.util.List;
 
 import masco.com.mysukan_vi.R;
-import masco.com.mysukan_vi.annoucement.Announcement;
 import masco.com.mysukan_vi.helper.AnnouncementAdapter;
 
 public class AnnouncementActivity extends AppCompatActivity {
@@ -40,13 +49,13 @@ public class AnnouncementActivity extends AppCompatActivity {
 
 
         database.addValueEventListener(new ValueEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 data.clear();
                 for (DataSnapshot Snapshot : dataSnapshot.getChildren()) {
                     Announcement announcement = Snapshot.getValue(Announcement.class);
                     data.add(announcement);
-
                 }
                 Collections.reverse(data);
                 lArrayAdapter.notifyDataSetChanged();
@@ -58,7 +67,28 @@ public class AnnouncementActivity extends AppCompatActivity {
 
             }
         });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(AnnouncementActivity.this);
+                builder1.setCancelable(true);
+                builder1.setMessage("Message : " + data.get(i).getMessage());
+                AlertDialog alert11 = builder1.create();
+                alert11.setTitle("Subject : " +data.get(i).getSubject());
+                builder1.setPositiveButton(
+                        "OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                alert11.show();
+            }
+        });
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

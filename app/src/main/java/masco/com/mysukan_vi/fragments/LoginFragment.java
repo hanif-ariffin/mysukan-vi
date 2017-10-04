@@ -1,8 +1,11 @@
 package masco.com.mysukan_vi.fragments;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +19,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import masco.com.mysukan_vi.activities.AnnouncementActivity;
+import masco.com.mysukan_vi.annoucement.AnnouncementActivity;
 import masco.com.mysukan_vi.R;
 import masco.com.mysukan_vi.activities.AdminActivity;
 
