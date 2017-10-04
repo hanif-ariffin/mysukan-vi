@@ -59,6 +59,7 @@ public class SportDetailActivity extends BaseActivity {
      * Connection to the database
      */
     private DatabaseReference databaseReference;
+    private ValueEventListener databaseReferenceListener;
 
     /**
      * Variables required for ListView
@@ -124,7 +125,7 @@ public class SportDetailActivity extends BaseActivity {
             /**
              * Add listener to the realtime database
              */
-            databaseReference.addValueEventListener(new ValueEventListener() {
+            databaseReferenceListener = new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     matchList.clear();
@@ -180,7 +181,8 @@ public class SportDetailActivity extends BaseActivity {
                 public void onCancelled(DatabaseError databaseError) {
                     Toast.makeText(getApplicationContext(), "Query to database is cancelled.", Toast.LENGTH_SHORT).show();
                 }
-            });
+            };
+            databaseReference.addValueEventListener(databaseReferenceListener);
 
 
             matchesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -244,6 +246,18 @@ public class SportDetailActivity extends BaseActivity {
             matchScoreTwo.setText(teamOneScore[1] + " - " + teamTwoScore[1]);
             matchScoreThree.setText(teamOneScore[2] + " - " + teamTwoScore[2]);
         }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // Remove post value event listener
+        if (databaseReferenceListener != null) {
+            databaseReference.removeEventListener(databaseReferenceListener);
+        }
+
+
     }
 
     protected class InitTask extends AsyncTask<Context, Integer, Boolean> {
