@@ -36,8 +36,6 @@ public class WinnerActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_winner);
 
-        getSupportActionBar().setTitle(sportName + " Champion");
-
         imageViewFirstPlace = (ImageView) findViewById(R.id.image_first_place);
         imageViewSecondPlace = (ImageView) findViewById(R.id.image_second_place);
         imageViewThirdPlace = (ImageView) findViewById(R.id.image_third_place);
@@ -48,6 +46,10 @@ public class WinnerActivity extends BaseActivity {
         // Bundle received from the Activity creating this Activity
         Bundle bundle = getIntent().getExtras();
         sportName = bundle.getString("sport_name");
+
+        //set header name
+        getSupportActionBar().setTitle(sportName + " Champion");
+
 
         database = FirebaseDatabase.getInstance().getReference("ranking").child(NameManager.UserToDatabase(sportName));
 
