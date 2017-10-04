@@ -12,10 +12,10 @@ public class WinnerMatch {
 
     }
 
-    public WinnerMatch(String firstPlace, String secondPlace, String thirdPlace) {
-        this.first_place = firstPlace;
-        this.second_place = secondPlace;
-        this.third_place = thirdPlace;
+    public WinnerMatch(String first_place, String second_place, String third_place) {
+        this.first_place = first_place;
+        this.second_place = second_place;
+        this.third_place = third_place;
         // Default constructor for Firebase
     }
 

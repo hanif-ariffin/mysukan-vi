@@ -1,14 +1,19 @@
 package masco.com.mysukan_vi.fragments.adminarea;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -23,6 +28,10 @@ import java.util.Arrays;
 import java.util.List;
 
 import masco.com.mysukan_vi.R;
+import masco.com.mysukan_vi.activities.AdminActivity;
+import masco.com.mysukan_vi.activities.SetWinnerActivity;
+import masco.com.mysukan_vi.activities.SportDetailActivity;
+import masco.com.mysukan_vi.activities.WinnerActivity;
 import masco.com.mysukan_vi.fragments.BaseFragment;
 import masco.com.mysukan_vi.helper.ListAdapter;
 import masco.com.mysukan_vi.helper.NameManager;
@@ -49,6 +58,7 @@ public class EditScoreFragment extends BaseFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.activity_edit_score, container, false);
 
+        setHasOptionsMenu(true);
         checker = Arrays.asList("badminton_men_doubles", "badminton_women_doubles", "badminton_mixed_doubles", "squash_men_singles", "squash_women_singles");
         arrayId = new ArrayList<>();
 
@@ -154,5 +164,34 @@ public class EditScoreFragment extends BaseFragment {
 
         return view;
     }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menu.clear();
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu, menu);
+        if (menu != null) {
+            menu.findItem(R.id.winner).setVisible(true);
+            menu.findItem(R.id.menu_item_developers_info).setVisible(false);
+            menu.findItem(R.id.menu_item_sponsors).setVisible(false);
+            menu.findItem(R.id.menu_item_overall_score).setVisible(false);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int i = item.getItemId();
+        if (i == R.id.winner) {
+            Intent intent = new Intent(getActivity(), SetWinnerActivity.class);
+            args = new Bundle();
+            args.putString("sport_name", sport_name);
+            intent.putExtras(args); //insert the bundle that this Activity already received.
+            startActivity(intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 
 }
