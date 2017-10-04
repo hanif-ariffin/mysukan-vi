@@ -5,6 +5,7 @@ import android.os.Bundle;
 import masco.com.mysukan_vi.R;
 
 /**
+ * Info of the developers. YOU!
  * Created by Akarin on 9/30/2017.
  */
 

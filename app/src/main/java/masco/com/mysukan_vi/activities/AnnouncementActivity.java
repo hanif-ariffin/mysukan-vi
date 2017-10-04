@@ -67,7 +67,7 @@ public class AnnouncementActivity extends AppCompatActivity {
         if (menu != null) {
             menu.findItem(R.id.menu_item_developers_info).setVisible(false);
             menu.findItem(R.id.menu_item_sponsors).setVisible(false);
-            menu.findItem(R.id.menu_item_overrall_score).setVisible(false);
+            menu.findItem(R.id.menu_item_overall_score).setVisible(false);
             menu.findItem(R.id.add_button).setVisible(true);
         }
         return true;

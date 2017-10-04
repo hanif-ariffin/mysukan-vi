@@ -22,11 +22,11 @@ import masco.com.mysukan_vi.models.TripleScoreMatch;
  * Created by Haziq on 2017-10-02.
  */
 
-public class TripleScoreMatchAdapter extends ArrayAdapter<TripleScoreMatch> {
+public class MatchAdapter extends ArrayAdapter<TripleScoreMatch> {
 
     List<TripleScoreMatch> matchesList = new ArrayList<>();
 
-    public TripleScoreMatchAdapter(Context context, int textViewResourceId, List<TripleScoreMatch> objects) {
+    public MatchAdapter(Context context, int textViewResourceId, List<TripleScoreMatch> objects) {
         super(context, textViewResourceId, objects);
         matchesList = objects;
     }

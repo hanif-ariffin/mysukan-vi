@@ -9,35 +9,50 @@ import android.view.MenuItem;
 import masco.com.mysukan_vi.R;
 
 /**
+ * This is the base Activity that is common among many Activities. This activity will provide the default Menu (showing developer's info, overall winner and sponsors selection).
+ * It will also provide the basic ProcessDialog functionality (Showing a text and hiding it).
  * Created by akarin on 12/09/17.
  */
 
 public class BaseActivity extends AppCompatActivity {
 
-    private ProgressDialog mProgressDialog;
-    private static String currentMessage = "";
+    private ProgressDialog progressDialog;
     private final static String TAG = "BaseActivity";
 
+    /**
+     * Enable the ProcessDialog given a message to display.
+     *
+     * @param message -- the message to be displayed.
+     */
     public void showProgressDialog(String message) {
-        if (mProgressDialog == null) {
-            mProgressDialog = new ProgressDialog(this);
-            mProgressDialog.setCancelable(false);
-            currentMessage = message;
-            mProgressDialog.setMessage(message);
+        /**
+         * First check if there are already ProcessDialog running.
+         */
+        if (progressDialog == null) {
+            progressDialog = new ProgressDialog(this);
+            progressDialog.setCancelable(false);
+            progressDialog.setMessage(message);
         }
-
-        mProgressDialog.show();
+        progressDialog.show();
     }
 
+    /**
+     * If there are ProcessDialog showing, then disable it.
+     */
     public void hideProgressDialog() {
-        if (mProgressDialog != null && mProgressDialog.isShowing()) {
-            mProgressDialog.dismiss();
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.dismiss();
         }
     }
 
+    /**
+     * Check if there is a ProcessDialog showing.
+     *
+     * @return -- boolean whether or not there are ProcessDialog showing.
+     */
     public boolean isProcessDialogShowing() {
-        if (mProgressDialog != null) {
-            return mProgressDialog.isShowing();
+        if (progressDialog != null) {
+            return progressDialog.isShowing();
         }
         return false;
     }

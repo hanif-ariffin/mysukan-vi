@@ -5,6 +5,7 @@ import android.os.Bundle;
 import masco.com.mysukan_vi.R;
 
 /**
+ * Activity showing the sponsors of this event.
  * Created by Akarin on 9/29/2017.
  */
 

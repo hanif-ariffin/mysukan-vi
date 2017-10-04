@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <ListView
-        android:id="@+id/activity_overrall_winner_listview"
+        android:id="@+id/activity_overall_winner_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
