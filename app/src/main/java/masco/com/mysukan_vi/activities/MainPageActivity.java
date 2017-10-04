@@ -81,8 +81,6 @@ public class MainPageActivity extends BaseActivity {
             }
         });
 
-        getSupportActionBar().setTitle("Notification");
-
 
         // Create the adapter that will return a fragment for each section
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
@@ -114,10 +112,14 @@ public class MainPageActivity extends BaseActivity {
             tabLayout.getTabAt(i).setIcon(getIconTab()[i]);
         }
 
+        //set the scoreboard first page when user open the app
+        getSupportActionBar().setTitle("Scoreboard");
+        mViewPager.setCurrentItem(1);
+
         mViewPager
                 .addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
-                    String[] tabsTitles = new String[]{"Notification","Scoreboard", "Venue", "Admin Login"};
+                    String[] tabsTitles = new String[]{"Announcement","Scoreboard", "Venue", "Admin Login"};
 
                     @Override
                     public void onPageSelected(int position) {
