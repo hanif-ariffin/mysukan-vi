@@ -32,6 +32,16 @@ public class MapRestaurantFragment extends BaseFragment implements OnMapReadyCal
     private final static LatLng arianaKabab = new LatLng(45.372508, -75.662594);
     private final static LatLng sayCheese = new LatLng(45.379425, -75.667502);
     private final static LatLng popeyes = new LatLng(45.378554, -75.644269);
+    private final static LatLng central_bergham = new LatLng(45.378077, -75.666855);
+    private final static  LatLng palki_cuisine_of_india = new LatLng(45.425454, -75.632652);
+    private final static LatLng burger_fries_forever = new LatLng(45.414379, -75.695334);
+    private final static LatLng basmati_indian_cuisine = new LatLng(45.415365, -75.696804);
+    private final static LatLng nandos_ottawa = new LatLng(45.422275, -75.694532);
+    private final static LatLng assayyed_restaurant = new LatLng(45.376817, -75.666964);
+    private final static LatLng the_captains_boil = new LatLng(45.415379, -75.688539);
+
+
+
     private static View view;
 
     @Override
@@ -66,10 +76,17 @@ public class MapRestaurantFragment extends BaseFragment implements OnMapReadyCal
         Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
 
         mMap.setBuildingsEnabled(true);
-        mMap.addMarker(new MarkerOptions().position(beaverTails).title("Beaver Tails").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
-        mMap.addMarker(new MarkerOptions().position(arianaKabab).title("Ariana Kabab").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
-        mMap.addMarker(new MarkerOptions().position(sayCheese).title("Say Cheese").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
-        mMap.addMarker(new MarkerOptions().position(popeyes).title("Popeyes").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
+        mMap.addMarker(new MarkerOptions().position(beaverTails).title("Beaver Tails"));
+        mMap.addMarker(new MarkerOptions().position(arianaKabab).title("Ariana Kabab House"));
+        mMap.addMarker(new MarkerOptions().position(sayCheese).title("Say Cheese"));
+        mMap.addMarker(new MarkerOptions().position(popeyes).title("Popeyes"));
+        mMap.addMarker(new MarkerOptions().position(central_bergham).title("Central Bergham"));
+        mMap.addMarker(new MarkerOptions().position(palki_cuisine_of_india).title("Palki Cuisine Of India").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
+        mMap.addMarker(new MarkerOptions().position(burger_fries_forever).title("Burger And Fries Forever"));
+        mMap.addMarker(new MarkerOptions().position(basmati_indian_cuisine).title("Basmati Indian Cuisine"));
+        mMap.addMarker(new MarkerOptions().position(nandos_ottawa).title("Nando's Ottawa"));
+        mMap.addMarker(new MarkerOptions().position(assayyed_restaurant).title("Assayyed Restaurant"));
+        mMap.addMarker(new MarkerOptions().position(the_captains_boil).title("The Captain's Boil"));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(ottawaCity, 13));
 
         CameraPosition cameraPosition = new CameraPosition.Builder()

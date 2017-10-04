@@ -27,11 +27,13 @@ import masco.com.mysukan_vi.fragments.BaseFragment;
 public class MapAmenitiesFragment extends BaseFragment implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private final static LatLng carletonU = new LatLng(45.385863, -75.695903);
-    private final static LatLng carletonU_UC = new LatLng(45.383331, -75.697630);
-    private final static LatLng carletonU_NormFynn = new LatLng(45.385860, -75.692811);
-    private final static LatLng carletonU_RavensNest = new LatLng(45.386450, -75.693282);
-    private final static LatLng carletonU_FieldHouse = new LatLng(45.386843, -75.694530);
+    private final static LatLng ottawaCity = new LatLng(45.393678, -75.674862);
+    private final static LatLng masjid_ar_Rahmah = new LatLng(45.351783, -75.647358);
+    private final static LatLng mosaic_canada = new LatLng(45.432860, -75.708003);
+    private final static LatLng walmart_billing_bridge = new LatLng(45.385403, -75.679536);
+    private final static LatLng rideau_centre = new LatLng(45.425120, -75.691228);
+    private final static LatLng st_laurent_mall = new LatLng(45.422189, -75.639193);
+    private final static LatLng butterfly_show = new LatLng(45.383751, -75.693586);
     private static View view;
 
     @Override
@@ -66,16 +68,16 @@ public class MapAmenitiesFragment extends BaseFragment implements OnMapReadyCall
         Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
 
         mMap.setBuildingsEnabled(true);
-        mMap.addMarker(new MarkerOptions().position(carletonU).title("Carleton University").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
-        mMap.addMarker(new MarkerOptions().position(carletonU_UC).title("University Centre").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
-        mMap.addMarker(new MarkerOptions().position(carletonU_NormFynn).title("Norm Fynn").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
-        mMap.addMarker(new MarkerOptions().position(carletonU_RavensNest).title("Raven's Nest").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
-        mMap.addMarker(new MarkerOptions().position(carletonU_FieldHouse).title("Field House").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(carletonU, 13));
+        mMap.addMarker(new MarkerOptions().position(masjid_ar_Rahmah).title("Masjid ar-Rahmah"));
+        mMap.addMarker(new MarkerOptions().position(mosaic_canada).title("Mosaic Canada 150"));
+        mMap.addMarker(new MarkerOptions().position(walmart_billing_bridge).title("Walmart"));
+        mMap.addMarker(new MarkerOptions().position(rideau_centre).title("Rideau Centre"));
+        mMap.addMarker(new MarkerOptions().position(butterfly_show).title("Butterfly Show (End 8th Oct)"));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(ottawaCity, 13));
 
         CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(carletonU)      // Sets the center of the map to location user
-                .zoom(15)                   // Sets the zoom
+                .target(ottawaCity)      // Sets the center of the map to location user
+                .zoom(12)                   // Sets the zoom
                 .bearing(0)                // Sets the orientation of the camera to east
                 .tilt(0)                   // Sets the tilt of the camera to 30 degrees
                 .build();                   // Creates a CameraPosition from the builder
