@@ -157,8 +157,8 @@ public class MainPageActivity extends BaseActivity {
         PendingIntent pi = PendingIntent.getActivity(MainPageActivity.this,0,intent,0);
         Notification.Builder builder = new Notification.Builder(MainPageActivity.this);
 
-        builder.setContentTitle("Subject : " + data.get(0).getSubject())
-                .setContentText("Message : " + data.get(0).getMessage())
+        builder.setContentTitle(data.get(0).getSubject())
+                .setContentText(data.get(0).getMessage())
                 .setSmallIcon(R.drawable.logo_mysukan)
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(),R.drawable.logo_mysukan))
                 .setContentIntent(pi)

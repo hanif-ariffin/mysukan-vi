@@ -1,63 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="masco.com.mysukan_vi.annoucement.AddAnnouncementActivity">
+    android:orientation="vertical"
+    tools:layout_editor_absoluteX="8dp"
+    tools:layout_editor_absoluteY="8dp">
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="41dp"
-        android:layout_marginTop="46dp"
-        android:text="Subject"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="masco.com.mysukan_vi.annoucement.AddAnnouncementActivity">
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="38dp"
-        android:text="Messages"
-        app:layout_constraintTop_toBottomOf="@+id/subjectText"
-        android:layout_marginLeft="41dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
 
-    <EditText
-        android:id="@+id/subjectText"
-        android:layout_width="294dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="41dp"
-        android:layout_marginTop="27dp"
-        android:ems="10"
-        android:hint="Subject goes here"
-        android:inputType="textPersonName"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        <EditText
+            android:id="@+id/subjectText"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="55dp"
+            android:paddingLeft="5dp"
+            android:background="@drawable/rectangle"
+            android:ems="10"
+            android:hint="Subject"
+            android:inputType="textPersonName"
+            android:lineSpacingExtra="8sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/messageText"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:layout_marginLeft="42dp"
-        android:layout_marginTop="14dp"
-        android:ems="10"
-        android:hint="Message goes here"
-        android:inputType="textMultiLine"
-        android:selectAllOnFocus="true"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        <EditText
+            android:id="@+id/messageText"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:background="@drawable/rectangle"
+            android:ems="10"
+            android:gravity="top"
+            android:hint="Message"
+            android:inputType="textMultiLine"
+            android:selectAllOnFocus="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Notification.Info"
+            android:typeface="normal"
+            app:layout_constraintLeft_toLeftOf="@+id/subjectText"
+            app:layout_constraintRight_toRightOf="@+id/subjectText"
+            app:layout_constraintTop_toBottomOf="@+id/subjectText" />
 
-    <Button
-        android:id="@+id/addAnnoucement"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="134dp"
-        android:layout_marginTop="27dp"
-        android:text="Announce"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/messageText" />
-</android.support.constraint.ConstraintLayout>
+        <Button
+            android:id="@+id/addAnnoucement"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/round_corners_submitbutton"
+            android:text="Announce"
+            android:textColor="@android:color/background_light"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/messageText" />
+    </android.support.constraint.ConstraintLayout>
+</LinearLayout>
