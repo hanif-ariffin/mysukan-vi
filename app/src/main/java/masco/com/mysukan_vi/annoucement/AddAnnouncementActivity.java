@@ -1,4 +1,4 @@
-package masco.com.mysukan_vi.activities;
+package masco.com.mysukan_vi.annoucement;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +11,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import masco.com.mysukan_vi.R;
-import masco.com.mysukan_vi.annoucement.Announcement;
 
 public class AddAnnouncementActivity extends AppCompatActivity {
     private DatabaseReference database;
@@ -44,4 +43,5 @@ public class AddAnnouncementActivity extends AppCompatActivity {
             }
         });
     }
+
 }

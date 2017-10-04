@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="masco.com.mysukan_vi.activities.AddAnnouncementActivity">
+    tools:context="masco.com.mysukan_vi.annoucement.AddAnnouncementActivity">
 
     <TextView
         android:id="@+id/textView8"
@@ -42,11 +42,12 @@
         android:id="@+id/messageText"
         android:layout_width="300dp"
         android:layout_height="200dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="14dp"
         android:ems="10"
         android:hint="Message goes here"
-        android:inputType="textPersonName"
+        android:inputType="textMultiLine"
+        android:selectAllOnFocus="true"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
