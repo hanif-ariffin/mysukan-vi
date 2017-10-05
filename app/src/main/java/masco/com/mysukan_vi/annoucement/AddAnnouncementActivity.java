@@ -52,6 +52,7 @@ public class AddAnnouncementActivity extends AppCompatActivity {
             menu.findItem(R.id.menu_item_developers_info).setVisible(false);
             menu.findItem(R.id.menu_item_sponsors).setVisible(false);
             menu.findItem(R.id.menu_item_overall_score).setVisible(false);
+            menu.findItem(R.id.menu_item_developer_awesome).setVisible(false);
         }
         return true;
     }

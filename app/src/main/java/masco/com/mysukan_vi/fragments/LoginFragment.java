@@ -77,7 +77,7 @@ public class LoginFragment extends BaseFragment {
 
                         if (task.isSuccessful()) {
 
-                            if (email.equals("announcement@mysukanvi.com") && password.equals("announcement")) {
+                            if (isAdmninAnnouncer(email)) {
                                 startActivity(new Intent(getContext(), AnnouncementActivity.class));
                                 hideProgressDialog();
                             } else {
@@ -95,5 +95,9 @@ public class LoginFragment extends BaseFragment {
                 });
 
 
+    }
+
+    private boolean isAdmninAnnouncer(String emailAddress){
+     return emailAddress.contains("@announcement");
     }
 }
