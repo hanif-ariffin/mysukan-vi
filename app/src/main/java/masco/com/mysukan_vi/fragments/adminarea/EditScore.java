@@ -43,7 +43,7 @@ public class EditScore extends BaseFragment {
         final View rootView;
 
         //array for checker
-        checker = Arrays.asList("badminton_men_doubles", "badminton_women_doubles", "badminton_mixed_doubles", "squash_men_singles", "squash_women_singles");
+        checker = Arrays.asList("badminton_men_doubles", "badminton_women_doubles", "badminton_mixed_doubles", "squash_men_singles", "squash_women_singles", "volleyball");
 
         //get argument from previous fragment
         args = getArguments();

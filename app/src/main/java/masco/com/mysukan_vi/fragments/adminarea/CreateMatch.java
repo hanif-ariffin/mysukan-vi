@@ -82,7 +82,7 @@ public class CreateMatch extends BaseFragment {
         });
 
         //array for checker
-        checker = Arrays.asList("badminton_men_doubles", "badminton_women_doubles", "badminton_mixed_doubles", "squash_men_singles", "squash_women_singles");
+        checker = Arrays.asList("badminton_men_doubles", "badminton_women_doubles", "badminton_mixed_doubles", "squash_men_singles", "squash_women_singles", "volleyball");
 
         unixTime = 0;
         mTimeSetListener = new TimePickerDialog.OnTimeSetListener() {

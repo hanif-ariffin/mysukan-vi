@@ -29,7 +29,7 @@ public class SportManager {
     }
 
     public static boolean isSingleScore(String sportName) {
-        if (sportName.equals("Badminton Men Doubles") || sportName.equals("Badminton Women Doubles") || sportName.equals("Badminton Mixed Doubles") || sportName.equals("Squash Men Singles") || sportName.equals("Squash Women Singles")) {
+        if (sportName.equals("Volleyball") || sportName.equals("Badminton Men Doubles") || sportName.equals("Badminton Women Doubles") || sportName.equals("Badminton Mixed Doubles") || sportName.equals("Squash Men Singles") || sportName.equals("Squash Women Singles")) {
             return false;
         } else {
             return true;
