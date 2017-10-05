@@ -355,7 +355,6 @@ public class SportDetailActivity extends BaseActivity {
         getMenuInflater().inflate(R.menu.menu, menu);
         if (menu != null) {
             menu.findItem(R.id.winner).setVisible(true);
-            menu.findItem(R.id.menu_item_developers_info).setVisible(false);
             menu.findItem(R.id.menu_item_sponsors).setVisible(false);
             menu.findItem(R.id.menu_item_developer_awesome).setVisible(false);
             menu.findItem(R.id.menu_item_overall_score).setVisible(false);
@@ -373,10 +372,6 @@ public class SportDetailActivity extends BaseActivity {
             return true;
         } else if (i == R.id.menu_item_sponsors) {
             Intent intent = new Intent(SportDetailActivity.this, SponsorsActivity.class);
-            startActivity(intent);
-            return true;
-        } else if (i == R.id.menu_item_developers_info) {
-            Intent intent = new Intent(SportDetailActivity.this, SourceCodeActivity.class);
             startActivity(intent);
             return true;
         } else {

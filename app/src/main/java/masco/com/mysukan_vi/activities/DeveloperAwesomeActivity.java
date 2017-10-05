@@ -57,6 +57,7 @@ public class DeveloperAwesomeActivity extends BaseActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-    return true;}
+        return true;
+    }
 
 }
