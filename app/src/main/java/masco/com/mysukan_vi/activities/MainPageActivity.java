@@ -33,7 +33,7 @@ import masco.com.mysukan_vi.fragments.NotificationFragment;
 import masco.com.mysukan_vi.fragments.SportListFragmentGrid;
 
 /**
- * A login screen that offers login via email/password.
+ * The entry point of the application.
  */
 
 public class MainPageActivity extends BaseActivity {
@@ -49,7 +49,7 @@ public class MainPageActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page_with_fragment);
-        Intent intent = new Intent (MainPageActivity.this,SplashScreen.class);
+        Intent intent = new Intent(MainPageActivity.this, SplashScreen.class);
         startActivity(intent);
 
         database = FirebaseDatabase.getInstance().getReference("announcement");
@@ -59,11 +59,14 @@ public class MainPageActivity extends BaseActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 data.clear();
+
                 for (DataSnapshot Snapshot : dataSnapshot.getChildren()) {
                     Announcement announcement = Snapshot.getValue(Announcement.class);
                     data.add(announcement);
                 }
+
                 Collections.reverse(data);
+
                 if (counter == 0) {
                     showNotification(data);
                 }

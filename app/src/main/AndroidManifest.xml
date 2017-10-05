@@ -43,9 +43,6 @@
             android:name=".activities.SponsorsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.SourceCodeActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".activities.OverallWinnerActivity"
             android:screenOrientation="portrait" />
         <activity
