@@ -378,4 +378,11 @@ public class SportDetailActivity extends BaseActivity {
             return super.onOptionsItemSelected(item);
         }
     }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        this.finish();
+    }
+
 }
