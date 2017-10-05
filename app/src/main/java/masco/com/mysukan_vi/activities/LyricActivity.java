@@ -23,4 +23,11 @@ public class LyricActivity extends BaseActivity {
         return true;
     }
 
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        this.finish();
+    }
+
+
 }
