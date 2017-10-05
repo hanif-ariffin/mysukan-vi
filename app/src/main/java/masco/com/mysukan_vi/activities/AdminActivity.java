@@ -89,12 +89,6 @@ public class AdminActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu, menu);
-        if (menu != null) {
-            menu.findItem(R.id.menu_item_sponsors).setVisible(false);
-            menu.findItem(R.id.menu_item_developer_awesome).setVisible(false);
-        }
         return true;
     }
 

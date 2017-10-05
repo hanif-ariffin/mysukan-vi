@@ -171,6 +171,7 @@ public class EditScoreFragment extends BaseFragment {
             menu.findItem(R.id.winner).setVisible(true);
             menu.findItem(R.id.menu_item_sponsors).setVisible(false);
             menu.findItem(R.id.menu_item_developer_awesome).setVisible(false);
+            menu.findItem(R.id.menu_item_overall_score).setVisible(false);
         }
     }
 
