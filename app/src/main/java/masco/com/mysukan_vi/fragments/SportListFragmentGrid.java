@@ -28,6 +28,7 @@ public class SportListFragmentGrid extends BaseFragment {
     private Button button_squash_women_singles;
     private Button button_netball;
     private Button button_dodgeball;
+    private Button button_volleyball;
 
 
     @Override
@@ -183,6 +184,21 @@ public class SportListFragmentGrid extends BaseFragment {
                 Intent intent = new Intent(getActivity(), SportDetailActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("sport_name", NameManager.SportCasualNames.BASKETBALL); //Your id
+                intent.putExtras(bundle); //Put your id to your next Intent
+                startActivity(intent);
+
+            }
+        });
+
+        button_volleyball = (Button) rootView.findViewById(R.id.button_volleyball);
+
+        button_volleyball.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getActivity(), SportDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("sport_name", NameManager.SportCasualNames.VOLLEYBALL); //Your id
                 intent.putExtras(bundle); //Put your id to your next Intent
                 startActivity(intent);
 

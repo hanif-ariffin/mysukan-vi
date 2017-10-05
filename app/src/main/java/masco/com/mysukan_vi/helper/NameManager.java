@@ -19,10 +19,11 @@ public class NameManager {
         public static final String OTTAWA = "Ottawa";
         public static final String QUEENS = "Queens";
         public static final String CALGARY = "Calgary";
+        public static final String DALHOUSIE = "Dalhousie";
 
         public static String[] getUniversityNames() {
             return new String[]{
-                    CARLETON, TORONTO, WATERLOO, MCMASTER, MCGILL, GUELPH, UBC, OTTAWA, QUEENS, CALGARY
+                    CARLETON, TORONTO, WATERLOO, MCMASTER, MCGILL, GUELPH, UBC, OTTAWA, QUEENS, CALGARY, DALHOUSIE
             };
         }
     }
@@ -218,6 +219,9 @@ public class NameManager {
                 break;
             case UniversityNames.CALGARY:
                 dataInt = R.drawable.calgary_logo;
+                break;
+            case UniversityNames.DALHOUSIE:
+                dataInt = R.drawable.dalhousie_logo;
                 break;
             default:
                 dataInt = 0;

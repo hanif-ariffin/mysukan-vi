@@ -13,7 +13,6 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="android_application_version">The source code is available at https://www.github.com/hanif-ariffin/mysukan-vi</string>
 
     <string-array name="number">
         <item>0</item>
@@ -81,6 +80,7 @@
         <item>McGill</item>
         <item>Guelph</item>
         <item>UBC</item>
+        <item>Dalhousie</item>
     </string-array>
 
     <string-array name="sport_menu">
