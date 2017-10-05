@@ -81,6 +81,7 @@
         <item>McGill</item>
         <item>Guelph</item>
         <item>UBC</item>
+        <item>Dalhousie</item>
     </string-array>
 
     <string-array name="sport_menu">
