@@ -1,6 +1,7 @@
 package masco.com.mysukan_vi.activities;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -55,5 +56,17 @@ public class DeveloperAwesomeActivity extends BaseActivity {
 
 
         getSupportActionBar().setTitle("Developer Awesome");
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu, menu);
+        if (menu != null) {
+            menu.findItem(R.id.menu_item_developers_info).setVisible(false);
+            menu.findItem(R.id.menu_item_sponsors).setVisible(false);
+            menu.findItem(R.id.menu_item_overall_score).setVisible(false);
+            menu.findItem(R.id.menu_item_developer_awesome).setVisible(false);
+        }
+        return true;
     }
 }
