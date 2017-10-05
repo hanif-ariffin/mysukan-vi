@@ -69,11 +69,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int i = item.getItemId();
-        if (i == R.id.menu_item_developers_info) {
-            Intent intent = new Intent(BaseActivity.this, SourceCodeActivity.class);
-            startActivity(intent);
-            return true;
-        } else if (i == R.id.menu_item_sponsors) {
+        if (i == R.id.menu_item_sponsors) {
             Intent intent = new Intent(BaseActivity.this, SponsorsActivity.class);
             startActivity(intent);
             return true;
