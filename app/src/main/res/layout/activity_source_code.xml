@@ -37,7 +37,7 @@
         android:layout_marginTop="64dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Click to view the source source"
+        android:text="Click below to view the source source"
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintHorizontal_bias="0.502"
