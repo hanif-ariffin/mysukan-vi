@@ -4,15 +4,17 @@
     tools:context="masco.com.mysukan_vi.activities.BaseActivity">
 
     <item
-        android:id="@+id/menu_item_developers_info"
-        android:title="Info"
-        android:visible="true"
+        android:id="@+id/menu_item_theme_song_lyric"
+        android:title="Theme Song Lyric"
+        android:visible="false"
         app:showAsAction="never" />
+
     <item
         android:id="@+id/menu_item_sponsors"
         android:title="Sponsors"
         android:visible="true"
         app:showAsAction="never" />
+
     <item
         android:id="@+id/menu_item_overall_score"
         android:title="Overall Score"
@@ -22,6 +24,11 @@
     <item
         android:id="@+id/menu_item_developer_awesome"
         android:title="Developer Awesome"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_item_developers_info"
+        android:title="Info"
         android:visible="true"
         app:showAsAction="never" />
 

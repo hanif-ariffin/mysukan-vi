@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView35"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:gravity="center"
+                android:text="Official MySukan VI  Theme Song Lyric"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView34"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Telah tiba masa untuk bersiap sedia"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView33"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kukuhkanlah pasukanmu obor telah bernyala"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="sarungkanlah perisaimu pertahankan maruah"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="kibarkanlah panjimu ayuhlah semua"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="bottom"
+                android:text="bersama-sama meraikan"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView57"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="temasya sukan di ottawa"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView29"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="walau di mana pun kita berada"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="kita dibawah satu bendera"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="bottom"
+                android:text="satu...  bendera..."
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="semangat membara teruskan usaha"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="berikan segalanya kejayaan dicita"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="bottom"
+                android:text="Kalah menang adat permainan"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="usah berputus asa"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="eratkan silaturahim itu matlamatnya"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView37"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="melahirkan individu cemerlang"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView38"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="untuk negara malaysia"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView39"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="bottom"
+                android:text="bersama-sama meraikan"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView58"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="temasya sukan di Ottawa"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView41"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="walau di mana pun kita berada"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView40"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="kita dibawh satu bendera"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView42"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="bottom"
+                android:text="satu...  bendera..."
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView43"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="semangat membara teruskan usaha"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView44"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="berikan segalanya kejayaan dicita"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView45"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="bottom"
+                android:text="Bebaskanlah jiwamu tinggikanlah citamu"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView46"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="luaskanlah akalmu takkanlah kau dah jemu"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView47"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bangkitlah perwira negara"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView48"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="60 tahun kita dah merdeka"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView49"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Majulah sukan untuk negara"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView50"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ayuhlah semua"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView51"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="bottom"
+                android:text="bersama-sama meraikan"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView59"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="temasya sukan di Ottawa"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView52"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="walau di mana pun kita berada"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView53"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="kita dibawah satu bendera"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView54"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="malaysia..."
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/textView56"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:ellipsize="end"
+                android:inputType="textMultiLine"
+                android:maxLines="5"
+                android:paddingTop="10dp"
+                android:text="@string/theme_song_info"
+                android:textAlignment="center" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

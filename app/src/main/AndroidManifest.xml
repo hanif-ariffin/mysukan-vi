@@ -54,6 +54,8 @@
             android:screenOrientation="portrait" />
         <activity android:name=".activities.SetWinnerActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".activities.LyricActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".activities.DeveloperAwesomeActivity"
             android:screenOrientation="portrait" >
         </activity>

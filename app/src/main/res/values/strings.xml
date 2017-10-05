@@ -107,7 +107,7 @@
         <item>Men V</item>
         <item>Women V</item>
     </string-array>
-
+    <string name="theme_song_info">Singer: Muhammad Abdul Shakir Hasri \n Lyric By: Emir Aizzat Abdillah  \n Composer: Azim Arshad</string>
     <string-array name="Badminton">
         <item>Men Doubles</item>
         <item>Women Doubles</item>

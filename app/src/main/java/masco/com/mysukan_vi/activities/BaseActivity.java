@@ -60,6 +60,9 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
+        if (menu != null) {
+            menu.findItem(R.id.menu_item_theme_song_lyric).setVisible(true);
+        }
         return true;
     }
 
@@ -76,6 +79,10 @@ public class BaseActivity extends AppCompatActivity {
             return true;
         } else if (i == R.id.menu_item_developer_awesome){
             Intent intent = new Intent(BaseActivity.this, DeveloperAwesomeActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (i == R.id.menu_item_theme_song_lyric){
+            Intent intent = new Intent(BaseActivity.this, LyricActivity.class);
             startActivity(intent);
             return true;
         } else {
