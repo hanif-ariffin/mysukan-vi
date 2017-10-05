@@ -1,34 +1,14 @@
 package masco.com.mysukan_vi.fragments;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import masco.com.mysukan_vi.R;
 import masco.com.mysukan_vi.activities.SportDetailActivity;
-import masco.com.mysukan_vi.annoucement.Announcement;
-import masco.com.mysukan_vi.annoucement.AnnouncementActivity;
 import masco.com.mysukan_vi.helper.NameManager;
 
 /**
@@ -48,7 +28,6 @@ public class SportListFragmentGrid extends BaseFragment {
     private Button button_squash_women_singles;
     private Button button_netball;
     private Button button_dodgeball;
-
 
 
     @Override

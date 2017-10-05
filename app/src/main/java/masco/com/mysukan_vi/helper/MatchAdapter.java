@@ -1,7 +1,6 @@
 package masco.com.mysukan_vi.helper;
 
 import android.content.Context;
-import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,10 +9,8 @@ import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.TimeZone;
 
 import masco.com.mysukan_vi.R;
 import masco.com.mysukan_vi.models.TripleScoreMatch;

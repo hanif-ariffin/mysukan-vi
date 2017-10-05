@@ -13,7 +13,6 @@ import android.support.annotation.RequiresApi;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.NotificationCompat;
 import android.support.v4.view.ViewPager;
 
 import com.google.firebase.database.DataSnapshot;
@@ -28,7 +27,6 @@ import java.util.List;
 
 import masco.com.mysukan_vi.R;
 import masco.com.mysukan_vi.annoucement.Announcement;
-import masco.com.mysukan_vi.annoucement.AnnouncementActivity;
 import masco.com.mysukan_vi.fragments.LoginFragment;
 import masco.com.mysukan_vi.fragments.MapFragment;
 import masco.com.mysukan_vi.fragments.NotificationFragment;
@@ -65,11 +63,11 @@ public class MainPageActivity extends BaseActivity {
                     data.add(announcement);
                 }
                 Collections.reverse(data);
-                if (counter ==0){
+                if (counter == 0) {
                     showNotification(data);
                 }
 
-                if(counter != 0){
+                if (counter != 0) {
                     counter--;
                 }
 
@@ -119,7 +117,7 @@ public class MainPageActivity extends BaseActivity {
         mViewPager
                 .addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
-                    String[] tabsTitles = new String[]{"Announcement","Scoreboard", "Venue", "Admin Login"};
+                    String[] tabsTitles = new String[]{"Announcement", "Scoreboard", "Venue", "Admin Login"};
 
                     @Override
                     public void onPageSelected(int position) {
@@ -147,24 +145,25 @@ public class MainPageActivity extends BaseActivity {
                 R.drawable.list_32,
                 R.drawable.map_32,
                 R.drawable.account_32
-                };
+        };
 
         return iconTab;
     }
+
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public void showNotification(List<Announcement> data){
-        Intent intent = new Intent(MainPageActivity.this,AnnouncementActivity.class);
-        PendingIntent pi = PendingIntent.getActivity(MainPageActivity.this,0,intent,0);
+    public void showNotification(List<Announcement> data) {
+        Intent intent = new Intent(MainPageActivity.this, AnnouncementActivity.class);
+        PendingIntent pi = PendingIntent.getActivity(MainPageActivity.this, 0, intent, 0);
         Notification.Builder builder = new Notification.Builder(MainPageActivity.this);
 
-        if(!data.isEmpty()) {
+        if (!data.isEmpty()) {
             builder.setContentTitle(data.get(0).getSubject())
-                .setContentText(data.get(0).getMessage())
-                .setSmallIcon(R.drawable.logo_mysukan)
-                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.logo_mysukan))
-                .setContentIntent(pi)
-                .setVibrate(new long[]{Notification.DEFAULT_VIBRATE})
-                .setPriority(Notification.PRIORITY_MAX);
+                    .setContentText(data.get(0).getMessage())
+                    .setSmallIcon(R.drawable.logo_mysukan)
+                    .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.logo_mysukan))
+                    .setContentIntent(pi)
+                    .setVibrate(new long[]{Notification.DEFAULT_VIBRATE})
+                    .setPriority(Notification.PRIORITY_MAX);
             NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             notificationManager.notify(0, builder.build());
         }

@@ -11,7 +11,7 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="masco.com.mysukan_vi.annoucement.AddAnnouncementActivity">
+        tools:context="masco.com.mysukan_vi.activities.AddAnnouncementActivity">
 
 
         <EditText
@@ -21,12 +21,12 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="55dp"
-            android:paddingLeft="5dp"
             android:background="@drawable/rectangle"
             android:ems="10"
             android:hint="Subject"
             android:inputType="textPersonName"
             android:lineSpacingExtra="8sp"
+            android:paddingLeft="5dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Menu"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -40,13 +40,13 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="5dp"
             android:background="@drawable/rectangle"
             android:ems="10"
             android:gravity="top"
             android:hint="Message"
             android:inputType="textMultiLine"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
             android:selectAllOnFocus="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Notification.Info"
             android:typeface="normal"

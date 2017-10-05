@@ -1,22 +1,16 @@
 package masco.com.mysukan_vi.fragments;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,12 +22,8 @@ import java.util.Collections;
 import java.util.List;
 
 import masco.com.mysukan_vi.R;
-import masco.com.mysukan_vi.activities.SportDetailActivity;
-import masco.com.mysukan_vi.annoucement.AddAnnouncementActivity;
 import masco.com.mysukan_vi.annoucement.Announcement;
-import masco.com.mysukan_vi.annoucement.AnnouncementActivity;
 import masco.com.mysukan_vi.helper.AnnouncementAdapter;
-import masco.com.mysukan_vi.helper.SportManager;
 
 /**
  * Created by Haziq on 2017-10-03.
@@ -87,7 +77,7 @@ public class NotificationFragment extends BaseFragment {
                 builder1.setCancelable(true);
                 builder1.setMessage("Message : " + data.get(i).getMessage());
                 AlertDialog alert11 = builder1.create();
-                alert11.setTitle("Subject : " +data.get(i).getSubject());
+                alert11.setTitle("Subject : " + data.get(i).getSubject());
                 builder1.setPositiveButton(
                         "OK",
                         new DialogInterface.OnClickListener() {
@@ -98,7 +88,6 @@ public class NotificationFragment extends BaseFragment {
                 alert11.show();
             }
         });
-
 
 
         return rootView;

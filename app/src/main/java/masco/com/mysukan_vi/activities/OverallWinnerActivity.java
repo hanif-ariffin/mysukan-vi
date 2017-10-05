@@ -8,7 +8,4 @@ import com.google.firebase.database.DatabaseReference;
  */
 
 public class OverallWinnerActivity extends BaseActivity {
-
-
-    private DatabaseReference sportNameReference;
 }

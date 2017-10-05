@@ -1,11 +1,8 @@
 package masco.com.mysukan_vi.activities;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -15,7 +12,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import masco.com.mysukan_vi.R;
-import masco.com.mysukan_vi.fragments.BaseFragment;
 import masco.com.mysukan_vi.models.WinnerMatch;
 
 
@@ -23,7 +19,7 @@ import masco.com.mysukan_vi.models.WinnerMatch;
  * Created by User on 2017-10-04.
  */
 
-public class SetWinnerActivity extends BaseActivity{
+public class SetWinnerActivity extends BaseActivity {
 
     private Spinner firstPlace, secondPlace, thirdPlace;
     ArrayAdapter<CharSequence> teamAdapter;
@@ -52,19 +48,20 @@ public class SetWinnerActivity extends BaseActivity{
         databaseWinner = FirebaseDatabase.getInstance().getReference("ranking");
 
         //already database_name
-        args = getIntent().getExtras();;
+        args = getIntent().getExtras();
+        ;
         sport_name = args.getString("sport_name");
 
         submitButton = (Button) findViewById(R.id.submit_set_winner);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                WinnerMatch winner = new WinnerMatch(firstPlace.getSelectedItem().toString(),secondPlace.getSelectedItem().toString(),thirdPlace.getSelectedItem().toString());
+                WinnerMatch winner = new WinnerMatch(firstPlace.getSelectedItem().toString(), secondPlace.getSelectedItem().toString(), thirdPlace.getSelectedItem().toString());
                 databaseWinner.child(sport_name).setValue(winner);
                 Toast.makeText(SetWinnerActivity.this, "Winner has been announced!", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
-
 
 
     }
@@ -77,7 +74,7 @@ public class SetWinnerActivity extends BaseActivity{
             menu.findItem(R.id.winner).setVisible(false);
             menu.findItem(R.id.menu_item_developers_info).setVisible(false);
             menu.findItem(R.id.menu_item_sponsors).setVisible(false);
-            menu.findItem(R.id.menu_item_overall_score).setVisible(false);
+            menu.findItem(R.id.menu_item_developer_awesome).setVisible(false);
         }
         return true;
     }

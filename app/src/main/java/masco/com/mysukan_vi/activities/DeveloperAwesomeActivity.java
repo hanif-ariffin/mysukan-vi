@@ -1,6 +1,7 @@
 package masco.com.mysukan_vi.activities;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,8 +11,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import masco.com.mysukan_vi.R;
-import masco.com.mysukan_vi.annoucement.AddAnnouncementActivity;
-import masco.com.mysukan_vi.annoucement.Announcement;
 
 /**
  * Created by User on 2017-10-04.
@@ -28,6 +27,8 @@ public class DeveloperAwesomeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_developer_awesome);
 
+        getSupportActionBar().setTitle("Developer Awesome");
+
         database = FirebaseDatabase.getInstance().getReference("feedback_android");
         submit = (Button) findViewById(R.id.submit_feedback);
         feedBack = (EditText) findViewById(R.id.feedback_field);
@@ -37,11 +38,11 @@ public class DeveloperAwesomeActivity extends BaseActivity {
             public void onClick(View view) {
                 String id = database.push().getKey();
 
-                if(feedBack.getText().toString().length()<= 0){
+                if (feedBack.getText().toString().length() <= 0) {
 
                     Toast.makeText(DeveloperAwesomeActivity.this, "Please don't spam us with empty message ;)!", Toast.LENGTH_LONG).show();
 
-                } else{
+                } else {
 
                     String lFeedback = new String(feedBack.getText().toString());
                     database.child(id).setValue(lFeedback);
@@ -51,9 +52,10 @@ public class DeveloperAwesomeActivity extends BaseActivity {
 
             }
         });
+    }
 
-
-
-        getSupportActionBar().setTitle("Developer Awesome");
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return true;
     }
 }

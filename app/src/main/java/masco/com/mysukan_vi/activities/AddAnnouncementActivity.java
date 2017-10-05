@@ -1,4 +1,4 @@
-package masco.com.mysukan_vi.annoucement;
+package masco.com.mysukan_vi.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +12,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import masco.com.mysukan_vi.R;
+import masco.com.mysukan_vi.annoucement.Announcement;
 
 public class AddAnnouncementActivity extends AppCompatActivity {
     private DatabaseReference database;
@@ -44,6 +45,7 @@ public class AddAnnouncementActivity extends AppCompatActivity {
             }
         });
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -51,7 +53,6 @@ public class AddAnnouncementActivity extends AppCompatActivity {
         if (menu != null) {
             menu.findItem(R.id.menu_item_developers_info).setVisible(false);
             menu.findItem(R.id.menu_item_sponsors).setVisible(false);
-            menu.findItem(R.id.menu_item_overall_score).setVisible(false);
             menu.findItem(R.id.menu_item_developer_awesome).setVisible(false);
         }
         return true;

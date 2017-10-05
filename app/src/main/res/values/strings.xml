@@ -13,7 +13,7 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="android_application_version">A lot of crash and bug fixes. New announcement will now be fed into your Android notifications. </string>
+    <string name="android_application_version">The source code is available at https://www.github.com/hanif-ariffin/mysukan-vi</string>
 
     <string-array name="number">
         <item>0</item>

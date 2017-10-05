@@ -202,11 +202,11 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="0dp"
                     android:layout_marginStart="16dp"
+                    android:layout_marginTop="45dp"
                     android:background="@drawable/frisbee"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintLeft_toLeftOf="@+id/button_badminton_mixed_doubles"
                     app:layout_constraintRight_toRightOf="@+id/button_badminton_mixed_doubles"
-                    android:layout_marginTop="45dp"
                     app:layout_constraintTop_toBottomOf="@+id/button_badminton_mixed_doubles" />
 
                 <Button
@@ -215,14 +215,14 @@
                     android:layout_height="@dimen/sport_list_image_height"
                     android:layout_gravity="center"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginStart="8dp"
-                    android:background="@drawable/dodgeball"
-                    android:layout_marginTop="45dp"
-                    app:layout_constraintTop_toBottomOf="@+id/button_squash_men_singles"
-                    android:layout_marginRight="8dp"
-                    app:layout_constraintRight_toRightOf="@+id/button_squash_men_singles"
                     android:layout_marginLeft="0dp"
-                    app:layout_constraintLeft_toLeftOf="@+id/button_squash_men_singles" />
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="45dp"
+                    android:background="@drawable/dodgeball"
+                    app:layout_constraintLeft_toLeftOf="@+id/button_squash_men_singles"
+                    app:layout_constraintRight_toRightOf="@+id/button_squash_men_singles"
+                    app:layout_constraintTop_toBottomOf="@+id/button_squash_men_singles" />
 
                 <Button
                     android:id="@+id/button_netball"
@@ -231,11 +231,11 @@
                     android:layout_gravity="center"
                     android:layout_marginEnd="16dp"
                     android:layout_marginRight="0dp"
+                    android:layout_marginTop="45dp"
                     android:background="@drawable/netball"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintLeft_toLeftOf="@+id/button_squash_women_singles"
                     app:layout_constraintRight_toRightOf="@+id/button_squash_women_singles"
-                    android:layout_marginTop="45dp"
                     app:layout_constraintTop_toBottomOf="@+id/button_squash_women_singles" />
 
                 <Button
@@ -244,14 +244,14 @@
                     android:layout_height="@dimen/sport_list_image_height"
                     android:layout_gravity="center"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginStart="8dp"
-                    android:background="@drawable/basketball"
-                    android:layout_marginTop="45dp"
-                    app:layout_constraintTop_toBottomOf="@+id/button_dodgeball"
-                    android:layout_marginRight="8dp"
-                    app:layout_constraintRight_toRightOf="@+id/button_dodgeball"
                     android:layout_marginLeft="0dp"
-                    app:layout_constraintLeft_toLeftOf="@+id/button_dodgeball" />
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="45dp"
+                    android:background="@drawable/basketball"
+                    app:layout_constraintLeft_toLeftOf="@+id/button_dodgeball"
+                    app:layout_constraintRight_toRightOf="@+id/button_dodgeball"
+                    app:layout_constraintTop_toBottomOf="@+id/button_dodgeball" />
 
                 <Button
                     android:id="@+id/button_badminton_mixed_doubles"
