@@ -23,9 +23,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import masco.com.mysukan_vi.R;
+import masco.com.mysukan_vi.helper.MatchAdapter;
 import masco.com.mysukan_vi.helper.NameManager;
 import masco.com.mysukan_vi.helper.SportManager;
-import masco.com.mysukan_vi.helper.MatchAdapter;
 import masco.com.mysukan_vi.models.SingleScoreMatch;
 import masco.com.mysukan_vi.models.TripleScoreMatch;
 
@@ -357,7 +357,6 @@ public class SportDetailActivity extends BaseActivity {
             menu.findItem(R.id.winner).setVisible(true);
             menu.findItem(R.id.menu_item_developers_info).setVisible(false);
             menu.findItem(R.id.menu_item_sponsors).setVisible(false);
-            menu.findItem(R.id.menu_item_overall_score).setVisible(false);
             menu.findItem(R.id.menu_item_developer_awesome).setVisible(false);
         }
         return true;
@@ -376,7 +375,7 @@ public class SportDetailActivity extends BaseActivity {
             startActivity(intent);
             return true;
         } else if (i == R.id.menu_item_developers_info) {
-            Intent intent = new Intent(SportDetailActivity.this, InfoActivity.class);
+            Intent intent = new Intent(SportDetailActivity.this, SourceCodeActivity.class);
             startActivity(intent);
             return true;
         } else {

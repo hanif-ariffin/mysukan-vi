@@ -13,7 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -28,10 +27,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import masco.com.mysukan_vi.R;
-import masco.com.mysukan_vi.activities.AdminActivity;
 import masco.com.mysukan_vi.activities.SetWinnerActivity;
-import masco.com.mysukan_vi.activities.SportDetailActivity;
-import masco.com.mysukan_vi.activities.WinnerActivity;
 import masco.com.mysukan_vi.fragments.BaseFragment;
 import masco.com.mysukan_vi.helper.ListAdapter;
 import masco.com.mysukan_vi.helper.NameManager;
@@ -164,6 +160,7 @@ public class EditScoreFragment extends BaseFragment {
 
         return view;
     }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -174,7 +171,7 @@ public class EditScoreFragment extends BaseFragment {
             menu.findItem(R.id.winner).setVisible(true);
             menu.findItem(R.id.menu_item_developers_info).setVisible(false);
             menu.findItem(R.id.menu_item_sponsors).setVisible(false);
-            menu.findItem(R.id.menu_item_overall_score).setVisible(false);
+            menu.findItem(R.id.menu_item_developer_awesome).setVisible(false);
         }
     }
 
@@ -191,7 +188,6 @@ public class EditScoreFragment extends BaseFragment {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 
 }

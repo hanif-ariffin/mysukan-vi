@@ -1,11 +1,7 @@
-package masco.com.mysukan_vi.annoucement;
+package masco.com.mysukan_vi.activities;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -28,6 +24,7 @@ import java.util.Collections;
 import java.util.List;
 
 import masco.com.mysukan_vi.R;
+import masco.com.mysukan_vi.annoucement.Announcement;
 import masco.com.mysukan_vi.helper.AnnouncementAdapter;
 
 public class AnnouncementActivity extends AppCompatActivity {
@@ -105,7 +102,6 @@ public class AnnouncementActivity extends AppCompatActivity {
         if (menu != null) {
             menu.findItem(R.id.menu_item_developers_info).setVisible(false);
             menu.findItem(R.id.menu_item_sponsors).setVisible(false);
-            menu.findItem(R.id.menu_item_overall_score).setVisible(false);
             menu.findItem(R.id.menu_item_developer_awesome).setVisible(false);
             menu.findItem(R.id.add_button).setVisible(true);
         }

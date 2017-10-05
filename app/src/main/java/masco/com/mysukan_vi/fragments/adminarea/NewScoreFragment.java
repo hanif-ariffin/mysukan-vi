@@ -8,8 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 
 import masco.com.mysukan_vi.R;
@@ -21,10 +19,7 @@ public class NewScoreFragment extends BaseFragment {
 
 
     // UI references.
-    private Button btnProceed;
-    ArrayAdapter<CharSequence> sportAdapter, typeAdapter;
     private ListView iListGames;
-    private ViewGroup iMainPage;
     Bundle args;
 
     @Override
