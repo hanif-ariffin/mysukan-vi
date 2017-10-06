@@ -7,8 +7,8 @@ android {
         applicationId "masco.com.mysukan_vi"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 20
-        versionName "v20"
+        versionCode 22
+        versionName "v22"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

@@ -167,9 +167,9 @@ public class SportDetailActivity extends BaseActivity {
                                             matchList.get(0).team_1_score_3,
                                     },
                                     new Long[]{
-                                            matchList.get(0).team_1_score_1,
-                                            matchList.get(0).team_1_score_2,
-                                            matchList.get(0).team_1_score_3,
+                                            matchList.get(0).team_2_score_1,
+                                            matchList.get(0).team_2_score_2,
+                                            matchList.get(0).team_2_score_3,
                                     });
                         }
                         hideProgressDialog();
