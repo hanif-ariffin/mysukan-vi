@@ -7,13 +7,13 @@ android {
         applicationId "masco.com.mysukan_vi"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 16
-        versionName "v16"
+        versionCode 20
+        versionName "v20"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

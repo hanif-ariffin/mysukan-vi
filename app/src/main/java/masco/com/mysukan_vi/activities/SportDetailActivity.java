@@ -107,16 +107,16 @@ public class SportDetailActivity extends BaseActivity {
              *  SingleScoreMatch => TripleScoreMatch
              *  match_date => match_date
              *  id => id
-             *  team_1_name => team_1_name
-             *  team_2_name => team_2_name
-             *  team_1_custom_name => team_1_custom_name
-             *  team_2_custom_name => team_2_custom_namem
-             *  team_1_score_1 => team_1_score_1
-             *  team_2_score_1 => team_2_score_1
-             *  LONG_NULL => team_1_score_2
-             *  LONG_NULL => team_2_score_2
-             *  LONG_NULL => team_1_score_3
-             *  LONG_NULL => team_2_score_3
+             *  team_1_name         => team_1_name
+             *  team_2_name         => team_2_name
+             *  team_1_custom_name  => team_1_custom_name
+             *  team_2_custom_name  => team_2_custom_namem
+             *  team_1_score_1      => team_1_score_1
+             *  team_2_score_1      => team_2_score_1
+             *  LONG_NULL           => team_1_score_2
+             *  LONG_NULL           => team_2_score_2
+             *  LONG_NULL           => team_1_score_3
+             *  LONG_NULL           => team_2_score_3
              */
             matchList = new ArrayList<>();
             final MatchAdapter scoreAdapter = new MatchAdapter(SportDetailActivity.this, R.layout.include_item_minimized_match_detail, matchList);
@@ -194,12 +194,12 @@ public class SportDetailActivity extends BaseActivity {
                             new Long[]{
                                     matchList.get(i).team_1_score_1,
                                     matchList.get(i).team_1_score_2,
-                                    matchList.get(i).team_1_score_3,
+                                    matchList.get(i).team_1_score_3
                             },
                             new Long[]{
-                                    matchList.get(i).team_1_score_1,
-                                    matchList.get(i).team_1_score_2,
-                                    matchList.get(i).team_1_score_3,
+                                    matchList.get(i).team_2_score_1,
+                                    matchList.get(i).team_2_score_2,
+                                    matchList.get(i).team_2_score_3
                             });
                 }
             });
@@ -251,13 +251,6 @@ public class SportDetailActivity extends BaseActivity {
     @Override
     public void onStop() {
         super.onStop();
-
-        // Remove post value event listener
-        if (databaseReferenceListener != null) {
-            databaseReference.removeEventListener(databaseReferenceListener);
-        }
-
-
     }
 
     protected class InitTask extends AsyncTask<Context, Integer, Boolean> {
@@ -357,7 +350,6 @@ public class SportDetailActivity extends BaseActivity {
             menu.findItem(R.id.winner).setVisible(true);
             menu.findItem(R.id.menu_item_sponsors).setVisible(false);
             menu.findItem(R.id.menu_item_developer_awesome).setVisible(false);
-            menu.findItem(R.id.menu_item_overall_score).setVisible(false);
         }
         return true;
     }

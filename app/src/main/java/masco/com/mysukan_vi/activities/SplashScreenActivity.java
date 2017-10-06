@@ -1,11 +1,12 @@
 package masco.com.mysukan_vi.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import masco.com.mysukan_vi.R;
 
-public class SplashScreen extends AppCompatActivity {
+public class SplashScreenActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,11 +20,12 @@ public class SplashScreen extends AppCompatActivity {
                     Thread.sleep(3500);
                     finish();
                 } catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
         }).start();
 
+        Intent intent = new Intent(SplashScreenActivity.this, MainPageActivity.class);
+        startActivity(intent);
     }
 }

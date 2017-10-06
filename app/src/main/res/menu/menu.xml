@@ -16,12 +16,6 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/menu_item_overall_score"
-        android:title="Overall Score"
-        android:visible="true"
-        app:showAsAction="never" />
-
-    <item
         android:id="@+id/menu_item_developer_awesome"
         android:title="Developer Awesome"
         android:visible="true"

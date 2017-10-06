@@ -26,6 +26,7 @@
             android:id="@+id/submit_score_norm_header"
             android:layout_width="500dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:text="TextView"
@@ -38,8 +39,10 @@
             android:id="@+id/teamOne"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignTop="@+id/teamTwo"
+            android:layout_marginLeft="27dp"
             android:layout_marginStart="27dp"
             tools:layout_editor_absoluteX="56dp"
             tools:layout_editor_absoluteY="175dp" />

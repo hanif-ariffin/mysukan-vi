@@ -88,12 +88,6 @@ public class AdminActivity extends BaseActivity {
     }
 
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        this.finish();
-    }
-
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         return true;
     }
