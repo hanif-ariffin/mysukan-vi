@@ -77,7 +77,7 @@ public class BaseActivity extends AppCompatActivity {
             Intent intent = new Intent(BaseActivity.this, DeveloperAwesomeActivity.class);
             startActivity(intent);
             return true;
-        } else if (i == R.id.menu_item_theme_song_lyric){
+        } else if (i == R.id.menu_item_theme_song_lyric) {
             Intent intent = new Intent(BaseActivity.this, LyricActivity.class);
             startActivity(intent);
             return true;

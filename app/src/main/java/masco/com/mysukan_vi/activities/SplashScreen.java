@@ -1,8 +1,7 @@
 package masco.com.mysukan_vi.activities;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import masco.com.mysukan_vi.R;
 

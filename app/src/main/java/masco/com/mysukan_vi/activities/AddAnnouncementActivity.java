@@ -59,11 +59,10 @@ public class AddAnnouncementActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         super.onBackPressed();
         this.finish();
     }
-
 
 
 }
