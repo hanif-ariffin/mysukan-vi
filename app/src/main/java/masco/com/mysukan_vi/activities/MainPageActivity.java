@@ -26,11 +26,11 @@ import java.util.Collections;
 import java.util.List;
 
 import masco.com.mysukan_vi.R;
-import masco.com.mysukan_vi.annoucement.Announcement;
 import masco.com.mysukan_vi.fragments.LoginFragment;
 import masco.com.mysukan_vi.fragments.MapFragment;
 import masco.com.mysukan_vi.fragments.NotificationFragment;
 import masco.com.mysukan_vi.fragments.SportListFragmentGrid;
+import masco.com.mysukan_vi.models.Announcement;
 
 /**
  * The entry point of the application.

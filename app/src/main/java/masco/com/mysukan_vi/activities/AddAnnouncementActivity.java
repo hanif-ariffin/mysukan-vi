@@ -12,7 +12,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import masco.com.mysukan_vi.R;
-import masco.com.mysukan_vi.annoucement.Announcement;
+import masco.com.mysukan_vi.models.Announcement;
 
 public class AddAnnouncementActivity extends AppCompatActivity {
     private DatabaseReference database;

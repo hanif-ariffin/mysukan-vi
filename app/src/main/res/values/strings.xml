@@ -106,7 +106,7 @@
         <item>Women V</item>
     </string-array>
     <string name="theme_song_info">Singer: Muhammad Abdul Shakir Hasri \n Lyric By: Emir Aizzat Abdillah  \n Composer: Azim Arshad</string>
-    <string name="theme_song_lyric">Telah tiba masa untuk bersiap sedia\n
+    <string name="theme_song_lyric" translatable="false">Telah tiba masa untuk bersiap sedia\n
 Kukuhkanlah pasukanmu obor telah bernyala\n
 sarungkanlah perisaimu pertahankan maruah\n
 kibarkanlah panjimu ayuhlah semua\n

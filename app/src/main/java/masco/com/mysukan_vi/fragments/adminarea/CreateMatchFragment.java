@@ -30,9 +30,8 @@ import masco.com.mysukan_vi.helper.NameManager;
 import masco.com.mysukan_vi.models.SingleScoreMatch;
 import masco.com.mysukan_vi.models.TripleScoreMatch;
 
-public class CreateMatch extends BaseFragment {
+public class CreateMatchFragment extends BaseFragment {
 
-    private Spinner teamOne, teamTwo, scoreOne, scoreTwo, scoreThree, scoreFour, scoreFive, scoreSix;
     ArrayAdapter<CharSequence> teamAdapter, scoreAdapter;
     private Button submitButton;
     private TextView text, datePicker1;
@@ -44,6 +43,7 @@ public class CreateMatch extends BaseFragment {
     private List<String> checker;
     private TimePickerDialog.OnTimeSetListener mTimeSetListener;
     private long unixTime;
+    private Spinner teamOne, teamTwo;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

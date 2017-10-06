@@ -22,8 +22,8 @@ import java.util.Collections;
 import java.util.List;
 
 import masco.com.mysukan_vi.R;
-import masco.com.mysukan_vi.annoucement.Announcement;
 import masco.com.mysukan_vi.helper.AnnouncementAdapter;
+import masco.com.mysukan_vi.models.Announcement;
 
 /**
  * Created by Haziq on 2017-10-03.

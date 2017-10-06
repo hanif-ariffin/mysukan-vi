@@ -332,14 +332,14 @@ public class SportDetailActivity extends BaseActivity {
      * Notify user of the failure to connect to the database.
      */
     private void notifyUserOfDatabaseFail() {
-        Toast.makeText(this, "Unable to query database! Perhaps no match is recorded yet?", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Sorry! We can't find any matches", Toast.LENGTH_SHORT).show();
     }
 
     /**
      * Notify user of the success to connect to the database.
      */
     private void notifyUserOfDatabaseSuccess() {
-        Toast.makeText(this, "Query to database successful!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Query success!", Toast.LENGTH_SHORT).show();
     }
 
     @Override

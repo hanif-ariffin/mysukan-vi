@@ -1,4 +1,4 @@
-package masco.com.mysukan_vi.annoucement;
+package masco.com.mysukan_vi.models;
 
 import android.support.annotation.NonNull;
 

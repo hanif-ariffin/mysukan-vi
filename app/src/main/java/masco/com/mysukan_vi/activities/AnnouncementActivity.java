@@ -24,7 +24,7 @@ import java.util.Collections;
 import java.util.List;
 
 import masco.com.mysukan_vi.R;
-import masco.com.mysukan_vi.annoucement.Announcement;
+import masco.com.mysukan_vi.models.Announcement;
 import masco.com.mysukan_vi.helper.AnnouncementAdapter;
 
 public class AnnouncementActivity extends AppCompatActivity {

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">MySukan VI</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Eメール</string>
+    <string name="prompt_password">パスワード(オプション)</string>
+    <string name="action_sign_in">管理者ログイン</string>
+    <string name="action_sign_in_short">サインイン</string>
+    <string name="error_invalid_email">このEメールアドレスは無効です</string>
+    <string name="error_invalid_password">パスワードが短すぎます</string>
+    <string name="error_incorrect_password">このパスワードが正しくありません</string>
+    <string name="error_field_required">これは必須項目です</string>
+    <string name="permission_rationale">連絡先へのアクセス権は、Eメールを送信する際に必要となります。</string>
+
+    <string-array name="number">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>35</item>
+        <item>36</item>
+        <item>37</item>
+        <item>38</item>
+        <item>39</item>
+        <item>40</item>
+        <item>41</item>
+        <item>42</item>
+        <item>43</item>
+        <item>44</item>
+        <item>45</item>
+        <item>46</item>
+        <item>47</item>
+        <item>48</item>
+        <item>49</item>
+        <item>50</item>
+    </string-array>
+    <string-array name="team_list">
+        <item />
+        <item>カールトン</item>
+        <item>トロント</item>
+        <item>ウォータールー</item>
+        <item>オタワ</item>
+        <item>マクマスター</item>
+        <item>クイーンズ</item>
+        <item>マギル</item>
+        <item>グエルフ</item>
+        <item>UBC</item>
+        <item>ダルハウジー</item>
+    </string-array>
+
+    <string-array name="sport_menu">
+        <item>バレーボール</item>
+        <item>テレマッチ</item>
+        <item>ドッジボール</item>
+        <item>フリスビー</item>
+        <item>バドミントン</item>
+        <item>スカッシュ</item>
+        <item>ネットボール</item>
+        <item>バスケットボール</item>
+        <item>フットボール</item>
+        <item>FIFAワールドカップ</item>
+        <item>ロケットリーグ</item>
+    </string-array>
+
+
+    <string-array name="Dodgeball">
+        <item>なし</item>
+    </string-array>
+
+    <string-array name="Volleyball">
+        <item>男性V</item>
+        <item>女性V</item>
+    </string-array>
+    <string name="theme_song_info">シンガー：ムハンマド・アブドゥル・シャカール・ハスリ\n 歌詞で：エミール・アイザット・アブディラ\n 作曲：アジム・アルシャド</string>
+    <string-array name="Badminton">
+        <item>男性ダブルス</item>
+        <item>女子ダブルス</item>
+        <item>ミックスダブルス</item>
+    </string-array>
+
+    <string-array name="Squash">
+        <item>男性シングルス</item>
+        <item>女子シングルス</item>
+    </string-array>
+
+</resources>

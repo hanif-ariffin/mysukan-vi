@@ -44,7 +44,7 @@ public class NewScoreFragment extends BaseFragment {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.addToBackStack(null);
-                Fragment fr = new CreateMatch();
+                Fragment fr = new CreateMatchFragment();
                 fr.setArguments(args);
                 fragmentTransaction.replace(R.id.new_score_fragment, fr, fr.toString());
                 fragmentTransaction.commit();
