@@ -2,18 +2,10 @@
     <string name="app_name">MySukan VI</string>
 
     <!-- Strings related to login -->
-    <string name="fragment_login_title">Admin Login</string>
     <string name="title">Admin Login</string>
     <string name="fragment_login_promt_email">Email</string>
     <string name="fragment_login_prompt_password">Password</string>
     <string name="fragment_login_action_sign_in">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
 
     <string name="main_page_activity_fragment_1_name">Announcement</string>
     <string name="main_page_activity_fragment_2_name">Scoreboard</string>
@@ -105,29 +97,6 @@
     <string name="final_string_basketall">Basketball</string>
 
 
-    <string-array name="sport_menu">
-        <item>Volleyball</item>
-        <item>Telematch</item>
-        <item>Dodgeball</item>
-        <item>Frisbee</item>
-        <item>Badminton</item>
-        <item>Squash</item>
-        <item>Netball</item>
-        <item>Basketball</item>
-        <item>Football</item>
-        <item>Fifa</item>
-        <item>Rocket League</item>
-    </string-array>
-
-
-    <string-array name="Dodgeball">
-        <item>None</item>
-    </string-array>
-
-    <string-array name="Volleyball">
-        <item>Men V</item>
-        <item>Women V</item>
-    </string-array>
     <string name="theme_song_info">Singer: Muhammad Abdul Shakir Hasri \n Lyric By: Emir Aizzat Abdillah  \n Composer: Azim Arshad</string>
     <string name="theme_song_lyric" translatable="false">Telah tiba masa untuk bersiap sedia\n
 Kukuhkanlah pasukanmu obor telah bernyala\n
@@ -170,15 +139,5 @@ temasya sukan di Ottawa\n
 walau di mana pun kita berada\n
 kita dibawah satu bendera\n
 malaysia...</string>
-    <string-array name="Badminton">
-        <item>Men Doubles</item>
-        <item>Women Doubles</item>
-        <item>Mixed Doubles</item>
-    </string-array>
-
-    <string-array name="Squash">
-        <item>Men Singles</item>
-        <item>Women Singles</item>
-    </string-array>
 
 </resources>

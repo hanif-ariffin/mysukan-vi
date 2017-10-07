@@ -3,16 +3,10 @@
     <string name="app_name">MySukan VI</string>
 
     <!-- Strings related to login -->
-    <string name="fragment_login_title">管理者のログイン</string>
     <string name="title">管理者のログイン</string>
     <string name="fragment_login_promt_email">Eメール</string>
     <string name="fragment_login_prompt_password">パスワード</string>
     <string name="fragment_login_action_sign_in">サインイン</string>
-    <string name="error_invalid_email">このEメールアドレスは無効です</string>
-    <string name="error_invalid_password">パスワードが短すぎます</string>
-    <string name="error_incorrect_password">このパスワードが正しくありません</string>
-    <string name="error_field_required">これは必須項目です</string>
-    <string name="permission_rationale">連絡先へのアクセス権は、Eメールを送信する際に必要となります。</string>
 
     <string name="main_page_activity_fragment_1_name">発表</string>
     <string name="main_page_activity_fragment_2_name">スコアボード</string>
@@ -103,39 +97,7 @@
     <string name="final_string_volleyball">バレーボール</string>
     <string name="final_string_basketall">バスケットボール</string>
 
-    <string-array name="sport_menu">
-        <item>バレーボール</item>
-        <item>テレマッチ</item>
-        <item>ドッジボール</item>
-        <item>フリスビー</item>
-        <item>バドミントン</item>
-        <item>スカッシュ</item>
-        <item>ネットボール</item>
-        <item>バスケットボール</item>
-        <item>フットボール</item>
-        <item>FIFAワールドカップ</item>
-        <item>ロケットリーグ</item>
-    </string-array>
 
-
-    <string-array name="Dodgeball">
-        <item>なし</item>
-    </string-array>
-
-    <string-array name="Volleyball">
-        <item>男性V</item>
-        <item>女性V</item>
-    </string-array>
     <string name="theme_song_info">シンガー：ムハンマド・アブドゥル・シャカール・ハスリ\n 歌詞で：エミール・アイザット・アブディラ\n 作曲：アジム・アルシャド</string>
-    <string-array name="Badminton">
-        <item>男性ダブルス</item>
-        <item>女子ダブルス</item>
-        <item>ミックスダブルス</item>
-    </string-array>
-
-    <string-array name="Squash">
-        <item>男性シングルス</item>
-        <item>女子シングルス</item>
-    </string-array>
 
 </resources>

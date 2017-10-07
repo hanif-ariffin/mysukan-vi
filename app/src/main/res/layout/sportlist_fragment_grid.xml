@@ -23,7 +23,6 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/text_frisbee"
                     android:layout_width="@dimen/sport_list_text_width"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
@@ -39,7 +38,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/button_frisbee" />
 
                 <TextView
-                    android:id="@+id/text_dodgeball"
                     android:layout_width="@dimen/sport_list_text_width"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
@@ -55,7 +53,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/button_dodgeball" />
 
                 <TextView
-                    android:id="@+id/text_netball"
                     android:layout_width="@dimen/sport_list_text_width"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
@@ -71,7 +68,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/button_netball" />
 
                 <TextView
-                    android:id="@+id/text_basketball"
                     android:layout_width="@dimen/sport_list_text_width"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -89,7 +85,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/button_basketball" />
 
                 <TextView
-                    android:id="@+id/text_squash_women_single"
                     android:layout_width="@dimen/sport_list_text_width"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
@@ -106,7 +101,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/button_squash_women_singles" />
 
                 <TextView
-                    android:id="@+id/text_squash_male_single"
                     android:layout_width="@dimen/sport_list_text_width"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
@@ -124,7 +118,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/button_squash_men_singles" />
 
                 <TextView
-                    android:id="@+id/text_badminton_mixed_double"
                     android:layout_width="@dimen/sport_list_text_width"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
@@ -142,7 +135,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/button_badminton_mixed_doubles" />
 
                 <TextView
-                    android:id="@+id/text_badminton_women_double"
                     android:layout_width="@dimen/sport_list_text_width"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
@@ -159,7 +151,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/button_badminton_women_doubles" />
 
                 <TextView
-                    android:id="@+id/text_badminton_male_double"
                     android:layout_width="@dimen/sport_list_text_width"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
@@ -176,7 +167,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/button_badminton_men_doubles" />
 
                 <TextView
-                    android:id="@+id/text_soccer"
                     android:layout_width="@dimen/sport_list_text_width"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
@@ -195,7 +185,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/button_soccer" />
 
                 <TextView
-                    android:id="@+id/text_volleyball"
                     android:layout_width="@dimen/sport_list_text_width"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"

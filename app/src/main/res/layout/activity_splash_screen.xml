@@ -7,7 +7,6 @@
     tools:context="masco.com.mysukan_vi.activities.SplashScreenActivity">
 
     <TextView
-        android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="120dp"
@@ -62,7 +61,6 @@
         app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
-        android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Brought to you by : \n Masco \n \n Developed by : Hafiz Ghani , Haziq Hafizi , Hanif Ariffin"

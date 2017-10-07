@@ -110,7 +110,6 @@
                 tools:layout_editor_absoluteY="170dp" />
 
             <ImageView
-                android:id="@+id/imageView3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
@@ -150,7 +149,6 @@
                 tools:layout_editor_absoluteY="290dp" />
 
             <TextView
-                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:text="               " />

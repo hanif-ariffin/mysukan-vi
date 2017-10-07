@@ -22,7 +22,6 @@
                 android:orientation="horizontal"></LinearLayout>
 
             <TextView
-                android:id="@+id/text_sponsor_gold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -50,14 +49,12 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/image_sponsor_mara"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/sponsor_mara_gold" />
 
                 <ImageView
-                    android:id="@+id/image_sponsor_malaysia"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:layout_weight="1"
@@ -77,14 +74,12 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/image_sponsor_mohe"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/sponsor_logo_mohe_gold" />
 
                 <ImageView
-                    android:id="@+id/image_sponsor_jpa"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:layout_weight="1"
@@ -100,7 +95,6 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/text_sponsor_bronze"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -129,14 +123,12 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/image_sponsor_dmdi"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/sponsor_dmdi_bronze" />
 
                 <ImageView
-                    android:id="@+id/image_sponsor_masat"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:layout_weight="1"
@@ -159,14 +151,12 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/image_sponsor_is_enterprise"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/sponsor_is_enterprise_bronze" />
 
                 <ImageView
-                    android:id="@+id/image_sponsor_tbtb"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:layout_weight="1"
@@ -180,7 +170,6 @@
                 android:orientation="horizontal"></LinearLayout>
 
             <TextView
-                android:id="@+id/text_sponsor_collaborators"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -194,7 +183,6 @@
                 android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/image_sponsor_mso"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_weight="1"
