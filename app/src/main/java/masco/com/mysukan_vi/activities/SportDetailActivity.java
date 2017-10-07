@@ -178,7 +178,7 @@ public class SportDetailActivity extends BaseActivity {
                         }
                         hideProgressDialog();
                     }
-                    //Collections.sort(matchList);
+                    Collections.sort(matchList);
                     scoreAdapter.notifyDataSetChanged();
                 }
 

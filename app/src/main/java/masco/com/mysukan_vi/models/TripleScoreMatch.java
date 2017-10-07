@@ -12,7 +12,7 @@ import java.util.Map;
  * Created by r3xas on 9/15/2017.
  */
 
-public class TripleScoreMatch {
+public class TripleScoreMatch implements Comparable {
     public Long match_date, team_1_score_1, team_2_score_1, team_1_score_2, team_2_score_2, team_1_score_3, team_2_score_3;
     public String team_1_name, team_2_name, id, custom_name_1, custom_name_2;
 
@@ -60,10 +60,10 @@ public class TripleScoreMatch {
 
         return map;
     }
-/**
- @Override public int compareTo(Object o) {
- TripleScoreMatch match = (TripleScoreMatch) o;
- return this.match_date.compareTo(match.match_date);
- }
- **/
+
+    @Override
+    public int compareTo(Object o) {
+        TripleScoreMatch match = (TripleScoreMatch) o;
+        return this.match_date.compareTo(match.match_date);
+    }
 }
