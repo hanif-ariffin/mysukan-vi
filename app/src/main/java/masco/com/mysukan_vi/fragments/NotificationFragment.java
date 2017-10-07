@@ -1,10 +1,9 @@
 package masco.com.mysukan_vi.fragments;
 
 import android.content.DialogInterface;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +34,8 @@ public class NotificationFragment extends BaseFragment {
     private List<Announcement> data;
     private ListView listView;
 
+    public static final String TAG = "NotificationFragment";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,15 +49,18 @@ public class NotificationFragment extends BaseFragment {
         listView.setAdapter(lArrayAdapter);
         database = FirebaseDatabase.getInstance().getReference("announcement");
 
+        Log.wtf(TAG, "key + announcement");
 
         database.addValueEventListener(new ValueEventListener() {
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 data.clear();
                 for (DataSnapshot Snapshot : dataSnapshot.getChildren()) {
                     Announcement announcement = Snapshot.getValue(Announcement.class);
                     data.add(announcement);
+
+                    Log.wtf(TAG, "key + announcement" + announcement.getId());
                 }
                 Collections.reverse(data);
                 lArrayAdapter.notifyDataSetChanged();

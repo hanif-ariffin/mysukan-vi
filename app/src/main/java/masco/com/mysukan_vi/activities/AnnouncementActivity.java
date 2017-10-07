@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,8 +25,8 @@ import java.util.Collections;
 import java.util.List;
 
 import masco.com.mysukan_vi.R;
-import masco.com.mysukan_vi.models.Announcement;
 import masco.com.mysukan_vi.helper.AnnouncementAdapter;
+import masco.com.mysukan_vi.models.Announcement;
 
 public class AnnouncementActivity extends AppCompatActivity {
 
@@ -33,6 +34,7 @@ public class AnnouncementActivity extends AppCompatActivity {
     private List<Announcement> data;
     private ListView listView;
     private static int index;
+    private static final String TAG = "AnnouncementActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +46,7 @@ public class AnnouncementActivity extends AppCompatActivity {
         final AnnouncementAdapter lArrayAdapter = new AnnouncementAdapter(AnnouncementActivity.this, R.layout.include_item_annoucement, data);
         listView.setAdapter(lArrayAdapter);
         database = FirebaseDatabase.getInstance().getReference("announcement");
-
+        Log.d(TAG, "key + announcement");
 
         database.addValueEventListener(new ValueEventListener() {
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
@@ -52,6 +54,7 @@ public class AnnouncementActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 data.clear();
                 for (DataSnapshot Snapshot : dataSnapshot.getChildren()) {
+                    Log.d(TAG, "key + announcement");
                     Announcement announcement = Snapshot.getValue(Announcement.class);
                     data.add(announcement);
                 }
