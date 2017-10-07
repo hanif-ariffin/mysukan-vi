@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import masco.com.mysukan_vi.R;
@@ -125,11 +127,13 @@ public class SportDetailActivity extends BaseActivity {
             /**
              * Add listener to the realtime database
              */
+            Log.d(TAG, "Initialized listener");
             databaseReferenceListener = new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     matchList.clear();
                     for (DataSnapshot Snapshot : dataSnapshot.getChildren()) {
+                        Log.d(TAG, "Obtained match");
                         TripleScoreMatch match;
 
                         /**
@@ -174,6 +178,7 @@ public class SportDetailActivity extends BaseActivity {
                         }
                         hideProgressDialog();
                     }
+                    //Collections.sort(matchList);
                     scoreAdapter.notifyDataSetChanged();
                 }
 

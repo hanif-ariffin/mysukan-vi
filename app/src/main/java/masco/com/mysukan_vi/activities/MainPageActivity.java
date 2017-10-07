@@ -159,7 +159,7 @@ public class MainPageActivity extends BaseActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void showNotification(List<Announcement> data) {
-        Intent intent = new Intent(MainPageActivity.this, AnnouncementActivity.class);
+        Intent intent = new Intent(MainPageActivity.this, MainPageActivity.class);
         PendingIntent pi = PendingIntent.getActivity(MainPageActivity.this, 0, intent, 0);
         Notification.Builder builder = new Notification.Builder(MainPageActivity.this);
 

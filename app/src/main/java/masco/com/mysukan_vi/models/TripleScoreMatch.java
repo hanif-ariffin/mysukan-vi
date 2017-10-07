@@ -60,4 +60,10 @@ public class TripleScoreMatch {
 
         return map;
     }
+/**
+ @Override public int compareTo(Object o) {
+ TripleScoreMatch match = (TripleScoreMatch) o;
+ return this.match_date.compareTo(match.match_date);
+ }
+ **/
 }
