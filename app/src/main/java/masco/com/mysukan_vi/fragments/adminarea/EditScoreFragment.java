@@ -52,7 +52,7 @@ public class EditScoreFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.activity_edit_score, container, false);
+        View view = inflater.inflate(R.layout.activity_adminpage_matches_list, container, false);
 
         setHasOptionsMenu(true);
         checker = Arrays.asList("badminton_men_doubles", "badminton_women_doubles", "badminton_mixed_doubles", "squash_men_singles", "squash_women_singles");

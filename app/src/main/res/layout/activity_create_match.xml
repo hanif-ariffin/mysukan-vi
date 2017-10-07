@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:clickable="true"
-    tools:context="masco.com.mysukan_vi.fragments.adminarea.CreateMatchFragment"
+    tools:context="masco.com.mysukan_vi.activities.CreateMatchActivity"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="81dp">
 
     <TextView
-        android:id="@+id/submit_score_norm_header"
+        android:id="@+id/activity_create_match_title"
         android:layout_width="258dp"
         android:layout_height="72dp"
         android:layout_centerHorizontal="true"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/BTN_submit"
+        android:id="@+id/activity_create_match_button_submit"
         android:layout_width="271dp"
         android:layout_height="45dp"
         android:layout_alignParentBottom="true"
@@ -46,12 +46,12 @@
         android:text="CREATE NEW MATCH"
         android:textColor="@android:color/background_light"
         app:layout_constraintHorizontal_bias="0.486"
-        app:layout_constraintLeft_toLeftOf="@+id/datePicker"
-        app:layout_constraintRight_toRightOf="@+id/datePicker"
-        app:layout_constraintTop_toBottomOf="@+id/datePicker" />
+        app:layout_constraintLeft_toLeftOf="@+id/activity_create_match_date_picker"
+        app:layout_constraintRight_toRightOf="@+id/activity_create_match_date_picker"
+        app:layout_constraintTop_toBottomOf="@+id/activity_create_match_date_picker" />
 
     <TextView
-        android:id="@+id/datePicker"
+        android:id="@+id/activity_create_match_date_picker"
         android:layout_width="92dp"
         android:layout_height="90dp"
         android:layout_centerHorizontal="true"
@@ -67,10 +67,10 @@
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_create_match_layout" />
 
     <TableLayout
-        android:id="@+id/tableLayout3"
+        android:id="@+id/activity_create_match_layout"
         android:layout_width="337dp"
         android:layout_height="182dp"
         android:layout_marginLeft="8dp"
@@ -80,7 +80,7 @@
         app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/submit_score_norm_header">
+        app:layout_constraintTop_toBottomOf="@+id/activity_create_match_title">
 
         <TableRow
             android:layout_width="match_parent"
@@ -104,7 +104,7 @@
                 android:textSize="18sp" />
 
             <Spinner
-                android:id="@+id/teamOne"
+                android:id="@+id/activity_create_match_team_1_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -123,7 +123,7 @@
             android:gravity="center">
 
             <EditText
-                android:id="@+id/custom_team_name_one"
+                android:id="@+id/activity_create_match_team_1_custom_name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ems="10"
@@ -153,7 +153,7 @@
                 android:textSize="18sp" />
 
             <Spinner
-                android:id="@+id/teamTwo"
+                android:id="@+id/activity_create_match_team_2_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </TableRow>
@@ -171,7 +171,7 @@
             android:gravity="center">
 
             <EditText
-                android:id="@+id/custom_team_name_two"
+                android:id="@+id/activity_create_match_team_2_custom_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"

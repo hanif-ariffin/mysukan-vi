@@ -30,9 +30,9 @@ import masco.com.mysukan_vi.models.Announcement;
 
 public class NotificationFragment extends BaseFragment {
 
-    private DatabaseReference database;
-    private List<Announcement> data;
-    private ListView listView;
+    private DatabaseReference databaseReference;
+    private List<Announcement> announcementArrayList;
+    private ListView announcementListView;
 
     public static final String TAG = "NotificationFragment";
 
@@ -41,29 +41,27 @@ public class NotificationFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
-        View rootView = inflater.inflate(R.layout.activity_announcement, container, false);
+        View rootView = inflater.inflate(R.layout.activity_mainpage_announcement, container, false);
 
-        data = new ArrayList<>();
-        listView = (ListView) rootView.findViewById(R.id.listAnnoucement);
-        final AnnouncementAdapter lArrayAdapter = new AnnouncementAdapter(getContext(), R.layout.include_item_annoucement, data);
-        listView.setAdapter(lArrayAdapter);
-        database = FirebaseDatabase.getInstance().getReference("announcement");
+        announcementArrayList = new ArrayList<>();
+        announcementListView = (ListView) rootView.findViewById(R.id.activity_mainpage_announcement_listview);
+        final AnnouncementAdapter announcementListViewAdapter = new AnnouncementAdapter(getContext(), R.layout.include_item_annoucement, announcementArrayList);
+        announcementListView.setAdapter(announcementListViewAdapter);
+        databaseReference = FirebaseDatabase.getInstance().getReference("announcement");
 
-        Log.wtf(TAG, "key + announcement");
-
-        database.addValueEventListener(new ValueEventListener() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                data.clear();
+                announcementArrayList.clear();
                 for (DataSnapshot Snapshot : dataSnapshot.getChildren()) {
                     Announcement announcement = Snapshot.getValue(Announcement.class);
-                    data.add(announcement);
+                    announcementArrayList.add(announcement);
 
                     Log.wtf(TAG, "key + announcement" + announcement.getId());
                 }
-                Collections.reverse(data);
-                lArrayAdapter.notifyDataSetChanged();
+                Collections.reverse(announcementArrayList);
+                announcementListViewAdapter.notifyDataSetChanged();
 
             }
 
@@ -73,15 +71,15 @@ public class NotificationFragment extends BaseFragment {
             }
         });
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        announcementListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());
                 builder1.setCancelable(true);
-                builder1.setMessage("Message : " + data.get(i).getMessage());
+                builder1.setMessage("Message : " + announcementArrayList.get(i).getMessage());
                 AlertDialog alert11 = builder1.create();
-                alert11.setTitle("Subject : " + data.get(i).getSubject());
+                alert11.setTitle("Subject : " + announcementArrayList.get(i).getSubject());
                 builder1.setPositiveButton(
                         "OK",
                         new DialogInterface.OnClickListener() {

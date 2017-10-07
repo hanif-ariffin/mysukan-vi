@@ -13,7 +13,7 @@ public class LyricActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lyric);
+        setContentView(R.layout.activity_other_lyric);
 
         getSupportActionBar().setTitle("Theme Song Lyric");
     }

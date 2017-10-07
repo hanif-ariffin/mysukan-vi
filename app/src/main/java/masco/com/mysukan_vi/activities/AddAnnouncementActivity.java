@@ -22,7 +22,7 @@ public class AddAnnouncementActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_announcement);
+        setContentView(R.layout.activity_adminpage_announcement_add);
 
         database = FirebaseDatabase.getInstance().getReference("announcement");
         subject = (EditText) findViewById(R.id.subjectText);

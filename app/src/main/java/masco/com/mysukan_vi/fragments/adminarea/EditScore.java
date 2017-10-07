@@ -13,22 +13,19 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.Arrays;
-import java.util.List;
-
 import masco.com.mysukan_vi.R;
 import masco.com.mysukan_vi.fragments.BaseFragment;
 import masco.com.mysukan_vi.helper.NameManager;
+import masco.com.mysukan_vi.helper.SportManager;
 import masco.com.mysukan_vi.models.SingleScoreMatch;
 import masco.com.mysukan_vi.models.TripleScoreMatch;
 
 public class EditScore extends BaseFragment {
 
-    private Spinner scoreOne, scoreTwo, scoreThree, scoreFour, scoreFive, scoreSix;
+    private Spinner teamOneScoreOne, teamTwoScoreOne, teamOneScoreTwo, teamTwoScoreTwo, teamOneScoreThree, teamTwoScoreThree;
     ArrayAdapter<CharSequence> scoreAdapter;
     private Button submit, delete;
     private TextView textHeader, teamOneName, teamTwoName;
-    private List<String> checker;
     private String id, customNameOne, customNameTwo, uniTeamNameOne, uniTeamNameTwo;
     private static String sport_name;
     private long match_date;
@@ -42,9 +39,6 @@ public class EditScore extends BaseFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         final View rootView;
 
-        //array for checker
-        checker = Arrays.asList("badminton_men_doubles", "badminton_women_doubles", "badminton_mixed_doubles", "squash_men_singles", "squash_women_singles", "volleyball");
-
         //get argument from previous fragment
         args = getArguments();
         sport_name = args.getString("sport_name");
@@ -52,41 +46,42 @@ public class EditScore extends BaseFragment {
         match_date = args.getLong("match_date");
 
         // check which templete sport need to be use
-        if (checker.contains(sport_name)) {
+        if (!SportManager.isSingleScore(sport_name)) {
             rootView = inflater.inflate(R.layout.edit_score_set, container, false);
 
-            scoreOne = (Spinner) rootView.findViewById(R.id.scoreOne);
-            scoreTwo = (Spinner) rootView.findViewById(R.id.scoreTwo);
-            scoreThree = (Spinner) rootView.findViewById(R.id.scoreThree);
-            scoreFour = (Spinner) rootView.findViewById(R.id.scoreFour);
-            scoreFive = (Spinner) rootView.findViewById(R.id.scoreFive);
-            scoreSix = (Spinner) rootView.findViewById(R.id.scoreSix);
+            teamOneScoreOne = (Spinner) rootView.findViewById(R.id.edit_score_set_team_1_score_1);
+            teamOneScoreTwo = (Spinner) rootView.findViewById(R.id.edit_score_set_team_1_score_2);
+            teamOneScoreThree = (Spinner) rootView.findViewById(R.id.edit_score_set_team_1_score_3);
+
+            teamTwoScoreOne = (Spinner) rootView.findViewById(R.id.edit_score_set_team_2_score_1);
+            teamTwoScoreTwo = (Spinner) rootView.findViewById(R.id.edit_score_set_team_2_score_2);
+            teamTwoScoreThree = (Spinner) rootView.findViewById(R.id.edit_score_set_team_2_score_3);
 
             scoreAdapter = ArrayAdapter.createFromResource(getContext(), R.array.number, android.R.layout.simple_spinner_item);
             scoreAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            scoreOne.setAdapter(scoreAdapter);
-            scoreTwo.setAdapter(scoreAdapter);
-            scoreThree.setAdapter(scoreAdapter);
-            scoreFour.setAdapter(scoreAdapter);
-            scoreFive.setAdapter(scoreAdapter);
-            scoreSix.setAdapter(scoreAdapter);
+            teamOneScoreOne.setAdapter(scoreAdapter);
+            teamTwoScoreOne.setAdapter(scoreAdapter);
+            teamOneScoreTwo.setAdapter(scoreAdapter);
+            teamTwoScoreTwo.setAdapter(scoreAdapter);
+            teamOneScoreThree.setAdapter(scoreAdapter);
+            teamTwoScoreThree.setAdapter(scoreAdapter);
 
         } else {
             rootView = inflater.inflate(R.layout.edit_score_norm, container, false);
 
-            scoreOne = (Spinner) rootView.findViewById(R.id.scoreOne);
-            scoreTwo = (Spinner) rootView.findViewById(R.id.scoreTwo);
+            teamOneScoreOne = (Spinner) rootView.findViewById(R.id.edit_score_set_team_1_score_1);
+            teamTwoScoreOne = (Spinner) rootView.findViewById(R.id.edit_score_set_team_2_score_1);
 
             scoreAdapter = ArrayAdapter.createFromResource(getContext(), R.array.number, android.R.layout.simple_spinner_item);
             scoreAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            scoreOne.setAdapter(scoreAdapter);
-            scoreTwo.setAdapter(scoreAdapter);
+            teamOneScoreOne.setAdapter(scoreAdapter);
+            teamTwoScoreOne.setAdapter(scoreAdapter);
         }
 
         sport_name = NameManager.DatabaseToUser(sport_name);
 
         //set text for the header
-        textHeader = (TextView) rootView.findViewById(R.id.submit_score_norm_header);
+        textHeader = (TextView) rootView.findViewById(R.id.edit_score_set_title);
         textHeader.setText(sport_name);
 
 
@@ -97,8 +92,8 @@ public class EditScore extends BaseFragment {
         uniTeamNameTwo = args.getString("teamTwo");
 
         // team Textview
-        teamTwoName = (TextView) rootView.findViewById(R.id.teamTwo);
-        teamOneName = (TextView) rootView.findViewById(R.id.teamOne);
+        teamTwoName = (TextView) rootView.findViewById(R.id.edit_score_set_team_1_name);
+        teamOneName = (TextView) rootView.findViewById(R.id.edit_score_set_team_2_name);
 
         if (customNameOne != null) {
             if (!customNameOne.isEmpty()) {
@@ -127,27 +122,31 @@ public class EditScore extends BaseFragment {
         databaseSport = FirebaseDatabase.getInstance().getReference("games");
 
         //On click listener for button
-        submit = (Button) rootView.findViewById(R.id.BTN_submit);
+        if (!SportManager.isSingleScore(sport_name)) {
+            submit = (Button) rootView.findViewById(R.id.edit_score_set_button_submit);
+        } else {
+            submit = (Button) rootView.findViewById((R.id.activity_create_match_button_submit));
+        }
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 databaseSport = FirebaseDatabase.getInstance().getReference("games").child(sport_name).child(id);
-                if (!checker.contains(sport_name)) {
-                    SingleScoreMatch sport = new SingleScoreMatch(match_date, id, uniTeamNameOne, uniTeamNameTwo, customNameOne, customNameTwo, Long.parseLong(scoreOne.getSelectedItem().toString()), Long.parseLong(scoreTwo.getSelectedItem().toString()));
+                if (SportManager.isSingleScore(sport_name)) {
+                    SingleScoreMatch sport = new SingleScoreMatch(match_date, id, uniTeamNameOne, uniTeamNameTwo, customNameOne, customNameTwo, Long.parseLong(teamOneScoreOne.getSelectedItem().toString()), Long.parseLong(teamTwoScoreOne.getSelectedItem().toString()));
                     databaseSport.setValue(sport);
                     Toast.makeText(getContext(), "Score Updated", Toast.LENGTH_SHORT).show();
                 } else {
-                    TripleScoreMatch sport = new TripleScoreMatch(match_date, id, uniTeamNameOne, uniTeamNameTwo, customNameOne, customNameTwo, Long.parseLong(scoreOne.getSelectedItem().toString()), Long.parseLong(scoreTwo.getSelectedItem().toString())
-                            , Long.parseLong(scoreThree.getSelectedItem().toString()), Long.parseLong(scoreFour.getSelectedItem().toString())
-                            , Long.parseLong(scoreFive.getSelectedItem().toString()), Long.parseLong(scoreSix.getSelectedItem().toString()));
+                    TripleScoreMatch sport = new TripleScoreMatch(match_date, id, uniTeamNameOne, uniTeamNameTwo, customNameOne, customNameTwo, Long.parseLong(teamOneScoreOne.getSelectedItem().toString()), Long.parseLong(teamTwoScoreOne.getSelectedItem().toString())
+                            , Long.parseLong(teamOneScoreTwo.getSelectedItem().toString()), Long.parseLong(teamTwoScoreTwo.getSelectedItem().toString())
+                            , Long.parseLong(teamOneScoreThree.getSelectedItem().toString()), Long.parseLong(teamTwoScoreThree.getSelectedItem().toString()));
                     databaseSport.setValue(sport);
                     Toast.makeText(getContext(), "Score Updated", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-        delete = (Button) rootView.findViewById(R.id.BTN_delete);
+        delete = (Button) rootView.findViewById(R.id.edit_score_norm_button_delete);
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

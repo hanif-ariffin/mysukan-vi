@@ -7,7 +7,7 @@
     tools:context="masco.com.mysukan_vi.activities.AnnouncementActivity">
 
     <ListView
-        android:id="@+id/listAnnoucement"
+        android:id="@+id/activity_mainpage_announcement_listview"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"

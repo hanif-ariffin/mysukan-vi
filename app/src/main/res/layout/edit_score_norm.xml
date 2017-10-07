@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:clickable="true"
-    tools:context="masco.com.mysukan_vi.fragments.adminarea.CreateMatchFragment"
+    tools:context="masco.com.mysukan_vi.activities.CreateMatchActivity"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="81dp">
 
     <Button
-        android:id="@+id/BTN_delete"
+        android:id="@+id/edit_score_norm_button_delete"
         android:layout_width="289dp"
         android:layout_height="44dp"
         android:layout_alignParentBottom="true"
@@ -29,11 +29,11 @@
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BTN_submit"
+        app:layout_constraintTop_toBottomOf="@+id/activity_create_match_button_submit"
         app:layout_constraintVertical_bias="0.022" />
 
     <TextView
-        android:id="@+id/submit_score_norm_header"
+        android:id="@+id/activity_create_match_title"
         android:layout_width="258dp"
         android:layout_height="72dp"
         android:layout_centerHorizontal="true"
@@ -54,7 +54,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/BTN_submit"
+        android:id="@+id/activity_create_match_button_submit"
         android:layout_width="289dp"
         android:layout_height="44dp"
         android:layout_alignParentBottom="true"
@@ -84,7 +84,7 @@
         android:stretchColumns="2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/submit_score_norm_header">
+        app:layout_constraintTop_toBottomOf="@+id/activity_create_match_title">
 
         <TableRow
             android:layout_width="match_parent"
@@ -96,7 +96,6 @@
             tools:layout_editor_absoluteY="7dp">
 
             <TextView
-                android:id="@+id/teamOne"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -117,7 +116,6 @@
                 app:srcCompat="@drawable/vs" />
 
             <TextView
-                android:id="@+id/teamTwo"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -138,15 +136,15 @@
             android:gravity="center">
 
             <Spinner
-                android:id="@+id/scoreOne"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_below="@+id/score_text"
-                android:layout_toStartOf="@+id/scoreTwo"
+                android:layout_toStartOf="@+id/edit_score_norm_team_2_score_1"
                 android:background="@drawable/rectangle_black"
                 android:textAlignment="center"
                 tools:layout_editor_absoluteX="198dp"
-                tools:layout_editor_absoluteY="290dp" />
+                tools:layout_editor_absoluteY="290dp"
+                android:layout_toLeftOf="@+id/edit_score_norm_team_2_score_1" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -154,7 +152,7 @@
                 android:text="               " />
 
             <Spinner
-                android:id="@+id/scoreTwo"
+                android:id="@+id/edit_score_norm_team_2_score_1"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_below="@+id/score_text"
@@ -163,7 +161,8 @@
                 android:background="@drawable/rectangle_black"
                 android:textAlignment="center"
                 tools:layout_editor_absoluteX="185dp"
-                tools:layout_editor_absoluteY="71dp" />
+                tools:layout_editor_absoluteY="71dp"
+                android:layout_toRightOf="@+id/score_text" />
 
         </TableRow>
     </TableLayout>

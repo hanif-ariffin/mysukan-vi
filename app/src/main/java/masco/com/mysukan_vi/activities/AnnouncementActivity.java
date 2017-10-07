@@ -39,10 +39,10 @@ public class AnnouncementActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_announcement);
+        setContentView(R.layout.activity_mainpage_announcement);
 
         data = new ArrayList<>();
-        listView = (ListView) findViewById(R.id.listAnnoucement);
+        listView = (ListView) findViewById(R.id.activity_mainpage_announcement_listview);
         final AnnouncementAdapter lArrayAdapter = new AnnouncementAdapter(AnnouncementActivity.this, R.layout.include_item_annoucement, data);
         listView.setAdapter(lArrayAdapter);
         database = FirebaseDatabase.getInstance().getReference("announcement");

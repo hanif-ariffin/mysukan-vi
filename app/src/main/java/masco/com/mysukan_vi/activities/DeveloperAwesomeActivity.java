@@ -25,7 +25,7 @@ public class DeveloperAwesomeActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_developer_awesome);
+        setContentView(R.layout.activity_other_contacts);
 
         getSupportActionBar().setTitle("Developer Awesome");
 
