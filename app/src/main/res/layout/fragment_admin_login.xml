@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
@@ -19,12 +20,12 @@
         android:layout_marginTop="45dp"
         android:background="@android:color/background_light"
         android:ems="10"
-        android:hint=" Username or Email Address"
+        android:hint="@string/fragment_login_promt_email"
         android:inputType="textPersonName"
         android:textSize="14sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/fragment_login_title" />
 
     <EditText
         android:id="@+id/ET_password"
@@ -37,7 +38,7 @@
         android:layout_marginTop="14dp"
         android:background="@android:color/background_light"
         android:ems="10"
-        android:hint=" Password"
+        android:hint="@string/fragment_login_prompt_password"
         android:inputType="textPassword"
         android:textSize="14sp"
         app:layout_constraintHorizontal_bias="0.496"
@@ -55,48 +56,29 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="38dp"
         android:background="@drawable/round_corners"
-        android:text="Sign In"
+        android:text="@string/fragment_login_action_sign_in"
         android:textColor="@color/colorAccent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ET_password" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="196dp"
-        android:layout_height="51dp"
+        android:id="@+id/fragment_login_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/ET_email"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="67dp"
         android:fontFamily="sans-serif"
-        android:text="Admin Login"
+        android:text="@string/title"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
         android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/forgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_alignEnd="@+id/textView"
-        android:layout_alignStart="@+id/textView"
-        android:layout_alignTop="@+id/LoginButton"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="11dp"
-        android:clickable="true"
-        android:fontFamily="sans-serif"
-        android:text="Forgot password?"
-        android:textAlignment="center"
-        android:textColor="@android:color/background_light"
-        android:textSize="12sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LoginButton" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/title" />
 
 </android.support.constraint.ConstraintLayout>

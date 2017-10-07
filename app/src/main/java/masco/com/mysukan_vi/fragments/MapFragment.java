@@ -54,9 +54,18 @@ public class MapFragment extends BaseFragment implements OnMapReadyCallback {
 
 
         Adapter adapter = new Adapter(getChildFragmentManager());
-        adapter.addFragment(new MapVenueFragment(), "Venue");
-        adapter.addFragment(new MapRestaurantFragment(), "Restaurant");
-        adapter.addFragment(new MapAmenitiesFragment(), "Amenities");
+        adapter.addFragment(
+                new MapVenueFragment(),
+                getString(R.string.main_page_activity_map_fragment_fragment_1_name)
+        );
+        adapter.addFragment(
+                new MapRestaurantFragment(),
+                getString(R.string.main_page_activity_map_fragment_fragment_2_name)
+        );
+        adapter.addFragment(
+                new MapAmenitiesFragment(),
+                getString(R.string.main_page_activity_map_fragment_fragment_3_name)
+        );
         viewPager.setAdapter(adapter);
     }
 

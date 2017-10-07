@@ -1,5 +1,10 @@
 package masco.com.mysukan_vi.models;
 
+import com.google.firebase.database.Exclude;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by User on 2017-09-28.
  */
@@ -43,4 +48,15 @@ public class WinnerMatch {
         this.third_place = third_place;
     }
 
+    @Exclude
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> map = new HashMap<>();
+
+        // WinnerMatch data
+        map.put("first_place", first_place);
+        map.put("second_place", second_place);
+        map.put("third_place", third_place);
+
+        return map;
+    }
 }

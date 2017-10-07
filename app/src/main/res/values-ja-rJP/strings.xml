@@ -3,15 +3,25 @@
     <string name="app_name">MySukan VI</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_email">Eメール</string>
-    <string name="prompt_password">パスワード(オプション)</string>
-    <string name="action_sign_in">管理者ログイン</string>
-    <string name="action_sign_in_short">サインイン</string>
+    <string name="fragment_login_title">管理者のログイン</string>
+    <string name="title">管理者のログイン</string>
+    <string name="fragment_login_promt_email">Eメール</string>
+    <string name="fragment_login_prompt_password">パスワード</string>
+    <string name="fragment_login_action_sign_in">サインイン</string>
     <string name="error_invalid_email">このEメールアドレスは無効です</string>
     <string name="error_invalid_password">パスワードが短すぎます</string>
     <string name="error_incorrect_password">このパスワードが正しくありません</string>
     <string name="error_field_required">これは必須項目です</string>
     <string name="permission_rationale">連絡先へのアクセス権は、Eメールを送信する際に必要となります。</string>
+
+    <string name="main_page_activity_fragment_1_name">発表</string>
+    <string name="main_page_activity_fragment_2_name">スコアボード</string>
+    <string name="main_page_activity_fragment_3_name">会場</string>
+    <string name="main_page_activity_fragment_4_name">管理者のログイン</string>
+
+    <string name="main_page_activity_map_fragment_fragment_1_name">会場</string>
+    <string name="main_page_activity_map_fragment_fragment_2_name">レストラン</string>
+    <string name="main_page_activity_map_fragment_fragment_3_name">アメニティ</string>
 
     <string-array name="number">
         <item>0</item>
@@ -66,6 +76,7 @@
         <item>49</item>
         <item>50</item>
     </string-array>
+
     <string-array name="team_list">
         <item />
         <item>カールトン</item>
@@ -79,6 +90,18 @@
         <item>UBC</item>
         <item>ダルハウジー</item>
     </string-array>
+
+    <string name="final_string_soccer">サッカー</string>
+    <string name="final_string_badminton_men_doubles">バドミントンの男性ダブルス</string>
+    <string name="final_string_badminton_women_doubles">バドミントン女性ダブルス</string>
+    <string name="final_string_badminton_mixed_doubles">バドミントン混合ダブルス</string>
+    <string name="final_string_squash_men_singles">スカッシュの男性のシングル</string>
+    <string name="final_string_squash_women_singles">スカッシュ女性のシングル</string>
+    <string name="final_string_frisbee">フリスビー</string>
+    <string name="final_string_dodgeball">ドッジボール</string>
+    <string name="final_string_netball">ネットボール</string>
+    <string name="final_string_volleyball">バレーボール</string>
+    <string name="final_string_basketall">バスケットボール</string>
 
     <string-array name="sport_menu">
         <item>バレーボール</item>

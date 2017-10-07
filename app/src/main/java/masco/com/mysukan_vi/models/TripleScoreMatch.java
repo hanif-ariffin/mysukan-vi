@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * TripleScoreMatch is NOT an exact copy of SingleScoreMatch, there are differences in its utility.
+ * Specifically, SportDetailActivity will ALWAYS use TripleScoreMatch even when the sport is supposed to be a SingleScoreMatch.
+ * Please refer to the documentation in SportDetailActivity for more information on this design.
  * Created by r3xas on 9/15/2017.
  */
 

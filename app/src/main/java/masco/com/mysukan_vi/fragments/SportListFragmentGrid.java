@@ -12,6 +12,10 @@ import masco.com.mysukan_vi.activities.SportDetailActivity;
 import masco.com.mysukan_vi.helper.NameManager;
 
 /**
+ * SportListFragment is the fragment for display the Scoreboard.
+ * The design on the UI is NOT dynamic.
+ * If you need to add something you have to manually add them here.
+ * Considering that there are only a predefined amount of sports, this was argued as the better design than having a ListView.
  * Created by r3xas on 9/25/2017.
  */
 

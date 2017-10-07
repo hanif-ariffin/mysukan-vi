@@ -33,7 +33,7 @@ public class LoginFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        rootView = inflater.inflate(R.layout.activity_login, container, false);
+        rootView = inflater.inflate(R.layout.fragment_admin_login, container, false);
 
         //Initialize XML hookss
         ET_email = (EditText) rootView.findViewById(R.id.ET_email);

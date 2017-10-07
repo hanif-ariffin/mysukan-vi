@@ -113,13 +113,18 @@ public class MainPageActivity extends BaseActivity {
         }
 
         //set the scoreboard first page when user open the app
-        getSupportActionBar().setTitle("Scoreboard");
+        getSupportActionBar().setTitle(getString(R.string.main_page_activity_fragment_2_name));
         mViewPager.setCurrentItem(1);
 
         mViewPager
                 .addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
-                    String[] tabsTitles = new String[]{"Announcement", "Scoreboard", "Venue", "Admin Login"};
+                    String[] tabsTitles = new String[]{
+                            getString(R.string.main_page_activity_fragment_1_name),
+                            getString(R.string.main_page_activity_fragment_2_name),
+                            getString(R.string.main_page_activity_fragment_3_name),
+                            getString(R.string.main_page_activity_fragment_4_name)
+                    };
 
                     @Override
                     public void onPageSelected(int position) {

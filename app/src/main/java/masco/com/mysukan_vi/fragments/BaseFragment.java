@@ -3,9 +3,9 @@ package masco.com.mysukan_vi.fragments;
 import android.app.ProgressDialog;
 import android.support.v4.app.Fragment;
 
-import com.google.firebase.auth.FirebaseAuth;
-
 /**
+ * This is the Activity that provide the methods to show and hide ProcessDialog.
+ * This is just a convenient.
  * Created by akarin on 07/09/17.
  */
 
@@ -26,9 +26,5 @@ public class BaseFragment extends Fragment {
         if (mProgressDialog != null && mProgressDialog.isShowing()) {
             mProgressDialog.dismiss();
         }
-    }
-
-    public String getUid() {
-        return FirebaseAuth.getInstance().getCurrentUser().getUid();
     }
 }

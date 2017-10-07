@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * SingleScoreMatch is the match that will be pushed to the database when pushing a match with only 1 score.
  * Created by akarin on 12/09/17.
  */
 
