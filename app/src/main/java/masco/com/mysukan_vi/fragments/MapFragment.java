@@ -36,7 +36,7 @@ public class MapFragment extends BaseFragment implements OnMapReadyCallback {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.maps_fragment_new_tabs, container, false);
+        View view = inflater.inflate(R.layout.fragment_map, container, false);
         // Setting ViewPager for each Tabs
 
         ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewpager);

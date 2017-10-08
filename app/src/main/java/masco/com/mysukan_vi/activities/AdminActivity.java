@@ -5,9 +5,10 @@ package masco.com.mysukan_vi.activities;
  */
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import masco.com.mysukan_vi.R;
 
@@ -17,65 +18,31 @@ import masco.com.mysukan_vi.R;
 
 public class AdminActivity extends BaseActivity {
 
-    private FragmentPagerAdapter mPagerAdapter;
-    private ViewPager mViewPager;
+    private Button newScoreButton, editScoreButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.admin_main_page_fragment);
+        setContentView(R.layout.fragment_adminpage_main);
 
-        getSupportActionBar().setTitle("New Score");
-        /**
+        getSupportActionBar().setTitle(getString(R.string.final_static_string_admin));
 
-         // Create the adapter that will return a fragment for each section
-         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
-         private final Fragment[] mFragments = new Fragment[]{
-         new NewScoreFragment(),
-         new UpdateScoreFragment()
-         };
+        newScoreButton = (Button) findViewById(R.id.fragment_adminpage_main_button_goto_newscore);
+        editScoreButton = (Button) findViewById(R.id.fragment_adminpage_main_button_goto_editscore);
 
-         @Override public Fragment getItem(int position) {
-         return mFragments[position];
-         }
+        newScoreButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "GOTO:newScoreActivity", Toast.LENGTH_SHORT).show();
+            }
+        });
 
-         @Override public int getCount() {
-         return mFragments.length;
-         }
-
-         };
-
-         // Set up the ViewPager with the sections adapter.
-         mViewPager = (ViewPager) findViewById(R.id.container);
-         mViewPager.setAdapter(mPagerAdapter);
-         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-         tabLayout.setupWithViewPager(mViewPager);
-         tabLayout.getTabAt(0).setText("New Score");
-         tabLayout.getTabAt(1).setText("Update Score");
-
-         mViewPager
-         .addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-
-         String[] tabsTitles = new String[]{"New Score", "Update Score"};
-
-         @Override public void onPageSelected(int position) {
-         // TODO Auto-generated method stub
-
-
-         getSupportActionBar().setTitle(tabsTitles[position]);
-         }
-
-         @Override public void onPageScrolled(int arg0, float arg1, int arg2) {
-         // TODO Auto-generated method stub
-
-         }
-
-         @Override public void onPageScrollStateChanged(int pos) {
-         // TODO Auto-generated method stub
-
-         }
-         });
-         **/
+        editScoreButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "GOTO:editScoreActivity", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

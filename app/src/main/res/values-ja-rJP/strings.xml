@@ -2,20 +2,30 @@
 <resources>
     <string name="app_name">MySukan VI</string>
 
-    <!-- Strings related to login -->
-    <string name="title">管理者のログイン</string>
-    <string name="fragment_login_promt_email">Eメール</string>
-    <string name="fragment_login_prompt_password">パスワード</string>
-    <string name="fragment_login_action_sign_in">サインイン</string>
+    <!-- Fragment Selector for MainActivity -->
+    <string name="activity_mainpage_fragment_item_announcement">発表</string>
+    <string name="activity_mainpage_fragment_item_scoreboard">スコアボード</string>
+    <string name="activity_mainpage_fragment_item_venue">会場</string>
+    <string name="activity_mainpage_fragment_item_admin">管理者</string>
 
-    <string name="main_page_activity_fragment_1_name">発表</string>
-    <string name="main_page_activity_fragment_2_name">スコアボード</string>
-    <string name="main_page_activity_fragment_3_name">会場</string>
-    <string name="main_page_activity_fragment_4_name">管理者のログイン</string>
+    <!-- Login fragment for MainActivity -->
+    <string name="fragment_adminpage_login_text_title_string">管理者のログイン</string>
+    <string name="fragment_adminpage_login_text_prompt_email_string">Eメール</string>
+    <string name="fragment_adminpage_login_text_prompt_password_string">パスワード</string>
+    <string name="fragment_adminpage_login_button_login_string">サインイン</string>
 
+    <!-- SportList fragment for MainActivity -->
     <string name="main_page_activity_map_fragment_fragment_1_name">会場</string>
     <string name="main_page_activity_map_fragment_fragment_2_name">レストラン</string>
     <string name="main_page_activity_map_fragment_fragment_3_name">アメニティ</string>
+
+    <!-- Admin page fragment for MainActivity -->
+    <string name="fragment_adminpage_login_button_newscore_string">新しい得点</string>
+    <string name="fragment_adminpage_login_button_editscore_string">スコアを編集する</string>
+
+
+    <!-- CONVERSION -->
+    <string name="final_static_string_admin">管理者</string>
 
     <string-array name="number">
         <item>0</item>

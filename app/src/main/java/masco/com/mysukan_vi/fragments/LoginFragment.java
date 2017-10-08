@@ -33,12 +33,12 @@ public class LoginFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        rootView = inflater.inflate(R.layout.fragment_admin_login, container, false);
+        rootView = inflater.inflate(R.layout.fragment_adminpage_login, container, false);
 
         //Initialize XML hookss
-        ET_email = (EditText) rootView.findViewById(R.id.ET_email);
-        ET_password = (EditText) rootView.findViewById(R.id.ET_password);
-        LoginButton = (Button) rootView.findViewById(R.id.LoginButton);
+        ET_email = (EditText) rootView.findViewById(R.id.fragment_adminpage_login_text_email);
+        ET_password = (EditText) rootView.findViewById(R.id.fragment_adminpage_login_text_password);
+        LoginButton = (Button) rootView.findViewById(R.id.fragment_adminpage_login_button_login);
 
         // Initialize Firebase authentication
         firebaseAuth = FirebaseAuth.getInstance();

@@ -85,7 +85,7 @@ public class MapVenueFragment extends BaseFragment implements OnMapReadyCallback
         Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
 
         mMap.setBuildingsEnabled(true);
-        //mMap.addMarker(new MarkerOptions().position(carletonU_UC).title("University Centre").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
+        //mMap.addMarker(new MarkerOptions().position(carletonU_UC).fragment_adminpage_login_text_title("University Centre").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
         mMap.addMarker(new MarkerOptions().position(carletonU_NormFynn).title("Norm Fynn").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
         mMap.addMarker(new MarkerOptions().position(carletonU_RavensNest).title("Raven's Nest").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
         mMap.addMarker(new MarkerOptions().position(carletonU_FieldHouse).title("Field House").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));

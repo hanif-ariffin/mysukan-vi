@@ -48,7 +48,7 @@ public class MainPageActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mainpage_with_fragment);
+        setContentView(R.layout.activity_mainpage);
 
         database = FirebaseDatabase.getInstance().getReference("announcement");
         data = new ArrayList<>();
@@ -113,17 +113,17 @@ public class MainPageActivity extends BaseActivity {
         }
 
         //set the scoreboard first page when user open the app
-        getSupportActionBar().setTitle(getString(R.string.main_page_activity_fragment_2_name));
+        getSupportActionBar().setTitle(getString(R.string.activity_mainpage_fragment_item_scoreboard));
         mViewPager.setCurrentItem(1);
 
         mViewPager
                 .addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
                     String[] tabsTitles = new String[]{
-                            getString(R.string.main_page_activity_fragment_1_name),
-                            getString(R.string.main_page_activity_fragment_2_name),
-                            getString(R.string.main_page_activity_fragment_3_name),
-                            getString(R.string.main_page_activity_fragment_4_name)
+                            getString(R.string.activity_mainpage_fragment_item_announcement),
+                            getString(R.string.activity_mainpage_fragment_item_scoreboard),
+                            getString(R.string.activity_mainpage_fragment_item_venue),
+                            getString(R.string.activity_mainpage_fragment_item_admin)
                     };
 
                     @Override

@@ -1,20 +1,29 @@
 <resources>
     <string name="app_name">MySukan VI</string>
 
-    <!-- Strings related to login -->
-    <string name="title">Admin Login</string>
-    <string name="fragment_login_promt_email">Email</string>
-    <string name="fragment_login_prompt_password">Password</string>
-    <string name="fragment_login_action_sign_in">Sign in</string>
+    <!-- Fragment Selector for MainActivity -->
+    <string name="activity_mainpage_fragment_item_announcement">Announcement</string>
+    <string name="activity_mainpage_fragment_item_scoreboard">Scoreboard</string>
+    <string name="activity_mainpage_fragment_item_venue">Venue</string>
+    <string name="activity_mainpage_fragment_item_admin">Admin</string>
 
-    <string name="main_page_activity_fragment_1_name">Announcement</string>
-    <string name="main_page_activity_fragment_2_name">Scoreboard</string>
-    <string name="main_page_activity_fragment_3_name">Venue</string>
-    <string name="main_page_activity_fragment_4_name">Admin Login</string>
+    <!-- Login fragment for MainActivity -->
+    <string name="fragment_adminpage_login_text_title_string">Admin Login</string>
+    <string name="fragment_adminpage_login_text_prompt_email_string">Email</string>
+    <string name="fragment_adminpage_login_text_prompt_password_string">Password</string>
+    <string name="fragment_adminpage_login_button_login_string">Sign in</string>
 
+    <!-- SportList fragment for MainActivity -->
     <string name="main_page_activity_map_fragment_fragment_1_name">Venue</string>
     <string name="main_page_activity_map_fragment_fragment_2_name">Restaurant</string>
     <string name="main_page_activity_map_fragment_fragment_3_name">Amenities</string>
+
+    <!-- Admin page fragment for MainActivity -->
+    <string name="fragment_adminpage_login_button_newscore_string">New Score</string>
+    <string name="fragment_adminpage_login_button_editscore_string">Edit Score</string>
+
+    <!-- CONVERSION -->
+    <string name="final_static_string_admin">Admin</string>
 
     <string-array name="number">
         <item>0</item>
