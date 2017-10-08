@@ -1,4 +1,4 @@
-package masco.com.mysukan_vi.activities;
+package masco.com.mysukan_vi.activities.announcement;
 
 import android.content.DialogInterface;
 import android.content.Intent;

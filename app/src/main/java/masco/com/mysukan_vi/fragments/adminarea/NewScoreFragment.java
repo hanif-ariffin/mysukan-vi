@@ -7,7 +7,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import masco.com.mysukan_vi.R;
-import masco.com.mysukan_vi.activities.BaseActivity;
+import masco.com.mysukan_vi.activities.other.BaseActivity;
 import masco.com.mysukan_vi.helper.ListAdapter;
 import masco.com.mysukan_vi.helper.SportManager;
 

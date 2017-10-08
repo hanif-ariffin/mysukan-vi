@@ -27,7 +27,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import masco.com.mysukan_vi.R;
-import masco.com.mysukan_vi.activities.SetWinnerActivity;
+import masco.com.mysukan_vi.activities.admin.SetWinnerActivity;
 import masco.com.mysukan_vi.fragments.BaseFragment;
 import masco.com.mysukan_vi.helper.ListAdapter;
 import masco.com.mysukan_vi.helper.NameManager;

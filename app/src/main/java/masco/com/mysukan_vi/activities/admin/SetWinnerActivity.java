@@ -1,4 +1,4 @@
-package masco.com.mysukan_vi.activities;
+package masco.com.mysukan_vi.activities.admin;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,6 +12,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import masco.com.mysukan_vi.R;
+import masco.com.mysukan_vi.activities.other.BaseActivity;
 import masco.com.mysukan_vi.models.WinnerMatch;
 
 

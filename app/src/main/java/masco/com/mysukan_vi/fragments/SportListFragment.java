@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import masco.com.mysukan_vi.R;
-import masco.com.mysukan_vi.activities.SportDetailActivity;
+import masco.com.mysukan_vi.activities.main.SportDetailActivity;
 import masco.com.mysukan_vi.helper.NameManager;
 
 /**
@@ -19,8 +19,8 @@ import masco.com.mysukan_vi.helper.NameManager;
  * Created by r3xas on 9/25/2017.
  */
 
-public class SportListFragmentGrid extends BaseFragment {
-    private static final String TAG = "SportListFragmentGrid";
+public class SportListFragment extends BaseFragment {
+    private static final String TAG = "SportListFragment";
 
     private Button button_basketball;
     private Button button_soccer_male;

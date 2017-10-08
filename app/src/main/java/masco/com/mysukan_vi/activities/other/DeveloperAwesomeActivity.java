@@ -1,4 +1,4 @@
-package masco.com.mysukan_vi.activities;
+package masco.com.mysukan_vi.activities.other;
 
 import android.os.Bundle;
 import android.view.Menu;

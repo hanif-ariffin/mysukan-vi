@@ -1,4 +1,4 @@
-package masco.com.mysukan_vi.activities;
+package masco.com.mysukan_vi.activities.main;
 
 
 import android.app.Notification;
@@ -26,10 +26,11 @@ import java.util.Collections;
 import java.util.List;
 
 import masco.com.mysukan_vi.R;
+import masco.com.mysukan_vi.activities.other.BaseActivity;
 import masco.com.mysukan_vi.fragments.LoginFragment;
 import masco.com.mysukan_vi.fragments.MapFragment;
 import masco.com.mysukan_vi.fragments.NotificationFragment;
-import masco.com.mysukan_vi.fragments.SportListFragmentGrid;
+import masco.com.mysukan_vi.fragments.SportListFragment;
 import masco.com.mysukan_vi.models.Announcement;
 
 /**
@@ -86,7 +87,7 @@ public class MainPageActivity extends BaseActivity {
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             private final Fragment[] mFragments = new Fragment[]{
                     new NotificationFragment(),
-                    new SportListFragmentGrid(),
+                    new SportListFragment(),
                     new MapFragment(),
                     new LoginFragment()
             };

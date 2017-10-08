@@ -24,12 +24,12 @@ import masco.com.mysukan_vi.models.Announcement;
 
 public class AnnouncementAdapter extends ArrayAdapter<Announcement> {
 
-    private String OUTPUT_DATE_FORMATE = "hh:mm a";
-    List<Announcement> arrayList = new ArrayList<>();
+    private String OUTPUT_DATE_FORMAT = "hh:mm a";
+    List<Announcement> announcementsList = new ArrayList<>();
 
-    public AnnouncementAdapter(Context context, int textViewResourceId, List<Announcement> objects) {
-        super(context, textViewResourceId, objects);
-        arrayList = objects;
+    public AnnouncementAdapter(Context context, int textViewResourceId, List<Announcement> list) {
+        super(context, textViewResourceId, list);
+        announcementsList = list;
     }
 
     @Override
@@ -40,39 +40,45 @@ public class AnnouncementAdapter extends ArrayAdapter<Announcement> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        View v = convertView;
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        v = inflater.inflate(R.layout.include_item_annoucement, null);
-        TextView textView1 = (TextView) v.findViewById(R.id.textView10);
-        TextView textView2 = (TextView) v.findViewById(R.id.textView11);
-        TextView textView3 = (TextView) v.findViewById(R.id.textView55);
+        convertView = inflater.inflate(R.layout.include_item_annoucement, null);
+
+        /**
+         * Initialize the hooks
+         */
+        TextView announcementTimeTextView = (TextView) convertView.findViewById(R.id.include_item_announcement_time_text);
+        TextView announcementTitleTextView = (TextView) convertView.findViewById(R.id.include_item_announcement_title_text);
+        TextView announcementMessageTextView = (TextView) convertView.findViewById(R.id.include_item_announcement_message_text);
+
+        /**
+         * Set fonts of the TextViews
+         */
         Typeface typeface = Typeface.createFromAsset(getContext().getAssets(), "fonts/Avenir-Book.ttf");
-        textView1.setTypeface(typeface);
-        textView2.setTypeface(typeface);
-        textView3.setTypeface(typeface);
-        textView1.setText(arrayList.get(position).getSubject());
-        textView2.setText(arrayList.get(position).getMessage());
+        announcementTitleTextView.setTypeface(typeface);
+        announcementMessageTextView.setTypeface(typeface);
+        announcementTimeTextView.setTypeface(typeface);
 
-        int gmtOffset = TimeZone.getDefault().getRawOffset();
+        announcementTitleTextView.setText(announcementsList.get(position).getSubject());
+        announcementMessageTextView.setText(announcementsList.get(position).getMessage());
 
-        textView3.setText(getDateFromUTCTimestamp(arrayList.get(position).getTime(), OUTPUT_DATE_FORMATE));
-        return v;
+        announcementTimeTextView.setText(getDateFromUTCTimestamp(announcementsList.get(position).getTime(), OUTPUT_DATE_FORMAT));
+        return convertView;
 
     }
 
     public String getDateFromUTCTimestamp(long mTimestamp, String mDateFormate) {
         String date = null;
         try {
-            Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
-            cal.setTimeInMillis(mTimestamp * 1000L);
-            date = DateFormat.format(mDateFormate, cal.getTimeInMillis()).toString();
+            Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
+            calendar.setTimeInMillis(mTimestamp * 1000L);
+            date = DateFormat.format(mDateFormate, calendar.getTimeInMillis()).toString();
 
             SimpleDateFormat dateFormatter = new SimpleDateFormat(mDateFormate);
             dateFormatter.setTimeZone(TimeZone.getDefault());
             date = dateFormatter.format(date);
             return date;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception error) {
+            error.printStackTrace();
         }
         return date;
     }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="masco.com.mysukan_vi.activities.SplashScreenActivity">
+    tools:context="masco.com.mysukan_vi.activities.other.SplashScreenActivity">
 
     <TextView
         android:layout_width="wrap_content"

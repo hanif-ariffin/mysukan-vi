@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:clickable="true"
-    tools:context="masco.com.mysukan_vi.activities.CreateMatchActivity"
+    tools:context="masco.com.mysukan_vi.activities.admin.CreateMatchActivity"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="81dp">
 

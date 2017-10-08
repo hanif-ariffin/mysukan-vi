@@ -1,4 +1,4 @@
-package masco.com.mysukan_vi.activities;
+package masco.com.mysukan_vi.activities.other;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,6 +15,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import masco.com.mysukan_vi.R;
+import masco.com.mysukan_vi.activities.other.BaseActivity;
 import masco.com.mysukan_vi.helper.NameManager;
 import masco.com.mysukan_vi.models.WinnerMatch;
 

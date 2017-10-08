@@ -1,4 +1,4 @@
-package masco.com.mysukan_vi.activities;
+package masco.com.mysukan_vi.activities.admin;
 
 /**
  * Created by User on 2017-09-20.
@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import masco.com.mysukan_vi.R;
+import masco.com.mysukan_vi.activities.other.BaseActivity;
 
 /**
  * A login screen that offers login via email/password.

@@ -1,4 +1,4 @@
-package masco.com.mysukan_vi.activities;
+package masco.com.mysukan_vi.activities.admin;
 
 import android.app.TimePickerDialog;
 import android.os.Bundle;
@@ -21,6 +21,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import masco.com.mysukan_vi.R;
+import masco.com.mysukan_vi.activities.other.BaseActivity;
 import masco.com.mysukan_vi.helper.NameManager;
 import masco.com.mysukan_vi.helper.SportManager;
 import masco.com.mysukan_vi.models.SingleScoreMatch;

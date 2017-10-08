@@ -1,4 +1,4 @@
-package masco.com.mysukan_vi.activities;
+package masco.com.mysukan_vi.activities.other;
 
 import android.app.ProgressDialog;
 import android.content.Intent;

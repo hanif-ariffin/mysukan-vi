@@ -1,4 +1,4 @@
-package masco.com.mysukan_vi.activities;
+package masco.com.mysukan_vi.activities.main;
 
 import android.content.Context;
 import android.content.Intent;
@@ -25,6 +25,9 @@ import java.util.Collections;
 import java.util.List;
 
 import masco.com.mysukan_vi.R;
+import masco.com.mysukan_vi.activities.other.BaseActivity;
+import masco.com.mysukan_vi.activities.other.SponsorsActivity;
+import masco.com.mysukan_vi.activities.other.WinnerActivity;
 import masco.com.mysukan_vi.helper.MatchAdapter;
 import masco.com.mysukan_vi.helper.NameManager;
 import masco.com.mysukan_vi.helper.SportManager;

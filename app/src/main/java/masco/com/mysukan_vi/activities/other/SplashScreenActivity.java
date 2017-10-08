@@ -1,10 +1,11 @@
-package masco.com.mysukan_vi.activities;
+package masco.com.mysukan_vi.activities.other;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import masco.com.mysukan_vi.R;
+import masco.com.mysukan_vi.activities.main.MainPageActivity;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
