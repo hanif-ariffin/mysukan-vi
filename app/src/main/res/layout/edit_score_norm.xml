@@ -29,11 +29,11 @@
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_create_match_button_submit"
+        app:layout_constraintTop_toBottomOf="@+id/activity_adminpage_newmatch_button_submit"
         app:layout_constraintVertical_bias="0.022" />
 
     <TextView
-        android:id="@+id/activity_create_match_title"
+        android:id="@+id/activity_adminpage_newmatch_title"
         android:layout_width="258dp"
         android:layout_height="72dp"
         android:layout_centerHorizontal="true"
@@ -54,7 +54,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/activity_create_match_button_submit"
+        android:id="@+id/activity_adminpage_newmatch_button_submit"
         android:layout_width="289dp"
         android:layout_height="44dp"
         android:layout_alignParentBottom="true"
@@ -84,7 +84,7 @@
         android:stretchColumns="2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_create_match_title">
+        app:layout_constraintTop_toBottomOf="@+id/activity_adminpage_newmatch_title">
 
         <TableRow
             android:layout_width="match_parent"

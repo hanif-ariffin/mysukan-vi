@@ -2,11 +2,19 @@ package masco.com.mysukan_vi.activities.other;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+
+import java.util.ArrayList;
 
 import masco.com.mysukan_vi.R;
+import masco.com.mysukan_vi.activities.main.SportDetailActivity;
+import masco.com.mysukan_vi.helper.NameManager;
+import masco.com.mysukan_vi.models.Sport;
 
 /**
  * This is the base Activity that is common among many Activities. This activity will provide the default Menu (showing developer's info, overall winner and sponsors selection).
@@ -55,6 +63,25 @@ public class BaseActivity extends AppCompatActivity {
             return progressDialog.isShowing();
         }
         return false;
+    }
+
+    public ArrayList<Sport> getSportListActivityButtons() {
+
+        ArrayList<Sport> sports = new ArrayList<Sport>();
+
+        sports.add(new Sport(NameManager.SportTypeSafeNames.SOCCER, (Button) findViewById(R.id.button_soccer)));
+        sports.add(new Sport(NameManager.SportTypeSafeNames.BADMINTON_MEN_DOUBLES, (Button) findViewById(R.id.button_badminton_men_doubles)));
+        sports.add(new Sport(NameManager.SportTypeSafeNames.BADMINTON_WOMEN_DOUBLES, (Button) findViewById(R.id.button_badminton_women_doubles)));
+        sports.add(new Sport(NameManager.SportTypeSafeNames.BADMINTON_MIXED_DOUBLES, (Button) findViewById(R.id.button_badminton_mixed_doubles)));
+        sports.add(new Sport(NameManager.SportTypeSafeNames.SQUASH_MEN_SINGLES, (Button) findViewById(R.id.button_squash_men_singles)));
+        sports.add(new Sport(NameManager.SportTypeSafeNames.SQUASH_WOMEN_SINGLES, (Button) findViewById(R.id.button_squash_women_singles)));
+        sports.add(new Sport(NameManager.SportTypeSafeNames.FRISBEE, (Button) findViewById(R.id.button_frisbee)));
+        sports.add(new Sport(NameManager.SportTypeSafeNames.DODGEBALL, (Button) findViewById(R.id.button_dodgeball)));
+        sports.add(new Sport(NameManager.SportTypeSafeNames.NETBALL, (Button) findViewById(R.id.button_netball)));
+        sports.add(new Sport(NameManager.SportTypeSafeNames.BASKETBALL, (Button) findViewById(R.id.button_basketball)));
+        sports.add(new Sport(NameManager.SportTypeSafeNames.VOLLEYBALL, (Button) findViewById(R.id.button_volleyball)));
+
+        return sports;
     }
 
     @Override

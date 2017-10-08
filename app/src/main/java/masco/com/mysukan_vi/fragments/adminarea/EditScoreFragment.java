@@ -62,7 +62,7 @@ public class EditScoreFragment extends BaseFragment {
         sportNorm = new ArrayList<>();
 
         args = getArguments();
-        sport_name = args.getString("sport_name");
+        sport_name = args.getString(NameManager.SPORT_NAME);
 
         headerText = (TextView) view.findViewById(R.id.textView5);
         headerText.setText(sport_name);
@@ -146,7 +146,7 @@ public class EditScoreFragment extends BaseFragment {
                     args.putLong("match_date", sportNorm.get(i).match_date);
                 }
 
-                args.putString("sport_name", sport_name);
+                args.putString(NameManager.SPORT_NAME, sport_name);
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 Fragment fr = new EditScore();
@@ -180,7 +180,7 @@ public class EditScoreFragment extends BaseFragment {
         if (i == R.id.winner) {
             Intent intent = new Intent(getActivity(), SetWinnerActivity.class);
             args = new Bundle();
-            args.putString("sport_name", sport_name);
+            args.putString(NameManager.SPORT_NAME, sport_name);
             intent.putExtras(args); //insert the bundle that this Activity already received.
             startActivity(intent);
             return true;

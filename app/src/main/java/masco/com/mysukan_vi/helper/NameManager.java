@@ -21,11 +21,9 @@ public class NameManager {
         public static final String CALGARY = "Calgary";
         public static final String DALHOUSIE = "Dalhousie";
 
-        public static String[] getUniversityNames() {
-            return new String[]{
-                    CARLETON, TORONTO, WATERLOO, MCMASTER, MCGILL, GUELPH, UBC, OTTAWA, QUEENS, CALGARY, DALHOUSIE
-            };
-        }
+        public static String[] array = new String[]{
+                CARLETON, TORONTO, WATERLOO, MCMASTER, MCGILL, GUELPH, UBC, OTTAWA, QUEENS, CALGARY, DALHOUSIE
+        };
     }
 
     public static class SportTypeSafeNames {
@@ -44,13 +42,10 @@ public class NameManager {
         public static final String FIFA = "fifa";
         public static final String ROCKET_LEAGUE = "rocket_league";
 
-        public static String[] getSportTypeSafeNames() {
-            return new String[]{
-                    SOCCER, BADMINTON_MEN_DOUBLES, BADMINTON_WOMEN_DOUBLES, BADMINTON_MIXED_DOUBLES,
-                    SQUASH_MEN_SINGLES, SQUASH_WOMEN_SINGLES, FRISBEE, DODGEBALL, NETBALL, BASKETBALL,
-                    SEPAK_TAKRAW, VOLLEYBALL, FIFA, ROCKET_LEAGUE
-            };
-        }
+        public static String[] array = new String[]{
+                SOCCER, BADMINTON_MEN_DOUBLES, BADMINTON_WOMEN_DOUBLES, BADMINTON_MIXED_DOUBLES,
+                SQUASH_MEN_SINGLES, SQUASH_WOMEN_SINGLES, FRISBEE, DODGEBALL, NETBALL, BASKETBALL, VOLLEYBALL
+        };
     }
 
     public static class SportCasualNames {
@@ -64,22 +59,22 @@ public class NameManager {
         public static final String DODGEBALL = "Dodgeball";
         public static final String NETBALL = "Netball";
         public static final String BASKETBALL = "Basketball";
-        public static final String SEPAK_TAKRAW = "Sepak Takraw";
         public static final String VOLLEYBALL = "Volleyball";
-        public static final String FIFA = "Fifa";
-        public static final String ROCKET_LEAGUE = "Rocket League";
 
-        public static String[] getSportCasualNames() {
-            return new String[]{
-                    SOCCER, BADMINTON_MEN_DOUBLES, BADMINTON_WOMEN_DOUBLES, BADMINTON_MIXED_DOUBLES,
-                    SQUASH_MEN_SINGLES, SQUASH_WOMEN_SINGLES, FRISBEE, DODGEBALL, NETBALL, BASKETBALL,
-                    SEPAK_TAKRAW, VOLLEYBALL, FIFA, ROCKET_LEAGUE
-            };
-        }
+        public static String[] array = new String[]{
+                SOCCER, BADMINTON_MEN_DOUBLES, BADMINTON_WOMEN_DOUBLES, BADMINTON_MIXED_DOUBLES,
+                SQUASH_MEN_SINGLES, SQUASH_WOMEN_SINGLES, FRISBEE, DODGEBALL, NETBALL, BASKETBALL, VOLLEYBALL
+        };
+
     }
 
     private static final String TAG = "NameManager";
     private static final String UNDEFINED_CONVERSION_FROM_DATABASE_TO_USER = "Undefined conversion from database to user. Please report this error to the developer!";
+
+    public static final String SPORT_NAME = "sportName";
+    public static final String RANKING = "ranking";
+    public static final String MATCH_DATE = "match_date";
+    public static final String ID = "id";
 
     public static String DatabaseToUser(String data) {
         switch (data) {
@@ -113,17 +108,8 @@ public class NameManager {
             case SportTypeSafeNames.BASKETBALL:
                 data = SportCasualNames.BASKETBALL;
                 break;
-            case SportTypeSafeNames.SEPAK_TAKRAW:
-                data = SportCasualNames.SEPAK_TAKRAW;
-                break;
             case SportTypeSafeNames.VOLLEYBALL:
                 data = SportCasualNames.VOLLEYBALL;
-                break;
-            case SportTypeSafeNames.FIFA:
-                data = SportCasualNames.FIFA;
-                break;
-            case SportTypeSafeNames.ROCKET_LEAGUE:
-                data = SportCasualNames.ROCKET_LEAGUE;
                 break;
             default:
                 data = UNDEFINED_CONVERSION_FROM_DATABASE_TO_USER;
@@ -166,17 +152,8 @@ public class NameManager {
             case SportCasualNames.BASKETBALL:
                 data = SportTypeSafeNames.BASKETBALL;
                 break;
-            case SportCasualNames.SEPAK_TAKRAW:
-                data = SportTypeSafeNames.SEPAK_TAKRAW;
-                break;
             case SportCasualNames.VOLLEYBALL:
                 data = SportTypeSafeNames.VOLLEYBALL;
-                break;
-            case SportCasualNames.FIFA:
-                data = SportTypeSafeNames.FIFA;
-                break;
-            case SportCasualNames.ROCKET_LEAGUE:
-                data = SportTypeSafeNames.ROCKET_LEAGUE;
                 break;
             default:
                 data = UNDEFINED_CONVERSION_FROM_DATABASE_TO_USER;

@@ -16,7 +16,7 @@ public class NewScoreFragment extends BaseActivity {
 
     // UI references.
     private ListView iListGames;
-    Bundle args;
+    Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class NewScoreFragment extends BaseActivity {
         iListGames.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getApplicationContext(), "Open up EditScoreActivity for " + SportManager.getGames().get(i), Toast.LENGTH_SHORT);
+                Toast.makeText(NewScoreFragment.this, "Open up EditScoreActivity for " + SportManager.getGames().get(i), Toast.LENGTH_SHORT);
             }
         });
     }

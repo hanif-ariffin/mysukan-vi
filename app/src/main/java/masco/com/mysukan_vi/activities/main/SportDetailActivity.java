@@ -98,7 +98,7 @@ public class SportDetailActivity extends BaseActivity {
             Toast.makeText(this, "Bundle is null. This is an unexpected behavior, report to the developer.", Toast.LENGTH_LONG).show();
         } else {
 
-            final String sportName = bundle.getString("sport_name");
+            final String sportName = bundle.getString(NameManager.SPORT_NAME);
 
             getSupportActionBar().setTitle(sportName);
 
@@ -187,7 +187,7 @@ public class SportDetailActivity extends BaseActivity {
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
-                    Toast.makeText(getApplicationContext(), "Query to database is cancelled.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SportDetailActivity.this, "Query to database is cancelled.", Toast.LENGTH_SHORT).show();
                 }
             };
             databaseReference.addValueEventListener(databaseReferenceListener);

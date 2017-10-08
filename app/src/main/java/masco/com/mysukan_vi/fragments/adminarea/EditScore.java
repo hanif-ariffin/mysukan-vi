@@ -41,9 +41,9 @@ public class EditScore extends BaseFragment {
 
         //get argument from previous fragment
         args = getArguments();
-        sport_name = args.getString("sport_name");
-        id = args.getString("id");
-        match_date = args.getLong("match_date");
+        sport_name = args.getString(NameManager.SPORT_NAME);
+        id = args.getString(NameManager.ID);
+        match_date = args.getLong(NameManager.MATCH_DATE);
 
         // check which templete sport need to be use
         if (!SportManager.isSingleScore(sport_name)) {
@@ -115,7 +115,7 @@ public class EditScore extends BaseFragment {
         }
 
 
-        // change sport_name back to database
+        // change sportName back to database
         sport_name = NameManager.UserToDatabase(sport_name);
 
         //Database creation
@@ -125,7 +125,7 @@ public class EditScore extends BaseFragment {
         if (!SportManager.isSingleScore(sport_name)) {
             submit = (Button) rootView.findViewById(R.id.edit_score_set_button_submit);
         } else {
-            submit = (Button) rootView.findViewById((R.id.activity_create_match_button_submit));
+            submit = (Button) rootView.findViewById((R.id.activity_adminpage_newmatch_button_submit));
         }
         submit.setOnClickListener(new View.OnClickListener() {
             @Override

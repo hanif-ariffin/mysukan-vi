@@ -24,7 +24,7 @@
 
     <!-- CONVERSION -->
     <string name="final_static_string_admin">Admin</string>
-
+    <string name="create_match_activity_title">Create Match</string>
     <string-array name="number">
         <item>0</item>
         <item>1</item>

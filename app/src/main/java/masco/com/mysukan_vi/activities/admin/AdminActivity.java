@@ -37,8 +37,8 @@ public class AdminActivity extends BaseActivity {
         newScoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "GOTO:newScoreActivity", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), SportListActivity.class);
+                Toast.makeText(AdminActivity.this, "GOTO:newScoreActivity", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(AdminActivity.this, SportListActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("ADMINPAGE_REQUEST_TYPE", "ADMINPAGE_REQUEST_TYPE_NEWSCORE");
                 intent.putExtras(bundle); //Put your id to your next Intent
@@ -49,8 +49,8 @@ public class AdminActivity extends BaseActivity {
         editScoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "GOTO:editScoreActivity", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), SportListActivity.class);
+                Toast.makeText(AdminActivity.this, "GOTO:editScoreActivity", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(AdminActivity.this, SportListActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("ADMINPAGE_REQUEST_TYPE", "ADMINPAGE_REQUEST_TYPE_EDITSCORE");
                 intent.putExtras(bundle); //Put your id to your next Intent

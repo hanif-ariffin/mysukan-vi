@@ -11,8 +11,11 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.jar.Attributes;
+
 import masco.com.mysukan_vi.R;
 import masco.com.mysukan_vi.activities.other.BaseActivity;
+import masco.com.mysukan_vi.helper.NameManager;
 import masco.com.mysukan_vi.models.WinnerMatch;
 
 
@@ -46,12 +49,12 @@ public class SetWinnerActivity extends BaseActivity {
         secondPlace.setAdapter(teamAdapter);
         thirdPlace.setAdapter(teamAdapter);
 
-        databaseWinner = FirebaseDatabase.getInstance().getReference("ranking");
+        databaseWinner = FirebaseDatabase.getInstance().getReference(NameManager.RANKING);
 
         //already database_name
         args = getIntent().getExtras();
         ;
-        sport_name = args.getString("sport_name");
+        sport_name = args.getString(NameManager.SPORT_NAME);
 
         submitButton = (Button) findViewById(R.id.submit_set_winner);
         submitButton.setOnClickListener(new View.OnClickListener() {

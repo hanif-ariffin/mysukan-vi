@@ -13,6 +13,7 @@ import android.widget.ListView;
 import masco.com.mysukan_vi.R;
 import masco.com.mysukan_vi.fragments.BaseFragment;
 import masco.com.mysukan_vi.helper.ListAdapter;
+import masco.com.mysukan_vi.helper.NameManager;
 import masco.com.mysukan_vi.helper.SportManager;
 
 public class UpdateScoreFragment extends BaseFragment {
@@ -40,7 +41,7 @@ public class UpdateScoreFragment extends BaseFragment {
                 //  dataListView.setVisibility(View.INVISIBLE);
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 bundle = new Bundle();
-                bundle.putString("sport_name", dataListView.getItemAtPosition(i).toString());
+                bundle.putString(NameManager.SPORT_NAME, dataListView.getItemAtPosition(i).toString());
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 Fragment fr = new EditScoreFragment();
                 fragmentTransaction.addToBackStack(null);

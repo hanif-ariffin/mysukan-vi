@@ -51,7 +51,7 @@ public class SportListFragment extends BaseFragment {
 
                 Intent intent = new Intent(getActivity(), SportDetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("sport_name", NameManager.SportCasualNames.SOCCER); //Your id
+                bundle.putString(NameManager.SPORT_NAME, NameManager.SportCasualNames.SOCCER); //Your id
                 intent.putExtras(bundle); //Put your id to your next Intent
                 startActivity(intent);
 
@@ -66,7 +66,7 @@ public class SportListFragment extends BaseFragment {
 
                 Intent intent = new Intent(getActivity(), SportDetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("sport_name", NameManager.SportCasualNames.BADMINTON_MEN_DOUBLES); //Your id
+                bundle.putString(NameManager.SPORT_NAME, NameManager.SportCasualNames.BADMINTON_MEN_DOUBLES); //Your id
                 intent.putExtras(bundle); //Put your id to your next Intent
                 startActivity(intent);
 
@@ -81,7 +81,7 @@ public class SportListFragment extends BaseFragment {
 
                 Intent intent = new Intent(getActivity(), SportDetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("sport_name", NameManager.SportCasualNames.BADMINTON_WOMEN_DOUBLES); //Your id
+                bundle.putString(NameManager.SPORT_NAME, NameManager.SportCasualNames.BADMINTON_WOMEN_DOUBLES); //Your id
                 intent.putExtras(bundle); //Put your id to your next Intent
                 startActivity(intent);
 
@@ -97,7 +97,7 @@ public class SportListFragment extends BaseFragment {
 
                 Intent intent = new Intent(getActivity(), SportDetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("sport_name", NameManager.SportCasualNames.BADMINTON_MIXED_DOUBLES); //Your id
+                bundle.putString(NameManager.SPORT_NAME, NameManager.SportCasualNames.BADMINTON_MIXED_DOUBLES); //Your id
                 intent.putExtras(bundle); //Put your id to your next Intent
                 startActivity(intent);
 
@@ -112,7 +112,7 @@ public class SportListFragment extends BaseFragment {
 
                 Intent intent = new Intent(getActivity(), SportDetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("sport_name", NameManager.SportCasualNames.SQUASH_MEN_SINGLES); //Your id
+                bundle.putString(NameManager.SPORT_NAME, NameManager.SportCasualNames.SQUASH_MEN_SINGLES); //Your id
                 intent.putExtras(bundle); //Put your id to your next Intent
                 startActivity(intent);
 
@@ -127,7 +127,7 @@ public class SportListFragment extends BaseFragment {
 
                 Intent intent = new Intent(getActivity(), SportDetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("sport_name", NameManager.SportCasualNames.SQUASH_WOMEN_SINGLES); //Your id
+                bundle.putString(NameManager.SPORT_NAME, NameManager.SportCasualNames.SQUASH_WOMEN_SINGLES); //Your id
                 intent.putExtras(bundle); //Put your id to your next Intent
                 startActivity(intent);
 
@@ -142,7 +142,7 @@ public class SportListFragment extends BaseFragment {
 
                 Intent intent = new Intent(getActivity(), SportDetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("sport_name", NameManager.SportCasualNames.FRISBEE); //Your id
+                bundle.putString(NameManager.SPORT_NAME, NameManager.SportCasualNames.FRISBEE); //Your id
                 intent.putExtras(bundle); //Put your id to your next Intent
                 startActivity(intent);
 
@@ -157,7 +157,7 @@ public class SportListFragment extends BaseFragment {
 
                 Intent intent = new Intent(getActivity(), SportDetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("sport_name", NameManager.SportCasualNames.DODGEBALL); //Your id
+                bundle.putString(NameManager.SPORT_NAME, NameManager.SportCasualNames.DODGEBALL); //Your id
                 intent.putExtras(bundle); //Put your id to your next Intent
                 startActivity(intent);
 
@@ -172,7 +172,7 @@ public class SportListFragment extends BaseFragment {
 
                 Intent intent = new Intent(getActivity(), SportDetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("sport_name", NameManager.SportCasualNames.NETBALL); //Your id
+                bundle.putString(NameManager.SPORT_NAME, NameManager.SportCasualNames.NETBALL); //Your id
                 intent.putExtras(bundle); //Put your id to your next Intent
                 startActivity(intent);
 
@@ -187,7 +187,7 @@ public class SportListFragment extends BaseFragment {
 
                 Intent intent = new Intent(getActivity(), SportDetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("sport_name", NameManager.SportCasualNames.BASKETBALL); //Your id
+                bundle.putString(NameManager.SPORT_NAME, NameManager.SportCasualNames.BASKETBALL); //Your id
                 intent.putExtras(bundle); //Put your id to your next Intent
                 startActivity(intent);
 
@@ -202,7 +202,7 @@ public class SportListFragment extends BaseFragment {
 
                 Intent intent = new Intent(getActivity(), SportDetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("sport_name", NameManager.SportCasualNames.VOLLEYBALL); //Your id
+                bundle.putString(NameManager.SPORT_NAME, NameManager.SportCasualNames.VOLLEYBALL); //Your id
                 intent.putExtras(bundle); //Put your id to your next Intent
                 startActivity(intent);
 
