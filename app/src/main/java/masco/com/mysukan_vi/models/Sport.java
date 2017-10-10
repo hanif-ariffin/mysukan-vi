@@ -9,10 +9,11 @@ import android.view.View;
 public class Sport {
 
     public View buttonId;
-    public String value;
+    public String sportId, sportName;
 
-    public Sport(String value, View buttonId) {
-        this.value = value;
-        this.buttonId = buttonId;
+    public Sport(String sportId, String sportName, View button) {
+        this.sportId = sportId;
+        this.sportName = sportName;
+        this.buttonId = button;
     }
 }

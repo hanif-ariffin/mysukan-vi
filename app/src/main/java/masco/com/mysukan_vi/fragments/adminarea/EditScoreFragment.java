@@ -67,7 +67,7 @@ public class EditScoreFragment extends BaseFragment {
         headerText = (TextView) view.findViewById(R.id.textView5);
         headerText.setText(sport_name);
 
-        //switch name
+        //switch sportName
         sport_name = NameManager.UserToDatabase(sport_name);
 
 

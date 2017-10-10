@@ -136,7 +136,6 @@ public class SportDetailActivity extends BaseActivity {
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     matchList.clear();
                     for (DataSnapshot Snapshot : dataSnapshot.getChildren()) {
-                        Log.d(TAG, "Obtained match");
                         TripleScoreMatch match;
 
                         /**
@@ -233,10 +232,12 @@ public class SportDetailActivity extends BaseActivity {
          * Set the texts for teams name, custom names and images which are properties common between SingleScoreMatch and TripleScoreMatch.
          */
         textViewTeamOneName.setText(teamOneName);
-        imageViewTeamOneImage.setImageResource(NameManager.getImageId(teamOneName));
+        textViewTeamTwoName.setText(teamTwoName);
+
         textViewCustomTeamOneName.setText(customNameTeamOne);
         textViewCustomTeamTwoName.setText(customNameTeamTwo);
-        textViewTeamTwoName.setText(teamTwoName);
+
+        imageViewTeamOneImage.setImageResource(NameManager.getImageId(teamOneName));
         imageViewTeamTwoImage.setImageResource(NameManager.getImageId(teamTwoName));
 
         /**

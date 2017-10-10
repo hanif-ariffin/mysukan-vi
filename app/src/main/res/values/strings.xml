@@ -25,6 +25,8 @@
     <!-- CONVERSION -->
     <string name="final_static_string_admin">Admin</string>
     <string name="create_match_activity_title">Create Match</string>
+    <string name="static_final_string_select_sport">Select sport</string>
+
     <string-array name="number">
         <item>0</item>
         <item>1</item>
@@ -90,7 +92,7 @@
         <item>McGill</item>
         <item>Guelph</item>
         <item>UBC</item>
-        <item>Dalhousie</item>
+        <item>Dalhousie</item>1
     </string-array>
 
     <string name="final_string_soccer">Soccer</string>

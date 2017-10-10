@@ -48,7 +48,7 @@ public class WinnerActivity extends BaseActivity {
         Bundle bundle = getIntent().getExtras();
         sportName = bundle.getString(NameManager.SPORT_NAME);
 
-        //set header name
+        //set header sportName
         getSupportActionBar().setTitle(sportName + " Champion");
 
 

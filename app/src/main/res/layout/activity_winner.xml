@@ -16,7 +16,8 @@
         android:layout_marginLeft="6dp"
         android:layout_marginStart="6dp"
         app:layout_constraintBottom_toBottomOf="@+id/image_pedestal"
-        app:layout_constraintLeft_toLeftOf="@+id/image_pedestal" />
+        app:layout_constraintLeft_toLeftOf="@+id/image_pedestal"
+        android:layout_marginRight="8dp" />
 
     <TextView
         android:id="@+id/text_first_place"
@@ -109,7 +110,8 @@
         android:layout_marginRight="6dp"
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/image_pedestal"
-        app:layout_constraintRight_toRightOf="@+id/image_pedestal" />
+        app:layout_constraintRight_toRightOf="@+id/image_pedestal"
+        android:layout_marginLeft="8dp" />
 
 
 </android.support.constraint.ConstraintLayout>

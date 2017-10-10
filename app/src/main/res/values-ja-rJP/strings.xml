@@ -26,7 +26,8 @@
 
     <!-- CONVERSION -->
     <string name="final_static_string_admin">管理者</string>
-    <string name="create_match_activity_title">マッチを作る</string>F
+    <string name="create_match_activity_title">マッチを作る</string>
+    <string name="static_final_string_select_sport">スポーツを選ぶ</string>
 
     <string-array name="number">
         <item>0</item>

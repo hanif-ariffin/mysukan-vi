@@ -39,7 +39,7 @@ public class ImageAdapter extends BaseAdapter {
             // get layout from include_sport_image_buttone_sport_image_button.xml
             gridView = inflater.inflate(R.layout.include_item_sport_image_button, null);
 
-            // set value into textview
+            // set value into TextView
             TextView textView = (TextView) gridView
                     .findViewById(R.id.grid_item_label);
             textView.setText(mobileValues.get(position));
